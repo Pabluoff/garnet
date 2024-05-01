@@ -41,9 +41,8 @@ body {
 
 #submitBtn {
   display: block;
-  margin: 0 auto;
   margin-top: auto;
-  padding: 15px 120px;
+  padding: 15px 110px;
 }
 
 .ui-btn {
@@ -223,16 +222,16 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 600px) {
   body {
-    height: 95vh; /* Definir altura total da tela */
+    height: 95vh; 
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   #terminal {
-    width: 100%; /* Ocupar toda a largura da tela */
-    max-width: 400px; /* Limitar a largura máxima */
-    height: 100%; /* Ocupar toda a altura da tela */
-    border-radius: 0; /* Remover borda arredondada */
+    width: 85%; 
+    max-width: 400px; 
+    height: 85%; 
+    border-radius: 0;
   }
 }
