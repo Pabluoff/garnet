@@ -7,12 +7,10 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Instalador de IPA</h1>
-            <input type="file" id="ipaFileInput" accept=".ipa">
-            <button onclick="instalarIPA()">Instalar IPA</button>
-            <p id="mensagem"></p>
-        </div>
+        <div id="terminal">
+            <div id="output"></div>
+            <button id="submitBtn">Executar</button>
+          </div>          
         <script src="js/script.js"></script>
     </body>
 </html>

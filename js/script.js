@@ -1,35 +1,23 @@
-function instalarIPA() {
-    var ipaFileInput = document.getElementById('ipaFileInput');
-    var mensagem = document.getElementById('mensagem');
-
-    if (ipaFileInput.files.length === 0) {
-        mensagem.textContent = 'Por favor, selecione um arquivo IPA.';
-        return;
-    }
-
-    var ipaFile = ipaFileInput.files[0];
-
-    if (navigator.userAgentData && navigator.userAgentData.brands && navigator.userAgentData.brands.length > 0) {
-        var reader = new FileReader();
-        reader.onload = function(event) {
-            // Lógica de instalação de aplicativo para navegadores que suportam a instalação
-            // Aqui você deve usar a API específica para a plataforma
-            var ipaDataURL = event.target.result;
-            
-            // Exemplo de lógica para instalação no iOS (Safari)
-            if (navigator.platform === 'iPhone' || navigator.platform === 'iPad') {
-                var a = document.createElement('a');
-                a.href = ipaDataURL;
-                a.download = 'app.ipa'; // Nome do arquivo IPA
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            } else {
-                mensagem.textContent = 'Este navegador não suporta a instalação de aplicativos iOS.';
-            }
-        };
-        reader.readAsDataURL(ipaFile);
-    } else {
-        mensagem.textContent = 'A instalação de aplicativos não é suportada neste navegador.';
-    }
-}
+document.getElementById('submitBtn').addEventListener('click', function() {
+    executeCommand();
+  });
+  
+  function executeCommand() {
+    var outputDiv = document.getElementById('output');
+    var newLine = document.createElement('div');
+    newLine.textContent = '$ freefire';
+    outputDiv.appendChild(newLine);
+  
+    newLine = document.createElement('div');
+    newLine.textContent = 'Abrindo o Free Fire...';
+    outputDiv.appendChild(newLine);
+    setTimeout(function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = 'https://apps.apple.com/app/id1300146617'; // Link para a App Store no iOS
+      } else {
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.dts.freefireth'; // Link para o Google Play
+      }
+    }, 4000);
+  }
+  
