@@ -14,12 +14,14 @@ body {
   padding: 10px;
   background-color: #333;
   width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 #header {
   background-color: #272727;
   color: #ddd;
-  padding: 8px 10px;
+  padding: 14px 10px;
   border-radius: 5px 5px 0 0;
   margin-bottom: 10px;
   text-align: center;
@@ -30,12 +32,17 @@ body {
   padding: 5px;
   overflow-y: auto;
   border-bottom: 1px solid #444;
+  flex-grow: 1; 
+}
+
+#submitBtn {
+  align-self: center; 
 }
 
 #submitBtn {
   display: block;
   margin: 0 auto;
-  margin-top: 12px;
+  margin-top: auto;
   padding: 15px 120px;
 }
 
@@ -212,4 +219,20 @@ body::-webkit-scrollbar {
 
 #output::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    height: 95vh; /* Definir altura total da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #terminal {
+    width: 100%; /* Ocupar toda a largura da tela */
+    max-width: 400px; /* Limitar a largura máxima */
+    height: 100%; /* Ocupar toda a altura da tela */
+    border-radius: 0; /* Remover borda arredondada */
+  }
 }
