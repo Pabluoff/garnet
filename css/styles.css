@@ -222,16 +222,15 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 600px) {
   body {
-    height: 85vh; 
-    display: flex;
+   display: flex;
     justify-content: center;
     align-items: center;
   }
 
   #terminal {
-    width: 100%; 
+    width: 85%; 
     max-width: 400px; 
-    height: 85%; 
+    height: 80%; 
     border-radius: 0;
   }
 }
