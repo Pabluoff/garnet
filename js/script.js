@@ -1,36 +1,35 @@
-// JavaScript para lidar com o envio e instalação do arquivo IPA
-const ipaForm = document.getElementById('ipaForm'); // Obter o elemento do formulário
-const ipaFileInput = document.getElementById('ipaFileInput'); // Obter o elemento de entrada de arquivo
+function instalarIPA() {
+    var ipaFileInput = document.getElementById('ipaFileInput');
+    var mensagem = document.getElementById('mensagem');
 
-ipaForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevenir a submissão do formulário
-    const ipaFile = ipaFileInput.files[0]; // Obter o arquivo IPA selecionado
-
-    if (ipaFile) {
-        try {
-            const installed = await installIPA(ipaFile); // Chamar a função de instalação do IPA
-            console.log(installed ? 'Instalação concluída.' : 'Falha na instalação.');
-        } catch (error) {
-            console.error('Erro durante a instalação:', error.message);
-        }
-    } else {
-        console.error('Nenhum arquivo IPA selecionado.');
+    if (ipaFileInput.files.length === 0) {
+        mensagem.textContent = 'Por favor, selecione um arquivo IPA.';
+        return;
     }
-});
 
-// Função para instalar o arquivo IPA
-function installIPA(ipaFile) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader(); // Criar um leitor de arquivo
+    var ipaFile = ipaFileInput.files[0];
+
+    if (navigator.userAgentData && navigator.userAgentData.brands && navigator.userAgentData.brands.length > 0) {
+        var reader = new FileReader();
         reader.onload = function(event) {
-            const url = event.target.result; // Obter o URL do arquivo
-            if (confirm('Deseja instalar o aplicativo?')) {
-                window.location.href = url; // Redirecionar para o URL do arquivo
-                resolve(true); // Resolução bem-sucedida
+            // Lógica de instalação de aplicativo para navegadores que suportam a instalação
+            // Aqui você deve usar a API específica para a plataforma
+            var ipaDataURL = event.target.result;
+            
+            // Exemplo de lógica para instalação no iOS (Safari)
+            if (navigator.platform === 'iPhone' || navigator.platform === 'iPad') {
+                var a = document.createElement('a');
+                a.href = ipaDataURL;
+                a.download = 'app.ipa'; // Nome do arquivo IPA
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
             } else {
-                reject(new Error('Instalação cancelada pelo usuário.')); // Rejeitar com erro
+                mensagem.textContent = 'Este navegador não suporta a instalação de aplicativos iOS.';
             }
         };
-        reader.readAsDataURL(ipaFile); // Ler o arquivo como URL
-    });
+        reader.readAsDataURL(ipaFile);
+    } else {
+        mensagem.textContent = 'A instalação de aplicativos não é suportada neste navegador.';
+    }
 }

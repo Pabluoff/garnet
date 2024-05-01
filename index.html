@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalador de IPA para iPhone</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to external CSS file -->
-</head>
-<body>
-    <h1>Instalador de IPA para iPhone</h1>
-    <form id="ipaForm">
-        <label for="ipaFileInput" class="file-label">Escolher arquivo IPA</label> <!-- Rótulo personalizado para a entrada de arquivo -->
-        <input type="file" accept=".ipa" id="ipaFileInput"> <!-- Entrada para o arquivo IPA -->
-        <button type="submit">Instalar</button> <!-- Botão de envio -->
-    </form>
-    <div id="statusMessage" class="status-message"></div> <!-- Div para exibir mensagens de status -->
-    <script src="js/script.js"></script> <!-- Link to external JavaScript file -->
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Garnet</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Instalador de IPA</h1>
+            <input type="file" id="ipaFileInput" accept=".ipa">
+            <button onclick="instalarIPA()">Instalar IPA</button>
+            <p id="mensagem"></p>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
 </html>
