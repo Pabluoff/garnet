@@ -7,18 +7,18 @@ function verificarEmail() {
   const loginText = document.getElementById("login-text");
   const arrowIcon = loginButton.querySelector("i");
 
+  const emailsPadrao = ["terminal@gmail.com", "garnet@gmail.com", "exemplo2@gmail.com"];
+
   if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
   } else if (!isValidEmail(emailValue)) {
-    exibirNotificacao("Por favor, insira um e-mail valido.");
-  } else if (emailValue !== "terminal@gmail.com") {
+    exibirNotificacao("Por favor, insira um e-mail válido.");
+  } else if (!emailsPadrao.includes(emailValue)) {
     exibirNotificacao("Insira um e-mail existente.");
   } else {
     loginText.style.visibility = "hidden";
     loading.style.display = "block";
-
     arrowIcon.style.visibility = "hidden";
-
     loginButton.classList.add("loading-active");
 
     localStorage.setItem("email", emailValue);
@@ -31,6 +31,32 @@ function verificarEmail() {
     }, 1000);
   }
 }
+
+// Função que é executada quando a página é carregada
+window.onload = function () {
+  const email = recuperarEmailSalvo();
+  const isLoginPage = window.location.pathname === "/";
+
+  if (!email || !isValidEmail(email)) {
+    if (!isLoginPage) {
+      window.location.href = "/";
+    }
+  } else {
+    const emailInput = document.getElementById("email");
+    emailInput.value = email;
+
+    // Trecho específico a ser executado apenas uma vez
+    const loginButton = document.getElementById("login-button");
+    const loading = document.querySelector(".loading");
+    const loginText = document.getElementById("login-text");
+    const arrowIcon = loginButton.querySelector("i");
+
+    loginText.style.visibility = "visible";
+    arrowIcon.style.visibility = "visible";
+    loading.style.display = "none";
+    loginButton.classList.remove("loading-active");
+  }
+};
 
 // Função para verificar se o e-mail é válido
 function isValidEmail(email) {

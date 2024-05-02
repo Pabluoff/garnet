@@ -188,7 +188,6 @@
 
 
 
-
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 document.addEventListener('keydown', event => {

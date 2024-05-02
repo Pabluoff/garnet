@@ -139,7 +139,6 @@ body {
   font-size: 18px;
   transition: all 0.3s ease;
   width: 100%;
-  margin-top: 40px;
 }
 
 .create-account-button:hover {
@@ -152,6 +151,7 @@ body {
   color: #7d7d7d;
   margin-top: 70px;
   line-height: 1.5;
+  padding-bottom: 8px;
 }
 
 .fa-arrow-right {

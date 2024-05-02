@@ -9,7 +9,7 @@ body {
   border: 2px solid #444;
   border-radius: 5px;
   padding: 10px;
-  background-color: #333;
+  background-color: #292929;
   width: 400px;
   height: 60%;
   display: flex;
@@ -21,7 +21,7 @@ body {
 }
 
 #header {
-  background-color: #272727;
+  background-color: #1e1e1e;
   color: #ddd;
   padding: 14px 10px;
   border-radius: 5px 5px 0 0;
@@ -48,9 +48,9 @@ body {
 }
 
 .ui-btn {
-  --btn-default-bg: rgb(41, 41, 41);
+  --btn-default-bg: #1e1e1e;
   --btn-padding: 15px 20px;
-  --btn-hover-bg: rgb(46, 46, 46);
+  --btn-hover-bg: #292929;
   --btn-transition: 0.3s;
   --btn-letter-spacing: 0.1rem;
   --btn-animation-duration: 1.2s;
