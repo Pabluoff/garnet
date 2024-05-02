@@ -25,7 +25,7 @@ document.getElementById("submitBtn").addEventListener("click", function () {
       'console.log("Conexão encerrada.")',
       'console.log("Aguarde enquanto redirecionamos para o Free Fire...")',
       'console.log("Executando...")',
-      'console.log("Injetado sucesso!")',
+      'console.log("Injetado com sucesso!")',
     ];
   
     function displayCode(index) {
