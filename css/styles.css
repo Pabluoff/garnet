@@ -3,9 +3,6 @@ body {
   background-color: #222;
   color: #eee;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 95vh;
 }
 
 #terminal {
@@ -16,6 +13,10 @@ body {
   width: 400px;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #header {
@@ -221,11 +222,6 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-   display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
   #terminal {
     width: 85%; 
