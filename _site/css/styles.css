@@ -27,6 +27,7 @@ body {
   border-radius: 5px 5px 0 0;
   margin-bottom: 10px;
   text-align: center;
+  cursor: pointer;
 }
 
 #output {
