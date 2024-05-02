@@ -141,7 +141,7 @@ body {
   }
 
   40% {
-    content: "?{4@%";
+    content: "?{9@%";
   }
 
   45% {
@@ -149,7 +149,7 @@ body {
   }
 
   50% {
-    content: "?2@%";
+    content: "?1@%";
   }
 
   55% {
@@ -162,12 +162,12 @@ body {
   }
 
   65% {
-    content: "|{f[4";
+    content: "|{p[1";
     right: 0;
   }
 
   70% {
-    content: "{4%0%";
+    content: "{9%0%";
     right: 0;
   }
 
