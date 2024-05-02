@@ -68,19 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "intent://com.dts.freefireth#Intent;scheme=package;end"; // Link para abrir o Free Fire no Android
           }
           document.getElementById("submitBtn").disabled = false;
-        }, 3000);
   
-        setTimeout(function () {
-          var errorMessage = document.createElement("div");
-          errorMessage.textContent = "Por favor, verifique se o aplicativo está instalado e abra manualmente, se necessário.";
-          errorMessage.style.color = "#F00";
-          errorMessage.style.paddingTop = "10px";
-          outputDiv.appendChild(errorMessage);
-          outputDiv.scrollTop = outputDiv.scrollHeight;
-        }, 5000);
+          setTimeout(function () {
+            var errorMessage = document.createElement("div");
+            errorMessage.textContent = "Por favor, verifique se o aplicativo está instalado e abra manualmente, se necessário.";
+            errorMessage.style.color = "#F00";
+            errorMessage.style.paddingTop = "10px";
+            outputDiv.appendChild(errorMessage);
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+          }, 5000);
+  
+        }, 3000);
       }
     }
   
     displayCode(0);
   }
-  
