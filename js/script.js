@@ -18,7 +18,9 @@ function verificarEmail() {
   } else {
     loginText.style.visibility = "hidden";
     loading.style.display = "block";
+
     arrowIcon.style.visibility = "hidden";
+
     loginButton.classList.add("loading-active");
 
     localStorage.setItem("email", emailValue);
@@ -28,35 +30,15 @@ function verificarEmail() {
       setTimeout(function () {
         window.location.href = "/inicio";
       }, 1000);
+      
+      loginText.style.visibility = 'visible'; 
+      arrowIcon.style.visibility = 'visible';
+      loading.style.display = 'none';
+      loginButton.classList.remove('loading-active');
+
     }, 1000);
   }
 }
-
-// Função que é executada quando a página é carregada
-window.onload = function () {
-  const email = recuperarEmailSalvo();
-  const isLoginPage = window.location.pathname === "/";
-
-  if (!email || !isValidEmail(email)) {
-    if (!isLoginPage) {
-      window.location.href = "/";
-    }
-  } else {
-    const emailInput = document.getElementById("email");
-    emailInput.value = email;
-
-    // Trecho específico a ser executado apenas uma vez
-    const loginButton = document.getElementById("login-button");
-    const loading = document.querySelector(".loading");
-    const loginText = document.getElementById("login-text");
-    const arrowIcon = loginButton.querySelector("i");
-
-    loginText.style.visibility = "visible";
-    arrowIcon.style.visibility = "visible";
-    loading.style.display = "none";
-    loginButton.classList.remove("loading-active");
-  }
-};
 
 // Função para verificar se o e-mail é válido
 function isValidEmail(email) {
