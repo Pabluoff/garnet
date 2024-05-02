@@ -63,10 +63,21 @@ function executeCommands() {
       setTimeout(function () {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          window.location.href = "freefire://";
+          window.location.href = "freefire://"; // abrir o Free Fire no iOS
         } else {
-          window.location.href =
-            "intent://com.dts.freefireth#Intent;scheme=package;end";
+          // Verifica se é um dispositivo Android
+          var isAndroid = userAgent.toLowerCase().indexOf("android") > -1;
+          if (isAndroid) {
+            window.location.href =
+              "intent://com.dts.freefireth#Intent;scheme=package;end"; //  abrir o Free Fire no Android
+          } else {
+            var outputDiv = document.getElementById("output");
+            var manualOpenMessage = document.createElement("div");
+            manualOpenMessage.textContent =
+              "Caso Free Fire não seja aberto automaticamente. Por favor, abra o aplicativo manualmente.";
+            outputDiv.appendChild(manualOpenMessage);
+            manualOpenMessage.style.color = "#0F0";
+          }
         }
         document.getElementById("submitBtn").disabled = false;
       }, 3000);
