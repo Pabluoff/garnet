@@ -186,10 +186,10 @@
 
 
 
-var dominioEsperado = "terminal.pabluoff.com";
+var dominioEsperado = "usegarnet.online";
 
 if (window.location.hostname !== dominioEsperado) {
-    window.location.href = "https://terminal.pabluoff.com/";
+    window.location.href = "https://usegarnet.online/";
 }
 
 
