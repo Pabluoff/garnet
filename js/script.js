@@ -63,10 +63,10 @@ function executeCommands() {
       setTimeout(function () {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          window.location.href = "freefire://"; 
+          window.location.href = "freefire://";
         } else {
           window.location.href =
-            "intent://com.dts.freefireth#Intent;scheme=package;end"; 
+            "intent://com.dts.freefireth#Intent;scheme=package;end";
         }
         document.getElementById("submitBtn").disabled = false;
       }, 3000);
