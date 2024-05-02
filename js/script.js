@@ -1,5 +1,4 @@
 document.getElementById("submitBtn").addEventListener("click", function () {
-    // Desativa o botão para evitar múltiplos cliques
     document.getElementById("submitBtn").disabled = true;
     executeCommands();
   });
@@ -7,7 +6,6 @@ document.getElementById("submitBtn").addEventListener("click", function () {
   function executeCommands() {
     var outputDiv = document.getElementById("output");
   
-    // Códigos fictícios
     var codes = [
       'console.log("Iniciando conexão com o servidor...")',
       "var connection = new Connection();",
@@ -30,41 +28,35 @@ document.getElementById("submitBtn").addEventListener("click", function () {
       'console.log("Injetado sucesso!")',
     ];
   
-    // Função para exibir os códigos fictícios com efeito de "hacking"
     function displayCode(index) {
       if (index < codes.length) {
         var code = codes[index];
         var newLine = document.createElement("div");
         newLine.textContent = "$ " + code;
-        newLine.style.color = "#0F0"; // Cor verde para simular "hacking"
+        newLine.style.color = "#0F0"; 
         outputDiv.appendChild(newLine);
   
-      // Rola o terminal até o final
       outputDiv.scrollTop = outputDiv.scrollHeight;
 
       setTimeout(function () {
-        displayCode(index + 1); // Chama a função recursivamente para exibir o próximo código
-      }, Math.random() * 1000 + 500); // Intervalo aleatório entre 500ms e 1500ms
+        displayCode(index + 1); 
+      }, Math.random() * 1000 + 500); 
     } else {
-      // Quando todos os códigos forem exibidos, exibe a mensagem de confirmação
       var confirmationMessage = document.createElement("div");
       confirmationMessage.textContent = "Abrindo o Free Fire...";
       outputDiv.appendChild(confirmationMessage);
-      // Abrir o link do Free Fire após um pequeno atraso
       setTimeout(function () {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          window.location.href = "https://apps.apple.com/app/id1300146617"; // Link para a App Store no iOS
+          window.location.href = "https://apps.apple.com/app/id1300146617"; // Link iOS
         } else {
           window.location.href =
-            "https://play.google.com/store/apps/details?id=com.dts.freefireth"; // Link para o Google Play
+            "https://play.google.com/store/apps/details?id=com.dts.freefireth"; // Link Android
         }
-        // Reativa o botão após abrir o link
         document.getElementById("submitBtn").disabled = false;
-      }, 3000); // 3 segundos de atraso antes de abrir o link
+      }, 3000); 
     }
   }
 
-  // Inicia a exibição dos códigos fictícios
   displayCode(0);
 }
