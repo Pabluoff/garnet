@@ -1,3 +1,102 @@
+// Função para verificar o e-mail e realizar o login
+function verificarEmail() {
+    const emailInput = document.getElementById('email');
+    const emailValue = emailInput.value.trim();
+    const loginButton = document.getElementById('login-button');
+    const loading = document.querySelector('.loading');
+    const loginText = document.getElementById('login-text');
+    const arrowIcon = loginButton.querySelector('i'); 
+
+    if (emailValue === '') {
+        exibirNotificacao('Por favor, insira um e-mail.');
+    } else if (!isValidEmail(emailValue)) {
+        exibirNotificacao('Por favor, insira um e-mail valido.');
+    } else if (emailValue !== 'terminal@gmail.com') {
+        exibirNotificacao('Insira um e-mail existente.');
+    } else {
+        loginText.style.visibility = 'hidden'; 
+        loading.style.display = 'block';
+
+        arrowIcon.style.visibility = 'hidden';
+
+        loginButton.classList.add('loading-active');
+
+        localStorage.setItem('email', emailValue);
+
+        setTimeout(function () {
+            exibirNotificacaoSucesso('Seu login foi realizado com sucesso!');
+            setTimeout(function () {
+                window.location.href = '/';
+            }, 1000);
+            
+        }, 1000);
+    }
+}
+
+// Função para verificar se o e-mail é válido
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function exibirNotificacao(mensagem) {
+    const notification = document.getElementById('notification');
+    const notificationText = document.getElementById('notification-text');
+    notificationText.textContent = mensagem;
+
+    notification.classList.remove('slide-out');
+    notification.classList.add('slide-in');
+
+    setTimeout(function () {
+        fecharNotificacao();
+    }, 3000);
+}
+
+function fecharNotificacao() {
+    const notification = document.getElementById('notification');
+    notification.classList.remove('slide-in');
+    notification.classList.add('slide-out');
+}
+
+function exibirNotificacaoSucesso(mensagem) {
+    const notificationSuccess = document.getElementById('notification-success');
+    const notificationSuccessText = document.getElementById('notification-success-text');
+    notificationSuccessText.textContent = mensagem;
+
+    notificationSuccess.classList.remove('slide-out');
+    notificationSuccess.classList.add('slide-in');
+
+    setTimeout(function () {
+        fecharNotificacaoSucesso();
+    }, 3000);
+}
+
++function fecharNotificacaoSucesso() {
+    const notificationSuccess = document.getElementById('notification-success');
+    notificationSuccess.classList.remove('slide-in');
+    notificationSuccess.classList.add('slide-out');
+}
+
+function recuperarEmailSalvo() {
+    return localStorage.getItem('email');
+}
+
+window.onload = function () {
+    const email = recuperarEmailSalvo();
+    const isLoginPage = window.location.pathname.includes('login.html');
+    
+    if (!email || !isValidEmail(email)) {
+        if (!isLoginPage) {
+            window.location.href = 'login.html'; // Redireciona para a página de login
+        }
+    } else {
+        // Preenche o e-mail salvo no campo de entrada
+        const emailInput = document.getElementById('email');
+        emailInput.value = email;
+    }
+};
+
+
 document.addEventListener("DOMContentLoaded", function () {
   displayInitialMessage();
 });

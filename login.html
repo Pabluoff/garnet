@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Garnet</title>
+        <script src="https://kit.fontawesome.com/cd363fe7f3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="login-container">
+                <img src="img/logo-no-bg.png" alt="Logo do aplicativo" class="logo">
+                <h1 class="headline">SEJA BEM VINDO</h1>
+                <p class="subtitle">Insira o e-mail fornecido</p>
+                <input type="email" id="email" class="custom-input"
+                    placeholder="Digite seu e-mail">
+                <button id="login-button" class="custom-button"
+                    onclick="verificarEmail()">
+                    <span id="login-text">ENTRAR</span>
+                    <div class="loading"></div>
+                    <i class="fas fa-thin fa-arrow-right"></i>
+                </button>
+                <p class="create-account">Ainda não tem conta?</p>
+                <a style="text-decoration: none;" id="create-account-button"
+                    class="custom-button create-account-button"
+                    href="https://pabluoff.com/#price">CRIE SUA CONTA</a>
+            </div>
+        </div>
+        <div id="notification" class="notification">
+            <div class="notification-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="notification-content">
+                <span id="notification-text" class="notification-text"></span>
+            </div>
+            <div class="close-notification" onclick="fecharNotificacao()">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <!-- Nova notificação para sucesso -->
+        <div id="notification-success" class="notification success">
+            <div class="notification-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="notification-content">
+                <span id="notification-success-text"
+                    class="notification-text"></span>
+            </div>
+        </div>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
