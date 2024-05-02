@@ -7,7 +7,7 @@ function verificarEmail() {
   const loginText = document.getElementById("login-text");
   const arrowIcon = loginButton.querySelector("i");
 
-  const emailsPadrao = ["terminal@gmail.com", "garnet@gmail.com", "exemplo2@gmail.com"];
+  const emailsPadrao = ["terminal@gmail.com", "garnetvip@gmail.com", "pabluo23cm@gmail.com"];
 
   if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
