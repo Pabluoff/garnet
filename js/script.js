@@ -321,3 +321,49 @@ function navigateTo(page) {
   }
 }
 
+function runSpeedTest() {
+  var startTime = performance.now(); // Tempo inicial do teste
+
+  // URL de teste para medir a latência e largura de banda
+  var testURL = 'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?cs=srgb&dl=pexels-christian-heitz-285904-842711.jpg&fm=jpg'; // Substitua pela URL do arquivo de teste real
+
+  // Realiza uma solicitação HEAD para obter os cabeçalhos do arquivo de teste (sem baixar o conteúdo)
+  fetch(testURL, { method: 'HEAD' })
+      .then(response => {
+          // Calcula o tempo decorrido (em milissegundos) desde o início do teste até agora
+          var elapsedTime = performance.now() - startTime;
+
+          // Calcula a largura de banda dividindo o tamanho do arquivo pela latência e convertendo para Mbps
+          var fileSizeInBits = response.headers.get('content-length') * 8; // Tamanho do arquivo em bits
+          var measuredBandwidth = (fileSizeInBits / (elapsedTime / 1000)) / 1000000; // Convertendo para Mbps
+
+          // Exibe os resultados na tela
+          document.getElementById("latencyValue").textContent = elapsedTime.toFixed(2) + " ms";
+          document.getElementById("bandwidthValue").textContent = measuredBandwidth.toFixed(2) + " Mbps";
+
+          // Move a agulha do velocímetro com base na latência medida
+          moveNeedle(elapsedTime);
+      })
+      .catch(error => {
+          console.error('Erro ao realizar o teste de velocidade:', error);
+      });
+}
+
+function moveNeedle(latency) {
+  // Limite máximo de latência para o movimento da agulha (ajuste conforme necessário)
+  var maxLatency = 500; // 500 ms
+
+  // Limita a latência máxima para o movimento da agulha
+  if (latency > maxLatency) {
+      latency = maxLatency;
+  }
+
+  // Calcula a rotação da agulha com base na latência medida
+  var rotationDegree = (latency / maxLatency) * 180; // 180 graus para 500 ms de latência
+
+  // Seletor para a agulha do velocímetro
+  var needle = document.querySelector('.needle');
+
+  // Aplica a transformação CSS para girar a agulha
+  needle.style.transform = 'rotate(' + rotationDegree + 'deg)';
+}

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/cd363fe7f3.js"
             crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/speedtest-net"></script>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="apple-touch-icon" sizes="180x180"
             href="img/apple-touch-icon.png">
@@ -63,7 +64,18 @@
             </div>
         </div>
         <!-- Fim navbar -->
-
+        <!-- Inicio Speedtest -->
+        <div class="container">
+            <h1> Velocidade de Internet</h1>
+            <div class="speedometer">
+                <div class="needle"></div>
+                <div class="dial"></div>
+            </div>
+            <button onclick="runSpeedTest()">Iniciar Teste</button>
+            <p class="speed">Latência: <span id="latencyValue">0</span></p>
+            <p class="speed">Largura de Banda: <span id="bandwidthValue">0</span></p>
+        </div>
+            <!-- Fim Speedtest -->
         <div id="magicMenu">
             <span class="menuItem" onclick="navigateTo('HOME')">
                 <i class="fa-solid fa-house"></i>
