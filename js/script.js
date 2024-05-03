@@ -2,8 +2,7 @@
 fetch("https://ipapi.co/json/")
   .then((response) => response.json())
   .then((data) => {
-    document.getElementById("providerInfo").innerText =
-      "" + data.org;
+    document.getElementById("providerInfo").innerText = "" + data.org;
     document.getElementById("ipInfo").innerText = "" + data.ip;
   })
   .catch((error) => {
@@ -20,8 +19,7 @@ request.onload = function () {
     const location = data.YourFuckingLocation.replace(/\,.+/g, "$'");
     document.getElementById("cityInfo").innerText = "" + location;
   } else {
-    document.getElementById("cityInfo").innerText =
-      "Cidade Desconhecida";
+    document.getElementById("cityInfo").innerText = "Cidade Desconhecida";
   }
 };
 
@@ -310,15 +308,13 @@ function executeCommands() {
       outputDiv.appendChild(confirmationMessage);
       outputDiv.scrollTop = outputDiv.scrollHeight;
       setTimeout(function () {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          window.location.href = "freefire://"; // abrir o Free Fire no iOS
+          window.location.href = "freefire://";
         } else {
-          // Verifica se é um dispositivo Android
           var isAndroid = userAgent.toLowerCase().indexOf("android") > -1;
           if (isAndroid) {
             window.location.href =
-              "intent://com.dts.freefireth#Intent;scheme=package;end"; //  abrir o Free Fire no Android
+              "intent://#Intent;package=com.dts.freefireth;scheme=package;end";
           } else {
             var outputDiv = document.getElementById("output");
             var manualOpenMessage = document.createElement("div");
