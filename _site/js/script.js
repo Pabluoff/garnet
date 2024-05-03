@@ -1,3 +1,22 @@
+function navigateTo(page) {
+  // Redirecionar para a página correspondente
+  switch(page) {
+      case 'HOME':
+          window.location.href = '/inicio';
+          break;
+      case 'FPS':
+          window.location.href = '/FPS';
+          break;
+      case 'MEMORY':
+          window.location.href = 'memory.html';
+          break;
+      
+      default:
+          
+          break;
+  }
+}
+
 // Função para verificar o e-mail e realizar o login
 function verificarEmail() {
   const emailInput = document.getElementById("email");

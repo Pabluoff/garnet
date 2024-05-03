@@ -6,8 +6,9 @@ permalink: inicio
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/cd363fe7f3.js"
+            crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/login.css">
         <link rel="apple-touch-icon" sizes="180x180"
             href="img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32"
@@ -20,14 +21,20 @@ permalink: inicio
     <body>
         <div id="terminal">
             <div id="header">Garnet@admin: ~ </div>
-            <div id="output">
-            </div>
+            <div id="output"></div>
             <button id="submitBtn" class="ui-btn"><span>Executar</span></button>
         </div>
+        <div id="magicMenu">
+            <span class="menuItem active" onclick="navigateTo('HOME')">
+                <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="menuItem" onclick="navigateTo('FPS')">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+            </span>
+            <span class="menuItem" onclick="navigateTo('MEMORY')">
+                <i class="fa-regular fa-folder"></i>
+            </span>
+        </div>
         <script src="js/script.js"></script>
-        <script disable-devtool-auto
-            src="https://cdn.jsdelivr.net/npm/disable-devtool"
-            url="https://google.com.br"></script>
-        <script src="js/style.js"></script>
     </body>
 </html>

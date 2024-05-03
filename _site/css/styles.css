@@ -6,10 +6,10 @@ body {
 }
 
 #terminal {
-  border: 2px solid #444;
+  border: 2px solid #2d2d2d;
   border-radius: 5px;
   padding: 10px;
-  background-color: #292929;
+  background-color: #0f0f0f;
   width: 400px;
   height: 60%;
   display: flex;
@@ -23,23 +23,25 @@ body {
 #header {
   background-color: #1e1e1e;
   color: #ddd;
-  padding: 14px 10px;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 10px;
-  text-align: center;
-  cursor: pointer;
+  padding: 10px 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 #output {
-  height: 200px;
+  height: calc(100% - 80px);
   padding: 5px;
   overflow-y: auto;
   border-bottom: 1px solid #444;
-  flex-grow: 1; 
 }
 
 #submitBtn {
-  align-self: center; 
+  align-self: center;
+  margin-top: 15px;
+  padding: 15px 110px;
 }
 
 #submitBtn {
@@ -51,7 +53,7 @@ body {
 .ui-btn {
   --btn-default-bg: #1e1e1e;
   --btn-padding: 15px 20px;
-  --btn-hover-bg: #292929;
+  --btn-hover-bg: #1e1e1eeb;
   --btn-transition: 0.3s;
   --btn-letter-spacing: 0.1rem;
   --btn-animation-duration: 1.2s;
@@ -228,8 +230,38 @@ body::-webkit-scrollbar {
   #terminal {
     width: 85%; 
     max-width: 300px; 
-    height: 80%; 
+    height: 60%; 
     border-radius: 0;
   }
 }
 
+#magicMenu {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%; 
+  max-width: 400px; 
+  background-color: #292929;
+  border-radius: 30px;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menuItem {
+  cursor: pointer;
+  color: #ccc;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.menuItem.active {
+  color: #16ed68; 
+}
+
+.menuItem i {
+  margin-right: 0px;
+}

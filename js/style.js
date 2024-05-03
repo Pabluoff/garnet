@@ -186,12 +186,6 @@
 
 
 
-var dominioEsperado = "usegarnet.online";
-
-if (window.location.hostname !== dominioEsperado) {
-    window.location.href = "https://usegarnet.online/";
-}
-
 
 
 document.addEventListener('contextmenu', event => event.preventDefault());
