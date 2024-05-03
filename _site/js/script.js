@@ -1,19 +1,21 @@
 function navigateTo(page) {
   // Redirecionar para a página correspondente
-  switch(page) {
-      case 'HOME':
-          window.location.href = '/inicio';
-          break;
-      case 'FPS':
-          window.location.href = '/FPS';
-          break;
-      case 'MEMORY':
-          window.location.href = 'memory.html';
-          break;
-      
-      default:
-          
-          break;
+  switch (page) {
+    case "HOME":
+      window.location.href = "/inicio";
+      break;
+    case "FPS":
+      window.location.href = "/FPS";
+      break;
+    case "FLICKRED":
+      window.location.href = "/FLICKRED";
+      break;
+    case "MEMORY":
+      window.location.href = "memory.html";
+      break;
+
+    default:
+      break;
   }
 }
 
@@ -26,7 +28,11 @@ function verificarEmail() {
   const loginText = document.getElementById("login-text");
   const arrowIcon = loginButton.querySelector("i");
 
-  const emailsPadrao = ["terminal@gmail.com", "garnetvip@gmail.com", "pabluo23cm@gmail.com"];
+  const emailsPadrao = [
+    "terminal@gmail.com",
+    "garnetvip@gmail.com",
+    "pabluo23cm@gmail.com",
+  ];
 
   if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
@@ -49,12 +55,11 @@ function verificarEmail() {
       setTimeout(function () {
         window.location.href = "/inicio";
       }, 1000);
-      
-      loginText.style.visibility = 'visible'; 
-      arrowIcon.style.visibility = 'visible';
-      loading.style.display = 'none';
-      loginButton.classList.remove('loading-active');
 
+      loginText.style.visibility = "visible";
+      arrowIcon.style.visibility = "visible";
+      loading.style.display = "none";
+      loginButton.classList.remove("loading-active");
     }, 1000);
   }
 }

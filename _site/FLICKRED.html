@@ -1,6 +1,3 @@
----
-permalink: FPS
----
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -19,21 +16,25 @@ permalink: FPS
         <title>Garnet</title>
     </head>
     <body>
+        <div id="terminal">
+            <div id="header">Garnet@admin: ~ </div>
+            <div id="output"></div>
+            <button id="submitBtn" class="ui-btn"><span>Executar</span></button>
+        </div>
         <div id="magicMenu">
             <span class="menuItem" onclick="navigateTo('HOME')">
                 <i class="fa-solid fa-house"></i>
             </span>
-            <span class="menuItem" onclick="navigateTo('FLICKRED')">
+            <span class="menuItem active" onclick="navigateTo('FLICKRED')">
                 <i class="fa-solid fa-gun"></i>
             </span>
-            <span class="menuItem active" onclick="navigateTo('FPS')">
+            <span class="menuItem" onclick="navigateTo('FPS')">
                 <i class="fa-solid fa-arrow-trend-up"></i>
             </span>
             <span class="menuItem" onclick="navigateTo('MEMORY')">
                 <i class="fa-regular fa-folder"></i>
             </span>
         </div>
-
         <script src="js/script.js"></script>
     </body>
 </html>
