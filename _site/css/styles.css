@@ -598,9 +598,9 @@ body::-webkit-scrollbar {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  width: calc(100% - 80px); 
+  width: calc(100% - 80px);
   max-width: 400px;
-  margin-left: 40px; 
+  margin-left: 40px;
   margin-right: 40px;
 }
 
@@ -608,6 +608,9 @@ body::-webkit-scrollbar {
 .card-right {
   flex: 1;
   padding: 10px;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  max-width: 50%;
 }
 
 .card-right {
