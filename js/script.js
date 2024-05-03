@@ -1,24 +1,3 @@
-function navigateTo(page) {
-  // Redirecionar para a página correspondente
-  switch (page) {
-    case "HOME":
-      window.location.href = "/inicio";
-      break;
-    case "FPS":
-      window.location.href = "/FPS";
-      break;
-    case "FLICKRED":
-      window.location.href = "/FLICKRED";
-      break;
-    case "MEMORY":
-      window.location.href = "memory.html";
-      break;
-
-    default:
-      break;
-  }
-}
-
 // Função para verificar o e-mail e realizar o login
 function verificarEmail() {
   const emailInput = document.getElementById("email");
@@ -71,62 +50,166 @@ function isValidEmail(email) {
 }
 
 function exibirNotificacao(mensagem) {
-  const notification = document.getElementById("notification");
-  const notificationText = document.getElementById("notification-text");
+  const notification = document.getElementById('notification');
+  const notificationText = document.getElementById('notification-text');
   notificationText.textContent = mensagem;
 
-  notification.classList.remove("slide-out");
-  notification.classList.add("slide-in");
+  notification.classList.remove('slide-out');
+  notification.classList.add('slide-in');
 
   setTimeout(function () {
-    fecharNotificacao();
+      fecharNotificacao();
   }, 3000);
 }
 
 function fecharNotificacao() {
-  const notification = document.getElementById("notification");
-  notification.classList.remove("slide-in");
-  notification.classList.add("slide-out");
+  const notification = document.getElementById('notification');
+  notification.classList.remove('slide-in');
+  notification.classList.add('slide-out');
 }
 
 function exibirNotificacaoSucesso(mensagem) {
-  const notificationSuccess = document.getElementById("notification-success");
-  const notificationSuccessText = document.getElementById(
-    "notification-success-text"
-  );
+  const notificationSuccess = document.getElementById('notification-success');
+  const notificationSuccessText = document.getElementById('notification-success-text');
   notificationSuccessText.textContent = mensagem;
 
-  notificationSuccess.classList.remove("slide-out");
-  notificationSuccess.classList.add("slide-in");
+  notificationSuccess.classList.remove('slide-out');
+  notificationSuccess.classList.add('slide-in');
 
   setTimeout(function () {
-    fecharNotificacaoSucesso();
+      fecharNotificacaoSucesso();
   }, 3000);
 }
 
 +function fecharNotificacaoSucesso() {
-  const notificationSuccess = document.getElementById("notification-success");
-  notificationSuccess.classList.remove("slide-in");
-  notificationSuccess.classList.add("slide-out");
-};
+  const notificationSuccess = document.getElementById('notification-success');
+  notificationSuccess.classList.remove('slide-in');
+  notificationSuccess.classList.add('slide-out');
+}
 
 function recuperarEmailSalvo() {
-  return localStorage.getItem("email");
+  const email = localStorage.getItem('email');
+  if (email) {
+      const emailInput = document.getElementById('email');
+      emailInput.value = email;
+  }
 }
 
 window.onload = function () {
-  const email = recuperarEmailSalvo();
-  const isLoginPage = window.location.pathname === "/";
-
-  if (!email || !isValidEmail(email)) {
-    if (!isLoginPage) {
-      window.location.href = "/";
-    }
-  } else {
-    const emailInput = document.getElementById("email");
-    emailInput.value = email;
-  }
+  recuperarEmailSalvo();
 };
+
+
+function mostrarUserDropdown() {
+  const userDropdown = document.getElementById('user-dropdown-content');
+  userDropdown.style.display = 'block';
+
+  document.addEventListener('click', fecharUserDropdownFora);
+}
+
+function ocultarUserDropdown() {
+  const userDropdown = document.getElementById('user-dropdown-content');
+  userDropdown.style.display = 'none';
+
+  document.removeEventListener('click', fecharUserDropdownFora);
+}
+
+function fecharUserDropdownFora(event) {
+  const userDropdown = document.getElementById('user-dropdown-content');
+  const userAvatar = document.getElementById('user-avatar');
+
+  if (!userDropdown.contains(event.target) && event.target !== userAvatar) {
+      ocultarUserDropdown();
+  }
+}
+
+function carregarInformacoesUsuario() {
+  const userEmail = localStorage.getItem('email');
+  const userAvatar = document.getElementById('user-avatar');
+  const userDropdown = document.getElementById('user-dropdown-content');
+  const userLogout = document.getElementById('logout');
+  const userEmailElement = document.getElementById('user-email');
+
+  if (userEmail) {
+      userEmailElement.textContent = userEmail;
+      userDropdown.style.display = 'none';
+      userAvatar.addEventListener('click', mostrarUserDropdown);
+  } else {
+      userAvatar.style.display = 'none';
+      userDropdown.style.display = 'none';
+      userLogout.style.display = 'none';
+
+      if (!userEmail) {
+          window.location.href = '/';
+      }
+  }
+}
+
+function fazerLogout() {
+  localStorage.removeItem('email');
+  window.location.href = '/';
+}
+
+carregarInformacoesUsuario();
+document.getElementById('logout').addEventListener('click', fazerLogout);
+
+
+const notificationsIcon = document.getElementById('notifications-icon');
+const notificationDropdown = document.querySelector('.notification-dropdown');
+
+function mostrarNotificationDropdown(event) {
+  event.stopPropagation();
+  notificationDropdown.style.display = 'block';
+  document.removeEventListener('click', ocultarNotificationDropdownFora);
+  document.addEventListener('click', ocultarNotificationDropdownFora);
+}
+
+function ocultarNotificationDropdown() {
+  notificationDropdown.style.display = 'none';
+  document.removeEventListener('click', ocultarNotificationDropdownFora);
+}
+
+function ocultarNotificationDropdownFora(event) {
+  if (!notificationDropdown.contains(event.target) && event.target !== notificationsIcon) {
+      ocultarNotificationDropdown();
+  }
+}
+
+notificationsIcon.addEventListener('click', mostrarNotificationDropdown);
+
+ocultarNotificationDropdown();
+
+const clearNotificationLink = document.getElementById('clear-notification');
+
+const notificationBadge = document.getElementById('notification-badge');
+
+const notificationArea = document.querySelector('.notification-item p');
+
+function limparNotificacoes() {
+
+  notificationArea.innerHTML = '<p style="text-align: center; color: #949494;">Sem notificações</p>';
+
+  notificationBadge.textContent = '0';
+
+  const notificationLogo = document.querySelector('.notification-logo');
+
+  if (notificationLogo) {
+      notificationLogo.remove();
+  }
+
+  ocultarNotificationDropdown();
+}
+
+clearNotificationLink.addEventListener('click', limparNotificacoes);
+
+const closeDropdownIcon = document.getElementById('close-dropdown');
+
+function ocultarDropdownAoClicar(event) {
+  event.stopPropagation();
+  ocultarNotificationDropdown();
+}
+
+closeDropdownIcon.addEventListener('click', ocultarDropdownAoClicar);
 
 document.addEventListener("DOMContentLoaded", function () {
   displayInitialMessage();
@@ -216,3 +299,25 @@ function executeCommands() {
 
   displayCode(0);
 }
+
+function navigateTo(page) {
+  // Redirecionar para a página correspondente
+  switch (page) {
+    case "HOME":
+      window.location.href = "/inicio";
+      break;
+    case "FPS":
+      window.location.href = "/FPS";
+      break;
+    case "FLICKRED":
+      window.location.href = "/FLICKRED";
+      break;
+    case "MEMORY":
+      window.location.href = "memory.html";
+      break;
+
+    default:
+      break;
+  }
+}
+
