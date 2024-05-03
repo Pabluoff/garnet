@@ -329,7 +329,7 @@ function executeCommands() {
           }
         }
         document.getElementById("submitBtn").disabled = false;
-      }, 3000);
+      }, 1000);
     }
   }
 
