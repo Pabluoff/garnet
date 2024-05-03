@@ -610,7 +610,7 @@ body::-webkit-scrollbar {
   padding: 10px;
   overflow-wrap: break-word; 
   word-wrap: break-word; 
-  max-width: 50%;
+  max-width: 55%;
 }
 
 .card-right {
