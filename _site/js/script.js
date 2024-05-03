@@ -1,3 +1,36 @@
+// Obter informações do provedor de Internet
+fetch("https://ipapi.co/json/")
+  .then((response) => response.json())
+  .then((data) => {
+    document.getElementById("providerInfo").innerText =
+      "" + data.org;
+    document.getElementById("ipInfo").innerText = "" + data.ip;
+  })
+  .catch((error) => {
+    console.error("Erro ao obter informações do provedor de Internet:", error);
+  });
+
+// Obter informações de geolocalização para a cidade
+const request = new XMLHttpRequest();
+request.open("GET", "https://wtfismyip.com/json", true);
+
+request.onload = function () {
+  if (request.status >= 200 && request.status < 400) {
+    const data = JSON.parse(request.responseText);
+    const location = data.YourFuckingLocation.replace(/\,.+/g, "$'");
+    document.getElementById("cityInfo").innerText = "" + location;
+  } else {
+    document.getElementById("cityInfo").innerText =
+      "Cidade Desconhecida";
+  }
+};
+
+request.onerror = function () {
+  document.getElementById("cityInfo").innerText = "Cidade: Erro na requisição";
+};
+
+request.send();
+
 // Função para verificar o e-mail e realizar o login
 function verificarEmail() {
   const emailInput = document.getElementById("email");
@@ -50,48 +83,50 @@ function isValidEmail(email) {
 }
 
 function exibirNotificacao(mensagem) {
-  const notification = document.getElementById('notification');
-  const notificationText = document.getElementById('notification-text');
+  const notification = document.getElementById("notification");
+  const notificationText = document.getElementById("notification-text");
   notificationText.textContent = mensagem;
 
-  notification.classList.remove('slide-out');
-  notification.classList.add('slide-in');
+  notification.classList.remove("slide-out");
+  notification.classList.add("slide-in");
 
   setTimeout(function () {
-      fecharNotificacao();
+    fecharNotificacao();
   }, 3000);
 }
 
 function fecharNotificacao() {
-  const notification = document.getElementById('notification');
-  notification.classList.remove('slide-in');
-  notification.classList.add('slide-out');
+  const notification = document.getElementById("notification");
+  notification.classList.remove("slide-in");
+  notification.classList.add("slide-out");
 }
 
 function exibirNotificacaoSucesso(mensagem) {
-  const notificationSuccess = document.getElementById('notification-success');
-  const notificationSuccessText = document.getElementById('notification-success-text');
+  const notificationSuccess = document.getElementById("notification-success");
+  const notificationSuccessText = document.getElementById(
+    "notification-success-text"
+  );
   notificationSuccessText.textContent = mensagem;
 
-  notificationSuccess.classList.remove('slide-out');
-  notificationSuccess.classList.add('slide-in');
+  notificationSuccess.classList.remove("slide-out");
+  notificationSuccess.classList.add("slide-in");
 
   setTimeout(function () {
-      fecharNotificacaoSucesso();
+    fecharNotificacaoSucesso();
   }, 3000);
 }
 
 +function fecharNotificacaoSucesso() {
-  const notificationSuccess = document.getElementById('notification-success');
-  notificationSuccess.classList.remove('slide-in');
-  notificationSuccess.classList.add('slide-out');
-}
+  const notificationSuccess = document.getElementById("notification-success");
+  notificationSuccess.classList.remove("slide-in");
+  notificationSuccess.classList.add("slide-out");
+};
 
 function recuperarEmailSalvo() {
-  const email = localStorage.getItem('email');
+  const email = localStorage.getItem("email");
   if (email) {
-      const emailInput = document.getElementById('email');
-      emailInput.value = email;
+    const emailInput = document.getElementById("email");
+    emailInput.value = email;
   }
 }
 
@@ -99,117 +134,118 @@ window.onload = function () {
   recuperarEmailSalvo();
 };
 
-
 function mostrarUserDropdown() {
-  const userDropdown = document.getElementById('user-dropdown-content');
-  userDropdown.style.display = 'block';
+  const userDropdown = document.getElementById("user-dropdown-content");
+  userDropdown.style.display = "block";
 
-  document.addEventListener('click', fecharUserDropdownFora);
+  document.addEventListener("click", fecharUserDropdownFora);
 }
 
 function ocultarUserDropdown() {
-  const userDropdown = document.getElementById('user-dropdown-content');
-  userDropdown.style.display = 'none';
+  const userDropdown = document.getElementById("user-dropdown-content");
+  userDropdown.style.display = "none";
 
-  document.removeEventListener('click', fecharUserDropdownFora);
+  document.removeEventListener("click", fecharUserDropdownFora);
 }
 
 function fecharUserDropdownFora(event) {
-  const userDropdown = document.getElementById('user-dropdown-content');
-  const userAvatar = document.getElementById('user-avatar');
+  const userDropdown = document.getElementById("user-dropdown-content");
+  const userAvatar = document.getElementById("user-avatar");
 
   if (!userDropdown.contains(event.target) && event.target !== userAvatar) {
-      ocultarUserDropdown();
+    ocultarUserDropdown();
   }
 }
 
 function carregarInformacoesUsuario() {
-  const userEmail = localStorage.getItem('email');
-  const userAvatar = document.getElementById('user-avatar');
-  const userDropdown = document.getElementById('user-dropdown-content');
-  const userLogout = document.getElementById('logout');
-  const userEmailElement = document.getElementById('user-email');
+  const userEmail = localStorage.getItem("email");
+  const userAvatar = document.getElementById("user-avatar");
+  const userDropdown = document.getElementById("user-dropdown-content");
+  const userLogout = document.getElementById("logout");
+  const userEmailElement = document.getElementById("user-email");
 
   if (userEmail) {
-      userEmailElement.textContent = userEmail;
-      userDropdown.style.display = 'none';
-      userAvatar.addEventListener('click', mostrarUserDropdown);
+    userEmailElement.textContent = userEmail;
+    userDropdown.style.display = "none";
+    userAvatar.addEventListener("click", mostrarUserDropdown);
   } else {
-      userAvatar.style.display = 'none';
-      userDropdown.style.display = 'none';
-      userLogout.style.display = 'none';
+    userAvatar.style.display = "none";
+    userDropdown.style.display = "none";
+    userLogout.style.display = "none";
 
-      if (!userEmail) {
-          window.location.href = '/';
-      }
+    if (!userEmail) {
+      window.location.href = "/";
+    }
   }
 }
 
 function fazerLogout() {
-  localStorage.removeItem('email');
-  window.location.href = '/';
+  localStorage.removeItem("email");
+  window.location.href = "/";
 }
 
 carregarInformacoesUsuario();
-document.getElementById('logout').addEventListener('click', fazerLogout);
+document.getElementById("logout").addEventListener("click", fazerLogout);
 
-
-const notificationsIcon = document.getElementById('notifications-icon');
-const notificationDropdown = document.querySelector('.notification-dropdown');
+const notificationsIcon = document.getElementById("notifications-icon");
+const notificationDropdown = document.querySelector(".notification-dropdown");
 
 function mostrarNotificationDropdown(event) {
   event.stopPropagation();
-  notificationDropdown.style.display = 'block';
-  document.removeEventListener('click', ocultarNotificationDropdownFora);
-  document.addEventListener('click', ocultarNotificationDropdownFora);
+  notificationDropdown.style.display = "block";
+  document.removeEventListener("click", ocultarNotificationDropdownFora);
+  document.addEventListener("click", ocultarNotificationDropdownFora);
 }
 
 function ocultarNotificationDropdown() {
-  notificationDropdown.style.display = 'none';
-  document.removeEventListener('click', ocultarNotificationDropdownFora);
+  notificationDropdown.style.display = "none";
+  document.removeEventListener("click", ocultarNotificationDropdownFora);
 }
 
 function ocultarNotificationDropdownFora(event) {
-  if (!notificationDropdown.contains(event.target) && event.target !== notificationsIcon) {
-      ocultarNotificationDropdown();
+  if (
+    !notificationDropdown.contains(event.target) &&
+    event.target !== notificationsIcon
+  ) {
+    ocultarNotificationDropdown();
   }
 }
 
-notificationsIcon.addEventListener('click', mostrarNotificationDropdown);
+notificationsIcon.addEventListener("click", mostrarNotificationDropdown);
 
 ocultarNotificationDropdown();
 
-const clearNotificationLink = document.getElementById('clear-notification');
+const clearNotificationLink = document.getElementById("clear-notification");
 
-const notificationBadge = document.getElementById('notification-badge');
+const notificationBadge = document.getElementById("notification-badge");
 
-const notificationArea = document.querySelector('.notification-item p');
+const notificationArea = document.querySelector(".notification-item p");
 
 function limparNotificacoes() {
+  notificationArea.innerHTML =
+    '<p style="text-align: center; color: #949494;">Sem notificações</p>';
 
-  notificationArea.innerHTML = '<p style="text-align: center; color: #949494;">Sem notificações</p>';
+  notificationBadge.textContent = "0";
 
-  notificationBadge.textContent = '0';
-
-  const notificationLogo = document.querySelector('.notification-logo');
+  const notificationLogo = document.querySelector(".notification-logo");
 
   if (notificationLogo) {
-      notificationLogo.remove();
+    notificationLogo.remove();
   }
 
   ocultarNotificationDropdown();
 }
 
-clearNotificationLink.addEventListener('click', limparNotificacoes);
+clearNotificationLink.addEventListener("click", limparNotificacoes);
 
-const closeDropdownIcon = document.getElementById('close-dropdown');
+const closeDropdownIcon = document.getElementById("close-dropdown");
 
 function ocultarDropdownAoClicar(event) {
   event.stopPropagation();
   ocultarNotificationDropdown();
 }
 
-closeDropdownIcon.addEventListener('click', ocultarDropdownAoClicar);
+closeDropdownIcon.addEventListener("click", ocultarDropdownAoClicar);
 
 document.addEventListener("DOMContentLoaded", function () {
   displayInitialMessage();
@@ -309,8 +345,8 @@ function navigateTo(page) {
     case "FPS":
       window.location.href = "/FPS";
       break;
-    case "FLICKRED":
-      window.location.href = "/FLICKRED";
+    case "RECOIL":
+      window.location.href = "/NoRecoil";
       break;
     case "MEMORY":
       window.location.href = "memory.html";
@@ -319,51 +355,4 @@ function navigateTo(page) {
     default:
       break;
   }
-}
-
-function runSpeedTest() {
-  var startTime = performance.now(); // Tempo inicial do teste
-
-  // URL de teste para medir a latência e largura de banda
-  var testURL = 'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?cs=srgb&dl=pexels-christian-heitz-285904-842711.jpg&fm=jpg'; // Substitua pela URL do arquivo de teste real
-
-  // Realiza uma solicitação HEAD para obter os cabeçalhos do arquivo de teste (sem baixar o conteúdo)
-  fetch(testURL, { method: 'HEAD' })
-      .then(response => {
-          // Calcula o tempo decorrido (em milissegundos) desde o início do teste até agora
-          var elapsedTime = performance.now() - startTime;
-
-          // Calcula a largura de banda dividindo o tamanho do arquivo pela latência e convertendo para Mbps
-          var fileSizeInBits = response.headers.get('content-length') * 8; // Tamanho do arquivo em bits
-          var measuredBandwidth = (fileSizeInBits / (elapsedTime / 1000)) / 1000000; // Convertendo para Mbps
-
-          // Exibe os resultados na tela
-          document.getElementById("latencyValue").textContent = elapsedTime.toFixed(2) + " ms";
-          document.getElementById("bandwidthValue").textContent = measuredBandwidth.toFixed(2) + " Mbps";
-
-          // Move a agulha do velocímetro com base na latência medida
-          moveNeedle(elapsedTime);
-      })
-      .catch(error => {
-          console.error('Erro ao realizar o teste de velocidade:', error);
-      });
-}
-
-function moveNeedle(latency) {
-  // Limite máximo de latência para o movimento da agulha (ajuste conforme necessário)
-  var maxLatency = 500; // 500 ms
-
-  // Limita a latência máxima para o movimento da agulha
-  if (latency > maxLatency) {
-      latency = maxLatency;
-  }
-
-  // Calcula a rotação da agulha com base na latência medida
-  var rotationDegree = (latency / maxLatency) * 180; // 180 graus para 500 ms de latência
-
-  // Seletor para a agulha do velocímetro
-  var needle = document.querySelector('.needle');
-
-  // Aplica a transformação CSS para girar a agulha
-  needle.style.transform = 'rotate(' + rotationDegree + 'deg)';
 }

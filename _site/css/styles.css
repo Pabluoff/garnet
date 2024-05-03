@@ -569,7 +569,7 @@ body::-webkit-scrollbar {
   align-items: center;
   width: 80%; 
   max-width: 400px; 
-  background-color: #292929;
+  background-color: #202020;
   border-radius: 30px;
   padding: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -591,65 +591,67 @@ body::-webkit-scrollbar {
 }
 
 .container {
-  max-width: 600px;
-  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: #121214;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.card-left, .card-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.card-right {
   text-align: center;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.speedometer {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  background-color: #333;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.needle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100px;
-  background-color: #42ff78;
-  transform-origin: bottom;
-  transition: transform 1s ease;
-}
-
-.dial {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 160px;
-  height: 160px;
-  background-color: #000;
-  border-radius: 50%;
-  border: 10px solid #666;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-bottom: 20px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.speed {
+.info p {
+  margin: 5px 0;
   font-size: 18px;
-  line-height: 1.9;
+  color: #ffffff;
+}
+
+.startButton {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  border: 3px solid #16ed68;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  transition: all ease 0.4s;
+  animation: animate-outline 1s ease-out infinite;
+  text-transform: uppercase;
+  font-weight: 400;
+
+}
+
+.startButton:hover {
+  background-color: #00ff5115;
+}
+
+@keyframes animate-outline {
+  from {
+      outline: 0px solid #0dc152;
+  }
+
+  to {
+      outline: 14px solid #f94ff600;
+  }
 }

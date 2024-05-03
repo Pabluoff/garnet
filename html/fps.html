@@ -23,7 +23,7 @@ permalink: FPS
         <!-- Inicio nav -->
         <div class="navbar">
             <div class="navbar-left">
-                <span class="navbar-brand">FPS</span>
+                <span class="navbar-brand">Trick FPS</span>
             </div>
             <div class="navbar-icons">
                 <div class="copy-success-message" style="display: none;">Link
@@ -67,23 +67,29 @@ permalink: FPS
             </div>
         </div>
         <!-- Fim navbar -->
-        <!-- Inicio Speedtest -->
+        <!-- Inicio content -->
         <div class="container">
-            <h1> Velocidade de Internet</h1>
-            <div class="speedometer">
-                <div class="needle"></div>
-                <div class="dial"></div>
+            <button class="startButton">Iniciar</button>
+            <div class="card">
+                <div class="card-left">
+                    <div class="info">
+                        <p id="providerInfo"></i>SEU PROVEDOR</p>
+                        <p id="ipInfo">SEU IP</p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="info">
+                        <p id="cityInfo">Cidade</p>
+                    </div>
+                </div>
             </div>
-            <button onclick="runSpeedTest()">Iniciar Teste</button>
-            <p class="speed">Latência: <span id="latencyValue">0</span></p>
-            <p class="speed">Largura de Banda: <span id="bandwidthValue">0</span></p>
         </div>
-            <!-- Fim Speedtest -->
+        <!-- Fim content -->
         <div id="magicMenu">
             <span class="menuItem" onclick="navigateTo('HOME')">
                 <i class="fa-solid fa-house"></i>
             </span>
-            <span class="menuItem" onclick="navigateTo('FLICKRED')">
+            <span class="menuItem" onclick="navigateTo('RECOIL')">
                 <i class="fa-solid fa-gun"></i>
             </span>
             <span class="menuItem active" onclick="navigateTo('FPS')">
@@ -93,7 +99,6 @@ permalink: FPS
                 <i class="fa-regular fa-folder"></i>
             </span>
         </div>
-
         <script src="js/script.js"></script>
     </body>
 </html>
