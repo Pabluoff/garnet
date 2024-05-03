@@ -12,7 +12,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #121214;
   color: #ffffff;
-
 }
 
 .markdown-body::before {
@@ -82,7 +81,6 @@ body {
   margin-bottom: 5px;
 }
 
-
 #logout {
   color: #e74c3c;
   cursor: pointer;
@@ -108,7 +106,6 @@ body {
   border-top: 1px solid #989898;
   margin: 8px 0;
 }
-
 
 .navbar-icons {
   display: flex;
@@ -187,7 +184,6 @@ body {
   cursor: pointer;
 }
 
-
 #clear-notification:hover {
   color: #ff0000e3;
   text-decoration: none;
@@ -210,49 +206,47 @@ body {
 
 @media screen and (max-width: 768px) {
   .notification-dropdown {
-      top: 40px;
-      right: -45px;
-      width: 250px;
+    top: 40px;
+    right: -45px;
+    width: 250px;
   }
 
   .notification-item {
-      margin-bottom: 5px;
-      padding-bottom: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
   }
 
   .notification-logo {
-      width: 24px;
-      height: 24px;
-      margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
   }
 
   .notification-item p {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .clear-notification {
-      padding: 8px;
+    padding: 8px;
   }
 
   #notifications-icon {
-      margin-right: 10px;
-      font-size: 20px;
-      margin-right: 25px;
+    margin-right: 10px;
+    font-size: 20px;
+    margin-right: 25px;
   }
 
   .notification-badge {
-      font-size: 10px;
-      padding: 2px 6px;
+    font-size: 10px;
+    padding: 2px 6px;
   }
 }
-
 
 .notification-item a {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 
 .notification-highlight {
   color: #ffffff;
@@ -266,25 +260,25 @@ body {
 
 @keyframes slide-down-fade-in {
   0% {
-      transform: translateY(-10px);
-      opacity: 0;
+    transform: translateY(-10px);
+    opacity: 0;
   }
 
   100% {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes slide-up-fade-out {
   0% {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
   }
 
   100% {
-      transform: translateY(-10px);
-      opacity: 0;
+    transform: translateY(-10px);
+    opacity: 0;
   }
 }
 
@@ -303,25 +297,25 @@ body {
 
 @keyframes slide-down-fade-in {
   0% {
-      transform: translateY(-10px);
-      opacity: 0;
+    transform: translateY(-10px);
+    opacity: 0;
   }
 
   100% {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes slide-up-fade-out {
   0% {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
   }
 
   100% {
-      transform: translateY(-10px);
-      opacity: 0;
+    transform: translateY(-10px);
+    opacity: 0;
   }
 }
 
@@ -366,7 +360,6 @@ body {
   overflow-y: auto;
   border-bottom: 1px solid #444;
 }
-
 
 #submitBtn {
   display: flex;
@@ -550,11 +543,10 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 600px) {
-
   #terminal {
-    width: 85%; 
-    max-width: 300px; 
-    height: 60%; 
+    width: 85%;
+    max-width: 300px;
+    height: 60%;
     border-radius: 0;
   }
 }
@@ -567,8 +559,8 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%; 
-  max-width: 400px; 
+  width: 80%;
+  max-width: 400px;
   background-color: #202020;
   border-radius: 30px;
   padding: 15px;
@@ -583,7 +575,7 @@ body::-webkit-scrollbar {
 }
 
 .menuItem.active {
-  color: #16ed68; 
+  color: #16ed68;
 }
 
 .menuItem i {
@@ -606,9 +598,14 @@ body::-webkit-scrollbar {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  width: calc(100% - 80px); 
+  max-width: 400px;
+  margin-left: 40px; 
+  margin-right: 40px;
 }
 
-.card-left, .card-right {
+.card-left,
+.card-right {
   flex: 1;
   padding: 10px;
 }
@@ -639,7 +636,6 @@ body::-webkit-scrollbar {
   animation: animate-outline 1s ease-out infinite;
   text-transform: uppercase;
   font-weight: 400;
-
 }
 
 .startButton:hover {
@@ -648,10 +644,10 @@ body::-webkit-scrollbar {
 
 @keyframes animate-outline {
   from {
-      outline: 0px solid #0dc152;
+    outline: 0px solid #0dc152;
   }
 
   to {
-      outline: 14px solid #f94ff600;
+    outline: 14px solid #f94ff600;
   }
 }
