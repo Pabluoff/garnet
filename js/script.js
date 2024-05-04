@@ -1,25 +1,26 @@
+// Obter informações do provedor de Internet
 // Obter informações do provedor de Internet, país e estado
-fetch("https://ipinfo.io/json")
+fetch("https://ipapi.co/json/")
   .then((response) => response.json())
   .then((data) => {
     let providerName = data.org.replace(/\d+/g, ''); 
-    providerName = providerName.replace(/^AS\s*/i, ''); 
     document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
     document.getElementById("countryStateInfo").innerText = `${data.country}, ${data.region}`;
   })
   .catch((error) => {
-    console.error("Erro ao obter informações de IP:", error);
+    console.error("Erro ao obter informações do provedor de Internet:", error);
   });
 
 // Obter informações de geolocalização para a cidade
 const request = new XMLHttpRequest();
-request.open("GET", "https://ipinfo.io/json", true);
+request.open("GET", "https://wtfismyip.com/json", true);
 
 request.onload = function () {
   if (request.status >= 200 && request.status < 400) {
     const data = JSON.parse(request.responseText);
-    document.getElementById("cityInfo").innerText = "" + data.city;
+    const location = data.YourFuckingLocation.replace(/\,.+/g, "$'");
+    document.getElementById("cityInfo").innerText = "" + location;
   } else {
     document.getElementById("cityInfo").innerText =
       "Cidade Desconhecida";
@@ -359,26 +360,6 @@ function navigateTo(page) {
 }
 
 function connecting() {
-  var button = document.querySelector('.startButton');
-  
-  if (button.classList.contains('completed')) {
-    // Volta ao estilo padrão ao clicar novamente
-    button.classList.remove('completed');
-    button.innerHTML = 'Iniciar';
-    button.style.backgroundColor = 'transparent';
-    button.style.borderColor = '#16ed68';
-    button.style.animation = 'animate-outline 1s ease-out infinite';
-  } else {
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    button.disabled = true;
-
-    setTimeout(function() {
-      button.innerHTML = '<i class="fas fa-check"></i>';
-      button.disabled = false;
-      button.style.backgroundColor = '#0a9f43';
-      button.style.animation = 'none'; 
-      button.style.borderColor = '#058937'; 
-      button.classList.add('completed'); 
-    }, 5000);
-  }
+  var button = document.querySelector('.c-button--gooey');
+  button.classList.add('clicked');
 }
