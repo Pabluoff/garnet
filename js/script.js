@@ -1,5 +1,6 @@
 // Obter informações do provedor de Internet
-fetch("https://ipapi.co/json/")
+// Obter informações do provedor de Internet
+fetch("https://ipinfo.io/json")
   .then((response) => response.json())
   .then((data) => {
     document.getElementById("providerInfo").innerText =
@@ -7,18 +8,17 @@ fetch("https://ipapi.co/json/")
     document.getElementById("ipInfo").innerText = "" + data.ip;
   })
   .catch((error) => {
-    console.error("Erro ao obter informações do provedor de Internet:", error);
+    console.error("Erro ao obter informações de IP:", error);
   });
 
 // Obter informações de geolocalização para a cidade
 const request = new XMLHttpRequest();
-request.open("GET", "https://wtfismyip.com/json", true);
+request.open("GET", "https://ipinfo.io/json", true);
 
 request.onload = function () {
   if (request.status >= 200 && request.status < 400) {
     const data = JSON.parse(request.responseText);
-    const location = data.YourFuckingLocation.replace(/\,.+/g, "$'");
-    document.getElementById("cityInfo").innerText = "" + location;
+    document.getElementById("cityInfo").innerText = "" + data.city;
   } else {
     document.getElementById("cityInfo").innerText =
       "Cidade Desconhecida";
