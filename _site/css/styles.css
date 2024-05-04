@@ -684,6 +684,7 @@ body::-webkit-scrollbar {
   animation: animate-outline 1s ease-out infinite;
   text-transform: uppercase;
   font-weight: 400;
+  
 }
 
 .startButton:hover {
@@ -696,7 +697,7 @@ body::-webkit-scrollbar {
   }
 
   to {
-    outline: 17px solid #f94ff600;
+    outline: 15px solid #f94ff600;
   }
 }
 

@@ -365,6 +365,8 @@ function connecting() {
     button.classList.remove('completed');
     button.innerHTML = 'Iniciar';
     button.style.backgroundColor = 'transparent';
+    button.style.borderColor = '#16ed68';
+    button.style.animation = 'animate-outline 1s ease-out infinite';
   } else {
     button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     button.disabled = true;
@@ -373,7 +375,9 @@ function connecting() {
       button.innerHTML = '<i class="fas fa-check"></i>';
       button.disabled = false;
       button.style.backgroundColor = '#16ed68';
-      button.classList.add('completed'); // Adiciona a classe completed
+      button.style.animation = 'none'; 
+      button.style.borderColor = '#058937'; 
+      button.classList.add('completed'); 
     }, 5000);
   }
 }
