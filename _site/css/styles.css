@@ -661,7 +661,7 @@ body::-webkit-scrollbar {
 
 .info p {
   margin: 5px 0;
-  font-size: 17px;
+  font-size: 20px;
   color: #f9f9f9;
   font-family: Arial, "poppins", sans-serif;
   font-weight: 400;
@@ -670,7 +670,7 @@ body::-webkit-scrollbar {
 #ipInfo,
 #cityInfo {
   color: #9193a8;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .c-button {
@@ -700,14 +700,13 @@ body::-webkit-scrollbar {
 }
 
 .c-button i {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   color: #6a6a6a;
-  transition: all 0.7s ease; 
+  transition: all 0.7s ease;
 }
-
 
 .c-button--gooey {
   color: #ffffff;
@@ -768,13 +767,13 @@ body::-webkit-scrollbar {
 
 .c-button__loading {
   position: relative;
-  width: 170px; 
-  height: 170px; 
+  width: 170px;
+  height: 170px;
   border: 6px solid transparent;
-  border-top-color: #06d953; 
+  border-top-color: #06d953;
   border-radius: 50%;
-  animation: spin 6s linear forwards; 
-  display: none; 
+  animation: spin 6s linear forwards;
+  display: none;
 }
 
 @keyframes spin {
