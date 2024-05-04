@@ -1,5 +1,4 @@
 // Obter informações do provedor de Internet
-// Obter informações do provedor de Internet, país e estado
 fetch("https://ipapi.co/json/")
   .then((response) => response.json())
   .then((data) => {

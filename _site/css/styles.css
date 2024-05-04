@@ -677,25 +677,35 @@ body::-webkit-scrollbar {
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  background-color: transparent;
-  color: white;
-  font-size: 32px;
+  background: radial-gradient(
+    circle,
+    hsla(0, 0%, 93%, 1) 49%,
+    rgb(176, 176, 176) 100%
+  );
+  font-size: 52px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
   margin-bottom: 30px;
   transition: all ease 0.4s;
-  animation: animate-outline 1s ease-out infinite;
   font-weight: 400;
   position: relative;
+  border: none;
   z-index: 1;
+}
+
+.c-button:hover {
+  box-shadow: 0 4px 30px rgba(251, 251, 251, 0.37);
+}
+
+.c-button i {
+  color: #6a6a6a;
 }
 
 .c-button--gooey {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 4px solid #06d953;
   border-radius: 0;
   position: relative;
   transition: all 700ms ease;
@@ -742,31 +752,4 @@ body::-webkit-scrollbar {
 .c-button--gooey .c-button__blobs div:nth-child(3) {
   left: 66%;
   transition-delay: 25ms;
-}
-
-@keyframes animate-outline {
-  from {
-    outline: 0px solid #0dc152;
-  }
-
-  to {
-    outline: 15px solid #f94ff600;
-  }
-}
-
-.fa-spinner {
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.fa-check {
-  font-size: 48px;
 }
