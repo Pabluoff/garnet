@@ -356,3 +356,19 @@ function navigateTo(page) {
       break;
   }
 }
+
+function connecting() {
+  var button = document.querySelector('.startButton');
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+  // Desativa temporariamente o clique no botão
+  button.disabled = true;
+
+  // Simula um tempo de otimização
+  setTimeout(function() {
+    // Termina a animação e exibe mensagem de conclusão
+    button.innerHTML = '<i class="fa-solid fa-check"></i>';
+    button.disabled = false; // Reativa o clique no botão
+    button.style.backgroundColor = '#16ed68';
+  }, 5000); // Tempo de simulação de otimização (5 segundos)
+}
