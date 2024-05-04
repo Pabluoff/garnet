@@ -753,3 +753,8 @@ body::-webkit-scrollbar {
   left: 66%;
   transition-delay: 25ms;
 }
+
+#statusIndicator {
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
