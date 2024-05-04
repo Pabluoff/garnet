@@ -687,10 +687,6 @@ body::-webkit-scrollbar {
   
 }
 
-.startButton:hover {
-  background-color: #00ff5115;
-}
-
 @keyframes animate-outline {
   from {
     outline: 0px solid #0dc152;

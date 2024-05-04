@@ -374,7 +374,7 @@ function connecting() {
     setTimeout(function() {
       button.innerHTML = '<i class="fas fa-check"></i>';
       button.disabled = false;
-      button.style.backgroundColor = '#16ed68';
+      button.style.backgroundColor = '#0a9f43';
       button.style.animation = 'none'; 
       button.style.borderColor = '#058937'; 
       button.classList.add('completed'); 
