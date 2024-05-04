@@ -2,10 +2,12 @@
 fetch("https://ipapi.co/json/")
   .then((response) => response.json())
   .then((data) => {
-    let providerName = data.org.replace(/\d+/g, ''); 
+    let providerName = data.org.replace(/\d+/g, "");
     document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
-    document.getElementById("countryStateInfo").innerText = `${data.country}, ${data.region}`;
+    document.getElementById(
+      "countryStateInfo"
+    ).innerText = `${data.country}, ${data.region}`;
   })
   .catch((error) => {
     console.error("Erro ao obter informações do provedor de Internet:", error);
@@ -21,8 +23,7 @@ request.onload = function () {
     const location = data.YourFuckingLocation.replace(/\,.+/g, "$'");
     document.getElementById("cityInfo").innerText = "" + location;
   } else {
-    document.getElementById("cityInfo").innerText =
-      "Cidade Desconhecida";
+    document.getElementById("cityInfo").innerText = "Cidade Desconhecida";
   }
 };
 
@@ -358,7 +359,57 @@ function navigateTo(page) {
   }
 }
 
+var isConnecting = false; // Variável para controlar se a conexão está em andamento
+var delayTimeout; // Variável para armazenar o timeout do atraso entre cliques
+
 function connecting() {
-  var button = document.querySelector('.c-button--gooey');
-  button.classList.add('clicked');
+  // Verifica se já há uma conexão em andamento ou se ainda está dentro do atraso entre cliques
+  if (isConnecting || delayTimeout) {
+    return; // Se sim, sai da função
+  }
+
+  var button = document.querySelector(".c-button--gooey");
+  var statusIndicator = document.getElementById("statusIndicator");
+
+  // Verifica se o botão está no estado "clicked"
+  if (button.classList.contains("clicked")) {
+    // Remove o estilo "clicked"
+    button.classList.remove("clicked");
+    // Oculta o elemento de loading
+    button.querySelector(".c-button__loading").style.display = "none";
+    // Restaura a cor padrão do ícone
+    button.querySelector("i").style.color = "#6a6a6a";
+    // Atualiza o texto do statusIndicator para "Otimização Desligada"
+    statusIndicator.textContent = "Otimização Desligada";
+    return; // Sai da função
+  }
+
+  // Define que uma conexão está em andamento
+  isConnecting = true;
+
+  var loading = button.querySelector(".c-button__loading"); // Seleciona o elemento de loading
+  loading.style.display = "block"; // Exibe a animação de loading
+
+  // Altera a cor do ícone para verde quando o botão está no estado de loading
+  button.querySelector("i").style.color = "#06d953";
+
+  // Atualiza o texto do statusIndicator para "Conectando..."
+  statusIndicator.textContent = "Conectando...";
+
+  // Adiciona a classe "clicked" após 3 segundos
+  setTimeout(function () {
+    button.classList.add("clicked");
+    // Altera a cor do ícone para branco quando o botão está no estado "clicked"
+    button.querySelector("i").style.color = "white";
+    // Atualiza o texto do statusIndicator para "Otimização Ligada"
+    statusIndicator.textContent = "Otimização Ligada";
+
+    // Reinicia o estado da conexão após a execução da função
+    isConnecting = false;
+  }, 5000); // 5000 milissegundos = 5 segundos (3 segundos de execução + 2 segundos de atraso)
+
+  // Define o timeout para o atraso entre cliques
+  delayTimeout = setTimeout(function () {
+    delayTimeout = null; // Limpa o timeout após o término do atraso
+  }, 2000); // 2000 milissegundos = 2 segundos
 }

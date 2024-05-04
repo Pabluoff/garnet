@@ -674,6 +674,7 @@ body::-webkit-scrollbar {
 }
 
 .c-button {
+  position: relative;
   width: 170px;
   height: 170px;
   border-radius: 50%;
@@ -699,8 +700,14 @@ body::-webkit-scrollbar {
 }
 
 .c-button i {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   color: #6a6a6a;
+  transition: all 0.7s ease; 
 }
+
 
 .c-button--gooey {
   color: #ffffff;
@@ -757,4 +764,24 @@ body::-webkit-scrollbar {
 #statusIndicator {
   margin-top: 2px;
   margin-bottom: 20px;
+}
+
+.c-button__loading {
+  position: relative;
+  width: 170px; 
+  height: 170px; 
+  border: 6px solid transparent;
+  border-top-color: #06d953; 
+  border-radius: 50%;
+  animation: spin 6s linear forwards; 
+  display: none; 
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
