@@ -1,4 +1,4 @@
-// Obter informações do provedor de Internet
+// Obter informações do provedor de Internet, país e estado
 fetch("https://ipinfo.io/json")
   .then((response) => response.json())
   .then((data) => {
@@ -6,6 +6,7 @@ fetch("https://ipinfo.io/json")
     providerName = providerName.replace(/^AS\s*/i, ''); 
     document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
+    document.getElementById("countryStateInfo").innerText = `${data.country}, ${data.region}`;
   })
   .catch((error) => {
     console.error("Erro ao obter informações de IP:", error);

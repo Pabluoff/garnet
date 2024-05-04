@@ -362,14 +362,12 @@ body {
   color: #eee;
   margin-left: 7px;
   font-family: "Courier New", Courier, monospace;
-
 }
-
 
 .terminal-controls {
   display: flex;
-  justify-content: flex-end; 
-  position: absolute; 
+  justify-content: flex-end;
+  position: absolute;
   top: 0;
   right: 0;
   padding: 0.4em;
@@ -395,7 +393,6 @@ body {
 .control.maximize {
   background-color: #0b0;
 }
-
 
 #output {
   height: calc(100% - 80px);
@@ -662,11 +659,21 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 
+
 .info p {
   margin: 5px 0;
-  font-size: 18px;
-  color: #ffffff;
+  font-size: 17px;
+  color: #f9f9f9;
+  font-family: Arial, 'poppins', sans-serif;
+  font-weight: 400;
 }
+
+#ipInfo,
+#cityInfo {
+  color: #9193a8;
+  font-size: 14px;
+}
+
 
 .startButton {
   width: 170px;
@@ -684,7 +691,6 @@ body::-webkit-scrollbar {
   animation: animate-outline 1s ease-out infinite;
   text-transform: uppercase;
   font-weight: 400;
-  
 }
 
 @keyframes animate-outline {
@@ -702,10 +708,13 @@ body::-webkit-scrollbar {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
 
 .fa-check {
   font-size: 48px;
