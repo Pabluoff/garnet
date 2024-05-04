@@ -359,16 +359,21 @@ function navigateTo(page) {
 
 function connecting() {
   var button = document.querySelector('.startButton');
-  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  
+  if (button.classList.contains('completed')) {
+    // Volta ao estilo padrão ao clicar novamente
+    button.classList.remove('completed');
+    button.innerHTML = 'Iniciar';
+    button.style.backgroundColor = 'transparent';
+  } else {
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    button.disabled = true;
 
-  // Desativa temporariamente o clique no botão
-  button.disabled = true;
-
-  // Simula um tempo de otimização
-  setTimeout(function() {
-    // Termina a animação e exibe mensagem de conclusão
-    button.innerHTML = '<i class="fa-solid fa-check"></i>';
-    button.disabled = false; // Reativa o clique no botão
-    button.style.backgroundColor = '#16ed68';
-  }, 5000); // Tempo de simulação de otimização (5 segundos)
+    setTimeout(function() {
+      button.innerHTML = '<i class="fas fa-check"></i>';
+      button.disabled = false;
+      button.style.backgroundColor = '#16ed68';
+      button.classList.add('completed'); // Adiciona a classe completed
+    }, 5000);
+  }
 }
