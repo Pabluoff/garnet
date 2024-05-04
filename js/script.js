@@ -1,10 +1,10 @@
 // Obter informações do provedor de Internet
-// Obter informações do provedor de Internet
 fetch("https://ipinfo.io/json")
   .then((response) => response.json())
   .then((data) => {
-    document.getElementById("providerInfo").innerText =
-      "" + data.org;
+    let providerName = data.org.replace(/\d+/g, ''); 
+    providerName = providerName.replace(/^AS\s*/i, ''); 
+    document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
   })
   .catch((error) => {
