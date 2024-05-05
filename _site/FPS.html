@@ -115,15 +115,15 @@
         var isConnecting = false;
         var delayTimeout;
         var startTimeInterval;
-    
+
         function connecting() {
             if (isConnecting || delayTimeout) {
                 return;
             }
-    
+
             var button = document.querySelector(".c-button--gooey");
             var statusIndicator = document.getElementById("statusIndicator");
-    
+
             if (button.classList.contains("clicked")) {
                 button.classList.remove("clicked");
                 button.querySelector(".c-button__loading").style.display = "none";
@@ -134,18 +134,18 @@
                 clearInterval(startTimeInterval);
                 return;
             }
-    
+
             isConnecting = true;
-    
+
             var loading = button.querySelector(".c-button__loading");
             loading.style.display = "block";
             button.querySelector("i").style.color = "#06d953";
             statusIndicator.textContent = "Conectando...";
-    
+
             setTimeout(function () {
                 button.classList.add("clicked");
                 button.querySelector("i").style.color = "white";
-                statusIndicator.textContent = "Otimização Ligada 00:00:00";
+                statusIndicator.textContent = "Otimização Ligada 00h 00m 00s";
                 isConnecting = false;
                 localStorage.setItem("cButtonState", "clicked");
                 localStorage.setItem("statusIndicatorState", "Otimização Ligada");
@@ -153,16 +153,15 @@
                 localStorage.setItem("startTime", startTime); 
                 updateStatusIndicator(startTime, statusIndicator);
                 startTimeInterval = setInterval(function () {
-                    updateStatusIndicator(startTime, statusIndicator);
+                    updateStatusIndicator(startTime, statusIndicator); 
                 }, 1000);
             }, 5000);
-    
+
             delayTimeout = setTimeout(function () {
                 delayTimeout = null;
             }, 2000);
         }
-    
-        // Aplica o estilo ao carregar a página
+
         document.addEventListener("DOMContentLoaded", function () {
             var cButtonState = localStorage.getItem("cButtonState");
             var statusIndicatorState = localStorage.getItem("statusIndicatorState");
@@ -178,17 +177,17 @@
                 }, 1000);
             }
         });
-    
+
         function updateStatusIndicator(startTime, statusIndicator) {
             var elapsedTime = Math.floor((Date.now() - startTime) / 1000);
             var hours = Math.floor(elapsedTime / 3600);
             var minutes = Math.floor((elapsedTime % 3600) / 60);
             var seconds = elapsedTime % 60;
-            var formattedTime = hours.toString().padStart(2, '0') + ":" + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
-            statusIndicator.textContent = "Otimização Ligada " + formattedTime;
+            var formattedTime = hours.toString().padStart(2, '0') + "h " + minutes.toString().padStart(2, '0') + "m " + seconds.toString().padStart(2, '0') + "s";
+            statusIndicator.innerHTML = "Otimização Ligada <span style='color: #9193a8;'>" + formattedTime + "</span>";
         }
-    
+
     </script>
-        </body>
+</body>
 
 </html>
