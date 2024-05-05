@@ -373,6 +373,8 @@ function navigateTo(page) {
 }
 
 var isConnecting = false;
+var delayTimeout;
+
 function connecting() {
   if (isConnecting || delayTimeout) {
     return;
@@ -393,18 +395,16 @@ function connecting() {
 
   var loading = button.querySelector(".c-button__loading");
   loading.style.display = "block";
-
   button.querySelector("i").style.color = "#06d953";
-
   statusIndicator.textContent = "Conectando...";
 
   setTimeout(function () {
     button.classList.add("clicked");
     button.querySelector("i").style.color = "white";
     statusIndicator.textContent = "Otimização Ligada";
-
     isConnecting = false;
   }, 5000);
+
   delayTimeout = setTimeout(function () {
     delayTimeout = null;
   }, 2000);
