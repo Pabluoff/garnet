@@ -696,7 +696,7 @@ body::-webkit-scrollbar {
 }
 
 .c-button:hover {
-  box-shadow: 0 4px 30px rgba(251, 251, 251, 0.37);
+  box-shadow: 0 4px 30px rgba(251, 251, 251, 0.577);
 }
 
 .c-button i {
@@ -736,7 +736,7 @@ body::-webkit-scrollbar {
 }
 
 .c-button--gooey .c-button__blobs div {
-  background-color: #06d953;
+  background-color: #3bc46d;
   width: 34%;
   height: 100%;
   border-radius: 100%;
