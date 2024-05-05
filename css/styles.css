@@ -696,7 +696,7 @@ body::-webkit-scrollbar {
 }
 
 .c-button:hover {
-  box-shadow: 0 4px 30px rgba(251, 251, 251, 0.577);
+  box-shadow: 0 4px 30px rgba(251, 251, 251, 0.326);
 }
 
 .c-button i {
