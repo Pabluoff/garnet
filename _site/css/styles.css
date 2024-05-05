@@ -903,6 +903,7 @@ body::-webkit-scrollbar {
 
 .status-left h2,
 .status-right h2 {
+  margin-top: 10px;
   font-size: 12px;
   margin-bottom: 5px;
   white-space: nowrap;
