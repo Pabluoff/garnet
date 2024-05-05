@@ -800,7 +800,7 @@ body::-webkit-scrollbar {
 }
 
 .custom-card-icon {
-  color: #06d953;
+  color: #16ed68;
   margin-right: 15px;
   border-radius: 80%;
   font-size: 25px;
@@ -815,5 +815,5 @@ body::-webkit-scrollbar {
 }
 
 #user-name {
-  color: #06d953;
+  color: #16ed68;
 }
