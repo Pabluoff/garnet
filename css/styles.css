@@ -633,7 +633,7 @@ body::-webkit-scrollbar {
 }
 
 .card {
-  background-color: #151515;
+  background-color: #191919;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.219);
@@ -763,6 +763,7 @@ body::-webkit-scrollbar {
 #statusIndicator {
   margin-top: 2px;
   margin-bottom: 20px;
+  font-size: 17px;
 }
 
 .c-button__loading {
