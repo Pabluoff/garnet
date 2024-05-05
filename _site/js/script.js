@@ -49,7 +49,9 @@ request.send();
 // Função para verificar o e-mail e realizar o login
 function verificarEmail() {
   const emailInput = document.getElementById("email");
+  const nomeInput = document.getElementById("nome");
   const emailValue = emailInput.value.trim();
+  const nomeValue = nomeInput.value.trim();
   const loginButton = document.getElementById("login-button");
   const loading = document.querySelector(".loading");
   const loginText = document.getElementById("login-text");
@@ -61,7 +63,9 @@ function verificarEmail() {
     "pabluo23cm@gmail.com",
   ];
 
-  if (emailValue === "") {
+  if (nomeValue === "") { // Verificação do nome
+    exibirNotificacao("Por favor, insira seu nome.");
+  } else if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
   } else if (!isValidEmail(emailValue)) {
     exibirNotificacao("Por favor, insira um e-mail válido.");
@@ -76,6 +80,7 @@ function verificarEmail() {
     loginButton.classList.add("loading-active");
 
     localStorage.setItem("email", emailValue);
+    localStorage.setItem("nome", nomeValue); // Armazenar nome
 
     setTimeout(function () {
       exibirNotificacaoSucesso("Seu login foi realizado com sucesso!");
@@ -131,7 +136,7 @@ function exibirNotificacaoSucesso(mensagem) {
   }, 3000);
 }
 
-+function fecharNotificacaoSucesso() {
+function fecharNotificacaoSucesso() {
   const notificationSuccess = document.getElementById("notification-success");
   notificationSuccess.classList.remove("slide-in");
   notificationSuccess.classList.add("slide-out");
@@ -139,9 +144,14 @@ function exibirNotificacaoSucesso(mensagem) {
 
 function recuperarEmailSalvo() {
   const email = localStorage.getItem("email");
+  const nome = localStorage.getItem("nome");
   if (email) {
     const emailInput = document.getElementById("email");
     emailInput.value = email;
+  }
+  if (nome) {
+    const nomeInput = document.getElementById("nome");
+    nomeInput.value = nome;
   }
 }
 
@@ -173,14 +183,14 @@ function fecharUserDropdownFora(event) {
 }
 
 function carregarInformacoesUsuario() {
-  const userEmail = localStorage.getItem("email");
+  const nome = localStorage.getItem("nome");
   const userAvatar = document.getElementById("user-avatar");
   const userDropdown = document.getElementById("user-dropdown-content");
   const userLogout = document.getElementById("logout");
   const userEmailElement = document.getElementById("user-email");
 
-  if (userEmail) {
-    userEmailElement.textContent = userEmail;
+  if (nome) {
+    userEmailElement.textContent = nome;
     userDropdown.style.display = "none";
     userAvatar.addEventListener("click", mostrarUserDropdown);
   } else {
@@ -188,7 +198,7 @@ function carregarInformacoesUsuario() {
     userDropdown.style.display = "none";
     userLogout.style.display = "none";
 
-    if (!userEmail) {
+    if (!nome) {
       window.location.href = "/";
     }
   }
@@ -196,6 +206,7 @@ function carregarInformacoesUsuario() {
 
 function fazerLogout() {
   localStorage.removeItem("email");
+  localStorage.removeItem("nome");
   window.location.href = "/";
 }
 
