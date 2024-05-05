@@ -873,7 +873,7 @@ body::-webkit-scrollbar {
 .status-right {
   background-color: #000000;
   border-radius: 10px;
-  padding: 15px 27px;
+  padding: 0;
   width: calc(50% - 5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -881,6 +881,7 @@ body::-webkit-scrollbar {
 .green-line {
   width: 100%;
   display: flex;
+  position: relative;
   border: 2px solid #47fe9a;
   border-radius: 5px;
 }
@@ -888,6 +889,8 @@ body::-webkit-scrollbar {
 .status-icon {
   color: #47fe9a;
   margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .status-icon i {
@@ -896,7 +899,6 @@ body::-webkit-scrollbar {
   background-color: #47fe9a;
   border-radius: 50%;
   padding: 7px;
-
 }
 
 .status-left h2,
