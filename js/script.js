@@ -359,29 +359,33 @@ function navigateTo(page) {
   }
 }
 
-// Função para lidar com a conexão
+var isConnecting = false; // Variável para controlar se a conexão está em andamento
+var delayTimeout; // Variável para armazenar o timeout do atraso entre cliques
+
 function connecting() {
+  // Verifica se já há uma conexão em andamento ou se ainda está dentro do atraso entre cliques
+  if (isConnecting || delayTimeout) {
+    return; // Se sim, sai da função
+  }
+
   var button = document.querySelector(".c-button--gooey");
   var statusIndicator = document.getElementById("statusIndicator");
 
   // Verifica se o botão está no estado "clicked"
   if (button.classList.contains("clicked")) {
-      // Remove o estilo "clicked"
-      button.classList.remove("clicked");
-      // Oculta o elemento de loading
-      button.querySelector(".c-button__loading").style.display = "none";
-      // Restaura a cor padrão do ícone
-      button.querySelector("i").style.color = "#6a6a6a";
-      // Atualiza o texto do statusIndicator para "Otimização Desligada"
-
-      // Salva o estado do botão e o status no Local Storage como "not clicked"
-      localStorage.setItem("buttonClicked", "not clicked");
-      localStorage.setItem("status", "Otimização Desligada");
-      return; // Sai da função
+    // Remove o estilo "clicked"
+    button.classList.remove("clicked");
+    // Oculta o elemento de loading
+    button.querySelector(".c-button__loading").style.display = "none";
+    // Restaura a cor padrão do ícone
+    button.querySelector("i").style.color = "#6a6a6a";
+    // Atualiza o texto do statusIndicator para "Otimização Desligada"
+    statusIndicator.textContent = "Otimização Desligada";
+    return; // Sai da função
   }
 
   // Define que uma conexão está em andamento
-  var isConnecting = true;
+  isConnecting = true;
 
   var loading = button.querySelector(".c-button__loading"); // Seleciona o elemento de loading
   loading.style.display = "block"; // Exibe a animação de loading
@@ -394,39 +398,18 @@ function connecting() {
 
   // Adiciona a classe "clicked" após 3 segundos
   setTimeout(function () {
-      button.classList.add("clicked");
-      // Altera a cor do ícone para branco quando o botão está no estado "clicked"
-      button.querySelector("i").style.color = "white";
-      // Atualiza o texto do statusIndicator para "Otimização Ligada"
+    button.classList.add("clicked");
+    // Altera a cor do ícone para branco quando o botão está no estado "clicked"
+    button.querySelector("i").style.color = "white";
+    // Atualiza o texto do statusIndicator para "Otimização Ligada"
+    statusIndicator.textContent = "Otimização Ligada";
 
-      // Salva o estado do botão e o status no Local Storage como "clicked"
-      localStorage.setItem("buttonClicked", "clicked");
-      localStorage.setItem("status", "Otimização Ligada");
-      statusIndicator.textContent = "Otimização Ligada";
-
-      // Reinicia o estado da conexão após a execução da função
-      isConnecting = false;
+    // Reinicia o estado da conexão após a execução da função
+    isConnecting = false;
   }, 5000); // 5000 milissegundos = 5 segundos (3 segundos de execução + 2 segundos de atraso)
+
+  // Define o timeout para o atraso entre cliques
+  delayTimeout = setTimeout(function () {
+    delayTimeout = null; // Limpa o timeout após o término do atraso
+  }, 2000); // 2000 milissegundos = 2 segundos
 }
-
-// Função para verificar e aplicar o estilo salvo ao carregar a página
-window.onload = function() {
-  var button = document.querySelector(".c-button--gooey");
-  var statusIndicator = document.getElementById("statusIndicator");
-
-  // Verifica se o botão foi clicado anteriormente
-  var buttonClicked = localStorage.getItem("buttonClicked");
-  var status = localStorage.getItem("status");
-
-  if (buttonClicked === "clicked") {
-      // Aplica o estilo "clicked" ao botão
-      button.classList.add("clicked");
-      // Altera a cor do ícone para branco
-      button.querySelector("i").style.color = "white";
-      // Atualiza o texto do statusIndicator para o status salvo
-      statusIndicator.textContent = status;
-  } else {
-      // Atualiza o texto do statusIndicator para o status salvo
-      statusIndicator.textContent = status;
-  }
-};
