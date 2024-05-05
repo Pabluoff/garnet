@@ -800,7 +800,7 @@ body::-webkit-scrollbar {
 }
 
 .custom-card-icon {
-  color: #16ed68;
+  color: #06d953;
   margin-right: 15px;
   border-radius: 80%;
   font-size: 25px;
@@ -808,12 +808,12 @@ body::-webkit-scrollbar {
 
 .custom-card-title {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  color: #fff;
+  font-size: 16px;
+  color: #ededed;
   margin-top: 5px;
   
 }
 
 #user-name {
-  color: #16ed68;
+  color: #06d953;
 }
