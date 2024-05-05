@@ -617,7 +617,7 @@ body::-webkit-scrollbar {
 }
 
 .menuItem.active {
-  color: #16ed68;
+  color: #47fe9a;
 }
 
 .menuItem i {
@@ -792,18 +792,18 @@ body::-webkit-scrollbar {
   padding: 20px;
   margin-bottom: 10px;
   display: flex;
-  width: calc(100% - 80px);
+  width: calc(100% - 40px);
   max-width: 400px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .custom-card-icon {
-  color: #16ed68;
+  color: #47fe9a;
   margin-right: 10px;
   border-radius: 50%;
-  border: 3px solid #16ed68;
+  border: 3px solid #47fe9a;
   font-size: 25px;
   padding: 10px 13px;
 }
@@ -816,25 +816,25 @@ body::-webkit-scrollbar {
 }
 
 #user-name {
-  color: #16ed68;
+  color: #47fe9a;
 }
 
 .custom-info-card {
   background-color: #000000;
   border-radius: 10px;
   padding: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: flex;
-  width: calc(100% - 80px);
+  width: calc(100% - 40px);
   max-width: 400px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .custom-info-card-title {
   font-size: 17px;
-  color: #16ed68;
+  color: #47fe9a;
   margin-top: 10px;
   font-weight: bold;
 }
@@ -856,17 +856,17 @@ body::-webkit-scrollbar {
 
 .custom-info-card-icon i {
   font-size: 47px;
-  color: #16ed68;
+  color: #47fe9a;
 }
 
 .custom-status-card {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  width: calc(100% - 80px);
+  width: calc(100% - 40px);
   max-width: 400px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .status-left,
@@ -881,19 +881,19 @@ body::-webkit-scrollbar {
 .green-line {
   width: 100%;
   display: flex;
-  border: 2px solid #16ed68;
+  border: 2px solid #47fe9a;
   border-radius: 5px;
 }
 
 .status-icon {
-  color: #16ed68;
+  color: #47fe9a;
   margin-top: 10px;
 }
 
 .status-icon i {
   color: #fff;
   margin-right: 5px;
-  background-color: #16ed68;
+  background-color: #47fe9a;
   border-radius: 50%;
   padding: 6px;
 
