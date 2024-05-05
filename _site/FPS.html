@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cd363fe7f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <script src="https://unpkg.com/speedtest-net"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -59,7 +60,7 @@
     <!-- Inicio content -->
     <div class="container">
         <button class="c-button c-button--gooey" onclick="connecting()">
-           <div class="c-button__loading"></div>
+            <div class="c-button__loading"></div>
             <i class="fa-solid fa-power-off"></i>
             <div class="c-button__blobs">
                 <div></div>
@@ -87,6 +88,7 @@
             </div>
             <div class="card-right">
                 <div class="info">
+                    <div id="countryFlag"></div>
                     <p id="countryStateInfo">-----------------</p>
                     <p id="cityInfo">------------</p>
                 </div>

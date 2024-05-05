@@ -1,3 +1,8 @@
+// Função para buscar a bandeira do país
+function fetchCountryFlag(countryCode) {
+  return `https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${countryCode.toLowerCase()}.svg`;
+}
+
 // Obter informações do provedor de Internet
 fetch("https://ipapi.co/json/")
   .then((response) => response.json())
@@ -5,9 +10,17 @@ fetch("https://ipapi.co/json/")
     let providerName = data.org.replace(/\d+/g, "");
     document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
-    document.getElementById(
-      "countryStateInfo"
-    ).innerText = `${data.country}, ${data.region}`;
+
+    // Buscar a bandeira do país e adicionar ao elemento HTML
+    const flagUrl = fetchCountryFlag(data.country_code);
+    const flagElement = document.createElement("img");
+    flagElement.src = flagUrl;
+    flagElement.classList.add("flag-icon");
+    document.getElementById("countryFlag").appendChild(flagElement);
+
+    // Adicionar informações sobre o país e região
+    const countryStateInfo = `${data.country}, ${data.region}`;
+    document.getElementById("countryStateInfo").innerText = countryStateInfo;
   })
   .catch((error) => {
     console.error("Erro ao obter informações do provedor de Internet:", error);
@@ -361,9 +374,8 @@ function navigateTo(page) {
 
 var isConnecting = false;
 function connecting() {
-
   if (isConnecting || delayTimeout) {
-    return; 
+    return;
   }
 
   var button = document.querySelector(".c-button--gooey");
