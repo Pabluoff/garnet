@@ -1,84 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/cd363fe7f3.js"
-            crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="apple-touch-icon" sizes="180x180"
-            href="img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32"
-            href="img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16"
-            href="img/favicon-16x16.png">
-        <link rel="manifest" href="img/site.webmanifest">
-        <title>Garnet</title>
-    </head>
-    <body>
-        <!-- Inicio nav -->
-        <div class="navbar">
-            <div class="navbar-left">
-                <span class="navbar-brand">Inicio</span>
-            </div>
-            <div class="navbar-icons">
-                <div class="copy-success-message" style="display: none;">Link
-                    copiado para a área de transferência!</div>
-                <div id="notifications-icon">
-                    <i class="fa-regular fa-bell"></i>
-                    <span class="notification-badge"
-                        id="notification-badge">1</span>
-                    <div class="notification-dropdown">
-                        <div class="notification-item">
-                            <img src="/img/user.webp" alt="Logo do aplicativo"
-                                class="notification-logo">
-                            <p>
-                                <a
-                                    href="https://www.instagram.com/pabluoff/"
-                                    class="notification-link">
-                                    <span class="notification-text">Siga o nosso
-                                        patrocinador</span>
-                                    <span class="notification-highlight">Saiba
-                                        Mais</span>
-                                </a>
-                            </p>
-                        </div>
-                        <div class="clear-notification">
-                            <i id="close-dropdown" class="fas fa-times"></i>
-                            <a href="#" id="clear-notification">Limpar
-                                notificações</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="user-dropdown">
-                    <img src="/img/user.webp" alt="Foto do usuário"
-                        class="user-avatar" id="user-avatar">
-                    <div class="user-dropdown-content"
-                        id="user-dropdown-content">
-                        <span id="user-email"></span>
-                        <hr class="divider">
-                        <a href="#" id="logout">Encerrar sessão</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fim navbar -->
 
-        <div id="magicMenu">
-            <span class="menuItem active" onclick="navigateTo('HOME')">
-                <i class="fa-solid fa-house"></i>
-            </span>
-            <span class="menuItem" onclick="navigateTo('RECOIL')">
-                <i class="fa-solid fa-gun"></i>
-            </span>
-            <span class="menuItem" onclick="navigateTo('FPS')">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-            </span>
-            <span class="menuItem" onclick="navigateTo('MEMORY')">
-                <i class="fa-regular fa-folder"></i>
-            </span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cd363fe7f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <title>Garnet</title>
+</head>
+
+<body>
+    <!-- Inicio nav -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <span class="navbar-brand">Inicio</span>
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+        <div class="navbar-icons">
+            <div class="copy-success-message" style="display: none;">Link
+                copiado para a área de transferência!</div>
+            <div id="notifications-icon">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-badge" id="notification-badge">1</span>
+                <div class="notification-dropdown">
+                    <div class="notification-item">
+                        <img src="/img/user.webp" alt="Logo do aplicativo" class="notification-logo">
+                        <p>
+                            <a href="https://www.instagram.com/pabluoff/" class="notification-link">
+                                <span class="notification-text">Siga o nosso
+                                    patrocinador</span>
+                                <span class="notification-highlight">Saiba
+                                    Mais</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="clear-notification">
+                        <i id="close-dropdown" class="fas fa-times"></i>
+                        <a href="#" id="clear-notification">Limpar
+                            notificações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-dropdown">
+                <img src="/img/user.webp" alt="Foto do usuário" class="user-avatar" id="user-avatar">
+                <div class="user-dropdown-content" id="user-dropdown-content">
+                    <span id="user-email"></span>
+                    <hr class="divider">
+                    <a href="#" id="logout">Encerrar sessão</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim navbar -->
+    <!-- Card de boas-vindas -->
+    <div class="container">
+        <div class="custom-card">
+            <div class="custom-card-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <h2 class="custom-card-title">Seja Bem-vindo <span id="user-name"></span></h2>
+        </div>
+    </div>
+    <!-- Fim Card de boas-vindas -->
+
+    <div id="magicMenu">
+        <span class="menuItem active" onclick="navigateTo('HOME')">
+            <i class="fa-solid fa-house"></i>
+        </span>
+        <span class="menuItem" onclick="navigateTo('RECOIL')">
+            <i class="fa-solid fa-gun"></i>
+        </span>
+        <span class="menuItem" onclick="navigateTo('FPS')">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+        </span>
+        <span class="menuItem" onclick="navigateTo('MEMORY')">
+            <i class="fa-regular fa-folder"></i>
+        </span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        function recuperarNomeSalvo() {
+            const nome = localStorage.getItem("nome");
+            if (nome) {
+                const nomeSpan = document.getElementById("user-name");
+                nomeSpan.textContent = nome;
+            }
+        }
+
+        window.onload = function () {
+            recuperarNomeSalvo();
+        };
+
+    </script>
+</body>
+
 </html>

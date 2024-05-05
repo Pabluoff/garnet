@@ -183,14 +183,14 @@ function fecharUserDropdownFora(event) {
 }
 
 function carregarInformacoesUsuario() {
-  const nome = localStorage.getItem("nome");
+  const email = localStorage.getItem("email");
   const userAvatar = document.getElementById("user-avatar");
   const userDropdown = document.getElementById("user-dropdown-content");
   const userLogout = document.getElementById("logout");
   const userEmailElement = document.getElementById("user-email");
 
-  if (nome) {
-    userEmailElement.textContent = nome;
+  if (email) {
+    userEmailElement.textContent = email;
     userDropdown.style.display = "none";
     userAvatar.addEventListener("click", mostrarUserDropdown);
   } else {

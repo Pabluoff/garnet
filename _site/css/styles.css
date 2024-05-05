@@ -785,3 +785,35 @@ body::-webkit-scrollbar {
     transform: rotate(360deg);
   }
 }
+
+.custom-card {
+  background-color: #191919;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  width: calc(100% - 80px);
+  max-width: 400px;
+  margin-left: 40px;
+  margin-right: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.custom-card-icon {
+  color: #16ed68;
+  margin-right: 15px;
+  border-radius: 80%;
+  font-size: 25px;
+}
+
+.custom-card-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  color: #fff;
+  margin-top: 5px;
+  
+}
+
+#user-name {
+  color: #16ed68;
+}
