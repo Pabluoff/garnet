@@ -797,7 +797,7 @@ body::-webkit-scrollbar {
   margin-left: 20px;
   margin-right: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .custom-card-icon {
