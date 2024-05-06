@@ -4,15 +4,15 @@ function fetchCountryFlag(countryCode) {
 }
 
 // Obter informações do provedor de Internet
-fetch("https://ipapi.co/json/")
+fetch("https://ipinfo.io/json")
   .then((response) => response.json())
   .then((data) => {
-    let providerName = data.org.replace(/\d+/g, "");
+    let providerName = data.org.replace(/\d+/g, "").replace(/AS/g, "");
     document.getElementById("providerInfo").innerText = providerName.trim();
     document.getElementById("ipInfo").innerText = "" + data.ip;
 
     // Buscar a bandeira do país e adicionar ao elemento HTML
-    const flagUrl = fetchCountryFlag(data.country_code);
+    const flagUrl = fetchCountryFlag(data.country);
     const flagElement = document.createElement("img");
     flagElement.src = flagUrl;
     flagElement.classList.add("flag-icon");
@@ -63,7 +63,8 @@ function verificarEmail() {
     "pabluo23cm@gmail.com",
   ];
 
-  if (nomeValue === "") { // Verificação do nome
+  if (nomeValue === "") {
+    // Verificação do nome
     exibirNotificacao("Por favor, insira seu nome.");
   } else if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
@@ -140,7 +141,7 @@ function fecharNotificacaoSucesso() {
   const notificationSuccess = document.getElementById("notification-success");
   notificationSuccess.classList.remove("slide-in");
   notificationSuccess.classList.add("slide-out");
-};
+}
 
 function recuperarEmailSalvo() {
   const email = localStorage.getItem("email");
