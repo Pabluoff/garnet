@@ -67,7 +67,7 @@ body {
 }
 
 .custom-input:focus {
-  border-color: #00cc41;
+  border-color: #47fe9a;
   outline: none;
 }
 
@@ -77,7 +77,7 @@ body {
 
 .custom-button {
   position: relative;
-  background-color: #00cc2c;
+  background-color: #10c561;
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -125,14 +125,14 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #009c27;
+  background-color: #06b432;
 }
 
 .create-account-button {
   position: relative;
   background-color: transparent;
-  color: #2cff61;
-  border: 1px solid #00ff1e;
+  color: #47fe9a;
+  border: 1px solid #47fe9a;
   padding: 12px 74px;
   border-radius: 5px;
   cursor: pointer;
