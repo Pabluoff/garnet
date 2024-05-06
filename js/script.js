@@ -376,7 +376,7 @@ function navigateTo(page) {
       window.location.href = "/NoRecoil";
       break;
     case "MEMORY":
-      window.location.href = "memory.html";
+      window.location.href = "/Memory";
       break;
 
     default:
