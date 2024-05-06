@@ -883,19 +883,19 @@ body::-webkit-scrollbar {
   display: flex;
   position: relative;
   border: 2px solid #47fe9a;
-  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .status-icon {
   color: #ffffff;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 20px;
 }
 
 .status-icon i {
   color: #fff;
-  margin-right: 5px;
+  margin-right: 10px;
   background-color: #47fe9a;
   border-radius: 50%;
   padding: 7px;
