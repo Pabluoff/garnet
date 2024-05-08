@@ -62,7 +62,7 @@ body {
 }
 
 .custom-input {
-    display: block;
+  display: block;
   width: calc(100% - 40px);
   padding: 13px 10px;
   padding-left: 30px;
@@ -98,6 +98,7 @@ body {
 }
 
 .custom-button {
+  position: relative;
   background-color: #00ff7f;
   color: #161616;
   border: none;
