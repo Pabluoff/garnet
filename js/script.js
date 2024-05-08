@@ -33,7 +33,7 @@ function verificarEmail() {
       loginButton.classList.add("loading-active");
   
       localStorage.setItem("email", emailValue);
-      localStorage.setItem("nome", nomeValue); // Armazenar nome
+      localStorage.setItem("nome", nomeValue);
   
       setTimeout(function () {
         exibirNotificacaoSucesso("Seu login foi realizado com sucesso!");
@@ -49,7 +49,7 @@ function verificarEmail() {
     }
   }
   
-  // Função para verificar se o e-mail é válido
+
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
