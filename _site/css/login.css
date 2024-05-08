@@ -47,7 +47,7 @@ body {
 #welcome-line-1 {
   color: #00ff7f;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 50px;
 }
 
 #welcome-line-2 {
@@ -101,7 +101,7 @@ body {
   position: relative;
   background-color: #00ff7f;
   color: #000000;
-  border: 1px solid #00ff7f;
+  border: 1px solid #00c160;
   padding: 12px 24px;
   border-radius: 5px;
   cursor: pointer;
@@ -122,11 +122,12 @@ body {
   cursor: not-allowed;
   padding: 12px 24px;
   transition: all 0.3s ease;
+  border-color: #ccc;
 }
 
 .custom-button.loading-active:hover {
   background-color: #959595;
-  border: none;
+  border-color: #959595;
 }
 
 .loading {
