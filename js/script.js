@@ -95,3 +95,20 @@ function verificarEmail() {
     notificationSuccess.classList.add("slide-out");
   }
   
+  function recuperarEmailSalvo() {
+    const email = localStorage.getItem("email");
+    const nome = localStorage.getItem("nome");
+    if (email) {
+      const emailInput = document.getElementById("email");
+      emailInput.value = email;
+    }
+    if (nome) {
+      const nomeInput = document.getElementById("nome");
+      nomeInput.value = nome;
+    }
+  }
+  
+  window.onload = function () {
+    recuperarEmailSalvo();
+  };
+  
