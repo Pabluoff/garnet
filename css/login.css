@@ -63,7 +63,7 @@ body {
 
 .custom-input {
   display: block;
-  width: calc(100% - 48px);
+  width: calc(100% - 49px);
   padding: 13px 10px;
   padding-left: 38px;
   margin-bottom: 10px;
