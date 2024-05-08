@@ -63,9 +63,9 @@ body {
 
 .custom-input {
   display: block;
-  width: calc(100% - 45px);
+  width: calc(100% - 48px);
   padding: 13px 10px;
-  padding-left: 35px;
+  padding-left: 38px;
   margin-bottom: 10px;
   border-radius: 8px;
   background-color: transparent;
@@ -95,7 +95,7 @@ body {
   left: 10px;
   color: #adadad;
   pointer-events: none;
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .custom-button {
