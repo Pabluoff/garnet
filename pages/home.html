@@ -105,18 +105,15 @@ permalink: inicio
             const savedProfilePicture = localStorage.getItem('profilePicture');
 
             if (!savedProfilePicture) {
-                // Se não houver imagem no armazenamento local, abrir diretamente o input de arquivo
                 document.getElementById('file-input').click();
-                return; // Encerrar a função aqui para evitar a exibição do modal
+                return;
             }
 
             const modal = document.getElementById('profile-options-modal');
             modal.style.display = 'flex';
 
-            // Adicionar classe para animar entrada do modal
             modal.classList.add('modal-entrada');
 
-            // Adicionar evento de fechar o modal ao clicar fora dele
             window.onclick = function (event) {
                 if (event.target == modal) {
                     closeModal();
@@ -139,7 +136,6 @@ permalink: inicio
             const modal = document.getElementById('profile-options-modal');
             modal.style.display = 'none';
 
-            // Remover classe para animar entrada do modal
             modal.classList.remove('modal-entrada');
         }
     </script>
