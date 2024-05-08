@@ -89,10 +89,6 @@ function verificarEmail() {
         window.location.href = "/inicio";
       }, 1000);
 
-      loginText.style.visibility = "visible";
-      arrowIcon.style.visibility = "visible";
-      loading.style.display = "none";
-      loginButton.classList.remove("loading-active");
     }, 3000);
   }
 }
