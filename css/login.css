@@ -62,16 +62,16 @@ body {
 }
 
 .custom-input {
-  width: calc(100% - 20px);
+    display: block;
+  width: calc(100% - 40px);
   padding: 13px 10px;
+  padding-left: 30px;
   margin-bottom: 10px;
   border-radius: 8px;
   background-color: transparent;
   color: #ffffff;
   font-size: 16px;
-  display: block;
-  margin: 0 auto;
-  border: 1px solid #adadad;
+  border: 1px solid #999999;
 }
 
 .custom-input:focus {
@@ -80,25 +80,24 @@ body {
 }
 
 .custom-input::placeholder {
-  color: #adadad;
+  color: #999999;
 }
 
 .input-container {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .input-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
-    color: #adadad;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  color: #adadad;
+  pointer-events: none;
 }
 
 .custom-button {
-  position: relative;
   background-color: #00ff7f;
   color: #161616;
   border: none;
