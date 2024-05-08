@@ -38,7 +38,7 @@ header {
   font-size: 23px;
   font-weight: bold;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: 15px;
   color: #eaeaea;
 
 }
@@ -94,6 +94,21 @@ header {
   margin-right: 20px;
   font-size: 16px;
 }
+
+
+.description-container {
+  display: block;
+  
+}
+ 
+.user-description {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
 
 /* Estilo do modal */
 .modal {

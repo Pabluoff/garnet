@@ -19,13 +19,13 @@
     <header>
         <div class="container-profile">
             <div class="user-details">
-                <h1 id="user-name">Nome de Usuário.</h1>
+                <h1 id="user-name">Nome de Usuário</h1>
                 <ion-icon name="chevron-down-outline" class="user-icon"></ion-icon>
             </div>
             <div class="profile-info">
                 <div class="profile-picture-container">
                     <img id="profile-picture" src="/img/user.webp" alt="Foto do perfil">
-                    <button id="change-picture-btn" onclick="showProfileOptions()">
+                    <button id="change-picture-btn" onclick="openFileInput()">
                         <ion-icon name="add"></ion-icon>
                     </button>
                 </div>
@@ -35,47 +35,20 @@
                     <li><strong>8,7 mil</strong> ativos</li>
                 </ul>
             </div>
+            <div class="description-container">
+                <p class="user-description">Descrição do usuário aqui...</p>
+            </div>
         </div>
     </header>
-    <div id="profile-options-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">
-                <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <button class="modal-button" id="change-picture-button" onclick="changeProfilePicture()">
-                <ion-icon name="images-outline"></ion-icon> Escolher imagem
-            </button>
-            <button class="" id="remove-picture-btn" onclick="removeProfilePicture()">
-                <span class="button__text">Remover imagem</span>
-                <span class="button__icon">
-                    <svg class="svg" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
-                        <title></title>
-                        <path d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320"
-                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
-                        </path>
-                        <line style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" x1="80"
-                            x2="432" y1="112" y2="112"></line>
-                        <path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40"
-                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
-                        </path>
-                        <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
-                            x1="256" x2="256" y1="176" y2="400"></line>
-                        <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
-                            x1="184" x2="192" y1="176" y2="400"></line>
-                        <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
-                            x1="328" x2="320" y1="176" y2="400"></line>
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </div>
     <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(this)">
     <script src="/js/script.js"></script>
     <script>
+        // Função para abrir o seletor de arquivos quando o botão de alteração de foto for clicado
         function openFileInput() {
             document.getElementById('file-input').click();
         }
 
+        // Função para atualizar a foto de perfil quando um novo arquivo for selecionado
         function updateProfilePicture(input) {
             const file = input.files[0];
             const reader = new FileReader();
@@ -84,56 +57,20 @@
                 const profilePicture = document.getElementById('profile-picture');
                 profilePicture.src = e.target.result;
 
+                // Salvar a imagem no armazenamento local
                 localStorage.setItem('profilePicture', e.target.result);
             }
 
             reader.readAsDataURL(file);
         }
 
+        // Função para carregar a imagem de perfil salva no armazenamento local ao carregar a página
         window.onload = function () {
             const savedProfilePicture = localStorage.getItem('profilePicture');
             if (savedProfilePicture) {
                 const profilePicture = document.getElementById('profile-picture');
                 profilePicture.src = savedProfilePicture;
             }
-        }
-
-        function showProfileOptions() {
-            const savedProfilePicture = localStorage.getItem('profilePicture');
-
-            if (!savedProfilePicture) {
-                document.getElementById('file-input').click();
-                return;
-            }
-
-            const modal = document.getElementById('profile-options-modal');
-            modal.style.display = 'flex';
-
-            modal.classList.add('modal-entrada');
-
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    closeModal();
-                }
-            };
-        }
-
-        function removeProfilePicture() {
-            const profilePicture = document.getElementById('profile-picture');
-            profilePicture.src = '/img/user.webp';
-            localStorage.removeItem('profilePicture');
-            closeModal();
-        }
-
-        function changeProfilePicture() {
-            document.getElementById('file-input').click();
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('profile-options-modal');
-            modal.style.display = 'none';
-
-            modal.classList.remove('modal-entrada');
         }
     </script>
 </body>
