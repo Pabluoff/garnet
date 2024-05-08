@@ -71,9 +71,9 @@ header {
   position: absolute;
   bottom: 5px;
   right: 20px;
-  background-color: #008df2;
+  background-color: #007ed7;
   color: #ffffff;
-  border: none;
+  border: 1px solid #00528d;
   width: 25px;
   height: 25px;
   border-radius: 50%;
