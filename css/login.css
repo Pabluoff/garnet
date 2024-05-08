@@ -99,8 +99,8 @@ body {
 
 .custom-button {
   position: relative;
-  background-color: transparent;
-  color: #00ff7f;
+  background-color: #00ff7f;
+  color: #000000;
   border: 1px solid #00ff7f;
   padding: 12px 24px;
   border-radius: 5px;
@@ -113,8 +113,7 @@ body {
 
 .custom-button:hover {
   transition: all ease-in-out 0.3s;
-  background-color: #00ff7f;
-  color: #000000;
+  background-color: #05dd71;
   cursor: pointer;
 }
 
@@ -127,7 +126,7 @@ body {
 
 .custom-button.loading-active:hover {
   background-color: #959595;
-  outline: none;
+  border: none;
 }
 
 .loading {
