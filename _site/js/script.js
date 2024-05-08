@@ -114,14 +114,21 @@ window.onload = function () {
 };
 
 function carregarInformacoesUsuario() {
-  const nome = localStorage.getItem("nome");
-  const userNameElement = document.getElementById("user-name");
-
-  if (nome) {
-    userNameElement.textContent = nome.toLowerCase(); 
+    const userEmail = localStorage.getItem("email");
+    const userNameElement = document.getElementById("user-name");
+  
+    if (userEmail) {
+      const nome = localStorage.getItem("nome");
+      if (nome) {
+        userNameElement.textContent = nome.toLowerCase();
+      }
+    } else {
+      if (window.location.pathname !== "/") {
+        window.location.href = "/"; 
+      }
+    }
   }
-}
-
+    
 function fazerLogout() {
   localStorage.removeItem("email");
   localStorage.removeItem("nome");
@@ -130,4 +137,3 @@ function fazerLogout() {
 
 carregarInformacoesUsuario();
 document.getElementById("logout").addEventListener("click", fazerLogout);
-
