@@ -99,9 +99,9 @@ body {
 
 .custom-button {
   position: relative;
-  background-color: #00ff7f;
-  color: #161616;
-  border: none;
+  background-color: transparent;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
   padding: 12px 24px;
   border-radius: 5px;
   cursor: pointer;
@@ -113,8 +113,8 @@ body {
 
 .custom-button:hover {
   transition: all ease-in-out 0.3s;
-  background-color: #09d56f;
-  color: #161616;
+  background-color: #00ff7f;
+  color: #000000;
   cursor: pointer;
 }
 
