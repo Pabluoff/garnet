@@ -39,6 +39,8 @@ header {
   font-weight: bold;
   margin-right: 5px;
   margin-left: 10px;
+  color: #eaeaea;
+
 }
 
 .user-icon {
@@ -48,6 +50,7 @@ header {
 .profile-info {
   display: flex;
   align-items: center;
+  color: #eaeaea;
 }
 
 .profile-picture-container {
@@ -104,6 +107,21 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+.modal-entrada {
+  animation: modalEntrada 0.3s ease-out;
+}
+
+@keyframes modalEntrada {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .modal-content {
@@ -219,3 +237,4 @@ header {
 #remove-picture-btn:active {
   border: 1px solid #b20000;
 }
+
