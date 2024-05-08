@@ -48,14 +48,7 @@ permalink: inicio
     <script>
         // Função para abrir o seletor de arquivos quando o botão de alteração de foto for clicado
         function openFileInput() {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            if (isIOS) {
-                // Se for um dispositivo iOS, exibir o seletor de arquivos diretamente
-                document.getElementById('file-input').setAttribute('capture', 'environment');
-            } else {
-                // Para outros dispositivos, acionar o clique no elemento de entrada de arquivo
-                document.getElementById('file-input').click();
-            }
+            document.getElementById('file-input').click();
         }
 
         // Função para atualizar a foto de perfil quando um novo arquivo for selecionado
