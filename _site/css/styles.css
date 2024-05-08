@@ -62,7 +62,6 @@ header {
   margin-right: 20px;
   margin-left: 5px;
   border: 2px solid #6d6d6d;
-  
 }
 
 #change-picture-btn {
@@ -80,6 +79,7 @@ header {
   align-items: center;
   font-size: 22px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .user-stats {
@@ -90,4 +90,131 @@ header {
 .user-stats li {
   margin-right: 20px;
   font-size: 14px;
+}
+
+/* Estilo do modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #29292974; 
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 90%;
+  text-align: center;
+  backdrop-filter: blur(9px); 
+}
+
+.modal-close {
+  position: relative;
+  top: -15px;
+  right: -127px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bcbcbc;
+  font-size: 24px;
+  transition: transform 0.3s;
+}
+
+.modal-button:last-child {
+  margin-right: 0;
+}
+
+#change-picture-button {
+  background-color: #303030;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+}
+
+.modal-button {
+  color: white;
+  border: none;
+  padding: 8px 65px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.modal-button ion-icon {
+  margin-right: 8px;
+}
+
+#remove-picture-btn {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cc0000;
+  background-color: #e50000;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#remove-picture-btn,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+#remove-picture-btn .button__text {
+  transform: translateX(35px);
+  color: #fff;
+  font-weight: 600;
+}
+
+#remove-picture-btn .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 30%;
+  background-color: #cc0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 30%;
+}
+
+#remove-picture-btn .svg {
+  width: 20px;
+}
+
+#remove-picture-btn:hover {
+  background: #cc0000;
+}
+
+#remove-picture-btn:hover .button__text {
+  color: transparent;
+}
+
+#remove-picture-btn:hover .button__icon {
+  left: 35%;
+  transform: translateX(0);
+}
+
+#remove-picture-btn:active .button__icon {
+  background-color: #b20000;
+}
+
+#remove-picture-btn:active {
+  border: 1px solid #b20000;
 }
