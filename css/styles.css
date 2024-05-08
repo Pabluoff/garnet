@@ -134,6 +134,7 @@ header {
 
 #change-picture-button {
   background-color: #303030;
+  height: 40px;
 }
 
 .modal-close:hover {
