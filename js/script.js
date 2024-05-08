@@ -93,7 +93,7 @@ function verificarEmail() {
       arrowIcon.style.visibility = "visible";
       loading.style.display = "none";
       loginButton.classList.remove("loading-active");
-    }, 1000);
+    }, 3000);
   }
 }
 
