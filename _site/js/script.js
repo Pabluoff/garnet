@@ -137,3 +137,4 @@ function fazerLogout() {
 
 carregarInformacoesUsuario();
 document.getElementById("logout").addEventListener("click", fazerLogout);
+
