@@ -75,9 +75,7 @@ function verificarEmail() {
   } else {
     loginText.style.visibility = "hidden";
     loading.style.display = "block";
-
     arrowIcon.style.visibility = "hidden";
-
     loginButton.classList.add("loading-active");
 
     localStorage.setItem("email", emailValue);
@@ -86,9 +84,17 @@ function verificarEmail() {
     setTimeout(function () {
       exibirNotificacaoSucesso("Seu login foi realizado com sucesso!");
       setTimeout(function () {
+        // Verifica se a página atual é "/inicio"
+        if (window.location.pathname === "/inicio") {
+          // Adicionando o trecho ao redirecionar para "/inicio"
+          loginText.style.visibility = "visible";
+          arrowIcon.style.visibility = "visible";
+          loading.style.display = "none";
+          loginButton.classList.remove("loading-active");
+        }
+
         window.location.href = "/inicio";
       }, 1000);
-
     }, 3000);
   }
 }
