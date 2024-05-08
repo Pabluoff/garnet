@@ -21,10 +21,16 @@
                 <div id="welcome-line-1">Garnet</div>
                 <div id="welcome-line-2">Seja Bem-vindo, faça login</div>
             </div>
-            <input type="text" id="nome" class="custom-input" placeholder="Digite seu nome"
-                style="margin-bottom: 18px;">
-            <input type="email" id="email" class="custom-input" placeholder="Digite seu e-mail">
-            <button id="login-button" class="custom-button" onclick="verificarEmail()">
+            <div class="input-container">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="nome" class="custom-input" placeholder="Digite seu nome">
+            </div>
+            
+            <div class="input-container">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="email" class="custom-input" placeholder="Digite seu e-mail">
+            </div>
+                        <button id="login-button" class="custom-button" onclick="verificarEmail()">
                 <span id="login-text">ENTRAR</span>
                 <i class="fa-solid fa-arrow-right"></i>
                 <div class="loading"></div>

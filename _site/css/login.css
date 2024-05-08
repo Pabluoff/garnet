@@ -71,7 +71,7 @@ body {
   font-size: 16px;
   display: block;
   margin: 0 auto;
-  border: 1px solid #e3e3e3;
+  border: 1px solid #adadad;
 }
 
 .custom-input:focus {
@@ -80,7 +80,21 @@ body {
 }
 
 .custom-input::placeholder {
-  color: #b6a5b6;
+  color: #adadad;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: #adadad;
+    pointer-events: none;
 }
 
 .custom-button {
