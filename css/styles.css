@@ -107,13 +107,13 @@ header {
 }
 
 .modal-content {
-  background-color: #29292974; 
+  background-color: #29292974;
   padding: 20px;
   border-radius: 8px;
   max-width: 300px;
   width: 90%;
   text-align: center;
-  backdrop-filter: blur(9px); 
+  backdrop-filter: blur(9px);
 }
 
 .modal-close {
@@ -167,7 +167,7 @@ header {
   border: 1px solid #cc0000;
   background-color: #e50000;
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 16px;
   margin-bottom: 10px;
 }
 
