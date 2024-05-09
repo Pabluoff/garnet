@@ -83,7 +83,7 @@ header {
   border: none;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .user-options button:hover {
@@ -125,12 +125,32 @@ header {
   display: block;
 }
 
+.user-mail {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 14px;
+  color: #f8f8f8;
+  margin-bottom: 6px;
+}
+
+
+.user-category {
+  margin-left: 15px;
+  font-size: 14px;
+  color: #c1cedb;
+  margin-bottom: 3px;
+}
+
 .user-description {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 1px;
   margin-left: 15px;
+  font-size: 13px;
+  color: #ececec;
+  word-wrap: break-word;
+  max-width: 300px; 
 }
 
 #change-picture-btn {
