@@ -155,9 +155,13 @@ permalink: inicio
                 if (online) {
                     statusText.textContent = 'Online';
                     statusIcon.style.backgroundColor = '#4afe80';
+                    statusText.style.color = '#4afe80';
+                    statusIcon.style.animation = 'animate-outline 0.7s ease-out infinite';
                 } else {
                     statusText.textContent = 'Offline';
-                    statusIcon.style.backgroundColor = '#ff4a4a';
+                    statusIcon.style.backgroundColor = '#808080';
+                    statusText.style.color = '#808080';
+                    statusIcon.style.animation = 'none'; // Desativar a animação
                 }
             }
 
