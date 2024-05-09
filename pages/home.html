@@ -51,6 +51,8 @@ permalink: inicio
                     <li><strong>8,7 mil</strong> ativos</li>
                 </ul>
             </div>
+            <input type="file" id="file-input" accept="image/*" style="display: none;"
+                onchange="updateProfilePicture(this)">
             <div class="description-container">
                 <p class="user-mail" id="user-email">Email do Usuário</p>
                 <p class="user-category">Produto/serviço</p>
@@ -59,7 +61,25 @@ permalink: inicio
             </div>
         </div>
     </header>
-    <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(this)">
+    <div class="container">
+        <div class="custom-status-card">
+            <div class="status-left">
+                <h2>Status</h2>
+                <hr class="green-line">
+                <div class="status-icon">
+                    <i class="fa-solid fa-check"></i> Online
+                </div>
+            </div>
+            <div class="status-right">
+                <h2>Maintainer</h2>
+                <hr class="green-line">
+                <div class="status-icon">
+                    <i class="fa-solid fa-shield"></i>Garnet’s
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <script src="/js/script.js"></script>
     <script>
         function togglePictureOptions() {
