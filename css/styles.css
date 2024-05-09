@@ -137,8 +137,9 @@ header {
 .user-category {
   margin-left: 15px;
   font-size: 16px;
-  color: #c1cedb;
+  color: #b7cadc;
   margin-bottom: 3px;
+  font-weight: lighter;
 }
 
 .user-description {
