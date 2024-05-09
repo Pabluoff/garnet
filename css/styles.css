@@ -261,7 +261,7 @@ header {
   border-radius: 50%;
   background-color: #4afe80;
   margin-right: 12px;
-  animation: animate-outline 1s ease-out infinite;
+  animation: animate-outline 0.7s ease-out infinite;
 }
 
 .status-text {
