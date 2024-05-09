@@ -132,8 +132,8 @@ header {
   color: #f8f8f8;
   margin-bottom: 4px;
   text-decoration: none;
+  cursor: default;
 }
-
 
 .user-category {
   margin-left: 15px;
