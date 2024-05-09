@@ -20,7 +20,10 @@
         <div class="container-profile">
             <div class="user-details">
                 <h1 id="user-name">Nome de Usuário</h1>
-                <ion-icon name="chevron-down-outline" class="user-icon"></ion-icon>
+                <ion-icon name="chevron-down-outline" class="user-icon" onclick="toggleUserOptions()"></ion-icon>
+                <div id="user-options" class="user-options">
+                    <button id="logout">Fazer Logout</button>
+                </div>
             </div>
             <div class="profile-info">
                 <div class="profile-picture-container">
@@ -38,7 +41,7 @@
                             <span>Remover imagem</span>
                         </button>
                     </div>
-                                    </div>
+                </div>
                 <ul class="user-stats">
                     <li><strong style="margin-left: 20px;">3</strong> funções</li>
                     <li><strong>14,4 mil</strong> usuários</li>
@@ -50,7 +53,7 @@
             </div>
         </div>
     </header>
-        <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(this)">
+    <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(this)">
     <script src="/js/script.js"></script>
     <script>
         function togglePictureOptions() {
@@ -107,6 +110,20 @@
                 profilePicture.src = savedProfilePicture;
             }
         }
+
+        function toggleUserOptions() {
+            const userOptions = document.getElementById('user-options');
+            userOptions.classList.toggle('show-user');
+        }
+
+        // Fechar o menu de opções do usuário quando o usuário clicar fora dele
+        document.addEventListener('click', function (event) {
+            const userIcon = document.querySelector('.user-icon');
+            const userOptions = document.getElementById('user-options');
+            if (event.target !== userIcon && !userOptions.contains(event.target)) {
+                userOptions.classList.remove('show-user');
+            }
+        });
     </script>
 </body>
 
