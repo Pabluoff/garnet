@@ -142,3 +142,30 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
+function addToHomeScreen() {
+    if (window.navigator && window.navigator.standalone) {
+        // Já está na tela inicial
+        alert("Este site já está na sua tela inicial!");
+    } else if (window.matchMedia('(display-mode: standalone)').matches) {
+        // Já está no modo standalone
+        alert("Este site já está no modo standalone!");
+    } else {
+        // Não está na tela inicial, mostrar prompt para adicionar
+        if (window.matchMedia('(display-mode: browser)').matches) {
+            // Está em um navegador
+            if (window.confirm("Adicionar este site à tela inicial?")) {
+                // Adicionar à tela inicial
+                const addToHomePrompt = window.matchMedia('(display-mode: browser)').mediaDevices;
+                addToHomePrompt.prompt();
+                addToHomePrompt.userChoice.then(choiceResult => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuário aceitou o prompt');
+                    } else {
+                        console.log('Usuário não aceitou o prompt');
+                    }
+                    addToHomePrompt = null;
+                });
+            }
+        }
+    }
+}
