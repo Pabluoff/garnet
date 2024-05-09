@@ -161,7 +161,7 @@ function addToHomeScreen() {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('Usuário aceitou o prompt');
                     } else {
-                        console.log('Usuário não aceitou o prompt');
+                        console.log('Usuário não aceitou o prompt.');
                     }
                     addToHomePrompt = null;
                 });
