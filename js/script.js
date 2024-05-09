@@ -141,3 +141,4 @@ function fazerLogout() {
 }
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
+
