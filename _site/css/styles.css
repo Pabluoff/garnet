@@ -279,22 +279,30 @@ header {
   }
 }
 
+.notification-icon-wifi {
+  margin-right: 7px;
+  font-size: 19px;
+  color: #ffffff;
+}
+
 .offline-notification {
   position: fixed;
   bottom: 40%;
   left: 50%;
-  transform: translate(-50%, 50%); 
-  background-color: #2f2f2f;
+  transform: translate(-50%, 50%);
+  background-color: #161616;
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 8px;
-  font-size: 14px;
-  visibility: hidden;
-  opacity: 0;
+  font-size: 17px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   transition: visibility 0s, opacity 0.5s linear;
   z-index: 1000;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .offline-notification.show {
