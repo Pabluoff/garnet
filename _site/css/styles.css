@@ -279,6 +279,32 @@ header {
   }
 }
 
+.highlights-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.highlight {
+  display: inline-block;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.highlight img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid #585858;
+  object-fit: cover;
+}
+
+.highlight-title {
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 5px;
+  color: #bbbbbb;
+}
+
 .notification-icon-wifi {
   margin-right: 7px;
   font-size: 19px;
