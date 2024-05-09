@@ -74,7 +74,9 @@ permalink: inicio
         </ul>
         <div class="highlight"></div>
     </div>
-
+    <div id="offline-notification" class="offline-notification">
+        <p class="notification-text">Sem conexão com a internet.</p>
+    </div>
     <script src="/js/script.js"></script>
     <script>
         function togglePictureOptions() {
@@ -150,6 +152,7 @@ permalink: inicio
             const statusCard = document.getElementById('status-card');
             const statusText = document.getElementById('status-text');
             const statusIcon = document.querySelector('.status-icon');
+            const offlineNotification = document.getElementById('offline-notification');
 
             function updateStatus(online) {
                 if (online) {
@@ -157,11 +160,13 @@ permalink: inicio
                     statusIcon.style.backgroundColor = '#4afe80';
                     statusText.style.color = '#4afe80';
                     statusIcon.style.animation = 'animate-outline 0.7s ease-out infinite';
+                    offlineNotification.classList.remove('show');
                 } else {
                     statusText.textContent = 'Offline';
                     statusIcon.style.backgroundColor = '#808080';
                     statusText.style.color = '#808080';
                     statusIcon.style.animation = 'none'; // Desativar a animação
+                    offlineNotification.classList.add('show');
                 }
             }
 
@@ -177,7 +182,7 @@ permalink: inicio
         }
 
         verificarConexaoInternet();
-
+        
     </script>
 </body>
 

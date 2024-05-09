@@ -279,6 +279,28 @@ header {
   }
 }
 
+.offline-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f94f4f;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  z-index: 1000;
+}
+
+.offline-notification.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .magic-nav {
   position: fixed;
   bottom: 0;
