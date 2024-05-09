@@ -59,11 +59,10 @@ permalink: inicio
                 <p class="user-description">🎮 Um sistema desenvolvido para ajudar jogadores a adquirirem habilidades e
                     reduzir travamentos.</p>
             </div>
-            <div class="status-card">
+            <div class="status-card" id="status-card">
                 <div class="status-icon"></div>
-                <p class="status-text">online</p>
+                <p class="status-text" id="status-text">Conectando...</p>
             </div>
-
         </div>
     </header>
     <div class="magic-nav">
@@ -146,6 +145,35 @@ permalink: inicio
                 userOptions.classList.remove('show-user');
             }
         });
+
+        function verificarConexaoInternet() {
+            const statusCard = document.getElementById('status-card');
+            const statusText = document.getElementById('status-text');
+            const statusIcon = document.querySelector('.status-icon');
+
+            function updateStatus(online) {
+                if (online) {
+                    statusText.textContent = 'Online';
+                    statusIcon.style.backgroundColor = '#4afe80';
+                } else {
+                    statusText.textContent = 'Offline';
+                    statusIcon.style.backgroundColor = '#ff4a4a';
+                }
+            }
+
+            window.addEventListener('online', () => {
+                updateStatus(true);
+            });
+
+            window.addEventListener('offline', () => {
+                updateStatus(false);
+            });
+
+            updateStatus(navigator.onLine);
+        }
+
+        verificarConexaoInternet();
+
     </script>
 </body>
 
