@@ -128,15 +128,15 @@ header {
 .user-mail {
   margin-top: 10px;
   margin-left: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #f8f8f8;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 
 .user-category {
   margin-left: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #c1cedb;
   margin-bottom: 3px;
 }
@@ -147,7 +147,7 @@ header {
   margin-bottom: 20px;
   margin-top: 1px;
   margin-left: 15px;
-  font-size: 13px;
+  font-size: 15px;
   color: #ececec;
   word-wrap: break-word;
   max-width: 300px; 
