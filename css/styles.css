@@ -120,7 +120,7 @@ header {
   z-index: 999;
 }
 
-.picture-options button {
+.btn-img {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -131,18 +131,19 @@ header {
   background-color: transparent;
   border: 1px solid #3c3c3c;
   text-align: left;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
-.picture-options button:hover {
+.btn-img:hover {
   background-color: #444444;
 }
 
-.picture-options button span {
+.btn-img span {
   flex-grow: 1;
 }
 
-.picture-options button ion-icon {
+.btn-img ion-icon {
   margin-right: 10px;
   font-size: 20px;
 }
@@ -156,14 +157,24 @@ header {
   transform: translateY(0);
 }
 
-.picture-options button:nth-child(1) {
+.btn-img:nth-child(1) {
   transition-delay: 0.1s;
 }
 
-.picture-options button:nth-child(2) {
+.btn-img:nth-child(2) {
   transition-delay: 0.2s;
 }
 
-.picture-options button:nth-child(3) {
+.btn-img:nth-child(3) {
   transition-delay: 0.3s;
+}
+
+.remove-image-btn {
+  color: #ff5252;
+
+}
+
+.remove-image-btn:hover {
+  color: #ee1a1a;
+  background-color: transparent;
 }
