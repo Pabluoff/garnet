@@ -116,14 +116,15 @@ window.onload = function () {
 function carregarInformacoesUsuario() {
   const userEmail = localStorage.getItem("email");
   const userMailElement = document.getElementById("user-email");
+  const userNameElement = document.getElementById("user-name");
 
   if (userEmail) {
-    userMailElement.textContent = userEmail;
     const nome = localStorage.getItem("nome");
     if (nome) {
-      const userNameElement = document.getElementById("user-name");
       userNameElement.textContent = nome.toLowerCase();
     }
+    const nomeUsuario = userEmail.split("@")[0]; 
+    userMailElement.textContent = nomeUsuario;
   } else {
     if (window.location.pathname !== "/") {
       window.location.href = "/";
@@ -139,5 +140,4 @@ function fazerLogout() {
   window.location.href = "/";
 }
 
-carregarInformacoesUsuario();
 document.getElementById("logout").addEventListener("click", fazerLogout);
