@@ -49,8 +49,8 @@ header {
 
 .user-options {
   position: absolute;
-  top: calc(100% + 5px); 
-  right: 350px; 
+  top: calc(100% + 5px);
+  right: 350px;
   left: 10px;
   background-color: #1a1a1a;
   border-radius: 10px;
@@ -65,7 +65,7 @@ header {
 }
 
 .user-details {
-  position: relative; 
+  position: relative;
 }
 
 .user-options.show-user {
@@ -89,7 +89,6 @@ header {
 .user-options button:hover {
   background-color: #444444;
 }
-
 
 .profile-info {
   display: flex;
@@ -133,6 +132,7 @@ header {
   margin-bottom: 4px;
   text-decoration: none;
   cursor: default;
+  pointer-events: none;
 }
 
 .user-category {
@@ -151,7 +151,7 @@ header {
   font-size: 15px;
   color: #ececec;
   word-wrap: break-word;
-  max-width: 300px; 
+  max-width: 300px;
 }
 
 #change-picture-btn {
