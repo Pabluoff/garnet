@@ -102,97 +102,98 @@ function verificarConexaoInternet() {
 
 verificarConexaoInternet();
 
+class SlideStories {
+    constructor(id) {
+        this.slide = document.querySelector(`[data-slide="${id}"]`);
+        this.active = 0;
+        this.init();
+    }
+
+    activeSlide(index) {
+        this.active = index;
+        this.items.forEach((item) => item.classList.remove('active'));
+        this.items[index].classList.add('active');
+        this.thumbItems.forEach((item) => item.classList.remove('active'));
+        this.thumbItems[index].classList.add('active');
+        this.autoSlide();
+    }
+
+    prev() {
+        if (this.active > 0) {
+            this.activeSlide(this.active - 1);
+        } else {
+            this.activeSlide(this.items.length - 1);
+        }
+    }
+
+    next() {
+        if (this.active < this.items.length - 1) {
+            this.activeSlide(this.active + 1);
+        } else {
+            this.activeSlide(0);
+        }
+    }
+
+    addNavigation() {
+        const nextBtn = this.slide.querySelector('.slide-next');
+        const prevBtn = this.slide.querySelector('.slide-prev');
+        nextBtn.addEventListener('click', this.next);
+        prevBtn.addEventListener('click', this.prev);
+    }
+
+    addThumbItems() {
+        // Limpa os elementos slide-thumb antes de adicionar novos
+        this.thumb.innerHTML = '';
+        this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
+        this.thumbItems = Array.from(this.thumb.children);
+    }
+
+    autoSlide() {
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.next, 5000);
+    }
+
+    init() {
+        this.next = this.next.bind(this);
+        this.prev = this.prev.bind(this);
+        this.items = this.slide.querySelectorAll('.slide-items > *');
+        this.thumb = this.slide.querySelector('.slide-thumb');
+        this.addThumbItems();
+        this.activeSlide(0);
+        this.addNavigation();
+    }
+}
+
 function openModal() {
     const modal = document.getElementById('modal');
     modal.style.display = 'block';
-    // Limpa os elementos slide-thumb antes de adicionar novos
-    const thumb = document.querySelector('.slide-thumb');
-    thumb.innerHTML = '';
     new SlideStories('slide-modal');
 }
 
-    function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'none';
-    }
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
 
-    window.onclick = function(event) {
-        const modal = document.getElementById('modal');
-        if (event.target == modal) {
-            modal.style.display = "none";
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+document.querySelectorAll('.highlight-item').forEach((item, index) => {
+    item.addEventListener('click', () => {
+        openModal();
+        const slideStories = document.querySelector('[data-slide="slide-modal"]');
+        const slideItems = slideStories.querySelectorAll('.slide-items > *');
+        if (slideItems[index]) {
+            const slide = new SlideStories('slide-modal');
+            slide.activeSlide(index);
         }
-    };
-
-    document.querySelectorAll('.highlight-item').forEach((item, index) => {
-        item.addEventListener('click', () => {
-            openModal();
-        });
     });
+});
 
-    document.querySelector('.close').addEventListener('click', () => {
-        closeModal();
-    });
-
-
-class SlideStories {
-    constructor(id) {
-      this.slide = document.querySelector(`[data-slide="${id}"]`);
-      this.active = 0;
-      this.init();
-    }
-  
-    activeSlide(index) {
-      this.active = index;
-      this.items.forEach((item) => item.classList.remove('active'));
-      this.items[index].classList.add('active');
-      this.thumbItems.forEach((item) => item.classList.remove('active'));
-      this.thumbItems[index].classList.add('active');
-      this.autoSlide();
-    }
-  
-    prev() {
-      if (this.active > 0) {
-        this.activeSlide(this.active - 1);
-      } else {
-        this.activeSlide(this.items.length - 1);
-      }
-    }
-  
-    next() {
-      if (this.active < this.items.length - 1) {
-        this.activeSlide(this.active + 1);
-      } else {
-        this.activeSlide(0);
-      }
-    }
-  
-    addNavigation() {
-      const nextBtn = this.slide.querySelector('.slide-next');
-      const prevBtn = this.slide.querySelector('.slide-prev');
-      nextBtn.addEventListener('click', this.next);
-      prevBtn.addEventListener('click', this.prev);
-    }
-  
-    addThumbItems() {
-      this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
-      this.thumbItems = Array.from(this.thumb.children);
-    }
-  
-    autoSlide() {
-      clearTimeout(this.timeout);
-      this.timeout = setTimeout(this.next, 5000);
-    }
-  
-    init() {
-      this.next = this.next.bind(this);
-      this.prev = this.prev.bind(this);
-      this.items = this.slide.querySelectorAll('.slide-items > *');
-      this.thumb = this.slide.querySelector('.slide-thumb');
-      this.addThumbItems();
-      this.activeSlide(0);
-      this.addNavigation();
-    }
-  }
-  
-  new SlideStories('slide');
-  
+document.querySelector('.close').addEventListener('click', () => {
+    closeModal();
+});
