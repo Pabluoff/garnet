@@ -343,7 +343,7 @@ header {
   z-index: 1000;
 }
 
-img {
+.slide img {
   max-width: 100%;
   display: block;
 }
