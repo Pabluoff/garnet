@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#0b0b0c">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cd363fe7f3.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -14,6 +13,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="manifest" href="img/site.webmanifest">
     <title>Garnet</title>
+    <style>
+        /* CSS para a barra de status */
+@supports (padding-top: constant(safe-area-inset-top)) or (padding-top: env(safe-area-inset-top)) {
+  /* iOS >= 11.0 */
+  body {
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+  }
+}
+
+/* Estilo da barra de status */
+/* Definindo a cor de fundo */
+:root {
+  --status-bar-background-color: #1a1a1a; /* Cor de fundo escura */
+}
+
+/* Aplicando estilos */
+/* Cor de fundo e texto */
+@media (prefers-color-scheme: dark) {
+  /* Modo escuro */
+  /* Cor de fundo */
+  meta[name="theme-color"],
+  meta[name="msapplication-navbutton-color"],
+  meta[name="apple-mobile-web-app-status-bar-style"] {
+    content: var(--status-bar-background-color);
+  }
+
+  /* Cor do texto */
+  meta[name="apple-mobile-web-app-status-bar-style"] {
+    content: black-translucent;
+  }
+}
+
+/* Efeito de sombra na borda inferior */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  z-index: 9999;
+}
+
+    </style>
 </head>
 
 <body>
