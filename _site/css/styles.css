@@ -370,6 +370,10 @@ header {
   z-index: 1000;
 }
 
+.slide {
+  touch-action: manipulation; /* Bloqueia pinch zoom  */
+}
+
 .slide img {
   max-width: 100%;
   display: block;
