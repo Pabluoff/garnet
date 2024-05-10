@@ -371,7 +371,7 @@ header {
 }
 
 .slide {
-  touch-action: manipulation; /* Bloqueia pinch zoom  */
+  touch-action: none;
 }
 
 .slide img {
