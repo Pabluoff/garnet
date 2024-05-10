@@ -106,7 +106,11 @@ header {
   border-radius: 50%;
   margin-right: 20px;
   margin-left: 5px;
-  border: 1px solid #5a5a5a;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 1px #aeaeae57;
+  padding: 1px;
+  background-image: linear-gradient(45deg, #8f8f8f57, #8f8f8f57, #8f8f8f57);
 }
 
 .user-stats {
@@ -302,11 +306,11 @@ header {
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid transparent;
+  border: 3px solid transparent;
   background-clip: padding-box;
-  box-shadow: 0 0 0 2px rgba(123, 123, 123, 0.342);
+  box-shadow: 0 0 0 1px rgba(123, 123, 123, 0.342);
   padding: 2px;
-  background-image: linear-gradient(45deg, #222222, #303030, #191919);
+  background-image: linear-gradient(45deg, #22222200, #30303000, #19191900);
 }
 
 .highlight-title {
