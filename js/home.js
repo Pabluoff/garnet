@@ -102,11 +102,14 @@ function verificarConexaoInternet() {
 
 verificarConexaoInternet();
 
-    function openModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'block';
-        new SlideStories('slide-modal');
-    }
+function openModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    // Limpa os elementos slide-thumb antes de adicionar novos
+    const thumb = document.querySelector('.slide-thumb');
+    thumb.innerHTML = '';
+    new SlideStories('slide-modal');
+}
 
     function closeModal() {
         const modal = document.getElementById('modal');
