@@ -281,29 +281,77 @@ header {
 }
 
 .highlights-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 20px;
-  text-align: center;
 }
 
-.highlight {
-  display: inline-block;
-  margin-right: 20px;
-  text-align: center;
+.highlights-title {
+  margin-bottom: 20px;
 }
 
-.highlight img {
+.highlights-list {
+  display: flex;
+  justify-content: center;
+}
+
+.highlight-item {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.highlight-item img {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 1px solid #585858;
+  border: 2px solid #414141;
   object-fit: cover;
 }
 
 .highlight-title {
-  margin-bottom: 10px;
-  text-align: center;
   margin-top: 5px;
-  color: #bbbbbb;
+  text-align: center;
+}
+
+.highlight-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 450px; /* Defina o máximo de largura para o modal */
+  border-radius: 12px;
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do modal */
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 44px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.modal-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  object-fit: cover;
+  margin-top: 20%;
 }
 
 .notification-icon-wifi {

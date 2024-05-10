@@ -102,3 +102,23 @@ function verificarConexaoInternet() {
 
 verificarConexaoInternet();
 
+function openHighlightModal(highlight) {
+    var modal = document.getElementById('highlight-modal');
+    var modalContent = document.getElementById('highlight-content');
+
+    // Preencher o conteúdo do modal com base no destaque selecionado
+    if (highlight === 'viagem') {
+        modalContent.innerHTML = "<img src='/img/o.jpeg' alt='Viagem'>";
+    } else if (highlight === 'culinaria') {
+        modalContent.innerHTML = "<img src='culinaria.jpg' alt='Culinária'>";
+    } else if (highlight === 'esportes') {
+        modalContent.innerHTML = "<img src='esportes.jpg' alt='Esportes'>";
+    }
+    
+    modal.style.display = 'block';
+}
+
+function closeHighlightModal() {
+    var modal = document.getElementById('highlight-modal');
+    modal.style.display = 'none';
+}

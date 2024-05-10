@@ -65,22 +65,34 @@ permalink: inicio
                 <p class="status-text" id="status-text">online</p>
             </div>
             <div class="highlights-container">
-                <div class="highlight">
-                    <img src="/img/logo.jpg" alt="Destaque 1">
-                    <p class="highlight-title">Aula 1</p>
-                </div>
-                <div class="highlight">
-                    <img src="/img/logo.jpg" alt="Destaque 2">
-                    <p class="highlight-title">Aula 2</p>
-                </div>
-                <div class="highlight">
-                    <img src="/img/logo.jpg" alt="Destaque 3">
-                    <p class="highlight-title">Aula 3</p>
+                <div class="highlights-list">
+                    <div class="highlight-item" onclick="openHighlightModal('viagem')">
+                        <img src="/img/user.webp" alt="Viagem">
+                        <p class="highlight-title">Viagem</p>
+                    </div>
+                    <div class="highlight-item" onclick="openHighlightModal('culinaria')">
+                        <img src="/img/user.webp" alt="Culinária">
+                        <p class="highlight-title">Culinária</p>
+                    </div>
+                    <div class="highlight-item" onclick="openHighlightModal('esportes')">
+                        <img src="/img/user.webp" alt="Esportes">
+                        <p class="highlight-title">Esportes</p>
+                    </div>
                 </div>
             </div>
 
+            <div class="highlight-modal" id="highlight-modal">
+                <span class="close-modal" onclick="closeHighlightModal()">&times;</span>
+                <div class="modal-content">
+                    <!-- Conteúdo do modal será preenchido dinamicamente -->
+                    <div id="highlight-content"></div>
+                </div>
+            </div>
+
+
         </div>
     </header>
+
     <div class="magic-nav">
         <ul>
             <li><a href="#"><ion-icon name="person"></ion-icon></a></li>
