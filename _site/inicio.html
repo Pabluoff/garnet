@@ -63,24 +63,37 @@
             </div>
             <div class="highlights-container">
                 <div class="highlights-list">
-                    <div class="highlight-item" onclick="openHighlightModal('função1')">
+                    <div class="highlight-item">
                         <img src="/img/user.webp" alt="função1">
                         <p class="highlight-title">Aula 1</p>
                     </div>
-                    <div class="highlight-item" onclick="openHighlightModal('função2')">
-                        <img src="/img/user.webp" alt="função2">
+                    <div class="highlight-item"">
+                        <img src=" /img/user.webp" alt="função2">
                         <p class="highlight-title">Aula 2</p>
                     </div>
-                    <div class="highlight-item" onclick="openHighlightModal('função3')">
+                    <div class="highlight-item">
                         <img src="/img/user.webp" alt="função3">
                         <p class="highlight-title">Aula 3</p>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight-modal" id="highlight-modal">
-                <span class="close-modal" onclick="closeHighlightModal()">&times;</span>
-                <div class="modal-content" id="highlight-content"></div>
+            <div id="modal" class="modal">
+                <span class="close">&times;</span>
+                <div class="modal-content">
+                    <div data-slide="slide-modal" class="slide">
+                        <div class="slide-items">
+                            <img src="/img/o.jpeg" alt="Img 1">
+                            <img src="/img/o.jpeg" alt="Img 2">
+                            <img src="/img/o.jpeg" alt="Img 3">
+                        </div>
+                        <nav class="slide-nav">
+                            <div class="slide-thumb"></div>
+                            <button class="slide-prev">Anterior</button>
+                            <button class="slide-next">Próximo</button>
+                        </nav>
+                    </div>
+                </div>
             </div>
 
         </div>
