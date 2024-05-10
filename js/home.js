@@ -166,13 +166,15 @@ class SlideStories {
 
 function openModal() {
     const modal = document.getElementById('modal');
-    modal.style.display = 'block';
+    modal.classList.add('show-modal'); 
+    document.body.style.overflow = 'hidden'; 
     new SlideStories('slide-modal');
 }
 
 function closeModal() {
     const modal = document.getElementById('modal');
-    modal.style.display = 'none';
+    modal.classList.remove('show-modal'); 
+    document.body.style.overflow = ''; 
 }
 
 window.onclick = function(event) {
