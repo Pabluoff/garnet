@@ -323,7 +323,7 @@ header {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: #0f0f0f;
 }
 
 .modal-content {
@@ -331,10 +331,12 @@ header {
   margin: auto;
   width: 100%;
   height: 100%;
-  max-width: 450px; /* Defina o máximo de largura para o modal */
+  max-width: 450px;
   border-radius: 12px;
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do modal */
+  overflow: hidden;
+  background-color: #000000;
 }
+
 
 .close-modal {
   position: absolute;

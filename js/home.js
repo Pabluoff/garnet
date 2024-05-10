@@ -107,12 +107,12 @@ function openHighlightModal(highlight) {
     var modalContent = document.getElementById('highlight-content');
 
     // Preencher o conteúdo do modal com base no destaque selecionado
-    if (highlight === 'viagem') {
-        modalContent.innerHTML = "<img src='/img/o.jpeg' alt='Viagem'>";
-    } else if (highlight === 'culinaria') {
-        modalContent.innerHTML = "<img src='culinaria.jpg' alt='Culinária'>";
-    } else if (highlight === 'esportes') {
-        modalContent.innerHTML = "<img src='esportes.jpg' alt='Esportes'>";
+    if (highlight === 'função1') {
+        modalContent.innerHTML = "<img src='/img/o.jpeg' alt='função1'>";
+    } else if (highlight === 'função2') {
+        modalContent.innerHTML = "<img src='função2.jpg' alt='função2'>";
+    } else if (highlight === 'função3') {
+        modalContent.innerHTML = "<img src='função3.jpg' alt='função3'>";
     }
     
     modal.style.display = 'block';
