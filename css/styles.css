@@ -353,9 +353,9 @@ header {
 
 .close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #ffffff;
+  top: 30px;
+  right: 15px;
+  color: #ffffffc4;
   font-size: 40px;
   cursor: pointer;
   z-index: 1000;
