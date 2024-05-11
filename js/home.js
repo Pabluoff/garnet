@@ -102,6 +102,8 @@ function verificarConexaoInternet() {
 
 verificarConexaoInternet();
 
+
+//storya
 let slideModalInstance = null;
 
 class SlideStories {
