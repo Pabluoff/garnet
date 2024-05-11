@@ -150,7 +150,7 @@ class SlideStories {
 
     autoSlide() {
         clearTimeout(this.timeout);
-        this.timeout = setTimeout(this.next, 5000);
+        this.timeout = setTimeout(this.next.bind(this), 5000); // Atualizado para resetar a passagem automática
     }
 
     init() {
