@@ -142,29 +142,56 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
-let deferredPrompt;
+// Verifica se o navegador suporta a funcionalidade de "Adicionar à tela inicial"
+function isPWAInstallable() {
+  return (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone === true
+  );
+}
 
-window.addEventListener('beforeinstallprompt', (event) => {
-  // Armazena o evento para uso posterior
-  deferredPrompt = event;
+// Função para exibir o botão "Adicionar à tela inicial" se a PWA for instalável
+function mostrarBotaoInstall() {
+  const installBtn = document.getElementById('install-btn');
+  if (isPWAInstallable()) {
+    installBtn.style.display = 'block';
+    installBtn.addEventListener('click', instalarPWA);
+  } else {
+    installBtn.style.display = 'none';
+  }
+}
 
-  // Mostra o botão "Add to Home Screen"
-  seuBotaoAddToHomeScreen.style.display = 'block';
-
-  // Adicione um evento de clique ao botão "Add to Home Screen"
-  seuBotaoAddToHomeScreen.addEventListener('click', () => {
-    // Mostra o prompt de instalação
+// Função para instalar a PWA
+function instalarPWA() {
+  if (deferredPrompt) {
     deferredPrompt.prompt();
-
-    // Aguarde a escolha do usuário
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('Usuário aceitou o prompt de instalação');
+        console.log('O usuário aceitou a instalação da PWA');
       } else {
-        console.log('Usuário rejeitou o prompt de instalação');
+        console.log('O usuário recusou a instalação da PWA');
       }
-      // Limpa o prompt de instalação armazenado
       deferredPrompt = null;
     });
+  }
+}
+
+// Evento de carregamento da página
+window.addEventListener('load', () => {
+  let deferredPrompt;
+
+  // Evento antes da instalação da PWA
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    mostrarBotaoInstall();
   });
+
+  // Verifica se a PWA já está instalada
+  window.addEventListener('appinstalled', () => {
+    console.log('A PWA foi instalada com sucesso.');
+  });
+
+  // Chama a função para exibir o botão "Adicionar à tela inicial"
+  mostrarBotaoInstall();
 });
