@@ -63,7 +63,7 @@ header {
 
 .notification-badge {
   position: absolute;
-  top: -6px;
+  top: -5px;
   right: 2px;
   background-color: #f00;
   color: #fff;
