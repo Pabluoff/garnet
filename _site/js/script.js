@@ -153,9 +153,6 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
   // Adicione um evento de clique ao botão "Add to Home Screen"
   seuBotaoAddToHomeScreen.addEventListener('click', () => {
-    // Oculta o botão "Add to Home Screen"
-    seuBotaoAddToHomeScreen.style.display = 'none';
-
     // Mostra o prompt de instalação
     deferredPrompt.prompt();
 
