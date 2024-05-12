@@ -206,3 +206,38 @@ document.querySelectorAll('.highlight-item').forEach((item, index) => {
 document.querySelector('.close').addEventListener('click', () => {
     closeModal();
 });
+
+// Função para abrir ou fechar o dropdown e alternar o ícone
+function toggleNotificationDropdown() {
+    const dropdown = document.getElementById("notification-dropdown");
+    const icon = document.getElementById("notification-icon");
+    const badge = document.getElementById("notification-badge");
+
+    // Verifica se o dropdown está atualmente oculto
+    const isHidden = dropdown.style.display === "none" || dropdown.style.display === "";
+
+    // Oculta o contador de notificações se o dropdown estiver sendo aberto pela primeira vez
+    if (isHidden) {
+        badge.style.display = "none";
+    }
+
+    // Alterna o estado do dropdown
+    dropdown.style.display = isHidden ? "block" : "none";
+
+    // Alterna o ícone entre notifications-outline e close-outline
+    if (dropdown.style.display === "block") {
+        icon.setAttribute("name", "notifications");
+    } else {
+        icon.setAttribute("name", "notifications-outline");
+    }
+}
+
+// Função para fechar o dropdown se houver um clique fora dele
+document.addEventListener("click", function(event) {
+    const dropdown = document.getElementById("notification-dropdown");
+    const icon = document.getElementById("notification-icon");
+    if (!dropdown.contains(event.target) && event.target !== icon) {
+        dropdown.style.display = "none";
+        icon.setAttribute("name", "notifications-outline"); 
+    }
+});

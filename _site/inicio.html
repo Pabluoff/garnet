@@ -26,10 +26,17 @@
                 <div id="user-options" class="user-options">
                     <button id="logout">Fazer Logout</button>
                 </div>
-                <div>
-                    <ion-icon name="notifications-outline" class="user-notification" id="notification-icon"></ion-icon>
+                <div class="notification-container">
+                    <ion-icon name="notifications-outline" class="user-notification" id="notification-icon"
+                        onclick="toggleNotificationDropdown()"></ion-icon>
                     <span class="notification-badge" id="notification-badge">1</span>
-                    
+                    <div class="notification-dropdown" id="notification-dropdown">
+                        <div class="notification-content">
+                            <img src="/img/logo.jpg" alt="Imagem do usuário do sistema" class="system-user-image">
+                            <p>Siga o nosso patrocinador
+                                oficial. Clique <a href="https://www.instagram.com/pabluoff/" target="_blank">aqui</a> para seguir agora.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="profile-info">
