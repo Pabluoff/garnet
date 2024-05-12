@@ -148,12 +148,9 @@ window.addEventListener('beforeinstallprompt', (event) => {
   // Armazena o evento para uso posterior
   deferredPrompt = event;
 
-  // Mostra o botão "Add to Home Screen"
-  seuBotaoAddToHomeScreen.style.display = 'block';
-
   // Adicione um evento de clique ao botão "Add to Home Screen"
   seuBotaoAddToHomeScreen.addEventListener('click', () => {
-    // Oculta o botão "Add to Home Screen"
+    // Oculta o botão "Adicionar à Tela Inicial"
     seuBotaoAddToHomeScreen.style.display = 'none';
 
     // Mostra o prompt de instalação
@@ -171,3 +168,15 @@ window.addEventListener('beforeinstallprompt', (event) => {
     });
   });
 });
+
+window.addEventListener('appinstalled', (evt) => {
+  // Exibe a mensagem de aplicativo instalado
+  seuBotaoAddToHomeScreen.style.display = 'none';
+  instalado.style.display = 'block';
+});
+
+// Verifica se a aplicação já está instalada
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  seuBotaoAddToHomeScreen.style.display = 'none';
+  instalado.style.display = 'block';
+}
