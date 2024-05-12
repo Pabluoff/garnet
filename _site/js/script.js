@@ -142,3 +142,39 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
+// Verifica se o aplicativo já está instalado
+window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/js/sw.js')
+          .then(registration => {
+              console.log('Service Worker registrado com sucesso!', registration);
+          })
+          .catch(error => {
+              console.error('Erro ao registrar Service Worker:', error);
+          });
+  }
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+      console.log('Evento beforeinstallprompt disparado.');
+      event.preventDefault();
+      const installBtn = document.getElementById('installBtn');
+      installBtn.style.display = 'block';
+
+      installBtn.addEventListener('click', () => {
+          event.prompt();
+          event.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === 'accepted') {
+                  console.log('Usuário aceitou a instalação.');
+                  installBtn.style.display = 'none';
+              } else {
+                  console.log('Usuário cancelou a instalação.');
+              }
+          });
+      });
+  });
+
+  // Verifica se o aplicativo já está instalado na tela inicial
+  window.addEventListener('appinstalled', (event) => {
+      console.log('Aplicativo instalado.', event);
+  });
+});
