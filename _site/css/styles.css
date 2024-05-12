@@ -52,6 +52,27 @@ header {
   color: #c3c3c3;
 }
 
+.user-notification {
+  position: absolute;
+  top: -0px;
+  right: 8px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+
+.notification-badge {
+  position: absolute;
+  top: -7px;
+  right: 1px;
+  background-color: #e83e00;
+  color: #fff;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
 .user-options {
   position: absolute;
   top: calc(100% + 5px);
