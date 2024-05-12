@@ -142,33 +142,3 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  // Armazena a referência do evento
-  deferredPrompt = event;
-  // Exibe o botão de instalação
-  showInstallButton();
-});
-
-function showInstallButton() {
-  const installButton = document.getElementById('install-button');
-  installButton.style.display = 'block';
-  
-  installButton.addEventListener('click', () => {
-    // Oculta o botão de instalação
-    installButton.style.display = 'none';
-    // Mostra a solicitação de instalação
-    deferredPrompt.prompt();
-    // Aguarda o usuário responder à solicitação
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('Usuário aceitou a instalação.');
-      } else {
-        console.log('Usuário recusou a instalação.');
-      }
-      // Limpa a referência do evento
-      deferredPrompt = null;
-    });
-  });
-}
