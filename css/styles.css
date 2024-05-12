@@ -37,13 +37,19 @@ header {
   font-size: 23px;
   font-weight: bold;
   margin-right: 5px;
-  margin-left: 15px;
+  margin-left: 5px;
   color: #eaeaea;
 }
 
 .user-icon {
   margin-top: 7px;
   cursor: pointer;
+}
+
+.user-lock {
+  margin-top: 6px;
+  margin-left: 10px;
+  color: #dbdbdb;
 }
 
 .user-options {
