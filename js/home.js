@@ -216,15 +216,12 @@ function toggleNotificationDropdown() {
     // Verifica se o dropdown está atualmente oculto
     const isHidden = dropdown.style.display === "none" || dropdown.style.display === "";
 
-    // Oculta o contador de notificações se o dropdown estiver sendo aberto pela primeira vez
     if (isHidden) {
         badge.style.display = "none";
     }
 
-    // Alterna o estado do dropdown
     dropdown.style.display = isHidden ? "block" : "none";
 
-    // Alterna o ícone entre notifications-outline e close-outline
     if (dropdown.style.display === "block") {
         icon.setAttribute("name", "notifications");
     } else {
@@ -232,12 +229,17 @@ function toggleNotificationDropdown() {
     }
 }
 
-// Função para fechar o dropdown se houver um clique fora dele
 document.addEventListener("click", function(event) {
     const dropdown = document.getElementById("notification-dropdown");
     const icon = document.getElementById("notification-icon");
-    if (!dropdown.contains(event.target) && event.target !== icon) {
+    const badge = document.getElementById("notification-badge");
+
+    if (!dropdown.contains(event.target) && event.target !== icon && event.target !== badge) {
         dropdown.style.display = "none";
-        icon.setAttribute("name", "notifications-outline"); 
+        icon.setAttribute("name", "notifications-outline");
     }
+});
+
+document.getElementById("notification-badge").addEventListener("click", function() {
+    toggleNotificationDropdown();
 });

@@ -58,6 +58,7 @@ header {
   right: 8px;
   font-size: 22px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .notification-badge {
@@ -70,6 +71,7 @@ header {
   padding: 3px 6px;
   font-size: 10px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .notification-dropdown {
@@ -100,7 +102,7 @@ header {
 
 .notification-content {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
 
 .system-user-image {
@@ -125,7 +127,6 @@ header {
 .notification-dropdown a:hover {
   color: #8ca8c3;
 }
-
 
 .notification-dropdown p {
   padding-bottom: 8px;
