@@ -142,3 +142,32 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  // Armazena o evento para uso posterior
+  deferredPrompt = event;
+
+  // Mostra o botão "Add to Home Screen"
+  seuBotaoAddToHomeScreen.style.display = 'block';
+
+  // Adicione um evento de clique ao botão "Add to Home Screen"
+  seuBotaoAddToHomeScreen.addEventListener('click', () => {
+    // Oculta o botão "Add to Home Screen"
+    seuBotaoAddToHomeScreen.style.display = 'none';
+
+    // Mostra o prompt de instalação
+    deferredPrompt.prompt();
+
+    // Aguarde a escolha do usuário
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Usuário aceitou o prompt de instalação');
+      } else {
+        console.log('Usuário rejeitou o prompt de instalação');
+      }
+      // Limpa o prompt de instalação armazenado
+      deferredPrompt = null;
+    });
+  });
+});

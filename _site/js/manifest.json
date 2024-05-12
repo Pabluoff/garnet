@@ -1,0 +1,16 @@
+{
+    "name": "Garnet",
+    "short_name": "Garnet",
+    "icons": [
+      {
+        "src": "/img/logo-192size.jpg",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/inicio",
+    "display": "standalone",
+    "theme_color": "#0b0b0c",
+    "background_color": "#0b0b0c"
+  }
+  
