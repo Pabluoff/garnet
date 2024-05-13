@@ -22,7 +22,12 @@ permalink: fps
     <header>
         <div class="container-profile">
             <div class="user-details">
-                <h1>Garnet</h1>
+                <ion-icon name="lock-closed-outline" class="user-lock"></ion-icon>
+                <h1 id="user-name">Nome de Usuário</h1>
+                <ion-icon name="chevron-down-outline" class="user-icon" onclick="toggleUserOptions()"></ion-icon>
+                <div id="user-options" class="user-options">
+                    <button id="logout">Fazer Logout</button>
+                </div>
                 <div class="notification-container">
                     <ion-icon name="notifications-outline" class="user-notification" id="notification-icon"
                         onclick="toggleNotificationDropdown()"></ion-icon>
