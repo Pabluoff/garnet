@@ -102,19 +102,8 @@ body {
 .notification-dropdown.show-drop {
   opacity: 1;
   visibility: visible;
-  animation: fadeIn 0.4s ease;
   
 }
-
-@keyframes fadeIn {
-  from {
-    transform: translateY(-10px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 
 .notification-header {
   display: flex;
@@ -650,3 +639,4 @@ body {
   font-size: 27px;
   margin-bottom: 35px;
 }
+
