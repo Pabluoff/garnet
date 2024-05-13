@@ -245,3 +245,13 @@ document.addEventListener("click", function(event) {
 document.getElementById("notification-badge").addEventListener("click", function() {
     toggleNotificationDropdown();
 });
+
+window.addEventListener("load", function() {
+    const loadingScreen = document.getElementById("loading-screen");
+    
+    // Define um atraso de 3 segundos antes de ocultar a tela de carregamento
+    setTimeout(function() {
+      loadingScreen.style.display = "none";
+    }, 3000); // 3000 milissegundos = 3 segundos
+  });
+  
