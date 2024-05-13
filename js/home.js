@@ -185,7 +185,7 @@ function closeModal() {
     clearTimeout(slideModalInstance.timeout); // Limpa o timeout do autoSlide ao fechar o modal
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     const modal = document.getElementById('modal');
     if (event.target == modal) {
         closeModal();
@@ -230,7 +230,7 @@ function toggleNotificationDropdown() {
     }
 }
 
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
     const dropdown = document.getElementById("notification-dropdown");
     const icon = document.getElementById("notification-icon");
     const badge = document.getElementById("notification-badge");
@@ -242,16 +242,15 @@ document.addEventListener("click", function(event) {
     }
 });
 
-document.getElementById("notification-badge").addEventListener("click", function() {
+document.getElementById("notification-badge").addEventListener("click", function () {
     toggleNotificationDropdown();
 });
 
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const loadingScreen = document.getElementById("loading-screen");
-    
-    // Define um atraso de 3 segundos antes de ocultar a tela de carregamento
-    setTimeout(function() {
-      loadingScreen.style.display = "none";
-    }, 3000); // 3000 milissegundos = 3 segundos
-  });
-  
+    loadingScreen.style.display = "flex";
+
+    setTimeout(function () {
+        loadingScreen.style.display = "none";
+    }, 3000);
+});
