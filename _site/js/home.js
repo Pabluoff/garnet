@@ -250,7 +250,5 @@ document.addEventListener("DOMContentLoaded", function () {
     const loadingScreen = document.getElementById("loading-screen");
     loadingScreen.style.display = "flex";
 
-    setTimeout(function () {
-        loadingScreen.style.display = "none";
-    }, 3000);
+    loadingScreen.style.display = "none";
 });
