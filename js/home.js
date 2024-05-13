@@ -252,5 +252,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(function () {
         loadingScreen.style.display = "none";
-    }, 3000);
+    }, 2000);
 });
