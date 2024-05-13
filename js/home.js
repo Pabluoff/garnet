@@ -250,5 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loadingScreen = document.getElementById("loading-screen");
     loadingScreen.style.display = "flex";
 
-    loadingScreen.style.display = "none";
+    setTimeout(function () {
+        loadingScreen.style.display = "none";
+    }, 3000);
 });
