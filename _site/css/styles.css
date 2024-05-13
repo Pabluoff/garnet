@@ -662,7 +662,6 @@ body {
   z-index: 9999;
 }
 
-
 .loader {
   --background: #4afe80;
   --front-color: #29f036;
@@ -682,6 +681,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -30px;
 }
 
 .loader svg circle {
@@ -761,11 +761,13 @@ body {
   align-items: center;
   text-transform: lowercase;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 0.2px;
+  margin-top: -30px;
 }
 
-.loader .text::before, .loader .text::after {
+.loader .text::before,
+.loader .text::after {
   content: attr(data-text);
 }
 
@@ -859,4 +861,3 @@ body {
     clip-path: inset(0 0 0 100%);
   }
 }
- 
