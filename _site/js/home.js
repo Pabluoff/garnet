@@ -214,15 +214,16 @@ function toggleNotificationDropdown() {
     const badge = document.getElementById("notification-badge");
 
     // Verifica se o dropdown está atualmente oculto
-    const isHidden = dropdown.style.display === "none" || dropdown.style.display === "";
+    const isHidden = dropdown.style.visibility === "hidden" || dropdown.style.visibility === "";
 
     if (isHidden) {
         badge.style.display = "none";
     }
 
-    dropdown.style.display = isHidden ? "block" : "none";
+    dropdown.style.visibility = isHidden ? "visible" : "hidden";
+    dropdown.classList.toggle("show-drop");
 
-    if (dropdown.style.display === "block") {
+    if (dropdown.classList.contains("show-drop")) {
         icon.setAttribute("name", "notifications");
     } else {
         icon.setAttribute("name", "notifications-outline");
@@ -235,7 +236,8 @@ document.addEventListener("click", function(event) {
     const badge = document.getElementById("notification-badge");
 
     if (!dropdown.contains(event.target) && event.target !== icon && event.target !== badge) {
-        dropdown.style.display = "none";
+        dropdown.style.visibility = "hidden";
+        dropdown.classList.remove("show-drop");
         icon.setAttribute("name", "notifications-outline");
     }
 });
