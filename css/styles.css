@@ -681,7 +681,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -30px;
+  margin-top: -40px;
 }
 
 .loader svg circle {
@@ -761,7 +761,7 @@ body {
   align-items: center;
   text-transform: lowercase;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 0.2px;
   margin-top: -30px;
 }
