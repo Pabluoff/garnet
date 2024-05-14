@@ -246,25 +246,10 @@ document.getElementById("notification-badge").addEventListener("click", function
     toggleNotificationDropdown();
 });
 
-window.addEventListener('load', function() {
-    // Exibir a tela de loading
-    document.getElementById('loading-screen').style.display = 'block';
+document.addEventListener("DOMContentLoaded", function () {
+    const loadingScreen = document.getElementById("loading-screen");
 
-    // Verificar se o navegador suporta service workers
-    if ('serviceWorker' in navigator) {
-        // Registrar o service worker após um atraso de 3 segundos
-        setTimeout(function() {
-            navigator.serviceWorker.register('/js/sw.js').then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                console.log('ServiceWorker registration failed: ', err);
-            }).finally(function() {
-                // Esconder a tela de loading após o registro do service worker
-                document.getElementById('loading-screen').style.display = 'none';
-            });
-        }, 3000); // 3 segundos de atraso
-    } else {
-        // Esconder a tela de loading se o navegador não suportar service workers
-        document.getElementById('loading-screen').style.display = 'none';
-    }
+    setTimeout(function () {
+        loadingScreen.style.display = "none";
+    }, 1000);
 });
