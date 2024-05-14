@@ -72,7 +72,6 @@ body {
 
 #notification-icon:hover {
   animation: bell-animation 650ms ease-out 0s 1 normal both;
-
 }
 
 @keyframes bell-animation {
@@ -99,13 +98,13 @@ body {
 
 .notification-badge {
   position: absolute;
-  top: 2px;
+  top: 3px;
   right: 10px;
   background-color: #f00;
   color: #fff;
   border-radius: 50%;
   padding: 2px 4px;
-  font-size: 8px;
+  font-size: 7px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
