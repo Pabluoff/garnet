@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#0b0b0c",
   "orientation": "portrait-primary",
-  "splash_screen": "/img/logo-192size.jpg", 
+  "theme_color": "#0b0b0c",
   "icons": [
     {
       "src": "/img/logo-192size.jpg",
