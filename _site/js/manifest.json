@@ -1,16 +1,16 @@
 {
-    "name": "Garnet",
-    "short_name": "Garnet",
-    "start_url": "/inicio",
-    "display": "standalone",
-    "background_color": "#0b0b0c",
-    "theme_color": "#0b0b0c",
-    "icons": [
-      {
-        "src": "/img/logo-192size.jpg",
-        "type": "image/png",
-        "sizes": "192x192"
-      }
-    ]
-  }
-  
+  "name": "Garnet",
+  "short_name": "Garnet",
+  "start_url": "/inicio",
+  "display": "standalone",
+  "background_color": "#0b0b0c",
+  "theme_color": "#0b0b0c",
+  "splash_screen": "/img/logo-192size.jpg", 
+  "icons": [
+    {
+      "src": "/img/logo-192size.jpg",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
