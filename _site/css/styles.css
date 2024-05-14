@@ -66,9 +66,35 @@ body {
 
 .user-notification:hover {
   display: block;
-  background-color: #343434;
   border-radius: 50%;
   padding: 8px;
+}
+
+#notification-icon:hover {
+  animation: bell-animation 650ms ease-out 0s 1 normal both;
+
+}
+
+@keyframes bell-animation {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+    scale: 1.1;
+  }
+  60% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .notification-badge {
