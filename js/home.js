@@ -246,10 +246,9 @@ document.getElementById("notification-badge").addEventListener("click", function
     toggleNotificationDropdown();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const loadingScreen = document.getElementById("loading-screen");
-
-    setTimeout(function () {
-        loadingScreen.style.display = "none";
-    }, 1000);
-});
+//serviceworker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+    .then((reg) => console.log('service worker registrado', reg))
+    .catch((err) => console.log('service worker não registrado', err));
+}
