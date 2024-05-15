@@ -18,24 +18,16 @@
       "sizes": "1024x1024"
     },
     {
-      "src": "/img/logo-512size.jpg",
-      "type": "image/jpg",
+      "src": "/img/logo-512size.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "splash_screen": {
+  "splash_screen": {  
     "background_color": "#0b0b0c",
-    "icons": [
-      {
-        "src": "/img/logo-512size.jpg",
-        "sizes": "512x512",
-        "type": "image/jpg"
-      },
-      {
-        "src": "/img/logo-1024size.jpg",
-        "sizes": "1024x1024",
-        "type": "image/jpg"
-      }
-    ]
+    "image_path": "/img/logo-512size.png",
+    "show_duration": 2000,
+    "hide_duration": 1000,
+    "auto_hide": true
   }
 }
