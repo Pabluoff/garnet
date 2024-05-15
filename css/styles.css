@@ -526,6 +526,11 @@ body {
   font-size: 40px;
   cursor: pointer;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: #ffffff;
 }
 
 .slide {
