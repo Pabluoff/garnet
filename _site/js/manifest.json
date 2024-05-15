@@ -22,15 +22,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "splash_screen": {
-    "background_color": "#f00",
-    "icons": [
-      {
-        "src": "/img/logo-512size.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
+  ]
 }
