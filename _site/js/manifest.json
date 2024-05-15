@@ -13,6 +13,11 @@
       "sizes": "192x192"
     },
     {
+      "src": "/img/logo-1024size.jpg",
+      "type": "image/jpg",
+      "sizes": "1024x1024"
+    },
+    {
       "src": "/img/logo-512size.jpg",
       "type": "image/jpg",
       "sizes": "512x512"
