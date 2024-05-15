@@ -24,7 +24,7 @@
     }
   ],
   "splash_screen": {
-    "background_color": "#0b0b0c",
+    "background_color": "#fff",
     "icons": [
       {
         "src": "/img/logo-512size.png",
