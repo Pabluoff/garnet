@@ -17,5 +17,20 @@
       "type": "image/jpg",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "splash_screen": {
+    "background_color": "#0b0b0c",
+    "icons": [
+      {
+        "src": "/img/logo-512size.jpg",
+        "sizes": "512x512",
+        "type": "image/jpg"
+      },
+      {
+        "src": "/img/logo-1024size.jpg",
+        "sizes": "1024x1024",
+        "type": "image/jpg"
+      }
+    ]
+  }
 }
