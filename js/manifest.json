@@ -31,9 +31,6 @@
         "sizes": "512x512",
         "type": "image/png"
       }
-    ],
-    "show_duration": 2000,
-    "hide_duration": 1000,
-    "auto_hide": true
+    ]
   }
 }
