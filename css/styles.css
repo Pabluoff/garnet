@@ -649,6 +649,43 @@ body {
   opacity: 1;
 }
 
+.feed {
+  margin: 40px 10px;
+}
+
+.feed-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.feed-option {
+  color: #8e8e8e;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.feed-option:active {
+  color: #5f5f5f;
+}
+
+.feed-option.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff; 
+}
+
+.feed-option ion-icon {
+  margin-right: 8px;
+}
+
+.postagens {
+}
+
 .magic-nav {
   position: fixed;
   bottom: 0;

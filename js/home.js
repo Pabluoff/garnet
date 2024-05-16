@@ -246,3 +246,13 @@ document.getElementById("notification-badge").addEventListener("click", function
     toggleNotificationDropdown();
 });
 
+// Exemplo de JavaScript para alternar a classe 'active' nos seletores
+const feedOptions = document.querySelectorAll('.feed-option');
+
+feedOptions.forEach(option => {
+  option.addEventListener('click', function() {
+    feedOptions.forEach(opt => opt.classList.remove('active'));
+    this.classList.add('active');
+    // Lógica para exibir as postagens correspondentes
+  });
+});
