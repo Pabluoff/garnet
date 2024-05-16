@@ -706,7 +706,7 @@ body {
   width: 0;
   height: 1px;
   background-color: #ffffff;
-  animation: underline-animation 0.6s ease forwards;
+  animation: underline-animation 0.4s ease forwards;
 }
 
 @keyframes underline-animation {
