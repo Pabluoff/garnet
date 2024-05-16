@@ -696,7 +696,6 @@ body {
 .feed-option.active {
   position: relative;
   color: #ffffff;
-  border-bottom: 1px solid #ffffff;
   transition: border-color 0.3s ease, color 0.3s ease; 
 }
 
