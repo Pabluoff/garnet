@@ -825,6 +825,11 @@ body {
   padding: 5px 10px;
   display: flex;
   align-items: center;
+  transition: all 0.8s ease;
+}
+
+.search-bar:hover {
+ background-color: #1b1b1b;
 }
 
 .search-bar ion-icon {
