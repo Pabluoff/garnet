@@ -120,15 +120,32 @@
             </div>
             <div class="feed">
                 <div class="feed-selector">
-                  <a href="#" class="feed-option active"><ion-icon name="copy-outline"></ion-icon> Publicações</a>
-                  <a href="#" class="feed-option"><ion-icon name="flash-outline"></ion-icon> Novos</a>
-                  <a href="#" class="feed-option"><ion-icon name="calendar-outline"></ion-icon> Eventos</a>
+                    <a href="#" class="feed-option active" data-target="publicacoes"><ion-icon
+                            name="copy-outline"></ion-icon> Publicações</a>
+                    <a href="#" class="feed-option" data-target="novos"><ion-icon name="flash-outline"></ion-icon>
+                        Novos</a>
+                    <a href="#" class="feed-option" data-target="eventos"><ion-icon name="calendar-outline"></ion-icon>
+                        Eventos</a>
                 </div>
                 <div class="postagens">
-                  <!-- Conteúdo das postagens -->
+                    <div class="postagens-publicacoes feed-content active">
+                        <ion-icon name="copy-outline"></ion-icon>
+                        <h2>Publicações</h2>
+                        <p>Aqui serão exibidos os conteúdos</p>
+                    </div>
+                    <div class="postagens-novos feed-content">
+                        <ion-icon name="flash-outline"></ion-icon>
+                        <h2>Novos</h2>
+                        <p>Quando houver novidades, elas serão exibidas aqui.</p>
+                    </div>
+                    <div class="postagens-eventos feed-content">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <h2>Eventos</h2>
+                        <p>Aqui serão exibidos os eventos do aplicativo.</p>
+                    </div>
                 </div>
-              </div>
-              
+            </div>
+
         </div>
     </header>
 

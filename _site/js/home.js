@@ -247,12 +247,24 @@ document.getElementById("notification-badge").addEventListener("click", function
 });
 
 // Exemplo de JavaScript para alternar a classe 'active' nos seletores
-const feedOptions = document.querySelectorAll('.feed-option');
-
-feedOptions.forEach(option => {
-  option.addEventListener('click', function() {
-    feedOptions.forEach(opt => opt.classList.remove('active'));
-    this.classList.add('active');
-    // Lógica para exibir as postagens correspondentes
+document.addEventListener('DOMContentLoaded', function() {
+    const feedOptions = document.querySelectorAll('.feed-option');
+    const feedContents = document.querySelectorAll('.feed-content');
+  
+    feedOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        
+        feedOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+  
+        feedContents.forEach(content => {
+          content.classList.remove('active');
+          if (content.classList.contains(`postagens-${target}`)) {
+            content.classList.add('active');
+          }
+        });
+      });
+    });
   });
-});
+  

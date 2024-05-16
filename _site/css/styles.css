@@ -676,7 +676,7 @@ body {
 
 .feed-option.active {
   color: #ffffff;
-  border-bottom: 2px solid #ffffff; 
+  border-bottom: 1px solid #ffffff;
 }
 
 .feed-option ion-icon {
@@ -684,6 +684,38 @@ body {
 }
 
 .postagens {
+  margin-bottom: 90px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.feed-content {
+  display: none;
+}
+
+.feed-content.active {
+  display: block;
+}
+
+.postagens h2 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.postagens p {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 20px;
+  margin: auto 70px;
+}
+
+.postagens ion-icon {
+  font-size: 50px;
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .magic-nav {
