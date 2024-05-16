@@ -694,9 +694,33 @@ body {
 }
 
 .feed-option.active {
+  position: relative;
   color: #ffffff;
   border-bottom: 1px solid #ffffff;
+  transition: border-color 0.3s ease, color 0.3s ease; 
 }
+
+
+.feed-option.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  animation: underline-animation 0.3s ease forwards;
+}
+
+@keyframes underline-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 
 .feed-option ion-icon {
   margin-right: 8px;
