@@ -13,6 +13,7 @@ function verificarEmail() {
     "terminal@gmail.com",
     "garnetvip@gmail.com",
     "pabluo23cm@gmail.com",
+    "piveteff23cm@gmail.com",
   ];
 
   if (nomeValue === "") {
