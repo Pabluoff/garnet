@@ -857,6 +857,8 @@ body {
 .searchButton {
   display: flex;
   align-items: center;
+  text-align: center;
+  justify-content: center;
   position: absolute; 
   right: 0; 
   top: 50%; 
