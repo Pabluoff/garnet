@@ -67,42 +67,6 @@ document.addEventListener('click', function (event) {
     }
 });
 
-function verificarConexaoInternet() {
-    const statusCard = document.getElementById('status-card');
-    const statusText = document.getElementById('status-text');
-    const statusIcon = document.querySelector('.status-icon');
-    const offlineNotification = document.getElementById('offline-notification');
-
-    function updateStatus(online) {
-        if (online) {
-            statusText.textContent = 'Online';
-            statusIcon.style.backgroundColor = '#4afe80';
-            statusText.style.color = '#4afe80';
-            statusIcon.style.animation = 'animate-outline 0.7s ease-out infinite';
-            offlineNotification.classList.remove('show');
-        } else {
-            statusText.textContent = 'Offline';
-            statusIcon.style.backgroundColor = '#808080';
-            statusText.style.color = '#808080';
-            statusIcon.style.animation = 'none'; // Desativar a animação
-            offlineNotification.classList.add('show');
-        }
-    }
-
-    window.addEventListener('online', () => {
-        updateStatus(true);
-    });
-
-    window.addEventListener('offline', () => {
-        updateStatus(false);
-    });
-
-    updateStatus(navigator.onLine);
-}
-
-verificarConexaoInternet();
-
-
 //storya
 let slideModalInstance = null;
 

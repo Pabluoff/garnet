@@ -19,8 +19,10 @@
     <header class="header-search">
         <div class="container-search">
             <div class="search-bar">
-                <ion-icon name="search-outline"></ion-icon>
-                <input type="text" placeholder="Pesquisar">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                <input id="searchInput" type="text" placeholder="Pesquisar">
+                <button id="searchButton" class="searchButton">Procurar<ion-icon
+                        name="arrow-forward-outline"></ion-icon></button>
             </div>
         </div>
     </header>
@@ -33,12 +35,8 @@
             <li><a href="#"><ion-icon name="cube-outline"></ion-icon></a></li>
         </ul>
     </div>
-    <div id="offline-notification" class="offline-notification">
-        <ion-icon name="wifi-outline" class="notification-icon-wifi"></ion-icon>
-        <p class="notification-text">Sem conexão com a internet</p>
-    </div>
     <script src="/js/script.js"></script>
-    <script src="/js/home.js"></script>
+    <script src="/js/search.js"></script>
 </body>
 
 </html>
