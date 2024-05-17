@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para redirecionar a pesquisa
     function searchRedirect(searchQuery) {
-        searchQuery = searchQuery.toLowerCase().trim();
+        searchQuery = searchQuery.trim().toLowerCase(); // Trata o texto de entrada
 
         if (searchQuery === '') return; // Não adicionar histórico em branco
 
