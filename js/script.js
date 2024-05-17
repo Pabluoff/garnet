@@ -1,4 +1,20 @@
-// Função para verificar o e-mail e realizar o login
+// Lista de e-mails padrão
+const emailsPadrao = [
+  "terminal@gmail.com",
+  "garnetvip@gmail.com",
+  "pabluo23cm@gmail.com",
+];
+
+function verificarEmailSalvo() {
+  const emailSalvo = localStorage.getItem("email");
+
+  if (emailSalvo && !emailsPadrao.includes(emailSalvo) && window.location.pathname !== "/") {
+    window.location.href = "/"; 
+  }
+}
+
+verificarEmailSalvo();
+
 function verificarEmail() {
   const emailInput = document.getElementById("email");
   const nomeInput = document.getElementById("nome");
@@ -8,13 +24,6 @@ function verificarEmail() {
   const loading = document.querySelector(".loading");
   const loginText = document.getElementById("login-text");
   const arrowIcon = loginButton.querySelector("i");
-
-  const emailsPadrao = [
-    "terminal@gmail.com",
-    "garnetvip@gmail.com",
-    "pabluo23cm@gmail.com",
-    "piveteff23cm@gmail.com",
-  ];
 
   if (nomeValue === "") {
     // Verificação do nome
@@ -37,9 +46,7 @@ function verificarEmail() {
     setTimeout(function () {
       exibirNotificacaoSucesso("Seu login foi realizado com sucesso!");
       setTimeout(function () {
-        // Verifica se a página atual é "/inicio"
         if (window.location.pathname === "/inicio") {
-          // Adicionando o trecho ao redirecionar para "/inicio"
           loginText.style.visibility = "visible";
           arrowIcon.style.visibility = "visible";
           loading.style.display = "none";
@@ -78,9 +85,7 @@ function fecharNotificacao() {
 
 function exibirNotificacaoSucesso(mensagem) {
   const notificationSuccess = document.getElementById("notification-success");
-  const notificationSuccessText = document.getElementById(
-    "notification-success-text"
-  );
+  const notificationSuccessText = document.getElementById("notification-success-text");
   notificationSuccessText.textContent = mensagem;
 
   notificationSuccess.classList.remove("slide-out");
@@ -100,6 +105,7 @@ function fecharNotificacaoSucesso() {
 function recuperarEmailSalvo() {
   const email = localStorage.getItem("email");
   const nome = localStorage.getItem("nome");
+
   if (email) {
     const emailInput = document.getElementById("email");
     emailInput.value = email;
