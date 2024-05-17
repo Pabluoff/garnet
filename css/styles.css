@@ -873,3 +873,58 @@ body {
 .searchButton ion-icon {
   margin-left: 4px;
 }
+
+.search-history {
+  margin-top: 10px;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: transparent;
+  z-index: 999;
+  border-radius: 0 0 10px 10px;
+}
+
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#historyList li {
+  color: #d1d1d1;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.time-icon {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.close-icon {
+  font-size: 16px;
+  color: #d1d1d1;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.search-message {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  margin-top: 90px;
+}
