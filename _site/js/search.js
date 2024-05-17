@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchIcon = document.querySelector('.search-icon');
     const historyList = document.getElementById('historyList');
     const searchMessage = document.querySelector('.search-message');
+    const searchDestaqueItems = document.querySelectorAll('.destaque-item');
 
     // Função para exibir a mensagem
     function showMessage() {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let redirectFlag = false; // Variável para indicar se a pesquisa correspondeu a algum critério
 
-        if (searchQuery.includes('como dar capa') || searchQuery.includes('como ajustar mira') ||
+        if (searchQuery.includes('insightshot v2') || searchQuery.includes('como ajustar mira') ||
             searchQuery.includes('ajustar mira') || searchQuery.includes('headshot') ||
             searchQuery.includes('ajuste de mira') || searchQuery.includes('no recoil') ||
             searchQuery.includes('sensibilidade')) {
@@ -109,6 +110,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Carregar o histórico de pesquisa ao carregar a página
     loadFromLocalStorage();
+
+    // Adicionar eventos de clique para os itens de destaque
+    searchDestaqueItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const searchQuery = this.textContent;
+            searchInput.value = searchQuery;
+            searchRedirect(searchQuery);
+        });
+    });
 
     searchButton.addEventListener('click', function () {
         searchRedirect(searchInput.value);
