@@ -889,7 +889,6 @@ body {
   max-height: 200px;
   overflow-y: auto;
   background-color: transparent;
-  z-index: 999;
   border-radius: 0 0 10px 10px;
 }
 
