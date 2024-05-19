@@ -1009,7 +1009,7 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
@@ -1036,10 +1036,17 @@ footer p {
   padding: 8px 15px;
 }
 
-.user-info img {
+.profile-initial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a3a3a3;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .user-info h2 {
@@ -1108,7 +1115,7 @@ footer p {
   right: 0;
   bottom: 0;
   background-color: #707070;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -1120,7 +1127,7 @@ footer p {
   left: 3px;
   bottom: 3px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
