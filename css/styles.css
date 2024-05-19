@@ -1125,7 +1125,7 @@ footer p {
 }
 
 .settings-toggle input:checked + .slider {
-  background-color: #4afe80;
+  background-color: #0ed74a;
 }
 
 .settings-toggle input:checked + .slider:before {
