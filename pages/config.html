@@ -40,7 +40,7 @@ permalink: settings
         <div class="container-config">
             <h1>Ajustes</h1>
             <div class="user-info">
-                <img id="profile-picture" src="/img/user.webp" alt="Foto do perfil">
+                <img src="/img/user.webp" alt="Foto do perfil">
                 <div>
                     <h2 id="user-settings">Nome de Usuário</h2>
                     <p>Garnet ID, Account, Config e Funções</p>
@@ -71,23 +71,7 @@ permalink: settings
             <li><a href="#"><ion-icon name="cube-outline"></ion-icon></a></li>
         </ul>
     </div>
-    <script src="/js/script.js"></script>
-    <script src="/js/home.js"></script>
-    <script>
-        function carregarNomeSalvo() {
-            const nomeSalvo = localStorage.getItem("nome");
-
-            if (nomeSalvo) {
-                const userSettingsElement = document.getElementById("user-settings");
-                userSettingsElement.textContent = nomeSalvo;
-            }
-        }
-
-        window.onload = function () {
-            carregarNomeSalvo();
-        };
-
-    </script>
+    <script src="/js/settings.js"></script>
 </body>
 
 </html>
