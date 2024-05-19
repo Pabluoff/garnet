@@ -978,7 +978,7 @@ body {
 }
 
 footer {
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   color: #ffffff;
   bottom: 110px;
@@ -1003,4 +1003,52 @@ footer p {
   -webkit-text-fill-color: transparent;
   text-emphasis: none;
   cursor: pointer;
+}
+
+.header-config {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.container-config {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 20px;
+  margin: 20px 10px;
+}
+.header-config h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 8px 15px;
+}
+
+.user-info img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.user-info h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #999;
 }
