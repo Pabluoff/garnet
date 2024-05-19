@@ -1,15 +1,28 @@
+// Lista de e-mails VIP
+const emailsVIP = [
+  "pabluo23cm@gmail.com",
+  "email2@example.com",
+  "email3@example.com",
+];
+
 // Lista de e-mails padrão
 const emailsPadrao = [
   "terminal@gmail.com",
   "garnetvip@gmail.com",
-  "pabluo23cm@gmail.com",
 ];
 
 function verificarEmailSalvo() {
   const emailSalvo = localStorage.getItem("email");
 
-  if (emailSalvo && !emailsPadrao.includes(emailSalvo) && window.location.pathname !== "/") {
-    window.location.href = "/"; 
+  if (emailSalvo && !emailsPadrao.includes(emailSalvo) && !emailsVIP.includes(emailSalvo) && window.location.pathname !== "/") {
+    window.location.href = "/";
+  }
+
+  const verifiedIcon = document.getElementById("verified-icon");
+  if (emailsVIP.includes(emailSalvo)) {
+    verifiedIcon.style.display = "inline-block";
+  } else {
+    verifiedIcon.style.display = "none";
   }
 }
 
@@ -32,7 +45,7 @@ function verificarEmail() {
     exibirNotificacao("Por favor, insira um e-mail.");
   } else if (!isValidEmail(emailValue)) {
     exibirNotificacao("Por favor, insira um e-mail válido.");
-  } else if (!emailsPadrao.includes(emailValue)) {
+  } else if (!emailsPadrao.includes(emailValue) && !emailsVIP.includes(emailValue)) {
     exibirNotificacao("Insira um e-mail existente.");
   } else {
     loginText.style.visibility = "hidden";
@@ -153,8 +166,8 @@ document.getElementById("logout").addEventListener("click", fazerLogout);
 //serviceworker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
-  .then((reg) => console.log('service worker registrado', reg))
-  .catch((err) => console.log('service worker não registrado', err));
+    .then((reg) => console.log('service worker registrado', reg))
+    .catch((err) => console.log('service worker não registrado', err));
 }
 
 function verificarConexaoInternet() {
@@ -164,27 +177,27 @@ function verificarConexaoInternet() {
   const offlineNotification = document.getElementById('offline-notification');
 
   function updateStatus(online) {
-      if (online) {
-          statusText.textContent = 'Online';
-          statusIcon.style.backgroundColor = '#4afe80';
-          statusText.style.color = '#4afe80';
-          statusIcon.style.animation = 'animate-outline 0.7s ease-out infinite';
-          offlineNotification.classList.remove('show');
-      } else {
-          statusText.textContent = 'Offline';
-          statusIcon.style.backgroundColor = '#808080';
-          statusText.style.color = '#808080';
-          statusIcon.style.animation = 'none'; // Desativar a animação
-          offlineNotification.classList.add('show');
-      }
+    if (online) {
+      statusText.textContent = 'Online';
+      statusIcon.style.backgroundColor = '#4afe80';
+      statusText.style.color = '#4afe80';
+      statusIcon.style.animation = 'animate-outline 0.7s ease-out infinite';
+      offlineNotification.classList.remove('show');
+    } else {
+      statusText.textContent = 'Offline';
+      statusIcon.style.backgroundColor = '#808080';
+      statusText.style.color = '#808080';
+      statusIcon.style.animation = 'none'; // Desativar a animação
+      offlineNotification.classList.add('show');
+    }
   }
 
   window.addEventListener('online', () => {
-      updateStatus(true);
+    updateStatus(true);
   });
 
   window.addEventListener('offline', () => {
-      updateStatus(false);
+    updateStatus(false);
   });
 
   updateStatus(navigator.onLine);

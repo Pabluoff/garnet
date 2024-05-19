@@ -972,3 +972,9 @@ body {
   color: #4afe80;
 }
 
+/* Estilos para o ícone de verificação */
+#verified-icon {
+  margin-left: 3px;
+  margin-top: 4px;
+  margin-right: 5px;
+}
