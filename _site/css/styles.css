@@ -997,7 +997,7 @@ footer p {
 .logo-footer {
   font-weight: bold;
   margin-bottom: 10px;
-  background: linear-gradient(to right, #ff00ff, #ea0bea, #eb14ff);
+  background: linear-gradient(to right, #25d366, #2bb753, #25d366);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-emphasis: none;
