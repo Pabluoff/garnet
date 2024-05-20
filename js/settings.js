@@ -8,13 +8,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const profileInitial = document.getElementById("profile-initial");
         profileInitial.textContent = userName.charAt(0).toUpperCase();
     }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://ipinfo.io/json")
+    // Obter informações de IP e localização
+    fetch("https://wtfismyip.com/json")
         .then((response) => response.json())
         .then((data) => {
-            let providerName = data.org.replace(/\d+/g, "").replace(/AS/g, "");
-            document.getElementById("providerInfo").innerText = providerName.trim();
+            // Obter o nome do provedor de Internet
+            document.getElementById("providerInfo").innerText = data.YourFuckingISP;
+
+            // Obter o endereço IP
+            document.getElementById("ipInfo").innerText = data.YourFuckingIPAddress;
+
+            // Obter a localização (cidade e estado)
+            let location = data.YourFuckingLocation;
+            document.getElementById("locationInfo").innerText = location;
+        })
+        .catch((error) => {
+            console.error('Error fetching IP info:', error);
         });
 });

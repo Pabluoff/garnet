@@ -1145,18 +1145,18 @@ footer p {
 }
 
 .fps-icon {
-  background-color: #ff6d00;
+  background-color: #0aae3b;
 }
 
 .wifi-icon {
   background-color: #0059ff;
 }
 
-.bluetooth-icon {
+.ip-icon {
   background-color: #2979ff;
 }
 
-.airplane-icon {
+.location-icon {
   background-color: #f44336;
 }
 
