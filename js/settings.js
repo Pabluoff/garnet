@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fpsToggle.addEventListener("change", function (e) {
         if (e.target.checked) {
-            e.target.checked = false; // Prevent the toggle from being checked immediately
+            e.target.checked = false; 
             fpsModal.style.display = "block";
         }
     });
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fpsModal.style.animation = "fadeOut 0.3s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
-            fpsModal.style.animation = ""; // Reset animation
+            fpsModal.style.animation = ""; 
         }, 300);
     });
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fpsModal.style.animation = "fadeOut 0.3s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
-            fpsModal.style.animation = ""; // Reset animation
+            fpsModal.style.animation = ""; 
         }, 300);
     });
 });
