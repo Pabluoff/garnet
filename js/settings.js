@@ -41,19 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     fpsCancelButton.addEventListener("click", function () {
-        fpsModal.style.animation = "fadeOut 0.3s ease-in-out forwards";
+        fpsModal.style.animation = "fadeOut 0.2s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
             fpsModal.style.animation = ""; 
-        }, 300);
+        }, 200);
     });
 
     fpsActivateButton.addEventListener("click", function () {
         fpsToggle.checked = true;
-        fpsModal.style.animation = "fadeOut 0.3s ease-in-out forwards";
+        fpsModal.style.animation = "fadeOut 0.2s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
             fpsModal.style.animation = ""; 
-        }, 300);
+        }, 200);
     });
 });
