@@ -1096,6 +1096,7 @@ footer p {
   font-size: 16px;
   color: #fff;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .settings-toggle .switch {
@@ -1163,4 +1164,5 @@ footer p {
   margin: 0;
   font-size: 16px;
   color: #8b8b8b;
+  margin-left: 40px;
 }
