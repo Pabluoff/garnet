@@ -26,4 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => {
             console.error('Error fetching IP info:', error);
         });
+
+    // FPS Toggle functionality
+    const fpsToggle = document.getElementById("fps-toggle");
+    const fpsModal = document.getElementById("fps-confirmation-modal");
+    const fpsCancelButton = document.getElementById("fps-cancel-button");
+    const fpsActivateButton = document.getElementById("fps-activate-button");
+
+    fpsToggle.addEventListener("change", function (e) {
+        if (e.target.checked) {
+            e.target.checked = false; // Prevent the toggle from being checked immediately
+            fpsModal.style.display = "block";
+        }
+    });
+
+    fpsCancelButton.addEventListener("click", function () {
+        fpsModal.style.display = "none";
+    });
+
+    fpsActivateButton.addEventListener("click", function () {
+        fpsToggle.checked = true;
+        fpsModal.style.display = "none";
+    });
 });
