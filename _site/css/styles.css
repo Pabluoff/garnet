@@ -1088,7 +1088,7 @@ footer p {
   font-size: 20px;
   color: #ffffff;
   padding: 5px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .settings-icon-text p {
@@ -1156,4 +1156,10 @@ footer p {
 
 .airplane-icon {
   background-color: #f44336;
+}
+
+.settings-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #8b8b8b;
 }
