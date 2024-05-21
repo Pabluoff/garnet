@@ -1213,7 +1213,6 @@ footer p {
   -webkit-backdrop-filter: blur(15px);
 }
 
-/* Modal Title */
 .modal-title-fps {
   font-size: 20px;
   margin-bottom: 10px;
@@ -1221,21 +1220,18 @@ footer p {
   color: #ffffff;
 }
 
-/* Modal Message */
 .modal-message-fps {
   font-size: 16px;
   margin-bottom: 20px;
   color: #dddddd;
 }
 
-/* Modal Buttons Container */
 .modal-buttons-fps {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-/* Modal Buttons */
 .modal-button-fps {
   background-color: #007aff;
   color: #ffffff;
@@ -1252,22 +1248,18 @@ footer p {
   max-width: 120px;
 }
 
-/* Cancel Button */
 #fps-cancel-button {
   background-color: #8e8e93;
 }
 
-/* Activate Button */
 #fps-activate-button {
   background-color: #007aff;
 }
 
-/* Button Hover Effect */
 .modal-button-fps:hover {
   background-color: #0056b3;
 }
 
-/* Status Item */
 .status-item {
   width: 100%;
   margin-top: 20px;
@@ -1277,12 +1269,19 @@ footer p {
   padding: 10px;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Status FPS */
 .status-fps {
   padding: 10px;
   text-align: center;
+}
+
+#realtime-fps {
+  margin-left: -4px;
+  display: inline-block;
 }
 
 /* Loading Animation */
