@@ -1313,7 +1313,7 @@ footer p {
 .loading-border::before {
   content: "";
   position: absolute;
-  height: 2px;
+  height: 1px;
   background-color: currentColor;
   animation: borderLoading 3s infinite, loadingBorderWidth 4.2s infinite;
   border-radius: 8px;
