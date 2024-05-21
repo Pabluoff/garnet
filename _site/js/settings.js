@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusFps = document.getElementById("status-fps");
     const statusItem = document.getElementById("status-item");
 
+    // Variável para verificar se o toggle está bloqueado
+    let toggleBlocked = false;
+
     // Verificar o estado do toggle no localStorage ao carregar a página
     const toggleState = localStorage.getItem("toggleState");
     if (toggleState === "true") {
@@ -46,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Adicionar evento de mudança ao toggle
     fpsToggle.addEventListener("change", function (e) {
-        if (e.target.checked) {
-            e.target.checked = false; 
-            fpsModal.style.display = "block";
-        } else {
-            statusFps.textContent = "Desconectado";
-            localStorage.removeItem("toggleState"); // Remover o estado do toggle ao desativar
+        if (!toggleBlocked) {
+            if (e.target.checked) {
+                e.target.checked = false; 
+                fpsModal.style.display = "block";
+            } else {
+                statusFps.textContent = "Desconectado";
+                localStorage.removeItem("toggleState"); // Remover o estado do toggle ao desativar
+            }
         }
     });
 
@@ -67,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adicionar evento de clique ao botão de ativar
     fpsActivateButton.addEventListener("click", function () {
         statusFps.textContent = "Conectando...";
+        toggleBlocked = true; // Bloquear o toggle
+        fpsToggle.disabled = true; // Desabilitar o toggle enquanto estiver conectando
         fpsModal.style.animation = "fadeOut 0.1s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
@@ -75,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 fpsToggle.checked = true;
                 statusFps.textContent = "Conectado";
                 localStorage.setItem("toggleState", "true"); // Salvar o estado do toggle ao ativar
+                toggleBlocked = false; // Desbloquear o toggle após a conexão ser estabelecida
+                fpsToggle.disabled = false; // Habilitar o toggle novamente
             }, 4000); // 4 segundos delay
         }, 100);
     });
