@@ -32,14 +32,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const fpsModal = document.getElementById("fps-confirmation-modal");
     const fpsCancelButton = document.getElementById("fps-cancel-button");
     const fpsActivateButton = document.getElementById("fps-activate-button");
+    const statusFps = document.getElementById("status-fps");
+    const statusItem = document.getElementById("status-item");
 
+    // Verificar o estado do toggle no localStorage ao carregar a página
+    const toggleState = localStorage.getItem("toggleState");
+    if (toggleState === "true") {
+        fpsToggle.checked = true;
+        statusFps.textContent = "Conectado";
+    } else {
+        statusFps.textContent = "Desconectado";
+    }
+
+    // Adicionar evento de mudança ao toggle
     fpsToggle.addEventListener("change", function (e) {
         if (e.target.checked) {
             e.target.checked = false; 
             fpsModal.style.display = "block";
+        } else {
+            statusFps.textContent = "Desconectado";
+            localStorage.removeItem("toggleState"); // Remover o estado do toggle ao desativar
         }
     });
 
+    // Adicionar evento de clique ao botão de cancelar
     fpsCancelButton.addEventListener("click", function () {
         fpsModal.style.animation = "fadeOut 0.1s ease-in-out forwards";
         setTimeout(function () {
@@ -48,12 +64,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 100);
     });
 
+    // Adicionar evento de clique ao botão de ativar
     fpsActivateButton.addEventListener("click", function () {
-        fpsToggle.checked = true;
+        statusFps.textContent = "Conectando...";
         fpsModal.style.animation = "fadeOut 0.1s ease-in-out forwards";
         setTimeout(function () {
             fpsModal.style.display = "none";
             fpsModal.style.animation = ""; 
+            setTimeout(function () {
+                fpsToggle.checked = true;
+                statusFps.textContent = "Conectado";
+                localStorage.setItem("toggleState", "true"); // Salvar o estado do toggle ao ativar
+            }, 4000); // 4 segundos delay
         }, 100);
     });
+
+    // Adicionar classe loading-border quando o status for "Conectando..."
+    setInterval(function () {
+        if (statusFps.textContent === "Conectando...") {
+            statusItem.classList.add("loading-border");
+        } else {
+            statusItem.classList.remove("loading-border");
+        }
+    }, 100); // Verificar a cada 100ms o status e aplicar/remover a classe loading-border conforme necessário
 });

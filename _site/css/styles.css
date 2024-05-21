@@ -1267,7 +1267,60 @@ footer p {
   background-color: #0056b3;
 }
 
+/* Status Item */
+.status-item {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #121212;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+/* Status FPS */
 .status-fps {
   padding: 10px;
   text-align: center;
+}
+
+/* Loading Animation */
+@keyframes borderLoading {
+  0% {
+    background-color: rgb(255, 0, 0);
+  }
+  33% {
+    background-color: rgb(0, 255, 0);
+  }
+  66% {
+    background-color: rgb(0, 0, 255);
+  }
+  100% {
+    background-color: rgb(255, 0, 0);
+  }
+}
+
+@keyframes loadingBorderWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-border::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: currentColor;
+  animation: borderLoading 3s infinite, loadingBorderWidth 4.2s infinite;
+  border-radius: 8px;
+}
+
+.loading-border::before {
+  top: 0;
+  left: 0;
+  right: 0;
 }
