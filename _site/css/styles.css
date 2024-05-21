@@ -1053,13 +1053,13 @@ footer p {
 }
 
 .user-info h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .user-info p {
   font-size: 13px;
-  color: #999;
+  color: #bebebe;
 }
 
 .settings-list {
@@ -1163,7 +1163,7 @@ footer p {
 .settings-text p {
   margin: 0;
   font-size: 16px;
-  color: #8b8b8b;
+  color: #969696;
   margin-left: 40px;
 }
 
@@ -1282,6 +1282,7 @@ footer p {
 #realtime-fps {
   margin-left: -4px;
   display: inline-block;
+  color: #8590a0;
 }
 
 /* Loading Animation */
