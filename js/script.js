@@ -19,15 +19,27 @@ function verificarEmailSalvo() {
   }
 
   const verifiedIcon = document.getElementById("verified-icon");
-  if (emailsVIP.includes(emailSalvo)) {
-    verifiedIcon.style.display = "inline-block";
-  } else {
-    verifiedIcon.style.display = "none";
+  if (verifiedIcon) {
+    if (emailsVIP.includes(emailSalvo)) {
+      verifiedIcon.style.display = "inline-block";
+    } else {
+      verifiedIcon.style.display = "none";
+    }
   }
 }
 
-verificarEmailSalvo();
+// Chamada da função verificarEmailSalvo assim que a página carregar e a cada segundo
+document.addEventListener("DOMContentLoaded", () => {
+  verificarEmailSalvo();
+  recuperarEmailSalvo();
+  carregarInformacoesUsuario();
+  verificarConexaoInternet();
 
+  // Verificação periódica a cada segundo
+  setInterval(verificarEmailSalvo, 1000);
+});
+
+// Função para verificar o e-mail durante o login
 function verificarEmail() {
   const emailInput = document.getElementById("email");
   const nomeInput = document.getElementById("nome");
@@ -121,17 +133,17 @@ function recuperarEmailSalvo() {
 
   if (email) {
     const emailInput = document.getElementById("email");
-    emailInput.value = email;
+    if (emailInput) {
+      emailInput.value = email;
+    }
   }
   if (nome) {
     const nomeInput = document.getElementById("nome");
-    nomeInput.value = nome;
+    if (nomeInput) {
+      nomeInput.value = nome;
+    }
   }
 }
-
-window.onload = function () {
-  recuperarEmailSalvo();
-};
 
 function carregarInformacoesUsuario() {
   const userEmail = localStorage.getItem("email");
@@ -152,8 +164,6 @@ function carregarInformacoesUsuario() {
   }
 }
 
-carregarInformacoesUsuario();
-
 function fazerLogout() {
   localStorage.removeItem("email");
   localStorage.removeItem("nome");
@@ -162,12 +172,11 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
-
-//serviceworker
+// Registro do service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
-    .then((reg) => console.log('service worker registrado', reg))
-    .catch((err) => console.log('service worker não registrado', err));
+    .then((reg) => console.log('Service worker registrado', reg))
+    .catch((err) => console.log('Service worker não registrado', err));
 }
 
 function verificarConexaoInternet() {
@@ -202,5 +211,3 @@ function verificarConexaoInternet() {
 
   updateStatus(navigator.onLine);
 }
-
-verificarConexaoInternet();
