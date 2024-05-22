@@ -127,3 +127,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 100);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const geralItem = document.querySelector(".settings-list-geral .settings-item");
+    const geralSection = document.getElementById("geral-section");
+    const settingsContainer = document.querySelector(".container-config");
+    const backButton = document.getElementById("back-button");
+
+    geralItem.addEventListener("click", function () {
+        settingsContainer.style.display = "none";
+        geralSection.style.display = "block";
+    });
+
+    backButton.addEventListener("click", function () {
+        geralSection.style.display = "none";
+        settingsContainer.style.display = "block";
+    });
+});

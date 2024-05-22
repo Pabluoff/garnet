@@ -1166,7 +1166,7 @@ footer p {
 
 .settings-text p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: #969696;
   margin-left: 40px;
 }
@@ -1346,4 +1346,100 @@ footer p {
 .settings-chevron ion-icon {
   color: #5d5d5d;
   font-size: 20px;
+}
+
+.geral-section {
+  display: none;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.geral-section .header-geral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: -20px;
+}
+
+.geral-section .container-geral {
+  width: 100%;
+  max-width: 380px;
+}
+
+.geral-section .back-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.geral-section .back-button ion-icon {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.geral-section .settings-list {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.geral-section .settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.geral-section .settings-icon-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.geral-section .settings-icon-text ion-icon {
+  font-size: 20px;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.geral-section .settings-icon-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.geral-section .settings-chevron ion-icon {
+  color: #5d5d5d;
+  font-size: 20px;
+}
+
+.info-icon {
+  background-color: #0d6efd;
+}
+.touch-finger-icon {
+  background-color: #28a745;
+}
+.calibration-icon {
+  background-color: #ffc107;
+}
+.speed-icon {
+  background-color: #fd7e14;
+}
+.language-icon {
+  background-color: #20c997;
+}
+.reset-icon {
+  background-color: #dc3545;
 }

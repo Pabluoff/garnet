@@ -46,7 +46,7 @@
             <div class="settings-list">
                 <div class="settings-item">
                     <div class="settings-icon-text">
-                        <ion-icon name="radio" class="fps-icon"></ion-icon>
+                        <ion-icon name="globe-outline" class="fps-icon"></ion-icon>
                         <p>FPS</p>
                     </div>
                     <div class="settings-toggle">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="settings-item">
                     <div class="settings-icon-text">
-                        <ion-icon name="globe-outline" class="ip-icon"></ion-icon>
+                        <ion-icon name="earth-outline" class="ip-icon"></ion-icon>
                         <p>IP address</p>
                     </div>
                     <div class="settings-text" id="ip-address">
@@ -102,6 +102,81 @@
 
         </div>
     </header>
+    <!--Geral section-->
+    <div class="geral-section" id="geral-section">
+        <header class="header-geral">
+            <div class="container-geral">
+                <h1>Geral</h1>
+                <div class="back-button" id="back-button">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                    <p>Voltar</p>
+                </div>
+                <!-- Conteúdo da seção "Geral" -->
+                <div class="settings-list">
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+                            <p>Sobre</p>
+                        </div>
+                        <div class="settings-chevron">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="hand-left-outline" class="touch-finger-icon"></ion-icon>
+                            <p>Toque Rápido</p>
+                        </div>
+                        <div class="settings-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="touch-finger-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="phone-portrait-outline" class="calibration-icon"></ion-icon>
+                            <p>Calibrar Dispositivo</p>
+                        </div>
+                        <div class="settings-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="calibration-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="speedometer-outline" class="speed-icon"></ion-icon>
+                            <p>Ajustar Velocidade</p>
+                        </div>
+                        <div class="settings-chevron">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="globe-outline" class="language-icon"></ion-icon>
+                            <p>Idioma e Região</p>
+                        </div>
+                        <div class="settings-chevron">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-icon-text">
+                            <ion-icon name="reset-outline" class="reset-icon"></ion-icon>
+                            <p>Redefinir</p>
+                        </div>
+                        <div class="settings-chevron">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
     <div id="fps-confirmation-modal" class="modal-fps">
         <div class="modal-content-fps">
