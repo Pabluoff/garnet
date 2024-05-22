@@ -30,15 +30,42 @@ document.addEventListener("DOMContentLoaded", function () {
     let toggleBlocked = false;
     let connectStartTime = null;
     let updateTimeInterval = null;
+    let disconnectTimeout = null;
+
+    const FOUR_HOURS_IN_MS = 3 * 60 * 60 * 1000;
 
     function updateConnectionTime() {
         if (connectStartTime) {
-            const elapsedTime = Math.floor((Date.now() - connectStartTime) / 1000);
-            const hours = Math.floor(elapsedTime / 3600);
-            const minutes = Math.floor((elapsedTime % 3600) / 60);
-            const seconds = elapsedTime % 60;
-            realtimeFps.textContent = `(${hours}h ${minutes}m ${seconds}s)`;
+            const elapsedTime = Date.now() - connectStartTime;
+            const remainingTime = FOUR_HOURS_IN_MS - elapsedTime;
+            if (remainingTime <= 0) {
+                disconnect();
+            } else {
+                const hours = Math.floor(remainingTime / 3600000);
+                const minutes = Math.floor((remainingTime % 3600000) / 60000);
+                const seconds = Math.floor((remainingTime % 60000) / 1000);
+                realtimeFps.textContent = `(${hours}h ${minutes}m ${seconds}s)`;
+            }
         }
+    }
+
+    function startConnection() {
+        connectStartTime = Date.now();
+        localStorage.setItem("toggleState", "true");
+        localStorage.setItem("connectStartTime", connectStartTime);
+        updateTimeInterval = setInterval(updateConnectionTime, 1000);
+        disconnectTimeout = setTimeout(disconnect, FOUR_HOURS_IN_MS);
+        updateConnectionTime();
+    }
+
+    function disconnect() {
+        statusFps.textContent = "Desconectado";
+        realtimeFps.textContent = "";
+        clearInterval(updateTimeInterval);
+        clearTimeout(disconnectTimeout);
+        localStorage.removeItem("toggleState");
+        localStorage.removeItem("connectStartTime");
+        fpsToggle.checked = false;
     }
 
     const toggleState = localStorage.getItem("toggleState");
@@ -47,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         statusFps.textContent = "Conectado";
         connectStartTime = parseInt(localStorage.getItem("connectStartTime"), 10) || Date.now();
         updateTimeInterval = setInterval(updateConnectionTime, 1000);
+        disconnectTimeout = setTimeout(disconnect, FOUR_HOURS_IN_MS - (Date.now() - connectStartTime));
         updateConnectionTime();
     } else {
         statusFps.textContent = "Desconectado";
@@ -58,11 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.target.checked = false;
                 fpsModal.style.display = "block";
             } else {
-                statusFps.textContent = "Desconectado";
-                realtimeFps.textContent = "";
-                clearInterval(updateTimeInterval);
-                localStorage.removeItem("toggleState");
-                localStorage.removeItem("connectStartTime");
+                disconnect();
             }
         } else {
             e.preventDefault();
@@ -88,11 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
                 fpsToggle.checked = true;
                 statusFps.textContent = "Conectado";
-                connectStartTime = Date.now();
-                localStorage.setItem("toggleState", "true");
-                localStorage.setItem("connectStartTime", connectStartTime);
-                updateTimeInterval = setInterval(updateConnectionTime, 1000);
-                updateConnectionTime();
+                startConnection();
                 toggleBlocked = false;
                 fpsToggle.disabled = false;
             }, 4000);
