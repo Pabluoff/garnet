@@ -1160,6 +1160,10 @@ footer p {
   background-color: #f44336;
 }
 
+.cog-icon {
+  background-color: #818184;
+}
+
 .settings-text p {
   margin: 0;
   font-size: 16px;
@@ -1323,4 +1327,23 @@ footer p {
   top: 0;
   left: 0;
   right: 0;
+}
+
+.settings-list-geral {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #121212;
+  border-radius: 8px;
+  margin-bottom: 80px;
+}
+
+.settings-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-chevron ion-icon {
+  color: #5d5d5d;
+  font-size: 20px;
 }
