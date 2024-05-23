@@ -135,12 +135,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const backButton = document.getElementById("back-button");
 
     geralItem.addEventListener("click", function () {
-        settingsContainer.style.display = "none";
+        settingsContainer.classList.add("slide-out");
+        geralSection.classList.add("slide-in");
         geralSection.style.display = "block";
+        
+        // Esconde o container de configurações depois da animação
+        setTimeout(function () {
+            settingsContainer.style.display = "none";
+            settingsContainer.classList.remove("slide-out");
+        }, 300); // Tempo igual ao da animação CSS
     });
 
     backButton.addEventListener("click", function () {
-        geralSection.style.display = "none";
-        settingsContainer.style.display = "block";
+        geralSection.classList.remove("slide-in");
+        geralSection.classList.add("slide-out");
+
+        setTimeout(function () {
+            geralSection.style.display = "none";
+            geralSection.classList.remove("slide-out");
+            settingsContainer.style.display = "block";
+        }, 300); // Tempo igual ao da animação CSS
     });
 });
