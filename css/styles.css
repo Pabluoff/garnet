@@ -1599,8 +1599,8 @@ footer p {
   left: 100%;
   width: 100%;
   height: 100%;
-  background-color: #0b0b0c; /* Estilo escuro avançado */
-  color: #ffffff; /* Texto claro */
+  background-color: #0b0b0c;
+  color: #ffffff;
   z-index: 20;
   transition: transform 0.3s ease-out;
 }
@@ -1669,23 +1669,33 @@ footer p {
 .range-field {
   appearance: none;
   -webkit-appearance: none;
-  width: 100%; /* Largura total */
-  height: 5px; /* Altura do controle deslizante */
-  background: #676767; /* Cor de fundo */
-  outline: none; /* Remove a borda padrão */
-  -webkit-transition: 0.2s; /* Transição */
+  width: 100%;
+  height: 5px;
+  background: #989898;
+  outline: none;
+  -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  border-radius: 2.5px; /* Borda arredondada */
-  cursor: pointer; /* Cursor */
+  border-radius: 2.5px;
+  cursor: pointer;
 }
 
-/* Estilo do polegar (thumb) */
 .range-field::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 21px; /* Largura do polegar */
-  height: 21px; /* Altura do polegar */
-  background: #ffffff; /* Cor do polegar */
-  cursor: pointer; /* Cursor */
-  border-radius: 50%; /* Borda arredondada */
+  width: 21px;
+  height: 21px;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.speed-section .sensitivity-label {
+  font-size: 10px;
+  margin-bottom: 10px;
+  color: #6a6a6a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin-top: 20px;
 }
