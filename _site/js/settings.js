@@ -129,18 +129,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const geralItem = document.querySelector(".settings-list-geral .settings-item");
-    const geralSection = document.getElementById("geral-section");
-    const settingsContainer = document.querySelector(".container-config");
     const backButton = document.getElementById("back-button");
+    const geralSection = document.getElementById("geral-section");
+    const settingsListGeral = document.querySelector(".settings-list-geral");
 
-    geralItem.addEventListener("click", function () {
-        settingsContainer.style.display = "none";
-        geralSection.style.display = "block";
+    settingsListGeral.addEventListener("click", function () {
+        showGeralSection();
     });
 
     backButton.addEventListener("click", function () {
-        geralSection.style.display = "none";
-        settingsContainer.style.display = "block";
+        hideGeralSection();
     });
+
+    function showGeralSection() {
+        geralSection.classList.remove("hidden");
+        geralSection.classList.add("show");
+    }
+
+    function hideGeralSection() {
+        geralSection.classList.remove("show");
+        geralSection.classList.add("hidden");
+    }
 });
