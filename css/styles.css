@@ -1074,7 +1074,7 @@ footer p {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  padding: 8px;
+  padding: 7px;
   margin-bottom: 10px;
 }
 
@@ -1583,7 +1583,7 @@ footer p {
 }
 
 .about-section .about-label {
-  font-size: 19px;
+  font-size: 16px;
   color: #f7f7f7;
 }
 
