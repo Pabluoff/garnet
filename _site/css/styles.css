@@ -1683,8 +1683,8 @@ footer p {
 .range-field::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px; /* Largura do polegar */
-  height: 18px; /* Altura do polegar */
+  width: 21px; /* Largura do polegar */
+  height: 21px; /* Altura do polegar */
   background: #ffffff; /* Cor do polegar */
   cursor: pointer; /* Cursor */
   border-radius: 50%; /* Borda arredondada */
