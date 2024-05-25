@@ -135,6 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const aboutItem = document.getElementById("about-item");
     const aboutSection = document.getElementById("about-section");
     const backButtonAbout = document.getElementById("back-button-about");
+    const speedItem = document.getElementById("speed-item");
+    const speedSection = document.getElementById("speed-section");
+    const backButtonSpeed = document.getElementById("back-button-speed");
 
     settingsListGeral.addEventListener("click", function () {
         showGeralSection();
@@ -150,6 +153,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backButtonAbout.addEventListener("click", function () {
         hideAboutSection();
+    });
+
+    speedItem.addEventListener("click", function () {
+        showSpeedSection();
+    });
+
+    backButtonSpeed.addEventListener("click", function () {
+        hideSpeedSection();
     });
 
     function showGeralSection() {
@@ -176,7 +187,36 @@ document.addEventListener("DOMContentLoaded", function () {
         geralSection.classList.add("show");
     }
 
+    function showSpeedSection() {
+        geralSection.classList.remove("show");
+        geralSection.classList.add("hidden");
+        speedSection.classList.remove("hidden");
+        speedSection.classList.add("show");
+    }
+
+    function hideSpeedSection() {
+        speedSection.classList.remove("show");
+        speedSection.classList.add("hidden");
+        geralSection.classList.remove("hidden");
+        geralSection.classList.add("show");
+    }
+
     const email = localStorage.getItem("email");
     const aboutEmail = document.querySelector("#id-account");
     aboutEmail.textContent = email || "N/A";
 });
+
+// Seletor do controle deslizante (range)
+const rangeField = document.getElementById('touch-sensitivity');
+
+// Função para preencher o ranger
+function fillRange() {
+  const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
+  rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
+}
+
+// Evento de input do controle deslizante
+rangeField.addEventListener('input', fillRange);
+
+// Chamada inicial da função para preencher o ranger
+fillRange();
