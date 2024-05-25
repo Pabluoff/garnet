@@ -132,6 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const backButton = document.getElementById("back-button");
     const geralSection = document.getElementById("geral-section");
     const settingsListGeral = document.querySelector(".settings-list-geral");
+    const aboutItem = document.getElementById("about-item");
+    const aboutSection = document.getElementById("about-section");
+    const backButtonAbout = document.getElementById("back-button-about");
 
     settingsListGeral.addEventListener("click", function () {
         showGeralSection();
@@ -139,6 +142,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backButton.addEventListener("click", function () {
         hideGeralSection();
+    });
+
+    aboutItem.addEventListener("click", function () {
+        showAboutSection();
+    });
+
+    backButtonAbout.addEventListener("click", function () {
+        hideAboutSection();
     });
 
     function showGeralSection() {
@@ -150,4 +161,22 @@ document.addEventListener("DOMContentLoaded", function () {
         geralSection.classList.remove("show");
         geralSection.classList.add("hidden");
     }
+
+    function showAboutSection() {
+        geralSection.classList.remove("show");
+        geralSection.classList.add("hidden");
+        aboutSection.classList.remove("hidden");
+        aboutSection.classList.add("show");
+    }
+
+    function hideAboutSection() {
+        aboutSection.classList.remove("show");
+        aboutSection.classList.add("hidden");
+        geralSection.classList.remove("hidden");
+        geralSection.classList.add("show");
+    }
+
+    const email = localStorage.getItem("email");
+    const aboutEmail = document.querySelector("#id-account");
+    aboutEmail.textContent = email || "N/A";
 });
