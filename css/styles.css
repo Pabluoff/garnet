@@ -1682,8 +1682,8 @@ footer p {
 .range-field::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   background: #ffffff;
   cursor: pointer;
   border-radius: 50%;
