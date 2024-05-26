@@ -1765,6 +1765,11 @@ footer p {
   gap: 5px;
 }
 
+.speed-section .cursor-speed .button-group {
+  display: flex;
+  gap: 5px;
+}
+
 .speed-section .cursor-speed button {
   text-align: center;
   background-color: #2e2e2e;
@@ -1778,6 +1783,10 @@ footer p {
   transition: background-color 0.3s;
   user-select: none; /* Evita a seleção do conteúdo do botão */
   -webkit-touch-callout: none; /* Evita o menu de contexto no iOS */
+  -webkit-user-select: none; /* Evita a seleção do conteúdo do botão no Safari */
+  -khtml-user-select: none; /* Evita a seleção do conteúdo do botão no Konqueror */
+  -moz-user-select: none; /* Evita a seleção do conteúdo do botão no Firefox */
+  -ms-user-select: none; /* Evita a seleção do conteúdo do botão no Internet Explorer/Edge */
 }
 
 .speed-section .cursor-speed button:hover {

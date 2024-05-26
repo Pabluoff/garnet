@@ -221,7 +221,7 @@ rangeField.addEventListener('input', fillRange);
 // Chamada inicial da função para preencher o ranger
 fillRange();
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const selectionMode = document.getElementById('selection-mode');
     const selectionDescription = document.getElementById('selection-description');
     const cursorSpeedInput = document.getElementById('cursor-speed');
@@ -255,9 +255,10 @@ document.addEventListener('DOMContentLoaded', function () {
         timeoutId = setTimeout(() => {
             intervalId = setInterval(() => {
                 updateSpeedValue(increment);
-            }, 100);
-        }, 1000);
+            }, 100); // Adjust the interval time as needed
+        }, 1000); // Start updating speed after 2 seconds
 
+        // If the click duration is 0, update speed only once after 100 milliseconds
         singleUpdateTimeoutId = setTimeout(() => {
             updateSpeedValue(increment);
         }, 0);
@@ -270,29 +271,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     selectionMode.addEventListener('change', updateDescription);
-    updateDescription();
+    updateDescription(); // Initial call to set the description based on the default value
 
-    decreaseSpeedButton.addEventListener('mousedown', function () {
+    decreaseSpeedButton.addEventListener('mousedown', function() {
         startUpdatingSpeed(-1);
     });
 
-    increaseSpeedButton.addEventListener('mousedown', function () {
+    increaseSpeedButton.addEventListener('mousedown', function() {
         startUpdatingSpeed(1);
     });
 
-    document.addEventListener('mouseup', function () {
+    document.addEventListener('mouseup', function() {
         stopUpdatingSpeed();
     });
 
-    decreaseSpeedButton.addEventListener('touchstart', function () {
+    decreaseSpeedButton.addEventListener('touchstart', function(event) {
+        event.preventDefault(); // Prevent default touch behavior
         startUpdatingSpeed(-1);
     });
 
-    increaseSpeedButton.addEventListener('touchstart', function () {
+    increaseSpeedButton.addEventListener('touchstart', function(event) {
+        event.preventDefault(); // Prevent default touch behavior
         startUpdatingSpeed(1);
     });
 
-    document.addEventListener('touchend', function () {
+    document.addEventListener('touchend', function() {
         stopUpdatingSpeed();
     });
 });
