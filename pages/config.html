@@ -208,7 +208,8 @@ permalink: settings
                     <p class="sensitivity-label">SENSIBILIDADE DO RASTREAMENTO</p>
                     <div class="speed-item">
                         <label for="range" class="speed-label"><ion-icon name="car-sport-outline"></ion-icon></label>
-                        <input type="range" name="range" class="range-field" min="1" max="100" value="1" id="touch-sensitivity">
+                        <input type="range" name="range" class="range-field" min="1" max="100" value="1"
+                            id="touch-sensitivity">
                     </div>
                     <p class="selection-mode-label">MODO DE SELEÇÃO</p>
                     <div class="selection-mode">
@@ -223,15 +224,17 @@ permalink: settings
                     <div class="cursor-speed">
                         <input type="number" id="cursor-speed" value="120" min="1" max="120" readonly>
                         <div class="button-group">
-                            <button id="decrease-speed"><ion-icon name="remove-outline"></ion-icon></button>
-                            <button id="increase-speed"><ion-icon name="add-outline"></ion-icon></button>
+                            <button id="decrease-speed" ontouchstart=""><ion-icon
+                                    name="remove-outline"></ion-icon></button>
+                            <button id="increase-speed" ontouchstart=""><ion-icon
+                                    name="add-outline"></ion-icon></button>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
     </div>
-        <!--About-->
+    <!--About-->
     <div class="about-section" id="about-section">
         <header class="header-about">
             <div class="container-about">
