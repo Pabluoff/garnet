@@ -211,8 +211,8 @@ const rangeField = document.getElementById('touch-sensitivity');
 
 // Função para preencher o ranger
 function fillRange() {
-  const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
-  rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
+    const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
+    rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
 }
 
 // Evento de input do controle deslizante
@@ -220,3 +220,79 @@ rangeField.addEventListener('input', fillRange);
 
 // Chamada inicial da função para preencher o ranger
 fillRange();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectionMode = document.getElementById('selection-mode');
+    const selectionDescription = document.getElementById('selection-description');
+    const cursorSpeedInput = document.getElementById('cursor-speed');
+    const decreaseSpeedButton = document.getElementById('decrease-speed');
+    const increaseSpeedButton = document.getElementById('increase-speed');
+
+    const descriptions = {
+        individual: 'O modo individual permite fazer uma seleção vertical e uma horizontal. Isso pode ser mais rápido para alvos de seleção maiores.',
+        refinado: 'O modo refinado permite refinar o alvo em cada direção, com um segundo escaneamento no intervalo da seleção inicial.',
+        preciso: 'O modo preciso adiciona um escaneamento final em baixa velocidade para definir o alvo com alta precisão.'
+    };
+
+    let intervalId = null;
+    let timeoutId = null;
+    let singleUpdateTimeoutId = null;
+
+    function updateDescription() {
+        const selectedMode = selectionMode.value;
+        selectionDescription.textContent = descriptions[selectedMode];
+    }
+
+    function updateSpeedValue(increment) {
+        let currentValue = parseInt(cursorSpeedInput.value, 10);
+        let newValue = currentValue + increment;
+        if (newValue >= 1 && newValue <= 120) {
+            cursorSpeedInput.value = newValue;
+        }
+    }
+
+    function startUpdatingSpeed(increment) {
+        timeoutId = setTimeout(() => {
+            intervalId = setInterval(() => {
+                updateSpeedValue(increment);
+            }, 100);
+        }, 1000);
+
+        singleUpdateTimeoutId = setTimeout(() => {
+            updateSpeedValue(increment);
+        }, 0);
+    }
+
+    function stopUpdatingSpeed() {
+        clearInterval(intervalId);
+        clearTimeout(timeoutId);
+        clearTimeout(singleUpdateTimeoutId);
+    }
+
+    selectionMode.addEventListener('change', updateDescription);
+    updateDescription();
+
+    decreaseSpeedButton.addEventListener('mousedown', function () {
+        startUpdatingSpeed(-1);
+    });
+
+    increaseSpeedButton.addEventListener('mousedown', function () {
+        startUpdatingSpeed(1);
+    });
+
+    document.addEventListener('mouseup', function () {
+        stopUpdatingSpeed();
+    });
+
+    decreaseSpeedButton.addEventListener('touchstart', function () {
+        startUpdatingSpeed(-1);
+    });
+
+    increaseSpeedButton.addEventListener('touchstart', function () {
+        startUpdatingSpeed(1);
+    });
+
+    document.addEventListener('touchend', function () {
+        stopUpdatingSpeed();
+    });
+});
