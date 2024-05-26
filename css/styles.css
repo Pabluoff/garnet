@@ -1776,6 +1776,8 @@ footer p {
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s;
+  user-select: none; /* Evita a seleção do conteúdo do botão */
+  -webkit-touch-callout: none; /* Evita o menu de contexto no iOS */
 }
 
 .speed-section .cursor-speed button:hover {
