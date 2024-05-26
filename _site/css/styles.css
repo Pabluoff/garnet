@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  touch-action: none;
+  touch-action: pan-x pan-y pinch-zoom;
 }
 
 
