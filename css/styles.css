@@ -11,14 +11,16 @@ html {
 }
 
 html {
+  -webkit-text-size-adjust: 100%; 
   touch-action: manipulation;
-  -ms-touch-action: manipulation;
-  -webkit-text-size-adjust: none;
+  user-select: none; 
+  zoom: 1 !important;
+  max-width: 100vw; 
 }
 
 body {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; 
 }
 
 
