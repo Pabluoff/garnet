@@ -10,8 +10,15 @@ html {
   box-sizing: border-box;
 }
 
+html {
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  -webkit-text-size-adjust: none;
+}
+
 body {
-  touch-action: pan-x pan-y pinch-zoom;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 
