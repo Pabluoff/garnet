@@ -222,26 +222,13 @@ rangeField.addEventListener('input', fillRange);
 fillRange();
 
 document.addEventListener('DOMContentLoaded', function() {
-    const selectionMode = document.getElementById('selection-mode');
-    const selectionDescription = document.getElementById('selection-description');
     const cursorSpeedInput = document.getElementById('cursor-speed');
     const decreaseSpeedButton = document.getElementById('decrease-speed');
     const increaseSpeedButton = document.getElementById('increase-speed');
 
-    const descriptions = {
-        individual: 'O modo individual permite fazer uma seleção vertical e uma horizontal. Isso pode ser mais rápido para alvos de seleção maiores.',
-        refinado: 'O modo refinado permite refinar o alvo em cada direção, com um segundo escaneamento no intervalo da seleção inicial.',
-        preciso: 'O modo preciso adiciona um escaneamento final em baixa velocidade para definir o alvo com alta precisão.'
-    };
-
     let intervalId = null;
     let timeoutId = null;
     let singleUpdateTimeoutId = null;
-
-    function updateDescription() {
-        const selectedMode = selectionMode.value;
-        selectionDescription.textContent = descriptions[selectedMode];
-    }
 
     function updateSpeedValue(increment) {
         let currentValue = parseInt(cursorSpeedInput.value, 10);
@@ -256,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
             intervalId = setInterval(() => {
                 updateSpeedValue(increment);
             }, 100); // Adjust the interval time as needed
-        }, 1000); // Start updating speed after 2 seconds
+        }, 1000); // Start updating speed after 1 second
 
         // If the click duration is 0, update speed only once after 100 milliseconds
         singleUpdateTimeoutId = setTimeout(() => {
@@ -269,9 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(timeoutId);
         clearTimeout(singleUpdateTimeoutId);
     }
-
-    selectionMode.addEventListener('change', updateDescription);
-    updateDescription(); // Initial call to set the description based on the default value
 
     decreaseSpeedButton.addEventListener('mousedown', function() {
         startUpdatingSpeed(-1);
