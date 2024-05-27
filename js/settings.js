@@ -347,22 +347,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const selectionModeOptions = document.querySelectorAll('.speed-section .selection-mode .option');
-    let timeoutId;
-
-    selectionModeOptions.forEach(option => {
-        option.addEventListener('mouseenter', function () {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-                this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            }, 400);
-        });
-
-        option.addEventListener('mouseleave', function () {
-            clearTimeout(timeoutId);
-            this.style.backgroundColor = '';
-        });
-    });
-});
