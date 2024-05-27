@@ -1201,7 +1201,7 @@ footer p {
 }
 
 .modal-content-fps {
-  background-color: #151516b2;
+  background-color: #15151675;
   border-radius: 16px;
   width: 300px;
   padding: 24px;
@@ -1212,8 +1212,8 @@ footer p {
   text-align: center;
   color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(45px);
+  -webkit-backdrop-filter: blur(45px);
 }
 
 .modal-title-fps {
@@ -1797,4 +1797,92 @@ footer p {
 .speed-section .cursor-speed button.exceeded-limit {
   background-color: #1b1b1b;
   color: #989898;
+}
+
+.modal-reset {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-content-reset {
+  background-color: #15151675;
+  border-radius: 16px;
+  width: 300px;
+  padding: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.modal-content-reset h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.modal-content-reset p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #dddddd;
+}
+
+.modal-buttons-reset {
+  margin-top: 20px;
+}
+
+.modal-buttons-reset button {
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  max-width: 120px;
+}
+
+#btn-reset-confirm {
+  background-color: red;
+  color: white;
+}
+
+#btn-reset-cancel {
+  background-color: #585858;
+  color: white;
 }

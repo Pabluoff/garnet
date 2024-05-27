@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//cor do field
 document.addEventListener('DOMContentLoaded', function () {
     const rangeField = document.getElementById('touch-sensitivity');
 
@@ -258,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fillRange();
 });
 
+//select
 document.addEventListener('DOMContentLoaded', function () {
     const selectionMode = document.querySelectorAll('.selection-mode .option');
     const selectionDescription = document.getElementById('selection-description');
@@ -360,13 +362,13 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('selected');
             const mode = this.getAttribute('data-value');
             selectionDescription.innerHTML = descriptions[mode];
-            // Salvar a opção selecionada no localStorage
             localStorage.setItem('selectedMode', mode);
         });
     });
 
     setInterval(checkSpeedLimit, 0);
 
+    //field
     const savedMode = localStorage.getItem('selectedMode');
     if (savedMode) {
         const savedOption = Array.from(selectionMode).find(option => option.getAttribute('data-value') === savedMode);
@@ -380,3 +382,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+//reset
+document.addEventListener('DOMContentLoaded', function () {
+    const resetItem = document.getElementById('settings-reset');
+    const modalReset = document.getElementById('modal-reset');
+    const btnResetConfirm = document.getElementById('btn-reset-confirm');
+    const btnResetCancel = document.getElementById('btn-reset-cancel');
+    const touchFingerToggle = document.getElementById('touch-finger-toggle');
+    const calibrationToggle = document.getElementById('calibration-toggle');
+
+    resetItem.addEventListener('click', function () {
+        modalReset.style.display = 'block';
+    });
+
+    btnResetCancel.addEventListener('click', function () {
+        modalReset.style.display = 'none';
+    });
+
+    btnResetConfirm.addEventListener('click', function () {
+        localStorage.removeItem('cursorSpeed');
+        localStorage.setItem('selectedOption', 'Singular'); 
+
+        const rangeField = document.getElementById('touch-sensitivity');
+        const cursorSpeedInput = document.getElementById('cursor-speed');
+        rangeField.value = 0; 
+        cursorSpeedInput.value = 120;
+
+        const fillRange = () => {
+            const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
+            rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
+        };
+
+        fillRange();
+
+        const selectedOption = document.querySelector('.selection-mode .option.selected');
+        if (selectedOption) {
+            selectedOption.classList.remove('selected');
+        }
+
+        const singularOption = document.querySelector('.selection-mode .option[data-value="Singular"]');
+        if (singularOption) {
+            singularOption.classList.add('selected');
+        }
+
+        touchFingerToggle.checked = false;
+        calibrationToggle.checked = false;
+
+        modalReset.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modalReset) {
+            modalReset.style.display = 'none';
+        }
+    });
+});

@@ -169,18 +169,7 @@ permalink: settings
                             <ion-icon name="chevron-forward-outline"></ion-icon>
                         </div>
                     </div>
-                    <div class="settings-item">
-                        <div class="settings-icon-text">
-                            <div>
-                                <p>Duração do Toque</p>
-                                <p class="description">Defina a duração do toque.</p>
-                            </div>
-                        </div>
-                        <div class="settings-chevron">
-                            <ion-icon name="chevron-forward-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="settings-item">
+                    <div class="settings-item" id="settings-reset">
                         <div class="settings-icon-text">
                             <div>
                                 <p>Redefinir</p>
@@ -194,6 +183,17 @@ permalink: settings
                 </div>
             </div>
         </header>
+    </div>
+    <!-- Modal de Redefinição -->
+    <div id="modal-reset" class="modal-reset">
+        <div class="modal-content-reset">
+            <h2>Redefinir Configurações</h2>
+            <p>Deseja realmente redefinir todas as configurações?</p>
+            <div class="modal-buttons-reset">
+                <button id="btn-reset-cancel">Cancelar</button>
+                <button id="btn-reset-confirm">Confirmar</button>
+            </div>
+        </div>
     </div>
     <!--Speed-->
     <div class="speed-section" id="speed-section">
