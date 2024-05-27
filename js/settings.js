@@ -206,16 +206,57 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutEmail.textContent = email || "N/A";
 });
 
-const rangeField = document.getElementById('touch-sensitivity');
+document.addEventListener('DOMContentLoaded', function () {
+    const touchFingerToggle = document.getElementById('touch-finger-toggle');
+    const calibrationToggle = document.getElementById('calibration-toggle');
 
-function fillRange() {
-    const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
-    rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
-}
+    const savedTouchFingerToggleState = localStorage.getItem('touchFingerToggleState');
+    const savedCalibrationToggleState = localStorage.getItem('calibrationToggleState');
 
-rangeField.addEventListener('input', fillRange);
+    if (savedTouchFingerToggleState !== null) {
+        touchFingerToggle.checked = savedTouchFingerToggleState === 'true';
+    }
 
-fillRange();
+    if (savedCalibrationToggleState !== null) {
+        calibrationToggle.checked = savedCalibrationToggleState === 'true';
+    }
+
+    function saveToggleStateToLocalStorage() {
+        localStorage.setItem('touchFingerToggleState', touchFingerToggle.checked);
+        localStorage.setItem('calibrationToggleState', calibrationToggle.checked);
+    }
+
+    touchFingerToggle.addEventListener('change', function () {
+        saveToggleStateToLocalStorage();
+    });
+
+    calibrationToggle.addEventListener('change', function () {
+        saveToggleStateToLocalStorage();
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const rangeField = document.getElementById('touch-sensitivity');
+
+    const savedRangeValue = localStorage.getItem('rangeValue');
+    if (savedRangeValue !== null) {
+        rangeField.value = savedRangeValue;
+        fillRange();
+    }
+
+    function fillRange() {
+        const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
+        rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
+    }
+
+    rangeField.addEventListener('input', function () {
+        fillRange();
+        localStorage.setItem('rangeValue', rangeField.value);
+    });
+
+    fillRange();
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const selectionMode = document.querySelectorAll('.selection-mode .option');
@@ -234,6 +275,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeoutId = null;
     let singleUpdateTimeoutId = null;
 
+    const savedSpeed = localStorage.getItem('cursorSpeed');
+    if (savedSpeed !== null) {
+        cursorSpeedInput.value = savedSpeed;
+    }
+
     function updateSpeedValue(increment) {
         let currentValue = parseInt(cursorSpeedInput.value, 10);
         let newValue = currentValue + increment;
@@ -248,6 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (newValue >= 1 && newValue <= 120) {
             cursorSpeedInput.value = newValue;
+            localStorage.setItem('cursorSpeed', newValue);
         }
     }
 
@@ -313,12 +360,23 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('selected');
             const mode = this.getAttribute('data-value');
             selectionDescription.innerHTML = descriptions[mode];
+            // Salvar a opção selecionada no localStorage
+            localStorage.setItem('selectedMode', mode);
         });
     });
 
     setInterval(checkSpeedLimit, 0);
 
-    if (selectionMode.length > 0) {
-        selectionMode[0].click();
+    const savedMode = localStorage.getItem('selectedMode');
+    if (savedMode) {
+        const savedOption = Array.from(selectionMode).find(option => option.getAttribute('data-value') === savedMode);
+        if (savedOption) {
+            savedOption.click();
+        }
+    } else {
+        if (selectionMode.length > 0) {
+            selectionMode[0].click();
+        }
     }
 });
+
