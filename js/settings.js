@@ -206,19 +206,15 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutEmail.textContent = email || "N/A";
 });
 
-// Seletor do controle deslizante (range)
 const rangeField = document.getElementById('touch-sensitivity');
 
-// Função para preencher o ranger
 function fillRange() {
     const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
     rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
 }
 
-// Evento de input do controle deslizante
 rangeField.addEventListener('input', fillRange);
 
-// Chamada inicial da função para preencher o ranger
 fillRange();
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -242,10 +238,9 @@ document.addEventListener('DOMContentLoaded', function() {
         timeoutId = setTimeout(() => {
             intervalId = setInterval(() => {
                 updateSpeedValue(increment);
-            }, 100); // Adjust the interval time as needed
-        }, 1000); // Start updating speed after 1 second
+            }, 100); 
+        }, 500); 
 
-        // If the click duration is 0, update speed only once after 100 milliseconds
         singleUpdateTimeoutId = setTimeout(() => {
             updateSpeedValue(increment);
         }, 0);
@@ -270,12 +265,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     decreaseSpeedButton.addEventListener('touchstart', function(event) {
-        event.preventDefault(); // Prevent default touch behavior
+        event.preventDefault(); 
         startUpdatingSpeed(-1);
     });
 
     increaseSpeedButton.addEventListener('touchstart', function(event) {
-        event.preventDefault(); // Prevent default touch behavior
+        event.preventDefault(); 
         startUpdatingSpeed(1);
     });
 

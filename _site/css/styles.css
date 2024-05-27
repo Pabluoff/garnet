@@ -1785,14 +1785,10 @@ footer p {
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s;
-  user-select: none; /* Evita a seleção do conteúdo do botão */
-  -webkit-touch-callout: none; /* Evita o menu de contexto no iOS */
-  -webkit-user-select: none; /* Evita a seleção do conteúdo do botão no Safari */
-  -khtml-user-select: none; /* Evita a seleção do conteúdo do botão no Konqueror */
-  -moz-user-select: none; /* Evita a seleção do conteúdo do botão no Firefox */
-  -ms-user-select: none; /* Evita a seleção do conteúdo do botão no Internet Explorer/Edge */
-}
-
-.speed-section .cursor-speed button:hover {
-  background-color: #4b4b4b;
+  user-select: none; 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; 
+  -khtml-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none;
 }
