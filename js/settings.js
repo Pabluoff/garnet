@@ -340,10 +340,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Verificar os limites de velocidade a cada segundo
     setInterval(checkSpeedLimit, 0);
 
-    // Selecionar a primeira opção por padrão
     if (selectionMode.length > 0) {
         selectionMode[0].click();
     }
