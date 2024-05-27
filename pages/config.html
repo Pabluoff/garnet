@@ -213,17 +213,29 @@ permalink: settings
                     </div>
                     <p class="selection-mode-label">MODO DE SELEÇÃO</p>
                     <div class="selection-mode">
-                        <div class="option" data-value="individual">Individual</div>
-                        <div class="option" data-value="refinado">Refinado</div>
-                        <div class="option" data-value="preciso">Preciso</div>
+                        <div class="option" data-value="Singular">Singular<ion-icon name="checkmark-sharp"
+                                class="check-icon"></ion-icon></div>
+                        <div class="option" data-value="Apurado">Apurado<ion-icon name="checkmark-sharp"
+                                class="check-icon"></ion-icon></div>
+                        <div class="option" data-value="Detalhado">Detalhado<ion-icon name="checkmark-sharp"
+                                class="check-icon"></ion-icon></div>
                     </div>
-                    <p class="selection-description" id="selection-description"></p>
+                    <p class="selection-description" id="selection-description">
+                        Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para
+                        capturar alvos maiores com precisão.
+                        <br><br>
+                        Modo Apurado: Permite ajustar o alvo em todas as direções, realizando um segundo escaneamento
+                        para refinamento dentro da área inicial de seleção.
+                        <br><br>
+                        Modo Detalhado: Realiza um escaneamento final em baixa velocidade para uma precisão extrema na
+                        definição do alvo, garantindo uma sensibilidade refinada para os jogadores mais exigentes.
+                    </p>
                     <p class="cursor-speed-label">VELOCIDADE DO DESLIZE</p>
                     <div class="cursor-speed">
                         <input type="number" id="cursor-speed" value="120" min="1" max="120" readonly>
                         <div class="button-group">
-                            <button id="decrease-speed"><ion-icon name="remove-outline"></ion-icon></button>
-                            <button id="increase-speed"><ion-icon name="add-outline"></ion-icon></button>
+                            <button id="decrease-speed"><ion-icon name="remove-sharp"></ion-icon></button>
+                            <button id="increase-speed"><ion-icon name="add-sharp"></ion-icon></button>
                         </div>
                     </div>
                 </div>

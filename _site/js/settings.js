@@ -218,6 +218,14 @@ rangeField.addEventListener('input', fillRange);
 fillRange();
 
 document.addEventListener('DOMContentLoaded', function() {
+    const selectionMode = document.querySelectorAll('.selection-mode .option');
+    const selectionDescription = document.getElementById('selection-description');
+    const descriptions = {
+        Singular: "Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para capturar alvos maiores com precisão.",
+        Apurado: "Modo Apurado: Permite ajustar o alvo em todas as direções, realizando um segundo escaneamento para refinamento dentro da área inicial de seleção.",
+        Detalhado: "Modo Detalhado: Realiza um escaneamento em baixa velocidade para uma precisão extrema na definição do alvo, garantindo uma sensibilidade refinada."
+    };
+
     const cursorSpeedInput = document.getElementById('cursor-speed');
     const decreaseSpeedButton = document.getElementById('decrease-speed');
     const increaseSpeedButton = document.getElementById('increase-speed');
@@ -277,4 +285,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchend', function() {
         stopUpdatingSpeed();
     });
+
+    selectionMode.forEach(option => {
+        option.addEventListener('click', function() {
+            selectionMode.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            const mode = this.getAttribute('data-value');
+            selectionDescription.innerHTML = descriptions[mode];
+        });
+    });
+
+    // Selecionar a primeira opção por padrão
+    if (selectionMode.length > 0) {
+        selectionMode[0].click();
+    }
 });
