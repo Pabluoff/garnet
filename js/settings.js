@@ -401,11 +401,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     btnResetConfirm.addEventListener('click', function () {
         localStorage.removeItem('cursorSpeed');
-        localStorage.setItem('selectedOption', 'Singular'); 
+        localStorage.removeItem('touchFingerToggleState');
+        localStorage.removeItem('calibrationToggleState');
+
+        localStorage.setItem('rangeValue', 0);
+        localStorage.setItem('selectedMode', 'Singular');
+        localStorage.setItem('touchFingerToggleState', false);
+        localStorage.setItem('calibrationToggleState', false);
 
         const rangeField = document.getElementById('touch-sensitivity');
         const cursorSpeedInput = document.getElementById('cursor-speed');
-        rangeField.value = 0; 
+        rangeField.value = 0;
         cursorSpeedInput.value = 120;
 
         const fillRange = () => {
