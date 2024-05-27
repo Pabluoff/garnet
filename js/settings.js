@@ -217,7 +217,7 @@ rangeField.addEventListener('input', fillRange);
 
 fillRange();
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const selectionMode = document.querySelectorAll('.selection-mode .option');
     const selectionDescription = document.getElementById('selection-description');
     const descriptions = {
@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', function() {
         timeoutId = setTimeout(() => {
             intervalId = setInterval(() => {
                 updateSpeedValue(increment);
-            }, 100); 
-        }, 600); 
+            }, 100);
+        }, 600);
 
         singleUpdateTimeoutId = setTimeout(() => {
             updateSpeedValue(increment);
@@ -260,34 +260,34 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(singleUpdateTimeoutId);
     }
 
-    decreaseSpeedButton.addEventListener('mousedown', function() {
+    decreaseSpeedButton.addEventListener('mousedown', function () {
         startUpdatingSpeed(-1);
     });
 
-    increaseSpeedButton.addEventListener('mousedown', function() {
+    increaseSpeedButton.addEventListener('mousedown', function () {
         startUpdatingSpeed(1);
     });
 
-    document.addEventListener('mouseup', function() {
+    document.addEventListener('mouseup', function () {
         stopUpdatingSpeed();
     });
 
-    decreaseSpeedButton.addEventListener('touchstart', function(event) {
-        event.preventDefault(); 
+    decreaseSpeedButton.addEventListener('touchstart', function (event) {
+        event.preventDefault();
         startUpdatingSpeed(-1);
     });
 
-    increaseSpeedButton.addEventListener('touchstart', function(event) {
-        event.preventDefault(); 
+    increaseSpeedButton.addEventListener('touchstart', function (event) {
+        event.preventDefault();
         startUpdatingSpeed(1);
     });
 
-    document.addEventListener('touchend', function() {
+    document.addEventListener('touchend', function () {
         stopUpdatingSpeed();
     });
 
     selectionMode.forEach(option => {
-        option.addEventListener('click', function() {
+        option.addEventListener('click', function () {
             selectionMode.forEach(opt => opt.classList.remove('selected'));
             this.classList.add('selected');
             const mode = this.getAttribute('data-value');
@@ -299,4 +299,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (selectionMode.length > 0) {
         selectionMode[0].click();
     }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectionModeOptions = document.querySelectorAll('.speed-section .selection-mode .option');
+
+    selectionModeOptions.forEach(option => {
+        option.addEventListener('mouseenter', function () {
+            setTimeout(() => {
+                this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            }, 2000);
+        });
+
+        option.addEventListener('mouseleave', function () {
+            this.style.backgroundColor = '';
+        });
+    });
 });
