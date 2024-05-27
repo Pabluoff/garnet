@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
         option.addEventListener('mouseenter', function () {
             setTimeout(() => {
                 this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            }, 2000);
+            }, 1000);
         });
 
         option.addEventListener('mouseleave', function () {
