@@ -1880,6 +1880,7 @@ footer p {
 #btn-reset-confirm {
   background-color: red;
   color: white;
+  margin-left: 5px;
 }
 
 #btn-reset-cancel {
