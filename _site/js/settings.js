@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
             intervalId = setInterval(() => {
                 updateSpeedValue(increment);
             }, 100); 
-        }, 500); 
+        }, 600); 
 
         singleUpdateTimeoutId = setTimeout(() => {
             updateSpeedValue(increment);
