@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const selectionModeOptions = document.querySelectorAll('.speed-section .selection-mode .option');
-    let timeoutId; // Variable to store timeout ID
+    let timeoutId;
 
     selectionModeOptions.forEach(option => {
         option.addEventListener('mouseenter', function () {
