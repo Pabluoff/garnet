@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectionMode = document.querySelectorAll('.selection-mode .option');
     const selectionDescription = document.getElementById('selection-description');
     const descriptions = {
-        Singular: "Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para capturar alvos maiores com precisão.",
+        Singular: "Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para capturar alvos com maior precisão no jogo.",
         Apurado: "Modo Apurado: Permite ajustar o alvo em todas as direções, realizando um segundo escaneamento para refinamento dentro da área inicial de seleção.",
         Detalhado: "Modo Detalhado: Realiza um escaneamento em baixa velocidade para uma precisão extrema na definição do alvo, garantindo uma sensibilidade refinada."
     };
@@ -304,15 +304,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const selectionModeOptions = document.querySelectorAll('.speed-section .selection-mode .option');
+    let timeoutId; // Variable to store timeout ID
 
     selectionModeOptions.forEach(option => {
         option.addEventListener('mouseenter', function () {
-            setTimeout(() => {
+            clearTimeout(timeoutId); 
+            timeoutId = setTimeout(() => {
                 this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
             }, 1000);
         });
 
         option.addEventListener('mouseleave', function () {
+            clearTimeout(timeoutId);
             this.style.backgroundColor = '';
         });
     });
