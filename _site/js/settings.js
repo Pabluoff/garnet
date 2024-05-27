@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearTimeout(timeoutId); 
             timeoutId = setTimeout(() => {
                 this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            }, 1000);
+            }, 400);
         });
 
         option.addEventListener('mouseleave', function () {
