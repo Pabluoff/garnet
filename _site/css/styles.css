@@ -1719,7 +1719,7 @@ footer p {
   padding: 10px 20px;
   cursor: pointer;
   border-bottom: 1px solid #2c2c2c;
-  transition: background-color 0.4s ease; 
+  transition: background-color 0.4s ease;
   position: relative;
 }
 
@@ -1728,7 +1728,7 @@ footer p {
 }
 
 .speed-section .selection-mode .option:hover {
-  background-color: rgba(44, 44, 44, 0.9); 
+  background-color: rgba(44, 44, 44, 0.9);
 }
 
 .speed-section .selection-mode .option .check-icon {
@@ -1742,19 +1742,19 @@ footer p {
 }
 
 .speed-section .selection-mode .option::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0); 
+  background-color: rgba(0, 0, 0, 0);
   transition: background-color 1s ease;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .speed-section .selection-mode .option:hover::before {
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .speed-section .selection-description {
@@ -1812,4 +1812,13 @@ footer p {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+.speed-section .cursor-speed button.exceeded-limit {
+  background-color: #212121;
+  color: #a8a8a8;
+}
+
+.speed-section .cursor-speed button.hovered {
+  background-color: #3e3e3e; /* Altere para a cor desejada */
 }

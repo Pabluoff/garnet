@@ -237,6 +237,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateSpeedValue(increment) {
         let currentValue = parseInt(cursorSpeedInput.value, 10);
         let newValue = currentValue + increment;
+        if (newValue === 1) {
+            decreaseSpeedButton.classList.add('exceeded-limit');
+        } else if (newValue === 120) {
+            increaseSpeedButton.classList.add('exceeded-limit');
+        } else {
+            decreaseSpeedButton.classList.remove('exceeded-limit');
+            increaseSpeedButton.classList.remove('exceeded-limit');
+        }
+
         if (newValue >= 1 && newValue <= 120) {
             cursorSpeedInput.value = newValue;
         }
@@ -258,6 +267,26 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(intervalId);
         clearTimeout(timeoutId);
         clearTimeout(singleUpdateTimeoutId);
+    }
+
+    function checkSpeedLimit() {
+        let currentValue = parseInt(cursorSpeedInput.value, 10);
+        if (currentValue === 1) {
+            decreaseSpeedButton.classList.add('exceeded-limit');
+        } else if (currentValue === 120) {
+            increaseSpeedButton.classList.add('exceeded-limit');
+        } else {
+            decreaseSpeedButton.classList.remove('exceeded-limit');
+            increaseSpeedButton.classList.remove('exceeded-limit');
+        }
+    }
+
+    function handleMouseOver(button) {
+        button.classList.add('hovered');
+    }
+
+    function handleMouseOut(button) {
+        button.classList.remove('hovered');
     }
 
     decreaseSpeedButton.addEventListener('mousedown', function () {
@@ -286,6 +315,22 @@ document.addEventListener('DOMContentLoaded', function () {
         stopUpdatingSpeed();
     });
 
+    decreaseSpeedButton.addEventListener('mouseover', function () {
+        handleMouseOver(this);
+    });
+
+    decreaseSpeedButton.addEventListener('mouseout', function () {
+        handleMouseOut(this);
+    });
+
+    increaseSpeedButton.addEventListener('mouseover', function () {
+        handleMouseOver(this);
+    });
+
+    increaseSpeedButton.addEventListener('mouseout', function () {
+        handleMouseOut(this);
+    });
+
     selectionMode.forEach(option => {
         option.addEventListener('click', function () {
             selectionMode.forEach(opt => opt.classList.remove('selected'));
@@ -294,6 +339,9 @@ document.addEventListener('DOMContentLoaded', function () {
             selectionDescription.innerHTML = descriptions[mode];
         });
     });
+
+    // Verificar os limites de velocidade a cada segundo
+    setInterval(checkSpeedLimit, 0);
 
     // Selecionar a primeira opção por padrão
     if (selectionMode.length > 0) {
@@ -308,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     selectionModeOptions.forEach(option => {
         option.addEventListener('mouseenter', function () {
-            clearTimeout(timeoutId); 
+            clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                 this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
             }, 400);
