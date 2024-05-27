@@ -1820,5 +1820,5 @@ footer p {
 }
 
 .speed-section .cursor-speed button.hovered:not(.exceeded-limit) {
-  background-color: #3e3e3e;
+  background-color: #5d5d5d;
 }
