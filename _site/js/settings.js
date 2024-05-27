@@ -281,14 +281,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function handleMouseOver(button) {
-        button.classList.add('hovered');
-    }
-
-    function handleMouseOut(button) {
-        button.classList.remove('hovered');
-    }
-
     decreaseSpeedButton.addEventListener('mousedown', function () {
         startUpdatingSpeed(-1);
     });
@@ -315,22 +307,6 @@ document.addEventListener('DOMContentLoaded', function () {
         stopUpdatingSpeed();
     });
 
-    decreaseSpeedButton.addEventListener('mouseover', function () {
-        handleMouseOver(this);
-    });
-
-    decreaseSpeedButton.addEventListener('mouseout', function () {
-        handleMouseOut(this);
-    });
-
-    increaseSpeedButton.addEventListener('mouseover', function () {
-        handleMouseOver(this);
-    });
-
-    increaseSpeedButton.addEventListener('mouseout', function () {
-        handleMouseOut(this);
-    });
-
     selectionMode.forEach(option => {
         option.addEventListener('click', function () {
             selectionMode.forEach(opt => opt.classList.remove('selected'));
@@ -346,4 +322,3 @@ document.addEventListener('DOMContentLoaded', function () {
         selectionMode[0].click();
     }
 });
-
