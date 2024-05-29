@@ -1887,3 +1887,22 @@ footer p {
   background-color: #585858;
   color: white;
 }
+
+.header-ai {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.container-ai {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 20px;
+  margin: 20px 10px;
+}
+

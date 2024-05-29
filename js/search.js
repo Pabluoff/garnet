@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
         historyList.style.display = 'none';
         setTimeout(function () {
             searchMessage.style.display = 'none';
-            historyList.style.display = 'block'; 
-        }, 3000); 
+            historyList.style.display = 'block';
+        }, 3000);
     }
 
     function hideMessage() {
         searchMessage.style.display = 'none';
-        historyList.style.display = 'block'; 
+        historyList.style.display = 'block';
     }
 
     function searchRedirect(searchQuery) {
@@ -25,24 +25,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (searchQuery === '') return;
 
-        let redirectFlag = false; 
+        let redirectFlag = false;
 
         if (searchQuery.includes('insightshot v2') || searchQuery.includes('como ajustar mira') ||
             searchQuery.includes('ajustar mira') || searchQuery.includes('headshot') ||
             searchQuery.includes('ajuste de mira') || searchQuery.includes('no recoil') ||
             searchQuery.includes('sensibilidade')) {
-            window.location.href = '/subpagina1';
+            window.location.href = '/settings#geral';
             redirectFlag = true;
         } else if (searchQuery.includes('lag') || searchQuery.includes('diminuir lag') ||
             searchQuery.includes('como diminuir o lag do celular') || searchQuery.includes('aumentar fps') ||
             searchQuery.includes('melhorar internet') || searchQuery.includes('fps') ||
             searchQuery.includes('como remover o travamento') || searchQuery.includes('como remover o lag')) {
-            window.location.href = '/subpagina2';
+            window.location.href = '/settings';
             redirectFlag = true;
         }
 
         if (!redirectFlag) {
-            showMessage(); 
+            showMessage();
         } else {
             hideMessage();
         }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function addToHistory(searchQuery) {
-        if (historyList.querySelector(`li span:first-of-type[title="${searchQuery}"]`)) return; 
+        if (historyList.querySelector(`li span:first-of-type[title="${searchQuery}"]`)) return;
         const listItem = document.createElement('li');
         listItem.innerHTML = `
             <ion-icon name="time" class="time-icon"></ion-icon>
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const closeIcon = listItem.querySelector('.close-icon');
         closeIcon.addEventListener('click', function (event) {
-            event.stopPropagation(); 
+            event.stopPropagation();
             const itemText = this.previousElementSibling.textContent;
             removeFromLocalStorage(itemText);
             this.parentNode.remove();
