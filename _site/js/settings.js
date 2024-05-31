@@ -206,17 +206,17 @@ document.addEventListener('DOMContentLoaded', function () {
     let touchendX = 0;
 
     function checkSwipe(section, hideSection) {
-        if (touchendX < touchstartX) {
+        if (touchendX > touchstartX) {
             hideSection();
         }
     }
 
     [geralSection, aboutSection, speedSection].forEach(section => {
-        section.addEventListener('touchstart', function(event) {
+        section.addEventListener('touchstart', function (event) {
             touchstartX = event.changedTouches[0].screenX;
         });
 
-        section.addEventListener('touchend', function(event) {
+        section.addEventListener('touchend', function (event) {
             touchendX = event.changedTouches[0].screenX;
             if (section === geralSection) {
                 checkSwipe(section, hideGeralSection);

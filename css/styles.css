@@ -1906,28 +1906,3 @@ footer p {
   margin: 20px 10px;
 }
 
-.geral-section, .about-section, .speed-section {
-  position: fixed;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  background-color: #0b0b0c; 
-  color: #ffffff; 
-  z-index: 20;
-  transition: transform 0.3s ease-out;
-}
-
-.geral-section.show, .about-section.show, .speed-section.show {
-  transform: translateX(-100%);
-}
-
-.geral-section.hidden, .about-section.hidden, .speed-section.hidden {
-  transform: translateX(100%);
-}
-
-.sensitivity-label {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
