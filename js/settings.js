@@ -128,15 +128,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+    const geralSection = document.getElementById('geral-section');
+    const aboutSection = document.getElementById('about-section');
+    const speedSection = document.getElementById('speed-section');
+
     const backButton = document.getElementById("back-button");
-    const geralSection = document.getElementById("geral-section");
     const settingsListGeral = document.querySelector(".settings-list-geral");
     const aboutItem = document.getElementById("about-item");
-    const aboutSection = document.getElementById("about-section");
     const backButtonAbout = document.getElementById("back-button-about");
     const speedItem = document.getElementById("speed-item");
-    const speedSection = document.getElementById("speed-section");
     const backButtonSpeed = document.getElementById("back-button-speed");
 
     settingsListGeral.addEventListener("click", function () {
@@ -200,6 +201,32 @@ document.addEventListener("DOMContentLoaded", function () {
         geralSection.classList.remove("hidden");
         geralSection.classList.add("show");
     }
+
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function checkSwipe(section, hideSection) {
+        if (touchendX < touchstartX) {
+            hideSection();
+        }
+    }
+
+    [geralSection, aboutSection, speedSection].forEach(section => {
+        section.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+        });
+
+        section.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            if (section === geralSection) {
+                checkSwipe(section, hideGeralSection);
+            } else if (section === aboutSection) {
+                checkSwipe(section, hideAboutSection);
+            } else if (section === speedSection) {
+                checkSwipe(section, hideSpeedSection);
+            }
+        });
+    });
 
     const email = localStorage.getItem("email");
     const aboutEmail = document.querySelector("#id-account");
