@@ -1888,7 +1888,7 @@ footer p {
   color: white;
 }
 
-.header-ai {
+.header-xp {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1898,7 +1898,7 @@ footer p {
   margin: 0 auto;
 }
 
-.container-ai {
+.container-xp {
   position: relative;
   width: 100%;
   max-width: 380px;
