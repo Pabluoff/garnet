@@ -1,7 +1,7 @@
 // Lista de e-mails VIP
 const emailsVIP = [
   "pabluo23cm@gmail.com",
-  "email2@example.com",
+  "wender@gmail.com",
   "email3@example.com",
 ];
 
