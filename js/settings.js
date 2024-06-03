@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    const rangeField = document.getElementById('touch-sensitivity');
     const geralSection = document.getElementById('geral-section');
     const aboutSection = document.getElementById('about-section');
     const speedSection = document.getElementById('speed-section');
@@ -204,19 +205,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let touchstartX = 0;
     let touchendX = 0;
+    let isTouchOnRangeField = false;
 
     function checkSwipe(section, hideSection) {
-        if (touchendX > touchstartX) {
+        if (!isTouchOnRangeField && touchendX > touchstartX) { // Verifica se o movimento é para a direita e não iniciou no range field
             hideSection();
         }
     }
 
     [geralSection, aboutSection, speedSection].forEach(section => {
-        section.addEventListener('touchstart', function (event) {
+        section.addEventListener('touchstart', function(event) {
             touchstartX = event.changedTouches[0].screenX;
+            isTouchOnRangeField = event.target === rangeField; // Verifica se o toque inicial foi no range field
         });
 
-        section.addEventListener('touchend', function (event) {
+        section.addEventListener('touchend', function(event) {
             touchendX = event.changedTouches[0].screenX;
             if (section === geralSection) {
                 checkSwipe(section, hideGeralSection);
@@ -227,6 +230,24 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    const savedRangeValue = localStorage.getItem('rangeValue');
+    if (savedRangeValue !== null) {
+        rangeField.value = savedRangeValue;
+        fillRange();
+    }
+
+    function fillRange() {
+        const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
+        rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
+    }
+
+    rangeField.addEventListener('input', function () {
+        fillRange();
+        localStorage.setItem('rangeValue', rangeField.value);
+    });
+
+    fillRange();
 
     const email = localStorage.getItem("email");
     const aboutEmail = document.querySelector("#id-account");
@@ -262,29 +283,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-//cor do field
-document.addEventListener('DOMContentLoaded', function () {
-    const rangeField = document.getElementById('touch-sensitivity');
-
-    const savedRangeValue = localStorage.getItem('rangeValue');
-    if (savedRangeValue !== null) {
-        rangeField.value = savedRangeValue;
-        fillRange();
-    }
-
-    function fillRange() {
-        const percent = (rangeField.value - rangeField.min) / (rangeField.max - rangeField.min) * 100;
-        rangeField.style.background = `linear-gradient(to right, #007aff 0%, #007aff ${percent}%, #3a3a3c ${percent}%, #3a3a3c 100%)`;
-    }
-
-    rangeField.addEventListener('input', function () {
-        fillRange();
-        localStorage.setItem('rangeValue', rangeField.value);
-    });
-
-    fillRange();
-});
 
 //select
 document.addEventListener('DOMContentLoaded', function () {
