@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Fetch the username from localStorage
     const savedUsername = localStorage.getItem("nome") || "user";
     // Display the username in the header
@@ -66,11 +66,11 @@ function renderMissions() {
     missions.forEach(mission => {
         const missionItem = document.createElement('li');
         missionItem.innerHTML = `
-            <span>${mission.description}</span>
-            <button onclick="completeMission(${mission.id})" ${mission.completed ? 'disabled' : ''}>
-                ${mission.completed ? 'Resgatado!' : 'Resgatar'}
-            </button>
-        `;
+        <span>${mission.description}</span>
+        <button onclick="completeMission(${mission.id})" ${mission.completed ? 'disabled' : ''}>
+            ${mission.completed ? 'Completada' : 'Completar'}
+        </button>
+`;
         missionsList.appendChild(missionItem);
     });
 }
