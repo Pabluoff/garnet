@@ -1888,6 +1888,7 @@ footer p {
   color: white;
 }
 
+/* Estilos para a seção de XP */
 .header-xp {
   display: flex;
   flex-direction: column;
@@ -1915,8 +1916,9 @@ footer p {
 
 .user-xp {
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .xp-info {
@@ -1924,29 +1926,30 @@ footer p {
 }
 
 .user-level {
-  color: #fff;
-  font-size: 14px;
+  color: #00ff40; 
+  font-size: 16px;
   font-weight: normal;
 }
 
 .xp-bar-container {
   width: 100%;
-  background-color: #444;
+  background-color: #333;
   border-radius: 5px;
   overflow: hidden;
   margin: 5px 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5); /* Sombra interna */
 }
 
 .xp-bar {
-  height: 10px;
+  height: 12px;
   background-color: #0f0;
   width: 0;
-  transition: width 0.3s;
+  transition: width 0.4s ease-in-out;
 }
 
 .xp-text {
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .header-right .icon-link {
@@ -1955,11 +1958,12 @@ footer p {
 
 .header-right .icon-link ion-icon {
   margin-top: -35px;
-  font-size: 24px;
+  font-size: 26px;
   color: #fff;
 }
+
 .daily-missions {
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   max-width: 520px;
   color: #fff;
@@ -1985,20 +1989,30 @@ footer p {
   align-items: center;
   margin-top: 10px;
   padding: 10px;
-  background-color: #222;
+  background-color: #161616;
   border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.daily-missions li:hover {
+  background-color: #333333;
 }
 
 .daily-missions button {
-  background-color: #0f0;
+  background-color: #4caf50;
   border: none;
   color: #000;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.daily-missions button:hover {
+  background-color: #45a049;
 }
 
 .daily-missions button:disabled {
-  background-color: #555;
+  background-color: #888;
   cursor: not-allowed;
 }
