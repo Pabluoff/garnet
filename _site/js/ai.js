@@ -12,7 +12,7 @@ const xpForNextLevel = 100;
 const defaultMissions = [
     { id: 1, description: "Login diário", xp: 10, completed: false },
     { id: 2, description: "Compartilhar com amigo", xp: 20, completed: false },
-    { id: 3, description: "Assistir o vídeo Surpresa", xp: 30, completed: false }
+    { id: 3, description: "Assistir vídeo Surpresa", xp: 30, completed: false }
 ];
 
 function loadUserData() {
