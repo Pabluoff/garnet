@@ -1958,3 +1958,47 @@ footer p {
   font-size: 24px;
   color: #fff;
 }
+.daily-missions {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 520px;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.daily-missions h2 {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.daily-missions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.daily-missions li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 5px;
+}
+
+.daily-missions button {
+  background-color: #0f0;
+  border: none;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.daily-missions button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
