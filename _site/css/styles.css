@@ -1938,6 +1938,7 @@ footer p {
 .profile-header .name-level {
   font-size: 1.3em;
   font-weight: bold;
+  margin-top: -30px;
 }
 
 .profile-header .status-account {
