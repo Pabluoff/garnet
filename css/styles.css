@@ -1896,6 +1896,7 @@ footer p {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
+  margin-top: -5px;
 }
 
 .container-xp {
@@ -1989,4 +1990,55 @@ footer p {
   margin-top: 5px;
   font-size: 0.9em;
   font-weight: lighter;
+}
+
+.card-level {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 15px;
+  padding-bottom: 20px;
+  background-color: #161616;
+  border-radius: 8px;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+  position: relative;
+}
+
+.card-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.card-text {
+  color: #d6d7d6;
+  font-size: 0.6em;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.message-level {
+  position: absolute;
+  top: 4px;
+  left: 75%;
+  transform: translateX(-50%);
+  background-color: #1fa809;
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: lighter;
+  padding: 2px 6px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.facil {
+  padding: 2px 12px;
 }
