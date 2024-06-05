@@ -1938,7 +1938,19 @@ footer p {
 .profile-header .name-level {
   font-size: 1.3em;
   font-weight: bold;
-  margin-top: -40px;
+}
+
+.profile-header .status-account {
+  font-size: 0.7em;
+  font-weight: lighter;
+  color: #e2e2e2;
+  margin-top: 1px;
+  margin-right: 29px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-header .level-info {
