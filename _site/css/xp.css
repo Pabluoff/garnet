@@ -49,24 +49,21 @@ body {
 }
 
 .profile-header {
-  background: linear-gradient(
-    135deg,
-    rgb(76, 195, 130) 10%,
-    hsla(128, 91%, 30%, 1) 100%
-  );
+  background-color: #0f9f2f;
   color: #fff;
   padding: 20px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.141);
   font-size: 18px;
 }
 
 .profile-header .name {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
+  margin-top: -40px;
 }
 
 .profile-header .level-info {
@@ -76,9 +73,10 @@ body {
 }
 
 .profile-header .level {
-  font-size: 1em;
+  font-size: 1.2em;
   margin-bottom: 5px;
-  margin-right: 9px;
+  margin-right: -2px;
+  font-weight: bold;
 }
 
 .profile-header .level-bar {
@@ -94,16 +92,13 @@ body {
 .profile-header .level-bar span {
   display: block;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgb(48, 169, 103) 10%,
-    hsla(128, 91%, 30%, 1) 100%
-  );
-  width: 20%; /* Adjust width to reflect XP */
+  background-color: #40c42a;
+  width: 30%;
   border-radius: 10px;
 }
 
 .profile-header .xp {
   margin-top: 5px;
   font-size: 0.9em;
+  font-weight: lighter;
 }
