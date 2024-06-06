@@ -2089,15 +2089,14 @@ footer p {
 
 .reward-icon {
   font-size: 1.9em;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   color: #0f9f2f;
 }
 
 .reward-card .reward-amount {
   font-size: 1.2em;
   font-weight: bold;
-  margin-bottom: 30px;
-  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .reward-card .reward-day {
@@ -2126,7 +2125,7 @@ footer p {
 
 .message-bonus {
   position: absolute;
-  top: -9px;
+  top: -12px;
   left: 85%;
   transform: translateX(-50%);
   background-color: #e2fef1;
