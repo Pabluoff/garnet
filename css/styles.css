@@ -2068,3 +2068,73 @@ footer p {
   max-width: 220px;
   margin-bottom: 20px;
 }
+
+.daily-reward-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reward-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 22%;
+  padding: 10px;
+  background-color: #202020;
+  border-radius: 8px;
+  color: #fff;
+  position: relative;
+}
+
+.reward-icon {
+  font-size: 1.9em;
+  margin-bottom: 5px;
+  color: #0f9f2f;
+}
+
+.reward-card .reward-amount {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.reward-card .reward-day {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  padding: 5px 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: #7b7979;
+}
+
+.bonus .reward-day {
+  background-color: #0f9f2f;
+  color: white;
+  font-weight: bold;
+}
+
+.highlught-bonus {
+  color: #0f9f2f;
+  font-weight: bold;
+}
+
+.message-bonus {
+  position: absolute;
+  top: -9px;
+  left: 85%;
+  transform: translateX(-50%);
+  background-color: #e2fef1;
+  color: #42725c;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.322);
+}
