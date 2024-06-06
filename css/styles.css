@@ -2126,7 +2126,7 @@ footer p {
 .message-bonus {
   position: absolute;
   top: -8px;
-  left: 83%;
+  left: 80%;
   transform: translateX(-50%);
   background-color: #e2fef1;
   color: #42725c;
