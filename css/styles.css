@@ -2085,6 +2085,18 @@ footer p {
   border-radius: 8px;
   color: #fff;
   position: relative;
+  cursor: pointer;
+}
+
+.reward-card.collected .reward-icon,
+.reward-card.collected .reward-amount {
+  cursor: default;
+}
+
+.reward-card.collected.bonus .reward-day,
+.reward-card.collected.bonus .message-bonus,
+.reward-card.collected.bonus .highlught-bonus {
+  color: #5d5d5d;
 }
 
 .reward-icon {
