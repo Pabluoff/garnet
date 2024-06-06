@@ -2042,3 +2042,28 @@ footer p {
 .facil {
   padding: 2px 12px;
 }
+
+.card-reward {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 15px;
+  padding-bottom: 25px;
+  background-color: #161616;
+  border-radius: 8px;
+}
+
+.title-reward {
+  font-size: 1em;
+  font-weight: bold;
+  color: #f1f1f1;
+  margin-top: 5px;
+}
+
+.subtitle-reward {
+  font-size: 0.9em;
+  color: #757575;
+  margin-top: 10px;
+  max-width: 220px;
+  margin-bottom: 20px;
+}
