@@ -37,16 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function claimDailyReward(day, cardElement) {
         if (day === lastClaimedDay + 1 && isNewDay()) {
-            addXp(rewardAmounts[day - 1] / 10); // Convertendo recompensa em XP para este exemplo
+            addXp(rewardAmounts[day - 1] / 10); 
             cardElement.classList.add('collected');
-            cardElement.querySelector('.reward-icon').style.color = '#7a7a7a';
-            cardElement.querySelector('.reward-amount').style.color = '#7a7a7a';
+            const rewardIcon = cardElement.querySelector('.reward-icon');
+            rewardIcon.innerHTML = '<i class="fa-solid fa-check"></i>';
+            cardElement.querySelector('.reward-amount').style.color = '#5d5d5d';
             if (cardElement.classList.contains('bonus')) {
-                cardElement.querySelector('.reward-day').style.backgroundColor = '#7a7a7a';
+                cardElement.querySelector('.reward-day').style.backgroundColor = '#5d5d5d';
                 cardElement.querySelector('.reward-day').style.color = '#000';
-                cardElement.querySelector('.message-bonus').style.backgroundColor = '#7a7a7a';
+                cardElement.querySelector('.message-bonus').style.backgroundColor = '#5d5d5d';
                 cardElement.querySelector('.message-bonus').style.color = '#000';
-                cardElement.querySelector('.highlught-bonus').style.color = '#7a7a7a';
+                cardElement.querySelector('.highlught-bonus').style.color = '#5d5d5d';
             }
             cardElement.removeEventListener('click', handleRewardClick);
             lastClaimedDay = day;
@@ -72,14 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const day = index + 1;
             if (day <= lastClaimedDay) {
                 card.classList.add('collected');
-                card.querySelector('.reward-icon').style.color = '#7a7a7a';
-                card.querySelector('.reward-amount').style.color = '#7a7a7a';
+                const rewardIcon = card.querySelector('.reward-icon');
+                rewardIcon.innerHTML = '<i class="fa-solid fa-check"></i>';
+                card.querySelector('.reward-amount').style.color = '#5d5d5d';
                 if (card.classList.contains('bonus')) {
-                    card.querySelector('.reward-day').style.backgroundColor = '#7a7a7a';
+                    card.querySelector('.reward-day').style.backgroundColor = '#5d5d5d';
                     card.querySelector('.reward-day').style.color = '#000';
-                    card.querySelector('.message-bonus').style.backgroundColor = '#7a7a7a';
+                    card.querySelector('.message-bonus').style.backgroundColor = '#5d5d5d';
                     card.querySelector('.message-bonus').style.color = '#000';
-                    card.querySelector('.highlught-bonus').style.color = '#7a7a7a';
+                    card.querySelector('.highlught-bonus').style.color = '#5d5d5d';
                 }
             } else if (day === lastClaimedDay + 1 && isNewDay()) {
                 card.addEventListener('click', handleRewardClick);

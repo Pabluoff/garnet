@@ -2088,14 +2088,14 @@ footer p {
   cursor: pointer;
 }
 
-.reward-card.collected .reward-icon,
-.reward-card.collected .reward-amount {
-  cursor: default;
-}
 
 .reward-card.collected.bonus .reward-day,
 .reward-card.collected.bonus .message-bonus,
 .reward-card.collected.bonus .highlught-bonus {
+  color: #5d5d5d;
+}
+
+.reward-card.collected .reward-icon i {
   color: #5d5d5d;
 }
 
