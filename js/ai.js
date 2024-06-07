@@ -54,6 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
             lastClaimDate = new Date().toISOString().split('T')[0];
             localStorage.setItem("lastClaimedDay", lastClaimedDay);
             localStorage.setItem("lastClaimDate", lastClaimDate);
+
+            if (lastClaimedDay === 0 && isNewDay()) {
+                resetRewardCards();
+            }
         }
     }
 
@@ -83,20 +87,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     card.querySelector('.message-bonus').style.color = '#000';
                     card.querySelector('.highlught-bonus').style.color = '#5d5d5d';
                 }
-            } else if ((day === lastClaimedDay + 1 || (lastClaimedDay === totalDays && day === 1)) && isNewDay()) {
+            } else if (day === lastClaimedDay + 1 && isNewDay()) {
                 card.addEventListener('click', handleRewardClick);
             } else {
                 card.classList.add('locked');
             }
         });
-
-        if (lastClaimedDay === totalDays && isNewDay()) {
-            resetRewardCards();
-        }
     }
 
     function resetRewardCards() {
-        document.querySelectorAll('.reward-card').forEach((card) => {
+        document.querySelectorAll('.reward-card').forEach((card, index) => {
             card.classList.remove('collected', 'locked');
             const rewardIcon = card.querySelector('.reward-icon');
             rewardIcon.innerHTML = '<i class="fa-solid fa-coins"></i>';
@@ -108,10 +108,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.querySelector('.message-bonus').style.color = '';
                 card.querySelector('.highlught-bonus').style.color = '';
             }
+            if (index === 0 && isNewDay()) {
+                card.addEventListener('click', handleRewardClick);
+            }
         });
         lastClaimedDay = 0;
+        localStorage.setItem("lastClaimedDay", lastClaimedDay);
     }
 
     updateLevelInfo();
     initRewardCards();
 });
+
+function restoreName() {
+    var storedName = localStorage.getItem('nome');
+
+    if (storedName) {
+        var nameDiv = document.querySelector('.name-level');
+        
+        nameDiv.textContent = storedName;
+    }
+}
+
+window.onload = restoreName;
