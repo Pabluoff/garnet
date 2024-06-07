@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function claimDailyReward(day, cardElement) {
-        if (day === lastClaimedDay + 1 && isNewDay()) {
+        if ((day === lastClaimedDay + 1 || (day === 1 && lastClaimedDay === totalDays)) && isNewDay()) {
             addXp(rewardAmounts[day - 1] / 10); 
             cardElement.classList.add('collected');
             const rewardIcon = cardElement.querySelector('.reward-icon');
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cardElement.querySelector('.highlught-bonus').style.color = '#5d5d5d';
             }
             cardElement.removeEventListener('click', handleRewardClick);
-            lastClaimedDay = day;
+            lastClaimedDay = day === totalDays ? 0 : day;
             lastClaimDate = new Date().toISOString().split('T')[0];
             localStorage.setItem("lastClaimedDay", lastClaimedDay);
             localStorage.setItem("lastClaimDate", lastClaimDate);
@@ -83,12 +83,33 @@ document.addEventListener("DOMContentLoaded", () => {
                     card.querySelector('.message-bonus').style.color = '#000';
                     card.querySelector('.highlught-bonus').style.color = '#5d5d5d';
                 }
-            } else if (day === lastClaimedDay + 1 && isNewDay()) {
+            } else if ((day === lastClaimedDay + 1 || (lastClaimedDay === totalDays && day === 1)) && isNewDay()) {
                 card.addEventListener('click', handleRewardClick);
             } else {
                 card.classList.add('locked');
             }
         });
+
+        if (lastClaimedDay === totalDays && isNewDay()) {
+            resetRewardCards();
+        }
+    }
+
+    function resetRewardCards() {
+        document.querySelectorAll('.reward-card').forEach((card) => {
+            card.classList.remove('collected', 'locked');
+            const rewardIcon = card.querySelector('.reward-icon');
+            rewardIcon.innerHTML = '<i class="fa-solid fa-coins"></i>';
+            card.querySelector('.reward-amount').style.color = '';
+            if (card.classList.contains('bonus')) {
+                card.querySelector('.reward-day').style.backgroundColor = '';
+                card.querySelector('.reward-day').style.color = '';
+                card.querySelector('.message-bonus').style.backgroundColor = '';
+                card.querySelector('.message-bonus').style.color = '';
+                card.querySelector('.highlught-bonus').style.color = '';
+            }
+        });
+        lastClaimedDay = 0;
     }
 
     updateLevelInfo();
