@@ -2101,13 +2101,13 @@ footer p {
 /* Adicione isso ao seu arquivo CSS */
 @keyframes collectAnimation {
   0% {
-      transform: scale(1);
+    transform: scale(1);
   }
   50% {
-      transform: scale(1.1);
+    transform: scale(1.1);
   }
   100% {
-      transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -2128,19 +2128,22 @@ footer p {
 
 @keyframes particleMove {
   0% {
-      opacity: 1;
-      transform: translate(0, 0) scale(1);
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
   }
   50% {
-      opacity: 0.5;
-      transform: translate(-20px, -30px) scale(1.5);
+    opacity: 0.5;
+    transform: translate(-20px, -30px) scale(1.5);
   }
   100% {
-      opacity: 0;
-      transform: translate(calc(var(--end-x) - var(--start-x)), calc(var(--end-y) - var(--start-y))) scale(0);
+    opacity: 0;
+    transform: translate(
+        calc(var(--end-x) - var(--start-x)),
+        calc(var(--end-y) - var(--start-y))
+      )
+      scale(0);
   }
 }
-
 
 .reward-icon {
   font-size: 1.9em;
@@ -2193,4 +2196,78 @@ footer p {
   border-bottom-right-radius: 5px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.322);
+}
+
+.card-share {
+  background-color: #161616;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.share-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.share-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.share-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.share-subtitle {
+  font-size: 0.9em;
+  color: #757575;
+  margin-bottom: 10px;
+}
+
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.share-button {
+  background-color: #232323;
+  padding: 4px 8px;
+  font-size: 0.7em;
+  gap: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  color: #949494;
+  text-decoration: none;
+}
+
+.share-button ion-icon {
+  text-align: center;
+  font-size: 1.1em;
+  color: #acacac;
+  background-color: #353535;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.share-button.affiliation {
+  color: white;
+  background-color: #0f9f2f;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 0.8em;
 }
