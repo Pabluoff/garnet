@@ -2098,6 +2098,50 @@ footer p {
   color: #5d5d5d;
 }
 
+/* Adicione isso ao seu arquivo CSS */
+@keyframes collectAnimation {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.collected-animation {
+  animation: collectAnimation 0.5s ease-in-out;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #00c55f;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  animation: particleMove 1s forwards;
+}
+
+@keyframes particleMove {
+  0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translate(-20px, -30px) scale(1.5);
+  }
+  100% {
+      opacity: 0;
+      transform: translate(calc(var(--end-x) - var(--start-x)), calc(var(--end-y) - var(--start-y))) scale(0);
+  }
+}
+
+
 .reward-icon {
   font-size: 1.9em;
   margin-bottom: 7px;

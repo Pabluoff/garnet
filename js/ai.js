@@ -35,10 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userXp", userXp);
     }
 
+    function createParticles(numParticles, startX, startY, endX, endY) {
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+
+            particle.style.setProperty('--start-x', `${startX}px`);
+            particle.style.setProperty('--start-y', `${startY}px`);
+            particle.style.setProperty('--end-x', `${endX}px`);
+            particle.style.setProperty('--end-y', `${endY}px`);
+
+            document.body.appendChild(particle);
+
+            const animationDuration = Math.random() * 0.5 + 0.5;
+            particle.style.animationDuration = `${animationDuration}s`;
+
+            setTimeout(() => {
+                particle.remove();
+            }, animationDuration * 1000);
+        }
+    }
+
     function claimDailyReward(day, cardElement) {
         if ((day === lastClaimedDay + 1 || (day === 1 && lastClaimedDay === totalDays)) && isNewDay()) {
             addXp(rewardAmounts[day - 1] / 10); 
             cardElement.classList.add('collected');
+            cardElement.classList.add('collected-animation'); // Adiciona a animação
             const rewardIcon = cardElement.querySelector('.reward-icon');
             rewardIcon.innerHTML = '<i class="fa-solid fa-check"></i>';
             cardElement.querySelector('.reward-amount').style.color = '#5d5d5d';
@@ -54,6 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
             lastClaimDate = new Date().toISOString().split('T')[0];
             localStorage.setItem("lastClaimedDay", lastClaimedDay);
             localStorage.setItem("lastClaimDate", lastClaimDate);
+
+            // Coordenadas de partículas
+            const rect = cardElement.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + rect.height / 2;
+
+            const endRect = userLevelElement.getBoundingClientRect();
+            const endX = endRect.left + endRect.width / 2;
+            const endY = endRect.top + endRect.height / 2;
+
+            createParticles(10, startX, startY, endX, endY);
 
             if (lastClaimedDay === 0 && isNewDay()) {
                 resetRewardCards();
@@ -97,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function resetRewardCards() {
         document.querySelectorAll('.reward-card').forEach((card, index) => {
-            card.classList.remove('collected', 'locked');
+            card.classList.remove('collected', 'locked', 'collected-animation');
             const rewardIcon = card.querySelector('.reward-icon');
             rewardIcon.innerHTML = '<i class="fa-solid fa-coins"></i>';
             card.querySelector('.reward-amount').style.color = '';
