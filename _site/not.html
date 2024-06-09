@@ -16,7 +16,6 @@
 </head>
 <body>
     <button onclick="solicitarPermissao()">Solicitar permissão para notificações</button>
-    <button onclick="enviarNotificacao()">Enviar Notificação</button>
     
     <script>
         function solicitarPermissao() {
@@ -34,15 +33,39 @@
             });
         }
 
-        function enviarNotificacao() {
-            if (Notification.permission === "granted") {
-                new Notification("Olá!", {
-                    body: "Esta é uma notificação de teste.",
-                    icon: "/img/logo.jpg" // Caminho para um ícone opcional
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            navigator.serviceWorker.register('sw.js')
+                .then(function(swReg) {
+                    console.log('Service Worker registrado com sucesso:', swReg);
+
+                    Notification.requestPermission().then(function(permission) {
+                        if (permission === 'granted') {
+                            console.log('Permissão concedida para notificações.');
+                            // Agendar notificações diárias
+                            agendarNotificacaoDiaria(swReg);
+                        } else {
+                            console.log('Permissão negada para notificações.');
+                        }
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Erro ao registrar o Service Worker:', error);
                 });
-            } else {
-                alert("Permissão para notificações não foi concedida.");
-            }
+        } else {
+            console.warn('Service Worker ou Push Manager não são suportados neste navegador.');
+        }
+
+        function agendarNotificacaoDiaria(swReg) {
+            // Use um intervalo para simular notificações diárias
+            setInterval(() => {
+                const titulo = 'Notificação Diária';
+                const opcoes = {
+                    body: 'Esta é uma notificação enviada automaticamente uma vez por dia.',
+                    icon: 'icone.png' // Caminho para um ícone opcional
+                };
+
+                swReg.showNotification(titulo, opcoes);
+            }, 24 * 60 * 60 * 1000); // 24 horas em milissegundos
         }
     </script>
 </body>
