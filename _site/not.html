@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificações</title>
+    <style>
+        button {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="solicitarPermissao()">Solicitar permissão para notificações</button>
+    <button onclick="enviarNotificacao()">Enviar Notificação</button>
+    
+    <script>
+        function solicitarPermissao() {
+            if (!("Notification" in window)) {
+                alert("Este navegador não suporta notificações.");
+                return;
+            }
+
+            Notification.requestPermission().then(function(permission) {
+                if (permission === "granted") {
+                    alert("Permissão concedida!");
+                } else {
+                    alert("Permissão negada.");
+                }
+            });
+        }
+
+        function enviarNotificacao() {
+            if (Notification.permission === "granted") {
+                new Notification("Olá!", {
+                    body: "Esta é uma notificação de teste.",
+                    icon: "icone.png" // Caminho para um ícone opcional
+                });
+            } else {
+                alert("Permissão para notificações não foi concedida.");
+            }
+        }
+    </script>
+</body>
+</html>
