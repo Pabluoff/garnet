@@ -3,14 +3,13 @@ const emailsVIP = [
   "pabluo23cm@gmail.com",
   "wender@gmail.com",
   "japaroludo@gmail.com",
-  "silvaroludo@gmail.com",
+  "garnet@gmail.com",
   "samuel23cm@gmail.com",
 ];
 
 // Lista de e-mails padrão
 const emailsPadrao = [
   "terminal@gmail.com",
-  "garnet@gmail.com",
 ];
 
 function verificarEmailSalvo() {
