@@ -9,7 +9,7 @@ const emailsVIP = [
 
 // Lista de e-mails padrão
 const emailsPadrao = [
-  "garnetacesso@gmail.com",
+  "acesso@garnet.com",
 ];
 
 function verificarEmailSalvo() {
