@@ -2271,3 +2271,34 @@ footer p {
   padding: 6px 15px;
   font-size: 0.9em;
 }
+
+.container-em-breve {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.close-icon-em-breve a {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.close-icon-em-breve a:hover {
+  color: #ff4b2b;
+}
+
+.em-breve {
+  color: #c4c4c4;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
