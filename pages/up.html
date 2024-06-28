@@ -137,6 +137,17 @@ permalink: ranking
     </header>
     <script src="/js/script.js"></script>
     <script src="/js/ai.js"></script>
+    <script>
+        function detectDesktop() {
+            if (window.innerWidth > 1024) {
+                window.location.href = 'https://usegarnet.online/desk';
+            }
+        }
+
+        // Executa a função de detecção quando a página carrega
+        window.onload = detectDesktop;
+
+    </script>
 </body>
 
 </html>
