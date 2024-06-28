@@ -187,9 +187,29 @@
         <ion-icon name="wifi-outline" class="notification-icon-wifi"></ion-icon>
         <p class="notification-text">Sem conexão com a internet</p>
     </div>
+    <div id="addToHomeScreen" class="add-to-home-screen">
+        <div class="app-info">
+            <h1>Garnet</h1>
+            <p>Este site possui funcionalidade de aplicativo. Adicione-o à sua tela inicial para uma melhor experiência e acesso mais rápido.-</p>
+        </div>
+        <div class="add-button-container">
+            <button id="addButton">
+                <ion-icon name="add-outline"></ion-icon>
+                Adicionar à tela inicial
+            </button>
+        </div>
+    </div>
+    <div id="instructions" class="instructions">
+        <h2>Como adicionar à tela inicial</h2>
+        <ol>
+            <li>Abra o navegador e vá para o menu de opções.</li>
+            <li>Selecione "Adicionar à tela inicial".</li>
+            <li>Siga as instruções na tela.</li>
+        </ol>
+        <button id="closeButton">Fechar</button>
+    </div>
     <script src="/js/script.js"></script>
     <script src="/js/home.js"></script>
-    <script src="/js/notification,.js"></script>
     <script>
         function detectDesktop() {
             if (window.innerWidth > 1024) {

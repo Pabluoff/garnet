@@ -173,13 +173,6 @@ function fazerLogout() {
 
 document.getElementById("logout").addEventListener("click", fazerLogout);
 
-// Registro do service worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then((reg) => console.log('Service worker registrado', reg))
-    .catch((err) => console.log('Service worker não registrado', err));
-}
-
 function verificarConexaoInternet() {
   const statusCard = document.getElementById('status-card');
   const statusText = document.getElementById('status-text');
@@ -213,3 +206,56 @@ function verificarConexaoInternet() {
   updateStatus(navigator.onLine);
 }
 
+// Registro do service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then((reg) => console.log('Service worker registrado', reg))
+    .catch((err) => console.log('Service worker não registrado', err));
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const addToHomeScreenDiv = document.getElementById('addToHomeScreen');
+  const addButton = document.getElementById('addButton');
+  const instructions = document.getElementById('instructions');
+  const closeButton = document.getElementById('closeButton');
+
+  // Detecta se o site está rodando como um aplicativo
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+      addToHomeScreenDiv.style.display = 'none';
+  } else {
+      setTimeout(() => {
+          addToHomeScreenDiv.style.transform = 'translateY(0)';
+          addToHomeScreenDiv.style.opacity = '1';
+      }, 1000);
+  }
+
+  addButton.addEventListener('click', () => {
+      addToHomeScreenDiv.style.display = 'none';
+      instructions.style.display = 'block';
+  });
+
+  closeButton.addEventListener('click', () => {
+      instructions.style.display = 'none';
+  });
+
+  // Evento para mostrar a mensagem de instalação do PWA
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      addToHomeScreenDiv.style.transform = 'translateY(0)';
+      addToHomeScreenDiv.style.opacity = '1';
+  });
+
+  addButton.addEventListener('click', () => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+          } else {
+              console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
+      });
+  });
+});

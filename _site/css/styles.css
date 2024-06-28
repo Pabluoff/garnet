@@ -2308,3 +2308,104 @@ footer p {
   text-align: center;
 }
 
+.add-to-home-screen {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: #1c1c1e;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+  z-index: 11;
+}
+
+.app-info h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.app-info p {
+  font-size: 12px;
+  margin: 5px 0 15px 0;
+  color: #a1a1a1;
+}
+
+.add-button-container {
+  width: 100%;
+}
+
+#addButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+#addButton ion-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+#addButton:hover {
+  background-color: #0056b3;
+}
+
+.instructions {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1c1c1e;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  max-width: 300px;
+  width: 80%;
+  text-align: center;
+}
+
+.instructions h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.instructions ol {
+  text-align: left;
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+  color: #a1a1a1;
+}
+
+#closeButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+#closeButton:hover {
+  background-color: #0056b3;
+}
