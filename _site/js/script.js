@@ -218,8 +218,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('addButton');
   const instructions = document.getElementById('instructions');
   const closeButton = document.getElementById('closeButton');
+  const closeBtnHome = document.getElementById('closeBtnHome');
 
-  // Detecta se o site está rodando como um aplicativo
+  closeBtnHome.addEventListener('click', () => {
+      addToHomeScreenDiv.style.display = 'none';
+  });
+
   if (window.matchMedia('(display-mode: standalone)').matches) {
       addToHomeScreenDiv.style.display = 'none';
   } else {
@@ -238,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function () {
       instructions.style.display = 'none';
   });
 
-  // Evento para mostrar a mensagem de instalação do PWA
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();

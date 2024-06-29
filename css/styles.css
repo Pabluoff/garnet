@@ -2308,6 +2308,16 @@ footer p {
   text-align: center;
 }
 
+#closeBtnHome {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 12; 
+}
+
 .add-to-home-screen {
   display: none;
   position: fixed;
@@ -2329,12 +2339,12 @@ footer p {
 }
 
 .app-info h1 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0;
 }
 
 .app-info p {
-  font-size: 12px;
+  font-size: 16px;
   margin: 5px 0 15px 0;
   color: #a1a1a1;
 }
@@ -2344,7 +2354,7 @@ footer p {
 }
 
 #addButton {
-  background-color: #007bff;
+  background-color: #323232;
   color: white;
   border: none;
   padding: 10px;
@@ -2355,57 +2365,73 @@ footer p {
   align-items: center;
   justify-content: center;
   width: 100%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 #addButton ion-icon {
-  font-size: 20px;
+  font-size: 22px;
   margin-right: 10px;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid rgb(202, 202, 202);
 }
 
 #addButton:hover {
-  background-color: #0056b3;
+  background-color: #292929;
 }
 
 .instructions {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #1c1c1e;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  max-width: 300px;
-  width: 80%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  color: #ccc;
+  padding: 50px;
+  box-sizing: border-box;
   text-align: center;
+  overflow-y: auto;
+  z-index: 11;
+}
+
+.instructions ion-icon#closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
 }
 
 .instructions h2 {
-  font-size: 18px;
+  font-size: 23px;
+  margin-bottom: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.instructions .instruction-steps {
+  margin: 0 auto;
+  margin-left: -27px;
+  margin-top: 44px;
+}
+
+.instructions .instruction-steps li {
   margin-bottom: 15px;
-}
-
-.instructions ol {
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
   text-align: left;
-  padding-left: 20px;
-  margin: 0 0 20px 0;
-  color: #a1a1a1;
 }
 
-#closeButton {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-#closeButton:hover {
-  background-color: #0056b3;
+.instructions .instruction-steps li ion-icon {
+  margin-right: 10px;
+  font-size: 42px;
 }

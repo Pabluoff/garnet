@@ -191,9 +191,11 @@ permalink: inicio
         <p class="notification-text">Sem conexão com a internet</p>
     </div>
     <div id="addToHomeScreen" class="add-to-home-screen">
+        <ion-icon name="close" id="closeBtnHome"></ion-icon>
         <div class="app-info">
             <h1>Garnet</h1>
-            <p>Este site possui funcionalidade de aplicativo. Adicione-o à sua tela inicial para uma melhor experiência e acesso mais rápido.-</p>
+            <p>Este site possui funcionalidade de aplicativo. Adicione-o à sua tela inicial para uma melhor experiência
+                e acesso mais rápido.</p>
         </div>
         <div class="add-button-container">
             <button id="addButton">
@@ -203,16 +205,16 @@ permalink: inicio
         </div>
     </div>
     <div id="instructions" class="instructions">
+        <ion-icon name="close" id="closeButton"></ion-icon>
         <h2>Como adicionar à tela inicial</h2>
-        <ol>
-            <li>Abra o navegador e vá para o menu de opções.</li>
-            <li>Selecione "Adicionar à tela inicial".</li>
-            <li>Siga as instruções na tela.</li>
+        <ol class="instruction-steps">
+            <li><ion-icon name="phone-portrait-outline"></ion-icon> Abra o seu navegador de preferência.</li>
+            <li><ion-icon name="share-outline"></ion-icon> Pressione Compartilhar na barra de navegação.</li>
+            <li><ion-icon name="add-outline"></ion-icon> Role para baixo até "Adicionar à tela inicial".</li>
         </ol>
-        <button id="closeButton">Fechar</button>
     </div>
     <script src="/js/script.js"></script>
-    <script src="/js/home.js"></script>
+    <script src="/js/home.js"></script>"
     <script>
         function detectDesktop() {
             if (window.innerWidth > 1024) {
