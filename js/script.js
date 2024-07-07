@@ -2,7 +2,7 @@
 const emailsVIP = [
   "pabluo23cm@gmail.com",
   "wender@gmail.com",
-  "japaroludo@gmail.com",
+  "guiroludo@gmail.com",
   "garnet@gmail.com",
   "pivetonez@gmail.com",
   "lohansensi@gmail.com",
