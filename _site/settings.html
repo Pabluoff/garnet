@@ -35,7 +35,7 @@
 <body>
     <div class="loader-container">
         <div class="loader"></div>
-    </div>    
+    </div>
     <header class="header-config">
         <div class="container-config">
             <h1>Ajustes</h1>
@@ -208,43 +208,45 @@
                     <p class="sensitivity-label">SENSIBILIDADE DO RASTREAMENTO</p>
                     <div class="speed-item">
                         <label for="range" class="speed-label"><ion-icon name="car-sport-outline"></ion-icon></label>
-                        <input type="range" name="range" class="range-field" min="1" max="100" value="1"
+                        <input type="range" name="range" class="range-field" min="0" max="100" value="0"
                             id="touch-sensitivity">
-                    </div>
-                    <p class="selection-mode-label">MODO DE SELEÇÃO</p>
-                    <div class="selection-mode">
-                        <div class="option" data-value="Singular">Singular<ion-icon name="checkmark-sharp"
-                                class="check-icon"></ion-icon></div>
-                        <div class="option" data-value="Apurado">Apurado<ion-icon name="checkmark-sharp"
-                                class="check-icon"></ion-icon></div>
-                        <div class="option" data-value="Detalhado">Detalhado<ion-icon name="checkmark-sharp"
-                                class="check-icon"></ion-icon></div>
-                    </div>
-                    <p class="selection-description" id="selection-description">
-                        Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para
-                        capturar alvos maiores com precisão.
-                        <br><br>
-                        Modo Apurado: Permite ajustar o alvo em todas as direções, realizando um segundo escaneamento
-                        para refinamento dentro da área inicial de seleção.
-                        <br><br>
-                        Modo Detalhado: Realiza um escaneamento final em baixa velocidade para uma precisão extrema na
-                        definição do alvo, garantindo uma sensibilidade refinada para os jogadores mais exigentes.
-                    </p>
-                    <p class="cursor-speed-label">VELOCIDADE DO DESLIZE</p>
-                    <div class="cursor-speed">
-                        <input type="number" id="cursor-speed" value="120" min="1" max="120" readonly>
-                        <div class="button-group">
-                            <button id="decrease-speed"><ion-icon name="remove-sharp"></ion-icon></button>
-                            <button id="increase-speed"><ion-icon name="add-sharp"></ion-icon></button>
-                        </div>
+                        <span class="percentage-label" id="percentage-value">0%</span>
                     </div>
                 </div>
-                <div class="btn-enter-container">
-                    <button id="btn-enter-game" class="btn-enter-game"><span>Ativar InsightShot no Free Fire</span></button>
-                    <div id="loading-text" style="display: none;">
-                      <span id="loading-message">Carregando...</span>
+                <p class="selection-mode-label">MODO DE SELEÇÃO</p>
+                <div class="selection-mode">
+                    <div class="option" data-value="Singular">Singular<ion-icon name="checkmark-sharp"
+                            class="check-icon"></ion-icon></div>
+                    <div class="option" data-value="Apurado">Apurado<ion-icon name="checkmark-sharp"
+                            class="check-icon"></ion-icon></div>
+                    <div class="option" data-value="Detalhado">Detalhado<ion-icon name="checkmark-sharp"
+                            class="check-icon"></ion-icon></div>
+                </div>
+                <p class="selection-description" id="selection-description">
+                    Modo Singular: Oferece seleção rápida tanto na vertical quanto na horizontal, ideal para
+                    capturar alvos maiores com precisão.
+                    <br><br>
+                    Modo Apurado: Permite ajustar o alvo em todas as direções, realizando um segundo escaneamento
+                    para refinamento dentro da área inicial de seleção.
+                    <br><br>
+                    Modo Detalhado: Realiza um escaneamento final em baixa velocidade para uma precisão extrema na
+                    definição do alvo, garantindo uma sensibilidade refinada para os jogadores mais exigentes.
+                </p>
+                <p class="cursor-speed-label">VELOCIDADE DO DESLIZE</p>
+                <div class="cursor-speed">
+                    <input type="number" id="cursor-speed" value="120" min="1" max="120" readonly>
+                    <div class="button-group">
+                        <button id="decrease-speed"><ion-icon name="remove-sharp"></ion-icon></button>
+                        <button id="increase-speed"><ion-icon name="add-sharp"></ion-icon></button>
                     </div>
-                  </div>                  
+                </div>
+            </div>
+            <div class="btn-enter-container">
+                <button id="btn-enter-game" class="btn-enter-game"><span>Ativar InsightShot no Free Fire</span></button>
+                <div id="loading-text" style="display: none;">
+                    <span id="loading-message">Carregando...</span>
+                </div>
+            </div>
         </header>
     </div>
     <!--About-->

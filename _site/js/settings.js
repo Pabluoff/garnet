@@ -534,3 +534,17 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
     }, 2000);
   });
   
+  document.addEventListener("DOMContentLoaded", function () {
+    const rangeField = document.getElementById("touch-sensitivity");
+    const percentageLabel = document.getElementById("percentage-value");
+
+    function updatePercentage() {
+        percentageLabel.textContent = `${rangeField.value}%`;
+    }
+
+    rangeField.addEventListener("input", updatePercentage);
+
+    updatePercentage();
+
+    setInterval(updatePercentage, 1000);
+});

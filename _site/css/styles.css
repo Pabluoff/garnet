@@ -1710,6 +1710,12 @@ footer p {
   border-radius: 50%;
 }
 
+.percentage-label {
+  font-size: 18px;
+  color: #8f8f8f;
+  margin-left: 10px;
+}
+
 .speed-section .sensitivity-label,
 .speed-section .selection-mode-label,
 .speed-section .cursor-speed-label {
