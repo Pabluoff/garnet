@@ -2462,12 +2462,12 @@ footer p {
   flex-direction: column; 
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .btn-enter-game {
   --btn-default-bg: #181818;
-  --btn-padding: 12px 25px;
+  --btn-padding: 15px 25px;
   --btn-hover-bg: #191919;
   --btn-transition: .3s;
   --btn-letter-spacing: .1rem;
@@ -2630,6 +2630,6 @@ footer p {
 
 .btn-enter-game.disabled {
   pointer-events: none;
-  opacity: 0.7; 
+  opacity: 0.8; 
 }
 
