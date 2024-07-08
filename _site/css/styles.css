@@ -2473,13 +2473,12 @@ footer p {
   --btn-padding: 15px 25px;
   --btn-hover-bg: #191919;
   --btn-transition: .3s;
-  --btn-letter-spacing: .1rem;
   --btn-animation-duration: 6s;
   --btn-shadow-color: rgba(0, 0, 0, 0.137);
   --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
   --hover-btn-color: #9d9d9d;
   --default-btn-color: #878787;
-  --font-size: 12px;
+  --font-size: 15px;
   --font-weight: 600;
 }
 
@@ -2501,7 +2500,8 @@ footer p {
 }
 
 .btn-enter-game span {
-  letter-spacing: var(--btn-letter-spacing);
+  text-transform: uppercase;
+  font-size: var(--font-size);
   transition: var(--btn-transition);
   box-sizing: border-box;
   position: relative;
