@@ -2471,7 +2471,7 @@ footer p {
   --btn-hover-bg: #191919;
   --btn-transition: .3s;
   --btn-letter-spacing: .1rem;
-  --btn-animation-duration: 2.9s;
+  --btn-animation-duration: 6s;
   --btn-shadow-color: rgba(0, 0, 0, 0.137);
   --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
   --hover-btn-color: #9d9d9d;
@@ -2527,95 +2527,116 @@ footer p {
 @keyframes chitchat {
   0% {
     content: "#";
+    color: #4aef80;
   }
 
   5% {
     content: ".";
+    color: #4aef80;
   }
 
   10% {
     content: "^{";
+    color: #4aef80;
   }
 
   15% {
     content: "-!";
+    color: #4aef80;
   }
 
   20% {
     content: "#$_";
+    color: #4aef80;
   }
 
   25% {
     content: "№:0";
+    color: #4aef80;
   }
 
   30% {
     content: "#{+.";
+    color: #4aef80;
   }
 
   35% {
     content: "@}-?";
+    color: #4aef80;
   }
 
   40% {
     content: "?{4@%";
+    color: #4aef80;
   }
 
   45% {
     content: "=.,^!";
+    color: #4aef80;
   }
 
   50% {
     content: "?2@%";
+    color: #4aef80;
   }
 
   55% {
     content: "\;1}]";
+    color: #4aef80;
   }
 
   60% {
     content: "?{%:%";
     right: 0;
+    color: #4aef80;
   }
 
   65% {
     content: "|{f[4";
     right: 0;
+    color: #4aef80;
   }
 
   70% {
     content: "{4%0%";
     right: 0;
+    color: #4aef80;
   }
 
   75% {
     content: "'1_0<";
     right: 0;
+    color: #4aef80;
   }
 
   80% {
     content: "{0%";
     right: 0;
+    color: #4aef80;
   }
 
   85% {
     content: "]>'";
     right: 0;
+    color: #4aef80;
   }
 
   90% {
     content: "4";
     right: 0;
+    color: #4aef80;
   }
 
   95% {
     content: "2";
     right: 0;
+    color: #4aef80;
   }
 
   100% {
     content: "";
     right: 0;
+    color: #4aef80;
   }
 }
 
