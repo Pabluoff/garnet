@@ -2482,6 +2482,7 @@ footer p {
 
 .btn-enter-game {
   box-sizing: border-box;
+  width: 100%;
   padding: var(--btn-padding);
   display: flex;
   align-items: center;
