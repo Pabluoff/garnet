@@ -468,3 +468,57 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.getElementById('btn-enter-game').addEventListener('click', function() {
+    var loadingText = document.getElementById('loading-text');
+    var loadingMessage = document.getElementById('loading-message');
+    var btnEnterGame = document.getElementById('btn-enter-game');
+  
+    if (btnEnterGame.classList.contains('disabled')) {
+      return; // Retorna se o botão já estiver desabilitado
+    }
+  
+    // Desabilita o botão para evitar múltiplos cliques
+    btnEnterGame.classList.add('disabled');
+  
+    var loadingMessages = [
+      "Carregando...",
+      "Executando IA...",
+      "InsightShot..."
+    ];
+  
+    function displayLoadingMessages(index) {
+      if (index < loadingMessages.length) {
+        loadingMessage.textContent = loadingMessages[index];
+        loadingText.style.display = 'block';
+  
+        setTimeout(function() {
+          loadingText.style.display = 'none';
+          displayLoadingMessages(index + 1);
+        }, 2000);
+      } else {
+        openFreeFire();
+      }
+    }
+  
+    function openFreeFire() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "freefire://";
+      } else {
+        var isAndroid = userAgent.toLowerCase().indexOf("android") > -1;
+        if (isAndroid) {
+          window.location.href = "intent://com.dts.freefireth#Intent;scheme=package;end";
+        } else {
+          alert("Caso Free Fire não seja aberto automaticamente, por favor, abra o aplicativo manualmente.");
+        }
+      }
+  
+      // Habilita o botão novamente após abrir o link
+      btnEnterGame.classList.remove('disabled');
+    }
+  
+    displayLoadingMessages(0);
+  });
+  
