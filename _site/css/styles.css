@@ -2630,6 +2630,5 @@ footer p {
 
 .btn-enter-game.disabled {
   pointer-events: none;
-  opacity: 0.8; 
 }
 
