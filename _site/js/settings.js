@@ -531,6 +531,6 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
     setTimeout(function() {
       // Ocultar o contêiner de carregamento após 3 segundos (simulando o fim do carregamento)
       loaderContainer.style.display = 'none';
-    }, 3000);
+    }, 2000);
   });
   

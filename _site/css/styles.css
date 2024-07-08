@@ -1174,6 +1174,9 @@ footer p {
   font-size: 14px;
   color: #969696;
   margin-left: 40px;
+  word-wrap: break-word; 
+  word-break: break-all; 
+  overflow-wrap: break-word; 
 }
 
 .modal-fps {
