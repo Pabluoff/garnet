@@ -522,3 +522,15 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
     displayLoadingMessages(0);
   });
   
+  document.addEventListener("DOMContentLoaded", function() {
+    // Exibir o contêiner de carregamento
+    const loaderContainer = document.querySelector('.loader-container');
+    loaderContainer.style.display = 'flex';
+  
+    // Simular um carregamento de página com timeout
+    setTimeout(function() {
+      // Ocultar o contêiner de carregamento após 3 segundos (simulando o fim do carregamento)
+      loaderContainer.style.display = 'none';
+    }, 3000);
+  });
+  
