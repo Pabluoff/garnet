@@ -472,14 +472,14 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('btn-enter-game').addEventListener('click', function() {
     var loadingText = document.getElementById('loading-text');
     var loadingMessage = document.getElementById('loading-message');
-    var btnEnterGame = document.getElementById('btn-enter-game');
+    var btn = document.getElementById('btn-enter-game');
+    var audio = document.getElementById('loading-sound');
   
-    if (btnEnterGame.classList.contains('disabled')) {
-      return; // Retorna se o botão já estiver desabilitado
+    if (btn.classList.contains('disabled')) {
+      return; // Impede cliques adicionais
     }
   
-    // Desabilita o botão para evitar múltiplos cliques
-    btnEnterGame.classList.add('disabled');
+    btn.classList.add('disabled'); // Desabilita o botão
   
     var loadingMessages = [
       "Carregando...",
@@ -514,14 +514,15 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
           alert("Caso Free Fire não seja aberto automaticamente, por favor, abra o aplicativo manualmente.");
         }
       }
-  
-      // Habilita o botão novamente após abrir o link
-      btnEnterGame.classList.remove('disabled');
+      btn.classList.remove('disabled'); // Reabilita o botão após a ação
+      
+      // Reproduz o som ao finalizar
+      audio.play();
     }
   
     displayLoadingMessages(0);
   });
-  
+    
   document.addEventListener("DOMContentLoaded", function() {
     // Exibir o contêiner de carregamento
     const loaderContainer = document.querySelector('.loader-container');
