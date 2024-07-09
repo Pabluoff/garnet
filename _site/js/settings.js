@@ -497,8 +497,18 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
           displayLoadingMessages(index + 1);
         }, 2000);
       } else {
-        openFreeFire();
+        playAudioAndOpenLink();
       }
+    }
+  
+    function playAudioAndOpenLink() {
+      // Define o evento para abrir o link após a reprodução completa do áudio
+      audio.addEventListener('ended', function() {
+        openFreeFire();
+      });
+  
+      // Reproduz o áudio
+      audio.play();
     }
   
     function openFreeFire() {
@@ -515,14 +525,11 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
         }
       }
       btn.classList.remove('disabled'); // Reabilita o botão após a ação
-      
-      // Reproduz o som ao finalizar
-      audio.play();
     }
   
     displayLoadingMessages(0);
   });
-    
+      
   document.addEventListener("DOMContentLoaded", function() {
     // Exibir o contêiner de carregamento
     const loaderContainer = document.querySelector('.loader-container');
