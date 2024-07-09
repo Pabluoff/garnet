@@ -472,14 +472,14 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('btn-enter-game').addEventListener('click', function() {
     var loadingText = document.getElementById('loading-text');
     var loadingMessage = document.getElementById('loading-message');
-    var btn = document.getElementById('btn-enter-game');
-    var audio = document.getElementById('loading-sound');
+    var btnEnterGame = document.getElementById('btn-enter-game');
   
-    if (btn.classList.contains('disabled')) {
-      return; // Impede cliques adicionais
+    if (btnEnterGame.classList.contains('disabled')) {
+      return; // Retorna se o botão já estiver desabilitado
     }
   
-    btn.classList.add('disabled'); // Desabilita o botão
+    // Desabilita o botão para evitar múltiplos cliques
+    btnEnterGame.classList.add('disabled');
   
     var loadingMessages = [
       "Carregando...",
@@ -497,18 +497,8 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
           displayLoadingMessages(index + 1);
         }, 2000);
       } else {
-        playAudioAndOpenLink();
-      }
-    }
-  
-    function playAudioAndOpenLink() {
-      // Define o evento para abrir o link após a reprodução completa do áudio
-      audio.addEventListener('ended', function() {
         openFreeFire();
-      });
-  
-      // Reproduz o áudio
-      audio.play();
+      }
     }
   
     function openFreeFire() {
@@ -524,12 +514,14 @@ document.getElementById('btn-enter-game').addEventListener('click', function() {
           alert("Caso Free Fire não seja aberto automaticamente, por favor, abra o aplicativo manualmente.");
         }
       }
-      btn.classList.remove('disabled'); // Reabilita o botão após a ação
+  
+      // Habilita o botão novamente após abrir o link
+      btnEnterGame.classList.remove('disabled');
     }
   
     displayLoadingMessages(0);
   });
-      
+  
   document.addEventListener("DOMContentLoaded", function() {
     // Exibir o contêiner de carregamento
     const loaderContainer = document.querySelector('.loader-container');
