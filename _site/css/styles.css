@@ -2477,7 +2477,7 @@ footer p {
 }
 
 .btn-enter-game {
-  --btn-default-bg: #181818;
+  --btn-default-bg: #121212;
   --btn-padding: 15px 30px;
   --btn-hover-bg: #191919;
   --btn-transition: .3s;
@@ -2488,6 +2488,7 @@ footer p {
   --default-btn-color: #878787;
   --font-size: 15px;
   --font-weight: 600;
+  border-radius: 8px;
 }
 
 .btn-enter-game {
