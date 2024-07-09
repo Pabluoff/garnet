@@ -1688,10 +1688,17 @@ footer p {
   margin-right: 9px;
 }
 
+.range-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
 .range-field {
   appearance: none;
   -webkit-appearance: none;
-  width: 100%;
+  width: calc(100% - 50px); 
   height: 5px;
   background: #989898;
   outline: none;
@@ -1699,6 +1706,7 @@ footer p {
   transition: opacity 0.2s;
   border-radius: 2.5px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .range-field::-webkit-slider-thumb {
@@ -1714,7 +1722,6 @@ footer p {
 .percentage-label {
   font-size: 18px;
   color: #767676;
-  margin-left: 10px;
 }
 
 .speed-section .sensitivity-label,
