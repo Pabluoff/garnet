@@ -1698,7 +1698,7 @@ footer p {
 .range-field {
   appearance: none;
   -webkit-appearance: none;
-  width: calc(100% - 50px); 
+  width: calc(100% - 55px); 
   height: 5px;
   background: #989898;
   outline: none;
