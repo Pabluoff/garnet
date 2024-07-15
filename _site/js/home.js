@@ -39,6 +39,7 @@ function updateProfilePicture(input) {
 
         // Salvar a imagem no armazenamento local
         localStorage.setItem('profilePicture', e.target.result);
+        console.log("Imagem salva no localStorage:", e.target.result); // Log para depuração
     }
 
     reader.readAsDataURL(file);
@@ -47,6 +48,7 @@ function updateProfilePicture(input) {
 // Função para carregar a imagem de perfil salva no armazenamento local ao carregar a página
 window.onload = function () {
     const savedProfilePicture = localStorage.getItem('profilePicture');
+    console.log("Imagem carregada do localStorage:", savedProfilePicture); // Log para depuração
     if (savedProfilePicture) {
         const profilePicture = document.getElementById('profile-picture');
         profilePicture.src = savedProfilePicture;
