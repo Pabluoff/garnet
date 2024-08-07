@@ -5,7 +5,7 @@ const emailsVIP = [
   "junior22cm@gmail.com",
   "garnet@gmail.com",
   "pivetonez@gmail.com",
-  "gbx22cm@gmail.com",
+  "lohansensi@gmail.com",
   "theusz@gmail.com",
 ];
 
