@@ -309,7 +309,14 @@ body > .skiptranslate > iframe {
   display: none !important;
 }
 
-/* Ajusta o topo do corpo da página após esconder a barra */
-body {
-  top: 0px !important;
+/* Remove a interatividade de clicar para restaurar o texto original */
+.goog-te-banner-frame.skiptranslate,
+.goog-text-highlight,
+span[onmouseover*="this.style"] {
+    pointer-events: none !important;
+}
+
+/* Remove o ícone de idioma */
+.goog-te-gadget-icon {
+    display: none !important;
 }
