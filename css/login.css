@@ -281,3 +281,23 @@ body {
 .notification.success .notification-icon {
   color: #fff;
 }
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1a1a1a;
+  padding: 8px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+#google_translate_element select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
