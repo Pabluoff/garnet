@@ -301,3 +301,15 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
+
+/* Oculta a barra de ferramentas do Google Translate */
+body > .skiptranslate > iframe.skiptranslate,
+body > #goog-gt-vt,
+body > .skiptranslate > iframe {
+  display: none !important;
+}
+
+/* Ajusta o topo do corpo da página após esconder a barra */
+body {
+  top: 0px !important;
+}
