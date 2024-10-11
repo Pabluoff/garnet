@@ -12,7 +12,10 @@ const emailsVIP = [
 // Lista de e-mails padrão
 const emailsPadrao = [
   "acesso@garnet.com",
+  "acessoteste@garnet.com",
 ];
+
+let acessoExpirado = false; // Flag para controlar o acesso expirado
 
 function verificarEmailSalvo() {
   const emailSalvo = localStorage.getItem("email");
@@ -27,6 +30,23 @@ function verificarEmailSalvo() {
       verifiedIcon.style.display = "inline-block";
     } else {
       verifiedIcon.style.display = "none";
+    }
+  }
+
+  // Verifica o e-mail teste
+  if (emailSalvo === "acessoteste@garnet.com") {
+    // Redireciona após 30 dias se o acesso não tiver expirado
+    const loginTimestamp = localStorage.getItem("login_timestamp");
+    const agora = new Date().getTime();
+    const diff = agora - loginTimestamp;
+    const dias30ms = 30 * 24 * 60 * 60 * 1000;
+
+    if (loginTimestamp && diff > dias30ms) {
+      acessoExpirado = true; // Marca como acesso expirado
+      localStorage.removeItem("email");
+      localStorage.removeItem("nome");
+      localStorage.removeItem("login_timestamp");
+      window.location.href = "/"; // Redireciona para a página inicial
     }
   }
 }
@@ -53,8 +73,12 @@ function verificarEmail() {
   const loginText = document.getElementById("login-text");
   const arrowIcon = loginButton.querySelector("i");
 
+  if (acessoExpirado) {
+    exibirNotificacao("Acesso expirado, atualize seu plano.");
+    return; // Impede o login
+  }
+
   if (nomeValue === "") {
-    // Verificação do nome
     exibirNotificacao("Por favor, insira seu nome.");
   } else if (emailValue === "") {
     exibirNotificacao("Por favor, insira um e-mail.");
@@ -63,13 +87,22 @@ function verificarEmail() {
   } else if (!emailsPadrao.includes(emailValue) && !emailsVIP.includes(emailValue)) {
     exibirNotificacao("Insira um e-mail existente.");
   } else {
+    // Verifica se o e-mail já foi usado
+    if (localStorage.getItem("email_logado") === emailValue) {
+      exibirNotificacao("Acesso expirado, atualize seu plano.");
+      return; // Impede o login
+    }
+
     loginText.style.visibility = "hidden";
     loading.style.display = "block";
     arrowIcon.style.visibility = "hidden";
     loginButton.classList.add("loading-active");
 
+    // Armazena as informações no localStorage
     localStorage.setItem("email", emailValue);
     localStorage.setItem("nome", nomeValue);
+    localStorage.setItem("email_logado", emailValue); // Armazena o e-mail logado
+    localStorage.setItem("login_timestamp", new Date().getTime()); // Salva o timestamp do login
 
     setTimeout(function () {
       exibirNotificacaoSucesso("Seu login foi realizado com sucesso!");
@@ -170,6 +203,9 @@ function carregarInformacoesUsuario() {
 function fazerLogout() {
   localStorage.removeItem("email");
   localStorage.removeItem("nome");
+  localStorage.removeItem("email_logado"); // Remove o e-mail logado
+  localStorage.removeItem("login_timestamp"); // Remove o timestamp de login
+  acessoExpirado = false; // Reseta a flag de acesso expirado
   window.location.href = "/";
 }
 
@@ -264,3 +300,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
+
