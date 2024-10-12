@@ -51,33 +51,46 @@ permalink: IA
     </div>
 
     <script>
+        let fala;
+
         function bemVindoVoz() {
             if ('speechSynthesis' in window) {
                 const nome = localStorage.getItem('nome') || 'usuário'; // Nome salvo no localStorage
-                const fala = new SpeechSynthesisUtterance(`Bem-vindo, ${nome}`);
+                fala = new SpeechSynthesisUtterance(`Bem-vindo, ${nome}`);
                 fala.lang = 'pt-BR'; // Define o idioma para português brasileiro
                 fala.rate = 1;
 
-                // Tenta selecionar uma voz masculina
-                const vozes = window.speechSynthesis.getVoices();
-                const vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && voz.name.includes('Google Brasileiro Masculino'));
+                // Aguarda o carregamento das vozes e tenta selecionar uma voz masculina
+                window.speechSynthesis.onvoiceschanged = function() {
+                    const vozes = window.speechSynthesis.getVoices();
+                    let vozMasculina;
 
-                if (vozMasculina) {
-                    fala.voice = vozMasculina;
-                } else {
-                    console.log('Voz masculina não encontrada. Usando a padrão.');
-                }
+                    if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+                        // Tentativa de buscar voz masculina no iOS
+                        vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && voz.name.includes('Diego'));
+                    }
 
-                const iniciarFala = () => {
-                    window.speechSynthesis.speak(fala);
-                    document.getElementById('overlay').style.display = 'none'; // Remove a overlay
+                    if (!vozMasculina) {
+                        vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && voz.name.includes('Google Brasileiro Masculino'));
+                    }
+
+                    if (vozMasculina) {
+                        fala.voice = vozMasculina;
+                    } else {
+                        console.log('Voz masculina não encontrada. Usando a padrão.');
+                    }
                 };
-
-                window.iniciarFala = iniciarFala;
             } else {
                 console.log('A síntese de fala não é suportada neste navegador.');
             }
         }
+
+        const iniciarFala = () => {
+            if (fala) {
+                window.speechSynthesis.speak(fala);
+                document.getElementById('overlay').style.display = 'none'; // Remove a overlay
+            }
+        };
 
         // Função para detectar desktop
         function detectDesktop() {
