@@ -42,81 +42,42 @@
         </ul>
     </div>
 
-    <!-- Função para a saudação de voz -->
     <script>
+        // Função de voz
         function bemVindoVoz() {
             if ('speechSynthesis' in window) {
-                const nome = localStorage.getItem('nome') || 'usuário';
+                const nome = localStorage.getItem('nome') || 'usuário'; // Recupera o nome ou usa 'usuário' como padrão
                 const fala = new SpeechSynthesisUtterance(`Bem-vindo, ${nome}`);
                 fala.lang = 'pt-BR';
                 fala.rate = 1;
 
-                // Inicia a fala após interação do usuário
+                // Função que inicia a fala
                 const iniciarFala = () => {
                     window.speechSynthesis.speak(fala);
-                    // Remove o event listener após o primeiro toque
-                    document.removeEventListener('click', iniciarFala);
+                    document.removeEventListener('click', iniciarFala); // Remove listener após a fala
                     document.removeEventListener('touchstart', iniciarFala);
                 };
 
-                // Espera o primeiro clique ou toque
+                // Adiciona event listeners para interação do usuário
                 document.addEventListener('click', iniciarFala);
                 document.addEventListener('touchstart', iniciarFala);
             } else {
                 console.log('A síntese de fala não é suportada neste navegador.');
             }
         }
-    </script>
 
-    <!-- Função para detectar desktop -->
-    <script>
+        // Função para detectar desktop
         function detectDesktop() {
             if (window.innerWidth > 1024) {
                 window.location.href = 'https://usegarnet.online/desk';
             }
         }
-    </script>
 
-    <!-- Script de tradução Google -->
-    <div id="google_translate_element" style="display: none;" class="language-selector"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'pt',
-                includedLanguages: 'en,es,fr,de,it',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
-    <script>
-        function setLanguageCookie(lang) {
-            document.cookie = "googtrans=/pt/" + lang + "; path=/; domain=" + window.location.hostname;
-            document.cookie = "googtrans=/pt/" + lang + "; path=/";
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            var select = document.querySelector('#google_translate_element select');
-            if (select) {
-                select.addEventListener('change', function() {
-                    var lang = select.value.split('|')[1];
-                    setLanguageCookie(lang);
-                    location.reload();
-                });
-            }
-        });
-    </script>
-
-    <!-- Outros scripts -->
-    <script src="/js/script.js"></script>
-    <script src="/js/ai.js"></script>
-
-    <!-- Chamando as funções de forma organizada -->
-    <script>
+        // Chamadas de funções na carga da página
         window.onload = function() {
-            detectDesktop();  // Detecta se é desktop e redireciona
-            bemVindoVoz();    // Prepara a saudação de voz, que será ativada após interação
-        }
+            detectDesktop();
+            bemVindoVoz();
+        };
     </script>
 </body>
 
