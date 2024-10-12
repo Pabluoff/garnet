@@ -53,9 +53,20 @@ permalink: IA
                 const fala = new SpeechSynthesisUtterance(`Bem-vindo, ${nome}`);
                 fala.lang = 'pt-BR';
                 fala.rate = 1;
-                setTimeout(() => {
+
+                // Inicia a fala após interação do usuário
+                const iniciarFala = () => {
                     window.speechSynthesis.speak(fala);
-                }, 500);
+                    // Remove o event listener após o primeiro toque
+                    document.removeEventListener('click', iniciarFala);
+                    document.removeEventListener('touchstart', iniciarFala);
+                };
+
+                // Espera o primeiro clique ou toque
+                document.addEventListener('click', iniciarFala);
+                document.addEventListener('touchstart', iniciarFala);
+            } else {
+                console.log('A síntese de fala não é suportada neste navegador.');
             }
         }
     </script>
@@ -103,10 +114,11 @@ permalink: IA
     <script src="/js/script.js"></script>
     <script src="/js/ai.js"></script>
 
+    <!-- Chamando as funções de forma organizada -->
     <script>
         window.onload = function() {
-            detectDesktop(); 
-            bemVindoVoz();    
+            detectDesktop();  // Detecta se é desktop e redireciona
+            bemVindoVoz();    // Prepara a saudação de voz, que será ativada após interação
         }
     </script>
 </body>
