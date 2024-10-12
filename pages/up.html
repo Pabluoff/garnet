@@ -52,20 +52,27 @@ permalink: IA
 
     <script>
         function bemVindoVoz() {
-            // Verifica se a síntese de fala é suportada
             if ('speechSynthesis' in window) {
-                const nome = localStorage.getItem('nome') || 'usuário'; // Recupera o nome ou 'usuário'
-                const fala = new SpeechSynthesisUtterance(`Seja Bem-vindo, ${nome}`);
-                fala.lang = 'pt-BR';
+                const nome = localStorage.getItem('nome') || 'usuário'; // Nome salvo no localStorage
+                const fala = new SpeechSynthesisUtterance(`Bem-vindo, ${nome}`);
+                fala.lang = 'pt-BR'; // Define o idioma para português brasileiro
                 fala.rate = 1;
 
-                // Função que inicia a fala
+                // Tenta selecionar uma voz masculina
+                const vozes = window.speechSynthesis.getVoices();
+                const vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && voz.name.includes('Google Brasileiro Masculino'));
+
+                if (vozMasculina) {
+                    fala.voice = vozMasculina;
+                } else {
+                    console.log('Voz masculina não encontrada. Usando a padrão.');
+                }
+
                 const iniciarFala = () => {
                     window.speechSynthesis.speak(fala);
-                    document.getElementById('overlay').style.display = 'none'; // Remove a overlay após o clique
+                    document.getElementById('overlay').style.display = 'none'; // Remove a overlay
                 };
 
-                // Adiciona a função de iniciar fala ao botão de interação
                 window.iniciarFala = iniciarFala;
             } else {
                 console.log('A síntese de fala não é suportada neste navegador.');
