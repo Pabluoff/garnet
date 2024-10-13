@@ -95,5 +95,5 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
       // Ocultar o contêiner de carregamento após 3 segundos (simulando o fim do carregamento)
       loaderContainer.style.display = 'none';
-    }, 2000);
+    }, 1000);
   });
