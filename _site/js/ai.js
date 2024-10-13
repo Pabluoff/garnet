@@ -30,7 +30,7 @@ function bemVindoVoz() {
     const frasesBemVindo = [
         `Bem-vindo, ${nome}.`,
         "Ativando calibração automática.",
-        "Executando IA.",
+        "Executando Inteligência artificial.",
         "Processando dados e informações.",
         "Banco de dados acessado.",
         "Verificação concluída com sucesso."
