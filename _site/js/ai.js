@@ -7,7 +7,6 @@ function falarFrase(frases, index = 0, callback) {
         frase.lang = 'pt-BR';
         frase.rate = 1;
 
-        // Definir voz masculina se disponível
         window.speechSynthesis.onvoiceschanged = function () {
             const vozes = window.speechSynthesis.getVoices();
             let vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && (voz.name.includes('Google Brasileiro Masculino') || voz.name.includes('Diego')));
@@ -57,13 +56,32 @@ function desbloquearCheckbox() {
     falando = false;
 }
 
-document.getElementById('unique-checkbox').addEventListener('change', function () {
+const checkbox = document.getElementById('unique-checkbox');
+
+checkbox.addEventListener('change', function () {
     if (!falando) {
         bloquearCheckbox();
         if (this.checked) {
+            localStorage.setItem('checkboxStatus', 'checked');
             bemVindoVoz();
         } else {
+            localStorage.setItem('checkboxStatus', 'unchecked');
             desativarIA();
         }
     }
 });
+
+// Restaurar o estado do checkbox ao carregar a página
+window.onload = function () {
+    const checkboxStatus = localStorage.getItem('checkboxStatus');
+
+    if (checkboxStatus === 'checked') {
+        checkbox.checked = true;
+        bloquearCheckbox(); // Bloquear checkbox se estiver ativado
+        bemVindoVoz(); // Falar as frases de boas-vindas
+    } else {
+        checkbox.checked = false;
+    }
+
+    desbloquearCheckbox(); // Habilitar o checkbox para que o usuário possa interagir
+};
