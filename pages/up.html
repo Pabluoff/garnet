@@ -45,140 +45,69 @@ permalink: IA
         </ul>
     </div>
 
-<!-- Overlay de interação -->
-<div class="unique-overlay" id="unique-overlay">
-    <div class="unique-container">
-        <input id="unique-checkbox" type="checkbox" />
-        <label class="unique-button" for="unique-checkbox">
-            <span class="unique-icon">
-                <svg
-                    height="200px"
-                    width="200px"
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 30.143 30.143"
-                    xml:space="preserve"
-                    fill=""
-                    style="--darkreader-inline-fill: #000000;"
-                    data-darkreader-inline-fill=""
-                >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <g>
-                            <path
-                                d="M20.034,2.357v3.824c3.482,1.798,5.869,5.427,5.869,9.619c0,5.98-4.848,10.83-10.828,10.83 c-5.982,0-10.832-4.85-10.832-10.83c0-3.844,2.012-7.215,5.029-9.136V2.689C4.245,4.918,0.731,9.945,0.731,15.801 c0,7.921,6.42,14.342,14.34,14.342c7.924,0,14.342-6.421,14.342-14.342C29.412,9.624,25.501,4.379,20.034,2.357z"
-                                data-darkreader-inline-fill=""
-                            ></path>
-                            <path
-                                d="M14.795,17.652c1.576,0,1.736-0.931,1.736-2.076V2.08c0-1.148-0.16-2.08-1.736-2.08 c-1.57,0-1.732,0.932-1.732,2.08v13.496C13.062,16.722,13.225,17.652,14.795,17.652z"
-                                data-darkreader-inline-fill=""
-                            ></path>
+    <!-- Overlay de interação -->
+    <div class="unique-overlay" id="unique-overlay">
+        <div class="unique-container">
+            <input id="unique-checkbox" type="checkbox" />
+            <label class="unique-button" for="unique-checkbox">
+                <span class="unique-icon">
+                    <svg height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.143 30.143" xml:space="preserve"
+                        fill="" style="--darkreader-inline-fill: #000000;" data-darkreader-inline-fill="">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <g>
+                                <path
+                                    d="M20.034,2.357v3.824c3.482,1.798,5.869,5.427,5.869,9.619c0,5.98-4.848,10.83-10.828,10.83 c-5.982,0-10.832-4.85-10.832-10.83c0-3.844,2.012-7.215,5.029-9.136V2.689C4.245,4.918,0.731,9.945,0.731,15.801 c0,7.921,6.42,14.342,14.34,14.342c7.924,0,14.342-6.421,14.342-14.342C29.412,9.624,25.501,4.379,20.034,2.357z"
+                                    data-darkreader-inline-fill=""></path>
+                                <path
+                                    d="M14.795,17.652c1.576,0,1.736-0.931,1.736-2.076V2.08c0-1.148-0.16-2.08-1.736-2.08 c-1.57,0-1.732,0.932-1.732,2.08v13.496C13.062,16.722,13.225,17.652,14.795,17.652z"
+                                    data-darkreader-inline-fill=""></path>
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </span>
-        </label>
+                    </svg>
+                </span>
+            </label>
+        </div>
     </div>
-</div>
 
-    <script>
-let fala;
-let falando = false; // Variável de controle para indicar se está falando
-
-// Função para sintetizar as falas com pausas entre as frases
-function falarFrase(frases, index = 0, callback) {
-    if (index < frases.length) {
-        const frase = new SpeechSynthesisUtterance(frases[index]);
-        frase.lang = 'pt-BR';
-        frase.rate = 1;
-
-        // Definir voz masculina se disponível
-        window.speechSynthesis.onvoiceschanged = function () {
-            const vozes = window.speechSynthesis.getVoices();
-            let vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && (voz.name.includes('Google Brasileiro Masculino') || voz.name.includes('Diego')));
-
-            if (vozMasculina) {
-                frase.voice = vozMasculina;
-            }
-        };
-
-        // Fala a frase e, quando terminar, chama a próxima
-        frase.onend = function () {
-            falarFrase(frases, index + 1, callback); // Chama a próxima frase
-        };
-
-        window.speechSynthesis.speak(frase);
-    } else if (callback) {
-        callback(); // Executa o callback quando todas as frases foram faladas
-    }
-}
-
-function bemVindoVoz() {
-    const nome = localStorage.getItem('nome') || 'usuário'; // Nome salvo no localStorage
-    const frasesBemVindo = [
-        `Bem-vindo, ${nome}.`,
-        "Ativando calibração automática.",
-        "Executando IA.",
-        "Processando dados e informações.",
-        "Banco de dados acessado.",
-        "Verificação concluída com sucesso."
-    ];
-
-    falarFrase(frasesBemVindo, 0, desbloquearCheckbox); // Chama a função para falar as frases com pausas
-}
-
-function desativarIA() {
-    const nome = localStorage.getItem('nome') || 'usuário'; // Nome salvo no localStorage
-    const fraseDesativacao = [`Inteligência artificial desativada, até logo, ${nome}.`];
-
-    falarFrase(fraseDesativacao, 0, desbloquearCheckbox); // Fala a frase de desativação e depois desbloqueia o checkbox
-}
-
-// Função para detectar desktop e redirecionar
-function detectDesktop() {
-    if (window.innerWidth > 1024) {
-        window.location.href = 'https://usegarnet.online/desk';
-    }
-}
-
-// Função para bloquear o checkbox durante a fala
-function bloquearCheckbox() {
-    document.getElementById('unique-checkbox').disabled = true;
-    falando = true;
-}
-
-// Função para desbloquear o checkbox após terminar a fala
-function desbloquearCheckbox() {
-    document.getElementById('unique-checkbox').disabled = false;
-    falando = false;
-}
-
-// Chamadas de funções na carga da página
-window.onload = function () {
-    detectDesktop();
-    bemVindoVoz();
-};
-
-// Adiciona o evento de clique no checkbox
-document.getElementById('unique-checkbox').addEventListener('change', function () {
-    if (!falando) { // Só permite ativar/desativar se não estiver falando
-        bloquearCheckbox(); // Bloqueia o checkbox durante a fala
-
-        if (this.checked) {
-            bemVindoVoz(); // Inicia a fala quando o botão é ativado
-        } else {
-            desativarIA(); // Fala a mensagem de desativação quando o botão é desativado
-        }
-    }
-});
+    <script src="/js/ai.js"></script>
     </script>
+    <div id="google_translate_element" style="display: none;" class="language-selector"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',  // Idioma original do site
+                includedLanguages: 'en,es,fr,de,it',  // Adicione os idiomas suportados
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false  // Não mostrar automaticamente, somente após a seleção
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        // Salva a escolha do idioma em um cookie
+        function setLanguageCookie(lang) {
+            document.cookie = "googtrans=/pt/" + lang + "; path=/; domain=" + window.location.hostname;
+            document.cookie = "googtrans=/pt/" + lang + "; path=/";
+        }
+
+        // Observa as mudanças no seletor de idiomas e ajusta o cookie
+        document.addEventListener('DOMContentLoaded', function () {
+            var select = document.querySelector('#google_translate_element select');
+            if (select) {
+                select.addEventListener('change', function () {
+                    var lang = select.value.split('|')[1]; // Captura o código do idioma
+                    setLanguageCookie(lang);
+                    location.reload(); // Atualiza a página para aplicar a tradução
+                });
+            }
+        });
+    </script>
+
+
 </body>
 
 </html>
