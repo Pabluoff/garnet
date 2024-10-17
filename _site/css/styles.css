@@ -2739,6 +2739,7 @@ span[onmouseover*="this.style"] {
   align-items: center;
   color: white;
   font-size: 24px;
+  margin-top: 88px;
 }
 
 .unique-container {
@@ -2767,6 +2768,7 @@ span[onmouseover*="this.style"] {
 }
 
 .unique-button::before {
+  display: none;
   position: absolute;
   content: "";
   width: 7.25em;
@@ -2811,4 +2813,51 @@ span[onmouseover*="this.style"] {
   to {
     border-color: rgba(77, 255, 196, 0.137);
   }
+}
+
+.header-IA {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 33px;
+  width: 100%;
+}
+
+.user-IA-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 39px;
+  border-radius: 50%;
+}
+
+.header-content {
+  text-align: left;
+  width: 100%;
+}
+
+.header-content h1 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+}
+
+.header-content h2 {
+  color: #a5a5a5;
+  font-size: 16px;
+  margin: 0 0 20px 0;
+}
+
+.btn-personalizar {
+  background-color: #343434;
+  color: #bebebe;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-personalizar:hover {
+  background-color: #252525;
 }
