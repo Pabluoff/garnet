@@ -2311,6 +2311,7 @@ footer p {
 }
 
 .container-em-breve {
+  background-color: #0b0b0c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2344,6 +2345,7 @@ footer p {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
+  text-transform: uppercase;
 }
 
 #closeBtnHome {
