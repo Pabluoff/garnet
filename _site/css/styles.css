@@ -2819,46 +2819,116 @@ span[onmouseover*="this.style"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 33px;
-  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  max-width: 450px;
 }
 
-.user-IA-icon {
+.user-IA {
   width: 50px;
   height: 50px;
-  margin-bottom: 39px;
   border-radius: 50%;
+  margin-bottom: 20px;
 }
 
-.header-content {
-  text-align: left;
-  width: 100%;
-}
-
-.header-content h1 {
-  color: #fff;
+.main-title, .sub-main-title {
   font-size: 24px;
-  margin: 0 0 10px 0;
-  margin-bottom: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 10px 0;
 }
 
-.header-content h2 {
-  color: #a5a5a5;
+.subtitle, .sub-subtitle {
   font-size: 16px;
-  margin: 0 0 20px 0;
+  font-weight: normal;
+  color: #cccccc;
+  margin: 5px 0 20px 0;
 }
 
-.btn-personalizar {
-  background-color: #343434;
-  color: #bebebe;
-  border: none;
+.btn-personalize {
   padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.btn-personalizar:hover {
-  background-color: #252525;
+.btn-personalize:hover {
+  background-color: #444444;
+}
+
+/* Estilo para o box-IA */
+.box-IA {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinhamento à esquerda */
+  background-color: #000000; /* Cor de fundo semelhante à imagem */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 20px;
+  margin: 20px; /* Afastar 20px das bordas */
+  width: calc(100% - 40px); /* Compensar o padding para manter a largura total menos o margin */
+  max-width: 420px; /* Largura máxima predefinida */
+  height: 160px; /* Altura predefinida */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra suave */
+  border: 1px solid #2c2c2c; /* Borda sutil */
+  position: relative;
+  box-sizing: border-box; /* Incluir padding e border no cálculo do width */
+}
+
+.box-icon {
+  width: 50px; /* Tamanho semelhante ao da imagem */
+  height: 50px;
+  border-radius: 50%; /* Ícone circular */
+  margin-right: 15px; /* Espaço entre o ícone e o texto */
+  margin-top: -66px;
+}
+
+.box-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: -80px;
+}
+
+.status-text {
+  font-size: 1rem;
+  font-weight: 500;
+  font-weight: 700;
+  background: linear-gradient(89deg, #ffffff -7.95%, #707070 94.93%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  margin-top: 40px;
+
+}
+.loading-dots {
+  display: flex;
+  font-size: 1.5rem; /* Tamanho maior para os pontos */
+  color: #e0e0e0;
+  margin-top: 5px; /* Espaçamento entre o texto e os pontos */
+}
+
+.loading-dots span {
+  animation: blink 1.5s infinite;
+  margin-right: 5px;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
 }
