@@ -2883,14 +2883,15 @@ span[onmouseover*="this.style"] {
   background-color: #000000; /* Cor de fundo semelhante à imagem */
   border-radius: 10px; /* Bordas arredondadas */
   padding: 20px;
-  margin: 20px; /* Afastar 20px das bordas */
-  width: calc(100% - 40px); /* Compensar o padding para manter a largura total menos o margin */
+  margin: 40px; /* Afastar 20px das bordas */
+  width: calc(100% - 80px); /* Compensar o padding para manter a largura total menos o margin */
   max-width: 420px; /* Largura máxima predefinida */
   height: 160px; /* Altura predefinida */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra suave */
   border: 1px solid #2c2c2c; /* Borda sutil */
   position: relative;
   box-sizing: border-box; /* Incluir padding e border no cálculo do width */
+  margin-top: -10px;
 }
 
 .box-icon {
