@@ -2890,7 +2890,7 @@ span[onmouseover*="this.style"] {
   border: 1px solid #2c2c2c; 
   position: relative;
   box-sizing: border-box;
-  margin-top: -10px;
+  margin-top: -3px;
 }
 
 .box-icon {
