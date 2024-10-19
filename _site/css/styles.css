@@ -2907,7 +2907,7 @@ span[onmouseover*="this.style"] {
   margin-top: -100px;
 }
 
-.status-text {
+.status-text-IA {
   font-size: 0.9rem;
   font-weight: 700;
   background: linear-gradient(89deg, #ffffff -7.95%, #707070 94.93%);
@@ -2918,7 +2918,7 @@ span[onmouseover*="this.style"] {
   margin-top: 46px;
 
 }
-.loading-dots {
+.loading-dots-IA {
   display: flex;
   font-size: 1.5rem; 
   color: #e0e0e0;
