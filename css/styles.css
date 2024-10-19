@@ -2820,7 +2820,7 @@ span[onmouseover*="this.style"] {
   flex-direction: column;
   align-items: flex-start;
   margin: 20px;
-  padding: 20px;
+  padding: 10px;
   max-width: 450px;
 }
 
@@ -2875,56 +2875,54 @@ span[onmouseover*="this.style"] {
   background-color: #444444;
 }
 
-/* Estilo para o box-IA */
 .box-IA {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alinhamento à esquerda */
-  background-color: #000000; /* Cor de fundo semelhante à imagem */
-  border-radius: 10px; /* Bordas arredondadas */
+  justify-content: flex-start; 
+  background-color: #000000; 
+  border-radius: 10px; 
   padding: 20px;
-  margin: 40px; /* Afastar 20px das bordas */
-  width: calc(100% - 80px); /* Compensar o padding para manter a largura total menos o margin */
-  max-width: 420px; /* Largura máxima predefinida */
-  height: 160px; /* Altura predefinida */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra suave */
-  border: 1px solid #2c2c2c; /* Borda sutil */
+  margin: 40px; 
+  width: calc(100% - 80px);
+  max-width: 420px; 
+  height: 160px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2c2c2c; 
   position: relative;
-  box-sizing: border-box; /* Incluir padding e border no cálculo do width */
+  box-sizing: border-box;
   margin-top: -10px;
 }
 
 .box-icon {
-  width: 50px; /* Tamanho semelhante ao da imagem */
-  height: 50px;
-  border-radius: 50%; /* Ícone circular */
-  margin-right: 15px; /* Espaço entre o ícone e o texto */
-  margin-top: -66px;
+  width: 30px; 
+  height: 30px;
+  border-radius: 50%; 
+  margin-right: 15px; 
+  margin-top: -80px;
 }
 
 .box-content {
   display: flex;
   flex-direction: column;
-  margin-top: -80px;
+  margin-top: -100px;
 }
 
 .status-text {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   font-weight: 700;
   background: linear-gradient(89deg, #ffffff -7.95%, #707070 94.93%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-  margin-top: 40px;
+  margin-top: 46px;
 
 }
 .loading-dots {
   display: flex;
-  font-size: 1.5rem; /* Tamanho maior para os pontos */
+  font-size: 1.5rem; 
   color: #e0e0e0;
-  margin-top: 5px; /* Espaçamento entre o texto e os pontos */
+  margin-top: 5px; 
 }
 
 .loading-dots span {
