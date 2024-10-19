@@ -2831,18 +2831,33 @@ span[onmouseover*="this.style"] {
   margin-bottom: 20px;
 }
 
-.main-title, .sub-main-title {
+.main-title {
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
   margin: 10px 0;
 }
 
-.subtitle, .sub-subtitle {
+.sub-main-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.subtitle {
   font-size: 16px;
   font-weight: normal;
-  color: #cccccc;
+  color: #9c9c9c;
   margin: 5px 0 20px 0;
+}
+
+.sub-subtitle {
+  font-size: 13px;
+  color: #9c9c9c;
+  margin: 5px 0 20px 0;
+  font-weight: normal;
+
 }
 
 .btn-personalize {
