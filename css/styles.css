@@ -2950,9 +2950,10 @@ span[onmouseover*="this.style"] {
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh; /* Garantir que preencha ao menos toda a altura da tela */
   width: 100vw;
   background-color: #111;
+  overflow: hidden; /* Prevenir overflow para garantir layout limpo */
 }
 
 .chat-header {
