@@ -33,7 +33,35 @@
 </head>
 
 <body>
-    <div class="container-em-breve" style="">
+    <div class="chat-container">
+        <header class="chat-header">
+          <a href="/inicio" class="back-btn-ig-chat">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </a>
+          <div class="chat-title">
+            <img src="/img/apple-touch-icon.png" alt="Garnet Logo" class="logo-ig-chat">
+            <h2>Garnet</h2>
+          </div>
+        </header>
+      
+        <div class="chat-body">
+          <div class="suggestions">
+            <div class="suggestion-bubble">Como é seu nome?</div>
+            <div class="suggestion-bubble">Sensibilidade personalizada para X1</div>
+            <div class="suggestion-bubble">Sensibilidade para rankeada</div>
+            <p class="suggestion-title">Sugestão de pergunta:</p>
+          </div>
+        </div>
+      
+        <footer class="chat-footer">
+          <input type="text" placeholder="Mensagem..." class="message-input">
+          <button class="send-btn-ig-chat">
+            <ion-icon name="paper-plane"></ion-icon>
+          </button>
+        </footer>
+      </div>
+              
+    <div class="container-em-breve" style="display: none;">
         <div class="close-icon-em-breve">
             <a href="/inicio">&#10005;</a> 
         </div>
@@ -41,7 +69,7 @@
             Em breve
         </div>
     </div>
-    <div class="magic-nav">
+    <div class="magic-nav" style="display: none;">
         <ul>
             <li><a href="/inicio"><ion-icon name="person-outline"></ion-icon></a></li>
             <li><a href="/search"><ion-icon name="search-outline"></ion-icon></a></li>
@@ -49,7 +77,7 @@
             <li><a href="/IA"><ion-icon name="cube"></ion-icon></a></li>
         </ul>
     </div>
-    <div class="header-IA">
+    <div class="header-IA" style="display: none;">
         <img src="/img/apple-touch-icon.png" alt="user-IA" class="user-IA">
         <h1 class="main-title">Garnet - inteligência artificial</h1>
         <h2 class="subtitle">Nosso mais novo assistente de IA, criado para facilitar suas partidas</h2>
