@@ -2953,7 +2953,6 @@ span[onmouseover*="this.style"] {
   height: 100vh; /* Ocupa 100% da altura da tela */
   width: 100vw;  /* Ocupa 100% da largura da tela */
   background-color: #111;
-  overflow: hidden; /* Impede que qualquer coisa transborde */
   font-family: 'Arial', sans-serif;
   position: fixed; /* Garante que o contêiner sempre preencha a tela */
   top: 0;
