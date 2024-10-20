@@ -3035,18 +3035,25 @@ span[onmouseover*="this.style"] {
 
 .message-input {
   flex: 1;
-  padding: 10px;
+  padding: 16px;
   border: none;
   border-radius: 25px;
   background-color: #333;
   color: #ffffff;
 }
 
+.message-input::placeholder {
+  font-size: 16px;
+  padding-left: 13px;
+}
+
+
 .send-btn-ig-chat {
   background: none;
   border: none;
   color: #66ff66;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   margin-left: 10px;
+  margin-top: 6px;
 }
