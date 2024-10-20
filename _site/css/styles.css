@@ -2950,10 +2950,16 @@ span[onmouseover*="this.style"] {
 .chat-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garantir que preencha ao menos toda a altura da tela */
-  width: 100vw;
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  width: 100vw;  /* Ocupa 100% da largura da tela */
   background-color: #111;
-  overflow: hidden; /* Prevenir overflow para garantir layout limpo */
+  overflow: hidden; /* Impede que qualquer coisa transborde */
+  font-family: 'Arial', sans-serif;
+  position: fixed; /* Garante que o contêiner sempre preencha a tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .chat-header {
@@ -2963,6 +2969,9 @@ span[onmouseover*="this.style"] {
   background-color: #111;
   color: #66ff66;
   border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .back-btn-ig-chat ion-icon {
@@ -2985,18 +2994,20 @@ span[onmouseover*="this.style"] {
 }
 
 .chat-title h2 {
-  font-size: 18px;
+  font-size: 22px;
   color: #ffffff;
 }
 
 .chat-body {
   flex: 1;
-  padding: 20px;
+  padding: 15px;
   background-color: #000000;
   color: #ffffff;
-  overflow-y: auto;
+  overflow-y: auto; /* Permite rolagem dentro do corpo do chat */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  scrollbar-width: thin; /* Ajuste da barra de rolagem */
 }
 
 .suggestions {
@@ -3010,7 +3021,7 @@ span[onmouseover*="this.style"] {
   border-radius: 25px;
   padding: 15px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -3022,7 +3033,7 @@ span[onmouseover*="this.style"] {
 
 .suggestion-title {
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 14px;
   color: #a6a6a6;
   text-align: center;
 }
@@ -3030,7 +3041,11 @@ span[onmouseover*="this.style"] {
 .chat-footer {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px 15px;
+  background-color: #000000;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .message-input {
@@ -3040,13 +3055,14 @@ span[onmouseover*="this.style"] {
   border-radius: 25px;
   background-color: #333;
   color: #ffffff;
+  margin-bottom: 60px;
+
 }
 
 .message-input::placeholder {
   font-size: 16px;
   padding-left: 13px;
 }
-
 
 .send-btn-ig-chat {
   background: none;
@@ -3055,5 +3071,6 @@ span[onmouseover*="this.style"] {
   font-size: 30px;
   cursor: pointer;
   margin-left: 10px;
-  margin-top: 6px;
+  margin-top: -60px;
 }
+
