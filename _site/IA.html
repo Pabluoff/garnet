@@ -35,92 +35,47 @@
 <body>
     <div class="chat-container">
         <header class="chat-header">
-          <a href="/inicio" class="back-btn-ig-chat">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </a>
-          <div class="chat-title">
-            <img src="/img/apple-touch-icon.png" alt="Garnet Logo" class="logo-ig-chat">
-            <h2>Garnet</h2>
-          </div>
+            <a href="/inicio" class="back-btn-ig-chat">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+            <div class="chat-title">
+                <img src="/img/apple-touch-icon.png" alt="Garnet Logo" class="logo-ig-chat">
+                <h2>Garnet</h2>
+            </div>
         </header>
-      
+    
         <div class="chat-body">
-          <div class="suggestions">
-            <div class="suggestion-bubble">Como é seu nome?</div>
-            <div class="suggestion-bubble">Sensibilidade personalizada para X1</div>
-            <div class="suggestion-bubble">Sensibilidade para rankeada</div>
-            <p class="suggestion-title">Sugestão de pergunta:</p>
-          </div>
+            <div class="suggestions">
+                <p class="suggestion-title">Sugestão de pergunta:</p>
+                <div class="suggestion-bubble">Sensibilidade para torneios</div>
+                <div class="suggestion-bubble">Sensibilidade personalizada para X1</div>
+                <div class="suggestion-bubble">Sensibilidade para rankeada</div>
+                
+            </div>
+            
+            <!-- Bubble Message do Bot com Imagem -->
+            <div class="bot-message-container">
+                <img src="/img/apple-touch-icon.png" alt="Bot Avatar" class="bot-avatar">
+                <div class="bot-message-bubble">
+                    Olá! Como posso te ajudar a ajustar a sua sensibilidade?
+                </div>
+            </div>
         </div>
-      
+    
         <footer class="chat-footer">
-          <input type="text" placeholder="Mensagem..." class="message-input">
-          <button class="send-btn-ig-chat">
-            <ion-icon name="paper-plane"></ion-icon>
-          </button>
+            <input type="text" placeholder="Mensagem..." class="message-input">
+            <button class="send-btn-ig-chat">
+                <ion-icon name="paper-plane"></ion-icon>
+            </button>
         </footer>
-      </div>
-              
-    <div class="container-em-breve" style="">
+    </div>
+                      
+    <div class="container-em-breve" style="display: none;">
         <div class="close-icon-em-breve">
             <a href="/inicio">&#10005;</a> 
         </div>
         <div class="em-breve">
             Em breve
-        </div>
-    </div>
-    <div class="magic-nav" style="display: none;">
-        <ul>
-            <li><a href="/inicio"><ion-icon name="person-outline"></ion-icon></a></li>
-            <li><a href="/search"><ion-icon name="search-outline"></ion-icon></a></li>
-            <li><a href="/settings"><ion-icon name="game-controller-outline"></ion-icon></a></li>
-            <li><a href="/IA"><ion-icon name="cube"></ion-icon></a></li>
-        </ul>
-    </div>
-    <div class="header-IA" style="display: none;">
-        <img src="/img/apple-touch-icon.png" alt="user-IA" class="user-IA">
-        <h1 class="main-title">Garnet - inteligência artificial</h1>
-        <h2 class="subtitle">Nosso mais novo assistente de IA, criado para facilitar suas partidas</h2>
-        <h1 class="sub-main-title">Seja Melhor</h1>
-        <h2 class="sub-subtitle">Velocidade e eficiência é o que você alcança com o nosso sistema baseado em IA</h2>
-        <button class="btn-personalize">Personalizar Sensibilidade</button>
-    </div>
-        <div class="box-IA" style="display: none;">
-        <img src="/img/apple-touch-icon.png" alt="G" class="box-icon">
-        <div class="box-content">
-            <p class="status-text-IA">Gerando sensibilidade...</p>
-            <div class="loading-dots-IA">
-                <span>.</span>
-                <span>.</span>
-                <span>.</span>
-            </div>
-        </div>
-    </div>
-            
-    <!-- Overlay de interação -->
-    <div class="unique-overlay" id="unique-overlay" style="display: none;">
-        <div class="unique-container">
-            <input id="unique-checkbox" type="checkbox" />
-            <label class="unique-button" for="unique-checkbox">
-                <span class="unique-icon">
-                    <svg height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.143 30.143" xml:space="preserve"
-                        fill="" style="--darkreader-inline-fill: #000000;" data-darkreader-inline-fill="">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <g>
-                                <path
-                                    d="M20.034,2.357v3.824c3.482,1.798,5.869,5.427,5.869,9.619c0,5.98-4.848,10.83-10.828,10.83 c-5.982,0-10.832-4.85-10.832-10.83c0-3.844,2.012-7.215,5.029-9.136V2.689C4.245,4.918,0.731,9.945,0.731,15.801 c0,7.921,6.42,14.342,14.34,14.342c7.924,0,14.342-6.421,14.342-14.342C29.412,9.624,25.501,4.379,20.034,2.357z"
-                                    data-darkreader-inline-fill=""></path>
-                                <path
-                                    d="M14.795,17.652c1.576,0,1.736-0.931,1.736-2.076V2.08c0-1.148-0.16-2.08-1.736-2.08 c-1.57,0-1.732,0.932-1.732,2.08v13.496C13.062,16.722,13.225,17.652,14.795,17.652z"
-                                    data-darkreader-inline-fill=""></path>
-                            </g>
-                        </g>
-                    </svg>
-                </span>
-            </label>
         </div>
     </div>
 

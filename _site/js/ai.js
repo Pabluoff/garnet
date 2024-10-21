@@ -1,99 +1,148 @@
-let fala;
-let falando = false;
+// Função para adicionar mensagem do usuário
+function addUserMessage(message) {
+    const chatBody = document.querySelector('.chat-body');
+    const userMessageContainer = document.createElement('div');
+    userMessageContainer.classList.add('user-message-container');
 
-function falarFrase(frases, index = 0, callback) {
-    if (index < frases.length) {
-        const frase = new SpeechSynthesisUtterance(frases[index]);
-        frase.lang = 'pt-BR';
-        frase.rate = 1;
+    const userMessageBubble = document.createElement('div');
+    userMessageBubble.classList.add('user-message-bubble');
+    userMessageBubble.textContent = message;
 
-        window.speechSynthesis.onvoiceschanged = function () {
-            const vozes = window.speechSynthesis.getVoices();
-            let vozMasculina = vozes.find(voz => voz.lang === 'pt-BR' && (voz.name.includes('Google Brasileiro Masculino') || voz.name.includes('Diego')));
-            if (vozMasculina) {
-                frase.voice = vozMasculina;
-            }
-        };
+    userMessageContainer.appendChild(userMessageBubble);
+    chatBody.appendChild(userMessageContainer);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+}
 
-        frase.onend = function () {
-            falarFrase(frases, index + 1, callback);
-        };
+// Função para adicionar mensagem do bot
+function addBotMessage(message) {
+    const chatBody = document.querySelector('.chat-body');
+    const botMessageContainer = document.createElement('div');
+    botMessageContainer.classList.add('bot-message-container');
 
-        window.speechSynthesis.speak(frase);
-    } else if (callback) {
-        callback();
+    const botAvatar = document.createElement('img');
+    botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
+    botAvatar.alt = 'Bot Avatar';
+    botAvatar.classList.add('bot-avatar');
+
+    const botMessageBubble = document.createElement('div');
+    botMessageBubble.classList.add('bot-message-bubble');
+    botMessageBubble.textContent = message;
+
+    botMessageContainer.appendChild(botAvatar);
+    botMessageContainer.appendChild(botMessageBubble);
+    chatBody.appendChild(botMessageContainer);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+}
+
+// Função para mostrar "digitando..." com estilo melhorado
+function showTypingIndicator() {
+    const chatBody = document.querySelector('.chat-body');
+    const typingIndicator = document.createElement('div');
+    typingIndicator.classList.add('bot-message-container', 'typing-indicator');
+    
+    const botAvatar = document.createElement('img');
+    botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
+    botAvatar.alt = 'Bot Avatar';
+    botAvatar.classList.add('bot-avatar');
+    
+    const typingBubble = document.createElement('div');
+    typingBubble.classList.add('bot-message-bubble');
+
+    // Criação dos três pontos animados
+    const typingDots = document.createElement('div');
+    typingDots.classList.add('typing-dots');
+    typingDots.innerHTML = '<span></span><span></span><span></span>';
+
+    typingBubble.appendChild(typingDots);
+    typingIndicator.appendChild(botAvatar);
+    typingIndicator.appendChild(typingBubble);
+    chatBody.appendChild(typingIndicator);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+
+    return typingIndicator; // Retorna o elemento para ser removido depois
+}
+
+// Função para determinar resposta do bot com base no contexto
+function getBotResponse(userMessage) {
+    const greetings = ["oi", "olá", "ola", "iae", "eai", "oii", "salve"];
+    const goodbye = ["tchau", "até mais", "adeus"];
+    const help = ["ajuda", "socorro", "suporte"];
+
+    const lowerCaseMessage = userMessage.toLowerCase();
+
+    // Verificar se a mensagem é uma saudação
+    if (greetings.includes(lowerCaseMessage)) {
+        return "Olá! Como posso ajudar você hoje?";
+    }
+    // Verificar se a mensagem é uma despedida
+    if (goodbye.includes(lowerCaseMessage)) {
+        return "Tchau! Volte quando precisar de mais ajuda.";
+    }
+    // Verificar se a mensagem é um pedido de ajuda
+    if (help.some(word => lowerCaseMessage.includes(word))) {
+        return "Claro! Estou aqui para ajudar. O que você precisa?";
+    }
+
+    // Resposta padrão
+    const defaultResponses = [
+        "Hmm, não entendi bem. Pode tentar explicar de outra forma?",
+        "Não tenho certeza do que você quis dizer. Pode me dar mais detalhes?",
+        "Desculpe, não consegui entender. Pode reformular, por favor?"
+    ];
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+}
+
+// Função para enviar mensagem ao clicar no botão ou pressionar Enter
+function sendMessage() {
+    const messageInput = document.querySelector('.message-input');
+    const userMessage = messageInput.value.trim();
+
+    if (userMessage !== "") {
+        addUserMessage(userMessage);
+        messageInput.value = ''; // Limpar o campo de input
+
+        // Mostrar o indicador de "digitando..."
+        const typingIndicator = showTypingIndicator();
+
+        // Simulando a resposta do bot após um pequeno delay
+        setTimeout(() => {
+            const botResponse = getBotResponse(userMessage);
+
+            // Remove o indicador de "digitando..."
+            typingIndicator.remove();
+
+            // Adiciona a mensagem do bot
+            addBotMessage(botResponse);
+        }, 1500); // Delay de 1.5 segundos para simular digitação
     }
 }
 
-function bemVindoVoz() {
-    const nome = localStorage.getItem('nome') || 'usuário';
-    const frasesBemVindo = [
-        `Bem-vindo, ${nome}.`,
-        "Ativando calibração automática.",
-        "Executando Inteligência artificial.",
-        "Processando dados e informações.",
-        "Banco de dados acessado.",
-        "Verificação concluída com sucesso."
-    ];
+// Funcionalidade para clicar nas sugestões
+function handleSuggestionClick(event) {
+    const suggestion = event.target.textContent;
+    addUserMessage(suggestion);
+    
+    // Mostrar o indicador de "digitando..."
+    const typingIndicator = showTypingIndicator();
 
-    falarFrase(frasesBemVindo, 0, desbloquearCheckbox);
+    // Simulando resposta do bot após clicar na sugestão
+    setTimeout(() => {
+        typingIndicator.remove(); // Remover "digitando..."
+        addBotMessage(`Você escolheu: ${suggestion}. Estou ajustando sua sensibilidade.`);
+    }, 1500);
 }
 
-function desativarIA() {
-    const nome = localStorage.getItem('nome') || 'usuário';
-    const fraseDesativacao = [`Inteligência artificial desativada, até logo, ${nome}.`];
+// Evento para o botão de envio de mensagem
+document.querySelector('.send-btn-ig-chat').addEventListener('click', sendMessage);
 
-    falarFrase(fraseDesativacao, 0, desbloquearCheckbox);
-}
-
-function bloquearCheckbox() {
-    document.getElementById('unique-checkbox').disabled = true;
-    falando = true;
-}
-
-function desbloquearCheckbox() {
-    document.getElementById('unique-checkbox').disabled = false;
-    falando = false;
-}
-
-const checkbox = document.getElementById('unique-checkbox');
-
-checkbox.addEventListener('change', function () {
-    if (!falando) {
-        bloquearCheckbox();
-        if (this.checked) {
-            localStorage.setItem('checkboxStatus', 'checked');
-            bemVindoVoz();
-        } else {
-            localStorage.setItem('checkboxStatus', 'unchecked');
-            desativarIA();
-        }
+// Evento para pressionar Enter no campo de texto
+document.querySelector('.message-input').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        sendMessage();
     }
 });
 
-// Restaurar o estado do checkbox ao carregar a página
-window.onload = function () {
-    const checkboxStatus = localStorage.getItem('checkboxStatus');
-
-    if (checkboxStatus === 'checked') {
-        checkbox.checked = true;
-        bloquearCheckbox(); // Bloquear checkbox se estiver ativado
-        bemVindoVoz(); // Falar as frases de boas-vindas
-    } else {
-        checkbox.checked = false;
-    }
-
-    desbloquearCheckbox(); // Habilitar o checkbox para que o usuário possa interagir
-};
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Exibir o contêiner de carregamento
-    const loaderContainer = document.querySelector('.loader-container');
-    loaderContainer.style.display = 'flex';
-  
-    // Simular um carregamento de página com timeout
-    setTimeout(function() {
-      // Ocultar o contêiner de carregamento após 3 segundos (simulando o fim do carregamento)
-      loaderContainer.style.display = 'none';
-    }, 1000);
-  });
+// Adicionando eventos para as sugestões
+document.querySelectorAll('.suggestion-bubble').forEach(suggestion => {
+    suggestion.addEventListener('click', handleSuggestionClick);
+});
