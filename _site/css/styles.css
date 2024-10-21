@@ -2941,10 +2941,10 @@ span[onmouseover*="this.style"] {
 
 .message-input {
   flex: 1;
-  padding: 16px;
+  padding: 10px;
   border: none;
   border-radius: 25px;
-  background-color: #333;
+  background-color: #262626;
   color: #ffffff;
   margin-bottom: 50px;
 }
@@ -2966,7 +2966,7 @@ span[onmouseover*="this.style"] {
   background: none;
   border: none;
   color: #4afe80;
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   margin-left: 10px;
   margin-top: -45px;
