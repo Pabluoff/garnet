@@ -2791,7 +2791,7 @@ span[onmouseover*="this.style"] {
   flex-direction: column;
   justify-content: flex-start;
   scrollbar-width: thin;
-  padding-bottom: 90px;
+  padding-bottom: 100px;
 }
 
 .suggestions {
