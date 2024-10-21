@@ -64,7 +64,7 @@ function showTypingIndicator() {
 
 // Função para determinar resposta do bot com base no contexto
 function getBotResponse(userMessage) {
-    const greetings = ["oi", "olá", "ola", "iae", "eai", "oii", "salve"];
+    const greetings = ["oi", "olá", "ola", "iae", "eai", "oii", "salve", "opa"];
     const goodbye = ["tchau", "até mais", "adeus"];
     const help = ["ajuda", "socorro", "suporte"];
 
