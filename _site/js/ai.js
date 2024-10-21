@@ -71,11 +71,11 @@ function getBotResponse(userMessage) {
     const lowerCaseMessage = userMessage.toLowerCase();
 
     // Verificar se a mensagem é uma saudação
-    if (greetings.includes(lowerCaseMessage)) {
+    if (greetings.some(greeting => lowerCaseMessage.includes(greeting))) {
         return "Olá! Como posso ajudar você hoje?";
     }
     // Verificar se a mensagem é uma despedida
-    if (goodbye.includes(lowerCaseMessage)) {
+    if (goodbye.some(word => lowerCaseMessage.includes(word))) {
         return "Tchau! Volte quando precisar de mais ajuda.";
     }
     // Verificar se a mensagem é um pedido de ajuda
@@ -199,6 +199,13 @@ function generateAudioMessage() {
         playIcon.setAttribute('name', 'play-circle-outline'); // Retorna ao ícone de play após o fim
     };
 }
+
+// Evento para enviar mensagem ao pressionar Enter
+document.querySelector('.message-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
 
 // Evento para clicar nas sugestões
 document.querySelectorAll('.suggestion-bubble').forEach(suggestion => {

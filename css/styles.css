@@ -2943,7 +2943,7 @@ span[onmouseover*="this.style"] {
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   background-color: #262626;
   color: #ffffff;
   margin-bottom: 50px;
