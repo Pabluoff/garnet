@@ -2962,3 +2962,84 @@ span[onmouseover*="this.style"] {
   margin-left: 10px;
   margin-top: -45px;
 }
+.audio-message-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 90px;
+}
+
+.audio-play-icon {
+  font-size: 30px;
+  color: #4afe80;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.audio-wave-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.audio-wave {
+  width: 3px;
+  height: 20px;
+  background-color: #4afe80;
+  border-radius: 10px;
+  animation: wave-animation 1.2s ease-in-out infinite;
+}
+
+.audio-wave:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.audio-wave:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.audio-wave:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.audio-wave:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.audio-wave:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes wave-animation {
+  0% {
+      height: 10px;
+  }
+  50% {
+      height: 20px;
+  }
+  100% {
+      height: 10px;
+  }
+}
+
+.audio-duration {
+  font-size: 14px;
+  color: #a6a6a6;
+  margin-left: 76%;
+}
+.bot-message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px; /* Diminua o valor para aproximar as mensagens */
+}
+
+.user-message-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px; /* Ajuste também para manter consistência */
+  margin-bottom: 3px;
+}

@@ -129,20 +129,78 @@ function handleSuggestionClick(event) {
     setTimeout(() => {
         typingIndicator.remove(); // Remover "digitando..."
         addBotMessage(`Você escolheu: ${suggestion}. Estou ajustando sua sensibilidade.`);
+        
+        // Função para gerar mensagem de áudio após 5 segundos
+        setTimeout(() => {
+            generateAudioMessage();
+        }, 5000);
+        
     }, 1500);
 }
 
-// Evento para o botão de envio de mensagem
-document.querySelector('.send-btn-ig-chat').addEventListener('click', sendMessage);
+// Função para gerar e reproduzir mensagem de áudio
+function generateAudioMessage() {
+    const userName = localStorage.getItem('nome') || 'Jogador'; // Recupera o nome do localStorage ou usa 'Jogador'
+    const audioMessage = `${userName}, estamos gerando sua sensibilidade com base em inteligência artificial. Quanto mais você jogar, melhor a sensibilidade fica.`;
 
-// Evento para pressionar Enter no campo de texto
-document.querySelector('.message-input').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-});
+    const utterance = new SpeechSynthesisUtterance(audioMessage);
+    utterance.lang = 'pt-BR';
 
-// Adicionando eventos para as sugestões
+    // Criar balão de mensagem de áudio ao estilo do Instagram
+    const chatBody = document.querySelector('.chat-body');
+    const audioMessageContainer = document.createElement('div');
+    audioMessageContainer.classList.add('bot-message-container');
+
+    const botAvatar = document.createElement('img');
+    botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
+    botAvatar.alt = 'Bot Avatar';
+    botAvatar.classList.add('bot-avatar');
+
+    const audioMessageBubble = document.createElement('div');
+    audioMessageBubble.classList.add('bot-message-bubble');
+
+    // Adicionar a nova estrutura de mensagem de áudio
+    audioMessageBubble.innerHTML = `
+        <div class="audio-message-container">
+            <div class="audio-play-icon" id="play-icon">
+                <ion-icon name="play-circle-outline"></ion-icon>
+            </div>
+            <div class="audio-wave-container">
+                <div class="audio-wave"></div>
+                <div class="audio-wave"></div>
+                <div class="audio-wave"></div>
+                <div class="audio-wave"></div>
+                <div class="audio-wave"></div>
+            </div>
+            <div class="audio-duration">00:12</div>
+        </div>
+    `;
+
+    audioMessageContainer.appendChild(botAvatar);
+    audioMessageContainer.appendChild(audioMessageBubble);
+    chatBody.appendChild(audioMessageContainer);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+
+    // Função para reproduzir o áudio ao clicar
+    const audioPlayIcon = audioMessageBubble.querySelector('.audio-play-icon');
+    const playIcon = audioPlayIcon.querySelector('ion-icon');
+
+    audioPlayIcon.addEventListener('click', () => {
+        if (speechSynthesis.speaking) {
+            speechSynthesis.cancel(); // Para a reprodução se já estiver tocando
+            playIcon.setAttribute('name', 'play-circle-outline'); // Altera para o ícone de play
+        } else {
+            speechSynthesis.speak(utterance);
+            playIcon.setAttribute('name', 'pause-circle-outline'); // Altera para o ícone de pause
+        }
+    });
+
+    utterance.onend = () => {
+        playIcon.setAttribute('name', 'play-circle-outline'); // Retorna ao ícone de play após o fim
+    };
+}
+
+// Evento para clicar nas sugestões
 document.querySelectorAll('.suggestion-bubble').forEach(suggestion => {
     suggestion.addEventListener('click', handleSuggestionClick);
 });
