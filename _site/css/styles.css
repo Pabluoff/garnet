@@ -2949,6 +2949,14 @@ span[onmouseover*="this.style"] {
   margin-bottom: 50px;
 }
 
+.chat-footer input {
+  font-size: 16px;
+  color: #dadada;
+  caret-color: #4afe80;
+  outline: none;
+}
+
+
 .message-input::placeholder {
   font-size: 16px;
   padding-left: 13px;
