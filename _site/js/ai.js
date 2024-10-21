@@ -200,6 +200,34 @@ function generateAudioMessage() {
     };
 }
 
+// Função para enviar mensagem ao clicar no botão ou pressionar Enter
+function sendMessage() {
+    const messageInput = document.querySelector('.message-input');
+    const userMessage = messageInput.value.trim();
+
+    if (userMessage !== "") {
+        addUserMessage(userMessage);
+        messageInput.value = ''; // Limpar o campo de input
+
+        // Mostrar o indicador de "digitando..."
+        const typingIndicator = showTypingIndicator();
+
+        // Simulando a resposta do bot após um pequeno delay
+        setTimeout(() => {
+            const botResponse = getBotResponse(userMessage);
+
+            // Remove o indicador de "digitando..."
+            typingIndicator.remove();
+
+            // Adiciona a mensagem do bot
+            addBotMessage(botResponse);
+        }, 1500); // Delay de 1.5 segundos para simular digitação
+    }
+}
+
+// Evento para clicar no botão de envio
+document.querySelector('.send-btn-ig-chat').addEventListener('click', sendMessage);
+
 // Evento para enviar mensagem ao pressionar Enter
 document.querySelector('.message-input').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
