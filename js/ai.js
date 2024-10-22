@@ -155,10 +155,8 @@ function generateAudioMessage() {
     const utterance = new SpeechSynthesisUtterance(audioMessage);
     utterance.lang = 'pt-BR';
 
-    // Definindo a duração total do áudio como 11 segundos
-    const audioDuration = 11; // Duração total em segundos
-    let currentTime = audioDuration; // Tempo atual do áudio
-    const durationDisplay = `${String(Math.floor(audioDuration / 60)).padStart(2, '0')}:${String(audioDuration % 60).padStart(2, '0')}`;
+    // Variáveis para armazenar o tempo real de fala
+    let startTime, endTime, actualDuration;
 
     // Criar balão de mensagem de áudio ao estilo do Instagram
     const chatBody = document.querySelector('.chat-body');
@@ -172,6 +170,9 @@ function generateAudioMessage() {
 
     const audioMessageBubble = document.createElement('div');
     audioMessageBubble.classList.add('bot-message-bubble');
+
+    // Exibição inicial da duração (antes de iniciar)
+    const durationDisplay = `00:00`;
 
     // Adicionar a nova estrutura de mensagem de áudio
     audioMessageBubble.innerHTML = `
@@ -201,40 +202,42 @@ function generateAudioMessage() {
 
     let durationInterval; // Variável para armazenar o intervalo
     let isPlaying = false; // Estado da reprodução
-    let timeWhenPaused = currentTime; // Armazena o tempo quando pausado
+    let timeWhenPaused = 0; // Armazena o tempo quando pausado
 
     audioPlayIcon.addEventListener('click', () => {
         if (isPlaying) {
             speechSynthesis.cancel(); // Para a reprodução se já estiver tocando
             playIcon.setAttribute('name', 'play-circle-outline'); // Altera para o ícone de play
-            resetDuration(); // Reseta a duração ao pausar
             clearInterval(durationInterval); // Limpa o intervalo ao pausar
             isPlaying = false; // Atualiza o estado
         } else {
-            speechSynthesis.speak(utterance);
-            playIcon.setAttribute('name', 'pause-circle-outline'); // Altera para o ícone de pause
+            // Inicia o cronômetro quando a fala começar
+            utterance.onstart = () => {
+                startTime = Date.now();
+                playIcon.setAttribute('name', 'pause-circle-outline'); // Altera para o ícone de pause
 
-            // Inicia o intervalo para atualizar a duração
-            currentTime = timeWhenPaused; // Usa o tempo armazenado se estava pausado
-            durationInterval = setInterval(() => {
-                if (currentTime > 0) {
-                    currentTime--;
-                    updateDurationDisplay(currentTime);
-                } else {
-                    clearInterval(durationInterval); // Limpa o intervalo se a duração acabar
-                }
-            }, 1000); // Atualiza a cada segundo
+                // Atualiza o cronômetro enquanto a fala estiver ocorrendo
+                durationInterval = setInterval(() => {
+                    const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                    updateDurationDisplay(elapsedTime);
+                }, 1000);
+            };
 
+            // Quando a fala terminar, calcula a duração total
+            utterance.onend = () => {
+                endTime = Date.now();
+                actualDuration = Math.floor((endTime - startTime) / 1000); // Calcula a duração real
+
+                playIcon.setAttribute('name', 'play-circle-outline'); // Retorna ao ícone de play após o fim
+                clearInterval(durationInterval); // Limpa o intervalo ao finalizar
+                updateDurationDisplay(actualDuration); // Exibe a duração final
+                isPlaying = false; // Atualiza o estado
+            };
+
+            speechSynthesis.speak(utterance); // Inicia a fala
             isPlaying = true; // Atualiza o estado
         }
     });
-
-    utterance.onend = () => {
-        playIcon.setAttribute('name', 'play-circle-outline'); // Retorna ao ícone de play após o fim
-        clearInterval(durationInterval); // Limpa o intervalo ao finalizar
-        resetDuration(); // Reseta a duração ao finalizar
-        isPlaying = false; // Atualiza o estado
-    };
 
     // Função para atualizar a exibição da duração
     function updateDurationDisplay(time) {
@@ -242,13 +245,6 @@ function generateAudioMessage() {
         const minutes = String(Math.floor(time / 60)).padStart(2, '0');
         const seconds = String(time % 60).padStart(2, '0');
         durationElement.textContent = `${minutes}:${seconds}`;
-    }
-
-    // Função para resetar a duração
-    function resetDuration() {
-        currentTime = audioDuration; // Restaura o tempo para a duração total
-        updateDurationDisplay(currentTime); // Atualiza a exibição
-        timeWhenPaused = audioDuration; // Restaura o tempo quando pausado
     }
 }
 
