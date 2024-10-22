@@ -387,24 +387,3 @@ document.querySelector('.message-input').addEventListener('keypress', function (
 document.querySelectorAll('.suggestion-bubble').forEach(suggestion => {
     suggestion.addEventListener('click', handleSuggestionClick);
 });
-
-// Função para mostrar o item flutuante
-function showFloatingItem() {
-    const floatingItem = document.getElementById('floating-item');
-    floatingItem.style.display = 'block'; // Mostra o item
-}
-
-// Função para ocultar o item flutuante
-function hideFloatingItem() {
-    const floatingItem = document.getElementById('floating-item');
-    floatingItem.style.display = 'none'; // Esconde o item
-}
-
-// Evento para detectar quando o usuário minimiza o app
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        showFloatingItem(); // Mostra o item quando o app é minimizado
-    } else {
-        hideFloatingItem(); // Esconde o item quando o app é restaurado
-    }
-});

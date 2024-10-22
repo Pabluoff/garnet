@@ -84,7 +84,7 @@ permalink: IA
     <div id="floating-item" class="floating-item">
         <button onclick="openApp()">Abrir App</button>
     </div>
-    
+        
     <script src="/js/ai.js"></script>
     </script>
     <div id="google_translate_element" style="display: none;" class="language-selector"></div>
@@ -119,7 +119,38 @@ permalink: IA
             }
         });
     </script>
+<script>
 
+// Função para mostrar o item flutuante
+function showFloatingItem() {
+    const floatingItem = document.getElementById('floating-item');
+    floatingItem.style.display = 'block'; // Mostra o item
+}
+
+// Função para ocultar o item flutuante
+function hideFloatingItem() {
+    const floatingItem = document.getElementById('floating-item');
+    floatingItem.style.display = 'none'; // Esconde o item
+}
+
+// Detecta a minimização do aplicativo
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        showFloatingItem(); // Mostra o item quando o app é minimizado
+    } else {
+        hideFloatingItem(); // Esconde o item quando o app é restaurado
+    }
+});
+
+// Adicione o evento para ocultar o item ao clicar fora dele (opcional)
+document.addEventListener('click', (event) => {
+    const floatingItem = document.getElementById('floating-item');
+    if (!floatingItem.contains(event.target)) {
+        hideFloatingItem();
+    }
+});
+
+</script>
 
 </body>
 
