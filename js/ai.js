@@ -36,12 +36,12 @@ function showTypingIndicator() {
     const chatBody = document.querySelector('.chat-body');
     const typingIndicator = document.createElement('div');
     typingIndicator.classList.add('bot-message-container', 'typing-indicator');
-    
+
     const botAvatar = document.createElement('img');
     botAvatar.src = '/img/apple-touch-icon.png';
     botAvatar.alt = 'Bot Avatar';
     botAvatar.classList.add('bot-avatar');
-    
+
     const typingBubble = document.createElement('div');
     typingBubble.classList.add('bot-message-bubble');
 
@@ -106,48 +106,178 @@ function sendMessage() {
 function handleSuggestionClick(event) {
     const suggestion = event.target.textContent;
     addUserMessage(suggestion);
-    
+
     const typingIndicator = showTypingIndicator();
 
     setTimeout(() => {
         typingIndicator.remove();
         addBotMessage(`Você escolheu: ${suggestion}. Estou ajustando sua sensibilidade.`);
-        
+
         setTimeout(() => {
             generateAudioMessage();
         }, 5000);
-        
+
     }, 1500);
 }
 
+// Função para gerar e enviar uma enquete clicável com estilo avançado
+function sendPoll() {
+    const typingIndicator = showTypingIndicator(); // Exibe o indicador de "digitando..."
+
+    setTimeout(() => {
+        typingIndicator.remove(); // Remove o indicador de "digitando..."
+
+        // Adiciona a enquete no chat
+        const chatBody = document.querySelector('.chat-body');
+        const pollContainer = document.createElement('div');
+        pollContainer.classList.add('bot-message-container');
+
+        const botAvatar = document.createElement('img');
+        botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
+        botAvatar.alt = 'Bot Avatar';
+        botAvatar.classList.add('bot-avatar');
+
+        const pollMessage = document.createElement('div');
+        pollMessage.classList.add('bot-message-bubble');
+        pollMessage.innerHTML = `
+            <p class="poll-title">Qual é o seu estilo de jogo?</p>
+            <p class="poll-instruction">Clique em uma das opções para continuar:</p>
+            <div class="poll-options">
+                <div class="poll-option" data-answer="Rush">
+                    <div class="option-circle"></div>
+                    <span>Prefere jogar rushando?</span>
+                </div>
+                <div class="poll-option" data-answer="Moderado">
+                    <div class="option-circle"></div>
+                    <span>Prefere jogar moderado?</span>
+                </div>
+                <div class="poll-option" data-answer="Longa Distância">
+                    <div class="option-circle"></div>
+                    <span>Prefere jogar de longa distância?</span>
+                </div>
+            </div>
+        `;
+
+        pollContainer.appendChild(botAvatar);
+        pollContainer.appendChild(pollMessage);
+        chatBody.appendChild(pollContainer);
+        chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+
+        // Adiciona event listeners para as opções da enquete
+        const pollOptions = pollMessage.querySelectorAll('.poll-option');
+        pollOptions.forEach(option => {
+            option.addEventListener('click', handlePollAnswer);
+        });
+    }, 2000); // Delay de 2 segundos para simular a digitação
+}
+
+// Função para lidar com a resposta da enquete
+function handlePollAnswer(event) {
+    const selectedAnswer = event.currentTarget.getAttribute('data-answer');
+    const chatBody = document.querySelector('.chat-body');
+
+    // Mostra a resposta do usuário no chat
+    const userAnswerContainer = document.createElement('div');
+    userAnswerContainer.classList.add('user-message-container');
+
+    const userAnswerMessage = document.createElement('div');
+    userAnswerMessage.classList.add('user-message-bubble');
+    userAnswerMessage.textContent = selectedAnswer;
+
+    userAnswerContainer.appendChild(userAnswerMessage);
+    chatBody.appendChild(userAnswerContainer);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+
+    // Desabilita todas as opções após a seleção
+    const pollOptions = document.querySelectorAll('.poll-option');
+    pollOptions.forEach(option => {
+        option.style.pointerEvents = 'none'; // Desativa cliques
+        option.classList.add('option-disabled'); // Adiciona classe de desabilitado
+    });
+
+    // Sequência de mensagens simulando a IA
+    const typingIndicator = showTypingIndicator();
+    setTimeout(() => {
+        typingIndicator.remove();
+        sendBotMessage(`Sua escolha foi: ${selectedAnswer}. Vamos ajustar sua sensibilidade de acordo.`);
+
+        setTimeout(() => {
+            const typingIndicator1 = showTypingIndicator();
+            setTimeout(() => {
+                typingIndicator1.remove();
+                sendBotMessage("Acessando banco de dados...");
+
+                setTimeout(() => {
+                    const typingIndicator2 = showTypingIndicator();
+                    setTimeout(() => {
+                        typingIndicator2.remove();
+                        sendBotMessage("InsightShot Injetado.");
+
+                        setTimeout(() => {
+                            const typingIndicator3 = showTypingIndicator();
+                            setTimeout(() => {
+                                typingIndicator3.remove();
+                                sendBotMessage("Executando IA...");
+
+                                // Redireciona para o Free Fire após a mensagem final
+                                setTimeout(() => {
+                                    window.location.href = "freefire://"; // Substitua pelo link correto
+                                }, 2000); // Delay para simular a conclusão da IA
+                            }, 2000); // Delay para simular digitação
+                        }, 2000); // Delay para a mensagem "InsightShot Injetado."
+                    }, 2000); // Delay para simular digitação
+                }, 2000); // Delay para a mensagem "Acessando banco de dados..."
+            }, 2000); // Delay após a escolha inicial
+        }, 2000); // Delay para a primeira mensagem da sequência
+    }, 2000); // Delay após o clique
+}
+
+// Função para exibir a mensagem do bot
+function sendBotMessage(message) {
+    const chatBody = document.querySelector('.chat-body');
+    const botResponseContainer = document.createElement('div');
+    botResponseContainer.classList.add('bot-message-container');
+
+    const botAvatar = document.createElement('img');
+    botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
+    botAvatar.alt = 'Bot Avatar';
+    botAvatar.classList.add('bot-avatar');
+
+    const botResponseMessage = document.createElement('div');
+    botResponseMessage.classList.add('bot-message-bubble');
+    botResponseMessage.textContent = message;
+
+    botResponseContainer.appendChild(botAvatar);
+    botResponseContainer.appendChild(botResponseMessage);
+    chatBody.appendChild(botResponseContainer);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+}
+
+// Após a reprodução do áudio, chamar a função da enquete
 function generateAudioMessage() {
     const userName = localStorage.getItem('nome') || 'Jogador';
-    
     const audioMessages = [
         `${userName}, estamos gerando sua sensibilidade com base em inteligência artificial. Quanto mais você jogar, melhor a sensibilidade fica.`,
         `${userName}, sua sensibilidade está sendo ajustada com inteligência artificial. Jogue mais para melhorar ainda mais!`,
         `${userName}, estamos analisando seu estilo de jogo para otimizar a sensibilidade. Quanto mais você joga, mais preciso fica!`
     ];
-
     const audioMessage = audioMessages[Math.floor(Math.random() * audioMessages.length)];
 
     const utterance = new SpeechSynthesisUtterance(audioMessage);
     utterance.lang = 'pt-BR';
 
     let startTime, endTime, actualDuration;
-
     const chatBody = document.querySelector('.chat-body');
     const audioMessageContainer = document.createElement('div');
     audioMessageContainer.classList.add('bot-message-container');
 
     const botAvatar = document.createElement('img');
-    botAvatar.src = '/img/apple-touch-icon.png';
+    botAvatar.src = '/img/apple-touch-icon.png'; // Caminho do avatar do bot
     botAvatar.alt = 'Bot Avatar';
     botAvatar.classList.add('bot-avatar');
 
     const audioMessageBubble = document.createElement('div');
     audioMessageBubble.classList.add('bot-message-bubble');
-
     const durationDisplay = `00:00`;
 
     audioMessageBubble.innerHTML = `
@@ -176,7 +306,6 @@ function generateAudioMessage() {
 
     let durationInterval;
     let isPlaying = false;
-    let timeWhenPaused = 0;
 
     audioPlayIcon.addEventListener('click', () => {
         if (isPlaying) {
@@ -198,11 +327,13 @@ function generateAudioMessage() {
             utterance.onend = () => {
                 endTime = Date.now();
                 actualDuration = Math.floor((endTime - startTime) / 1000);
-
                 playIcon.setAttribute('name', 'play-circle-outline');
                 clearInterval(durationInterval);
                 updateDurationDisplay(actualDuration);
                 isPlaying = false;
+
+                // Chamar a função para enviar a enquete após o fim do áudio
+                sendPoll();
             };
 
             speechSynthesis.speak(utterance);
@@ -240,7 +371,7 @@ function sendMessage() {
 
 document.querySelector('.send-btn-ig-chat').addEventListener('click', sendMessage);
 
-document.querySelector('.message-input').addEventListener('keypress', function(event) {
+document.querySelector('.message-input').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         sendMessage();
     }

@@ -3052,3 +3052,57 @@ span[onmouseover*="this.style"] {
   margin-top: 20px; /* Ajuste também para manter consistência */
   margin-bottom: 3px;
 }
+
+.poll-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #cacaca;
+  margin-left: 12px;
+}
+
+.poll-instruction {
+  font-size: 12px;
+  color: #999; /* Cor cinza clara */
+  margin-bottom: 16px;
+  text-align: center;
+  font-style: italic;
+  margin-top: -10px;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poll-option {
+  display: flex;
+  align-items: center;
+  background-color: #101010;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #353535;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+}
+
+.option-circle {
+display: none;
+}
+
+.poll-option.option-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #212121;
+}
+
+.poll-option span {
+  font-size: 16px;
+  color: #cfcfcf;
+}
+
+.poll-option:active {
+  transform: scale(0.98);
+}
