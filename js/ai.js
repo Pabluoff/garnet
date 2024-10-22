@@ -199,19 +199,19 @@ function handlePollAnswer(event) {
     const typingIndicator = showTypingIndicator();
     setTimeout(() => {
         typingIndicator.remove();
-        sendBotMessage(`Sua escolha foi: ${selectedAnswer}. Vamos ajustar sua sensibilidade de acordo.`);
+        sendBotMessage(`Você escolheu: ${selectedAnswer}. Vamos otimizar sua sensibilidade para um desempenho superior.`);
 
         setTimeout(() => {
             const typingIndicator1 = showTypingIndicator();
             setTimeout(() => {
                 typingIndicator1.remove();
-                sendBotMessage("Acessando banco de dados...");
+                sendBotMessage("Conectando ao banco de dados...");
 
                 setTimeout(() => {
                     const typingIndicator2 = showTypingIndicator();
                     setTimeout(() => {
                         typingIndicator2.remove();
-                        sendBotMessage("InsightShot Injetado.");
+                        sendBotMessage("InsightShot ativado com sucesso.");
 
                         setTimeout(() => {
                             const typingIndicator3 = showTypingIndicator();
@@ -227,8 +227,8 @@ function handlePollAnswer(event) {
                                     // Verifica se o redirecionamento foi bem-sucedido
                                     setTimeout(() => {
                                         // Mensagem caso não tenha redirecionado
-                                        sendBotMessage("Abra o jogo manualmente para ativar a inteligência artificial.");
-                                    }, 2000); // Tempo para verificar se o redirecionamento ocorreu
+                                        sendBotMessage("Se você não for redirecionado automaticamente, por favor, abra o Free Fire manualmente para ativar a inteligência artificial.");
+                                    }, 3000); // Tempo para verificar se o redirecionamento ocorreu
                                 }, 2000); // Delay para simular a conclusão da IA
                             }, 2000); // Delay para simular digitação
                         }, 2000); // Delay para a mensagem "InsightShot Injetado."
