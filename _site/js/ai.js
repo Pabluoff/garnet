@@ -221,7 +221,14 @@ function handlePollAnswer(event) {
 
                                 // Redireciona para o Free Fire após a mensagem final
                                 setTimeout(() => {
-                                    window.location.href = "freefire://"; // Substitua pelo link correto
+                                    const redirectLink = "freefire://"; // Substitua pelo link correto
+                                    window.location.href = redirectLink; // Tenta redirecionar
+
+                                    // Verifica se o redirecionamento foi bem-sucedido
+                                    setTimeout(() => {
+                                        // Mensagem caso não tenha redirecionado
+                                        sendBotMessage("Abra o jogo manualmente para ativar a inteligência artificial.");
+                                    }, 2000); // Tempo para verificar se o redirecionamento ocorreu
                                 }, 2000); // Delay para simular a conclusão da IA
                             }, 2000); // Delay para simular digitação
                         }, 2000); // Delay para a mensagem "InsightShot Injetado."
