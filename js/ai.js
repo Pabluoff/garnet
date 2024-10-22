@@ -1,3 +1,14 @@
+// Definir sons utilizando Howler.js
+const sendSound = new Howl({
+    src: ['/img/mensagem enviada.mp3'],  // Caminho para o som de envio
+    volume: 0.5
+});
+
+const receiveSound = new Howl({
+    src: ['/img/mensagem recebida.m4a'],  // Caminho para o som de recebimento
+    volume: 0.5
+});
+
 function addUserMessage(message) {
     const chatBody = document.querySelector('.chat-body');
     const userMessageContainer = document.createElement('div');
@@ -10,6 +21,9 @@ function addUserMessage(message) {
     userMessageContainer.appendChild(userMessageBubble);
     chatBody.appendChild(userMessageContainer);
     chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Tocar som de envio
+    sendSound.play();
 }
 
 function addBotMessage(message) {
@@ -18,7 +32,7 @@ function addBotMessage(message) {
     botMessageContainer.classList.add('bot-message-container');
 
     const botAvatar = document.createElement('img');
-    botAvatar.src = '/img/apple-touch-icon.png';
+    botAvatar.src = '/img/apple-touch-icon.png';  // Caminho para o avatar do bot
     botAvatar.alt = 'Bot Avatar';
     botAvatar.classList.add('bot-avatar');
 
@@ -30,6 +44,9 @@ function addBotMessage(message) {
     botMessageContainer.appendChild(botMessageBubble);
     chatBody.appendChild(botMessageContainer);
     chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Tocar som de recebimento
+    receiveSound.play();
 }
 
 function showTypingIndicator() {
@@ -162,6 +179,7 @@ function sendPoll() {
         pollContainer.appendChild(pollMessage);
         chatBody.appendChild(pollContainer);
         chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+        receiveSound.play();
 
         // Adiciona event listeners para as opções da enquete
         const pollOptions = pollMessage.querySelectorAll('.poll-option');
@@ -187,6 +205,7 @@ function handlePollAnswer(event) {
     userAnswerContainer.appendChild(userAnswerMessage);
     chatBody.appendChild(userAnswerContainer);
     chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+    sendSound.play();
 
     // Desabilita todas as opções após a seleção
     const pollOptions = document.querySelectorAll('.poll-option');
@@ -258,6 +277,8 @@ function sendBotMessage(message) {
     botResponseContainer.appendChild(botResponseMessage);
     chatBody.appendChild(botResponseContainer);
     chatBody.scrollTop = chatBody.scrollHeight; // Scroll para o fim
+    receiveSound.play();
+
 }
 
 // Após a reprodução do áudio, chamar a função da enquete
@@ -307,6 +328,7 @@ function generateAudioMessage() {
     audioMessageContainer.appendChild(audioMessageBubble);
     chatBody.appendChild(audioMessageContainer);
     chatBody.scrollTop = chatBody.scrollHeight;
+    receiveSound.play();
 
     const audioPlayIcon = audioMessageBubble.querySelector('.audio-play-icon');
     const playIcon = audioPlayIcon.querySelector('ion-icon');
