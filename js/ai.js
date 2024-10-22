@@ -141,7 +141,16 @@ function handleSuggestionClick(event) {
 // Função para gerar e reproduzir mensagem de áudio
 function generateAudioMessage() {
     const userName = localStorage.getItem('nome') || 'Jogador'; // Recupera o nome do localStorage ou usa 'Jogador'
-    const audioMessage = `${userName}, estamos gerando sua sensibilidade com base em inteligência artificial. Quanto mais você jogar, melhor a sensibilidade fica.`;
+    
+    // Definindo três variações de mensagem de áudio
+    const audioMessages = [
+        `${userName}, estamos gerando sua sensibilidade com base em inteligência artificial. Quanto mais você jogar, melhor a sensibilidade fica.`,
+        `${userName}, sua sensibilidade está sendo ajustada com inteligência artificial. Jogue mais para melhorar ainda mais!`,
+        `${userName}, estamos analisando seu estilo de jogo para otimizar a sensibilidade. Quanto mais você joga, mais preciso fica!`
+    ];
+
+    // Escolhe uma mensagem aleatória
+    const audioMessage = audioMessages[Math.floor(Math.random() * audioMessages.length)];
 
     const utterance = new SpeechSynthesisUtterance(audioMessage);
     utterance.lang = 'pt-BR';
