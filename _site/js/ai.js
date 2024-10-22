@@ -1,11 +1,11 @@
 // Definir sons utilizando Howler.js
 const sendSound = new Howl({
     src: ['/img/mensagem enviada.mp3'],  // Caminho para o som de envio
-    volume: 0.5
+    volume: 1.5
 });
 
 const receiveSound = new Howl({
-    src: ['/img/mensagem recebida.m4a'],  // Caminho para o som de recebimento
+    src: ['/img/mensagem recebida.mp3'],  // Caminho para o som de recebimento
     volume: 0.5
 });
 
