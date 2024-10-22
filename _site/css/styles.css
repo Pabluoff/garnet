@@ -2983,6 +2983,10 @@ span[onmouseover*="this.style"] {
   color: #4afe80;
   cursor: pointer;
   margin-right: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
 }
 
 .audio-wave-container {
