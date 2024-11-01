@@ -1,8 +1,8 @@
 // Lista de e-mails VIP
 const emailsVIP = [
-  "pabluo23cm@gmail.com",
-  "trajadao@gmail.com",
-  "junior22cm@gmail.com",
+  "pabluo23cm@garnet.com",
+  "trajadao@garnet.com",
+  "Gabrin@garnet.com",
   "garnet@gmail.com",
   "pivetonez@gmail.com",
   "lucas28cm@gmail.com",
