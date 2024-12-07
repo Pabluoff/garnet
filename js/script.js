@@ -301,3 +301,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.body.addEventListener('mousedown', event => event.preventDefault());
+document.body.addEventListener('mousemove', event => event.preventDefault());
+document.body.addEventListener('mouseup', event => event.preventDefault());
+document.body.addEventListener('touchstart', event => event.preventDefault());
+document.body.addEventListener('touchmove', event => event.preventDefault());
+document.body.addEventListener('touchend', event => event.preventDefault());
