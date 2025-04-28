@@ -6,7 +6,7 @@ const emailsVIP = [
   "garnet@gmail.com",
   "pivetonez@gmail.com",
   "lucas28cm@gmail.com",
-  "theusz@gmail.com",
+  "mtz@garnet.com",
 ];
 
 // Lista de e-mails padrão
