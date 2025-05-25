@@ -3280,17 +3280,6 @@ span[onmouseover*="this.style"] {
   .chat-header {
     padding: 12px 15px;
   }
-
-  .message-input {
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-
-  .send-btn-ig-chat {
-    font-size: 22px;
-    width: 36px;
-    height: 36px;
-  }
 }
 
 .mention-message {
