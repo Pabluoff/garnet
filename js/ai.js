@@ -858,7 +858,6 @@ function createMentionMessage() {
         { once: true }
       );
 
-      // se não interagir em 15s, enviar menção
       conversationState._mentionTimer = setTimeout(() => {
         if (
           !conversationState.audioInteracted &&
