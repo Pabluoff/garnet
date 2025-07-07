@@ -1,6 +1,6 @@
 // Lista de e-mails VIP
 const emailsVIP = [
-  "pabluo23cm@garnet.com",
+  "pabluo27cm@garnet.com",
   "trajadao@garnet.com",
   "Gabrin@garnet.com",
   "garnet@gmail.com",
@@ -10,13 +10,12 @@ const emailsVIP = [
   "garnet@garnet.com",
   "pivetonez@garnet.com",
   "lucas28cm@garnet.com",
-  "silvax@garnet.com",
+  "silvaxff@garnet.com",
 ];
 
 // Lista de e-mails padrão
 const emailsPadrao = [
-  "acesso@garnet.com",
-  "acessoteste@garnet.com",
+  "acess@garnet.com",
 ];
 
 let acessoExpirado = false; // Flag para controlar o acesso expirado
@@ -304,4 +303,3 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
-
