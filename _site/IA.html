@@ -43,42 +43,31 @@
                 <h2>Garnet</h2>
             </div>
         </header>
-    
+
         <div class="chat-body">
             <div class="suggestions">
                 <p class="suggestion-title">Sugestão de pergunta:</p>
                 <div class="suggestion-bubble">Sensibilidade para torneios</div>
-                <div class="suggestion-bubble">Sensibilidade personalizada para X1</div>
+                <div class="suggestion-bubble">Sensibilidade para sala personalizada</div>
                 <div class="suggestion-bubble">Sensibilidade para rankeada</div>
-                
+
             </div>
-            
-            <!-- Bubble Message do Bot com Imagem -->
+
             <div class="bot-message-container">
                 <img src="/img/apple-touch-icon.png" alt="Bot Avatar" class="bot-avatar">
                 <div class="bot-message-bubble">
-                    Olá! Como posso te ajudar a ajustar a sua sensibilidade?
+                    E aí, eu sou o Garnet. Seu AI insano de sensibilidade.
                 </div>
             </div>
         </div>
-    
+
         <footer class="chat-footer">
-            <input type="text" placeholder="Mensagem..." class="message-input">
+            <input type="text" placeholder="Faça uma pergunta" class="message-input">
             <button class="send-btn-ig-chat">
                 <ion-icon name="paper-plane"></ion-icon>
             </button>
         </footer>
     </div>
-                      
-    <div class="container-em-breve" style="display: none;">
-        <div class="close-icon-em-breve">
-            <a href="/inicio">&#10005;</a> 
-        </div>
-        <div class="em-breve">
-            Em breve
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="/js/ai.js"></script>
     <script src="/js/script.js"></script>
     </script>
@@ -86,30 +75,28 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'pt',  // Idioma original do site
-                includedLanguages: 'en,es,fr,de,it',  // Adicione os idiomas suportados
+                pageLanguage: 'pt',
+                includedLanguages: 'en,es,fr,de,it',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false  // Não mostrar automaticamente, somente após a seleção
+                autoDisplay: false
             }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
-        // Salva a escolha do idioma em um cookie
         function setLanguageCookie(lang) {
             document.cookie = "googtrans=/pt/" + lang + "; path=/; domain=" + window.location.hostname;
             document.cookie = "googtrans=/pt/" + lang + "; path=/";
         }
 
-        // Observa as mudanças no seletor de idiomas e ajusta o cookie
         document.addEventListener('DOMContentLoaded', function () {
             var select = document.querySelector('#google_translate_element select');
             if (select) {
                 select.addEventListener('change', function () {
-                    var lang = select.value.split('|')[1]; // Captura o código do idioma
+                    var lang = select.value.split('|')[1];
                     setLanguageCookie(lang);
-                    location.reload(); // Atualiza a página para aplicar a tradução
+                    location.reload();
                 });
             }
         });

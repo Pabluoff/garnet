@@ -55,16 +55,11 @@
                 <div class="notification-container">
                     <ion-icon name="notifications-outline" class="user-notification" id="notification-icon"
                         onclick="toggleNotificationDropdown()"></ion-icon>
-                    <span class="notification-badge" id="notification-badge">2</span>
+                    <span class="notification-badge" id="notification-badge">1</span>
                     <div class="notification-dropdown" id="notification-dropdown">
                         <div class="notification-header">
                             <ion-icon name="alert-circle-outline" class="notification-header-icon"></ion-icon>
                             <h3 class="notification-header-text">Notificações</h3>
-                        </div>
-                        <div class="notification-content">
-                            <img src="/img/logo.jpg" alt="Imagem do usuário do sistema" class="system-user-image">
-                            <p>Novo post disponível!! Confira <a href="https://www.instagram.com/use.garnet/"
-                                    target="_blank">agora</a> mesmo.</p>
                         </div>
                         <div class="notification-divider"></div>
                         <div class="notification-content">
@@ -94,8 +89,8 @@
                 </div>
                 <ul class="user-stats">
                     <li><strong style="margin-left: 20px;">6</strong> funções</li>
-                    <li><strong>14,4 mil</strong> usuários</li>
-                    <li><strong>9,7 mil</strong> ativos</li>
+                    <li><strong>18,2 mil</strong> usuários</li>
+                    <li><strong>11 mil</strong> ativos</li>
                 </ul>
             </div>
             <input type="file" id="file-input" accept="image/*" style="display: none;"
@@ -221,14 +216,14 @@
           }, 'google_translate_element');
         }
       </script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         // Salva a escolha do idioma em um cookie
         function setLanguageCookie(lang) {
           document.cookie = "googtrans=/pt/" + lang + "; path=/; domain=" + window.location.hostname;
           document.cookie = "googtrans=/pt/" + lang + "; path=/";
         }
-      
+
         // Observa as mudanças no seletor de idiomas e ajusta o cookie
         document.addEventListener('DOMContentLoaded', function() {
           var select = document.querySelector('#google_translate_element select');
@@ -240,7 +235,7 @@
             });
           }
         });
-      </script>      
+      </script>
     <script src="/js/script.js"></script>
     <script src="/js/home.js"></script>
 </body>
