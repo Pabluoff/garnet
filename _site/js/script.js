@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-var dominioEsperado = "usegarnet.site";
+var dominioEsperado = "on.usegarnet.site";
 
 if (window.location.hostname !== dominioEsperado) {
     window.location.href = "https://usegarnet.site/";
