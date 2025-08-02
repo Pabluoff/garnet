@@ -9,7 +9,7 @@ const emailsVIP = [
   "mtz@garnet.com",
   "garnet@garnet.com",
   "pivetonez@garnet.com",
-  "lucas28cm@garnet.com",
+  "acessvip@garnet.com",
   "silvaxff@garnet.com",
 ];
 
